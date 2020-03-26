@@ -958,21 +958,21 @@ legend,
 }
 
 .header .logo img {
-    max-width: 140px;
-    width: 140px;
+    max-width: 200px;
+    width: 200px;
 }
 
 @media (min-width: 768px) {
     .header.affix .logo img {
-        max-width: 110px;
-        width: 110px
+        max-width: 150px;
+        width: 150px
     }
 }
 
 @media (max-width: 767px) {
     .header .logo img {
-        max-width: 88px;
-        width: 88px;
+        max-width: 150px;
+        width: 150px;
     }
 }
 
