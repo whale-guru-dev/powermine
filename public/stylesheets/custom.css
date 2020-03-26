@@ -1085,7 +1085,7 @@ legend,
   border-top: 1px solid #f9fafb;
 }
 
-.exchange .dropdown-toggle::after {
+/* .exchange .dropdown-toggle::after {
     display: inline-block;
     width: 0;
     height: 0;
@@ -1096,7 +1096,7 @@ legend,
     border-right: .3em solid transparent;
     border-bottom: 0;
     border-left: .3em solid transparent;
-}
+} */
 
 .exchange .dropdown-menu {
     position: absolute;
@@ -1301,4 +1301,8 @@ legend,
 
 .exchange-item .dropdown-menu {
     min-width:  inherit;
+}
+
+.margin-top-102 {
+    margin-top: 102px;
 }
