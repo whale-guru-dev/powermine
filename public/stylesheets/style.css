@@ -8215,7 +8215,7 @@ ul.products li.product:before {
   vertical-align: middle;
   white-space: nowrap;
   float: none;
-  width: 1px;
+  /* width: 1px; */
 }
 .navbar-holder {
   height: auto;
