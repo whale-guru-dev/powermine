@@ -1041,3 +1041,264 @@ legend,
 .wpb_animate_when_almost_visible {
     opacity: 1;
 }
+
+.box-shadow {
+    -webkit-box-shadow: 0px 0px 65px 0px rgba(157, 172, 193, .25);
+    box-shadow: 0px 0px 65px 0px rgba(157, 172, 193, .25);
+}
+
+.exchange {
+  background: url(../img/exchange-bg.png) no-repeat center center /cover;
+  padding: 200px 0 0 0;
+}
+
+.exchange-main {
+  background: #fff;
+  padding: 40px 120px 40px 60px;
+  overflow: hidden;
+}
+
+.exchange ul li {
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 100px;
+}
+
+
+.exchange ul li::before {
+  display: none;
+}
+
+.exchange ul li img {
+  margin-right: 20px;
+}
+
+.exchange ul li:last-child {
+  margin-right: 0;
+}
+
+.exchange ul {
+  background: rgba(255, 255, 255, .18);
+  margin-top: -315px;
+  padding: 40px 60px;
+  border-top: 1px solid #f9fafb;
+}
+
+.exchange .dropdown-toggle::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
+.exchange .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+
+.exchange-item .dropdown-item:focus {
+  background: #F8F9FA;
+  color: #212529;
+}
+
+.exchange-main p {
+  font-size: 20px;
+  color: #5b6a84;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.exchange-main i {
+  background: #5b6a84;
+  color: #fff;
+  border-radius: 100px;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  line-height: 26px;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 33px;
+  margin-top: 14px;
+}
+
+.exchange-item input {
+  height: 90px;
+  border: 0;
+  padding: 25px;
+  width: 290px;
+  color: #192535;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.exchange-item .dropdown {
+  border: 0;
+  color: #4990e2;
+  font-size: 20px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.btn-1, .btn-3 {
+    position: relative;
+    text-transform: uppercase;
+    color: #f9fafb;
+    padding: 12px 35px;
+    font-size: 16px;
+    display: inline-block;
+    border-radius: 5px;
+    background: #02237c;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.btn-1::after, .btn-3::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    left: -50%;
+    top: 0;
+    transform: skew(50deg);
+    transition-duration: 0.6s;
+    transform-origin: top left;
+    width: 0;
+    z-index: -2;
+}
+
+.exchange select, input, a, a:visited, a:focus, a:active, a:hover {
+    text-decoration: none;
+    outline: none;
+    -webkit-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+.exchange-button a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  border: 0;
+  padding: 20px 45px;
+  text-transform: uppercase;
+}
+
+.exchange-button .btn-effect:before {
+  border-radius: 0;
+}
+
+.exchange-button {
+  margin-top: 115px;
+}
+
+.exchange-button a {
+  border-radius: 0px;
+}
+
+.exchange-protect {
+  border-top: 1px solid #E4E7ED;
+  margin-top: 70px;
+  padding-top: 40px;
+}
+
+.exchange-protect img {
+  display: inline-block;
+  float: left;
+  width: 10%;
+  margin-top: 5px;
+}
+
+.exchange-protect p {
+  display: inline-block;
+  float: left;
+  font-size: 16px;
+  width: 79%;
+  margin-left: 40px;
+}
+
+
+.exchange-2 .exchange-main {
+  background: transparent;
+}
+
+.exchange-2 .exchange-main input,
+.exchange-2 .exchange-main a.dropdown-toggle {
+  background: #351771;
+  color: #f9fafb;
+}
+
+.exchange-2 .exchange-item {
+  background: #351771;
+}
+
+.exchange-2 .exchange-main select option {
+  color: #000;
+}
+
+.exchange-2 .exchange-main p {
+  color: #f9fafb;
+}
+
+.exchange-2 .exchange-main p i {
+  background: #f9fafb;
+  color: #5B6A84;
+}
+
+.exchange-2 .exchange-main input::-webkit-input-placeholder {
+  color: #f9fafb;
+}
+
+.exchange-2 .exchange-main input::-moz-placeholder {
+  color: #f9fafb;
+}
+
+.exchange-2 .exchange-main input:-ms-input-placeholder {
+  color: #f9fafb;
+}
+
+.exchange-2 .exchange-main input:-moz-placeholder {
+  color: #f9fafb;
+}
+
+.exchange-price li {
+  color: #f9fafb;
+}
+
+.exchange-price li strong {
+  color: #f9fafb;
+}
+
+.exchange-price {
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.exchange-item .dropdown-menu a {
+    font-size:  14px;
+    padding: 3px 17px;
+}
+
+.exchange-item .dropdown-menu {
+    min-width:  inherit;
+}
