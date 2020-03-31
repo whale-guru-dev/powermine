@@ -3760,7 +3760,7 @@ fieldset[disabled] .select-style {
 .page-title_overflow .section-title {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 .section-title-overlay {
   display: block;
