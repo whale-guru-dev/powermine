@@ -71,11 +71,14 @@
 
     <% include ./partials/footer %>
     <script>
-        window.IWalletJS.enable().then(function (val) {
-            console.log(val)
-            if(val !== 'powermine')
-                window.location.href='/';
-        })
+        if(!window.IWalletJS) {
+            window.location.href='/';
+        } else {
+            window.IWalletJS.enable().then(function (val) {
+                if(val !== 'powermine')
+                    window.location.href='/';
+            })
+        }
     </script>
 </body>
 

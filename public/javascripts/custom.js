@@ -5,11 +5,15 @@ window.onload = () => {
 }
 
 function hideAdminHeader() {
-    window.IWalletJS.enable().then(function (val) {
-        console.log(val)
-        if(val !== 'powermine')
-            $("#menu-item-139").hide();
-    });
+    if(!window.IWalletJS) {
+        $("#menu-item-139").hide();
+    } else {
+        window.IWalletJS.enable().then(function (val) {
+            console.log(val)
+            if(val !== 'powermine')
+                $("#menu-item-139").hide();
+        });
+    }
 }
 
 function getTokens () {
