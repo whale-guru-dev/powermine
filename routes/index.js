@@ -8,7 +8,12 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.get('/powermine-whitepaper/', function(req, res, next) {
-  res.render('whitepaper', { title: 'Express' });
+  res.render('whitepaper');
 });
+
+router.get('/powermine-admin/', function(req, res, next) {
+  res.render('admin');
+});
+
 
 module.exports = router;

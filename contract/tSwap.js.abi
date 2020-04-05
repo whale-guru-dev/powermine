@@ -1,0 +1,100 @@
+[
+    {
+        "name": "depositInitialPmine",
+        "args": [
+            "string"
+        ],
+        "amountLimit": [
+            {
+                "token": "iost",
+                "val": "100000"
+            },
+            {
+                "token": "tpmine",
+                "val": "100000"
+            }
+        ],
+        "description": ""
+    },
+    {
+        "name": "depositIOST",
+        "args": [
+            "string"
+        ],
+        "amountLimit": [{
+                "token": "iost",
+                "val": "100000"
+            },
+            {
+                "token": "tpmine",
+                "val": "100000"
+            }],
+        "description": ""
+    },
+    {
+        "name": "withdrawlIost",
+        "args": [
+            "string"
+        ],
+        "amountLimit": [{
+                "token": "iost",
+                "val": "100000"
+            },
+            {
+                "token": "tpmine",
+                "val": "100000"
+            }],
+        "description": ""
+    },
+    {
+        "name": "buyToken",
+        "args": [
+            "string"
+        ],
+        "amountLimit": [{
+                "token": "iost",
+                "val": "100000"
+            },
+            {
+                "token": "tpmine",
+                "val": "100000"
+            }],
+        "description": ""
+    },
+    {
+        "name": "sellToken",
+        "args": [
+            "string"
+        ],
+        "amountLimit": [{
+                "token": "iost",
+                "val": "100000"
+            },
+            {
+                "token": "tpmine",
+                "val": "100000"
+            }],
+        "description": ""
+    },
+    {
+        "name": "can_update",
+        "args": [
+            "string"
+        ],
+        "amountLimit": [{
+                "token": "iost",
+                "val": "100000"
+            },
+            {
+                "token": "tpmine",
+                "val": "100000"
+            }],
+        "description": ""
+    },
+    {
+        "name": "updateInit",
+        "args": [],
+        "amountLimit": [],
+        "description": ""
+    }
+]

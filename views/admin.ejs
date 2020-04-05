@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./partials/header %>
+</head>
+
+<body
+        class="home page-template-default page page-id-42 sticky-header rocket_layout_fullwidth wpb-js-composer js-comp-ver-6.1 vc_responsive">
+<div class="page-loader">
+    <div class="loader-inner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+<div class="page-wrapper">
+    <% include ./partials/header-wrapper %>
+    <header
+            class="page-title section-title-wrapper section-title-wrapper__no-bottom-margin page-title-layout__both-centered page_title_preset_1 page-title_overflow">
+        <div class="section-title-inner">
+            <div class="container">
+                <div class="section-title-decoration">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="section-title section-title__lg">POWERMINE ADMIN</h1>
+                        </div>
+                        <div class="col-md-12 breadcrumbs-default">
+                            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a
+                                            href="/" itemprop=&quot;item&quot;><span
+                                                itemprop="name">Home</span></a></li>
+                                <li class="current"><span>POWERMINE ADMIN</span></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <span class="section-title-dots">
+							<span class="dot1"></span>
+							<span class="dot2"></span>
+							<span class="dot3"></span>
+						</span>
+                </div>
+            </div>
+            <div class="section-title-overlay"></div>
+        </div>
+    </header>
+    <div class="page-section">
+        <div class="container">
+            <div class="row text-center" id="statusMsg">
+            </div>
+            <div class="row text-center">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="depositAmt">Amount (in Pmine)</label>
+                        <input type="text" class="form-control" id="depositAmt" placeholder="Amount">
+                    </div>
+                    <button type="button" id="depositBtn" class="btn btn-primary">Deposit Pmine</button>
+                </form>
+            </div>
+            <hr>
+            <div class="row text-center">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="withdrawAmt">Amount (in IOST)</label>
+                        <input type="text" class="form-control" id="withdrawAmt" placeholder="Amount">
+                    </div>
+                    <button type="button" id="withdrawBtn" class="btn btn-primary">Withdraw IOST</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <% include ./partials/footer %>
+    <script>
+        window.IWalletJS.enable().then(function (val) {
+            console.log(val)
+            if(val !== 'powermine')
+                window.location.href='/';
+        })
+    </script>
+</body>
+
+</html>

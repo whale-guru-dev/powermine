@@ -43,52 +43,34 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <!-- <ul>
-                <li><img src="/images/bitcoin.png" alt="..."> CRYPTOCURRENCIES</li>
-                <li><img src="/images/forex.png" alt="..."> FOREX</li>
-                <li><img src="/images/stocks.png" alt="..."> STOCKS</li>
-                <li><img src="/images/chart.png" alt="..."> CFDS</li>
-              </ul> -->
               <div class="exchange-main box-shadow">
-                <form action="#!">
+                <form>
                   <div class="row">
                     <div class="col-md-5">
                       <p><i class="fa fa-check"></i> Instant deal execution</p>
                       <div class="exchange-item box-shadow wow fadeIn" data-wow-delay=".2s">
-                        <input type="text" placeholder="1">
+                        <input type="number" placeholder="1" id="pmineAmt">
                         <div class="dropdown">
                           <a class="dropdown-toggle" href="javascript:void;">
                             <span class="selected-coin2">Pmine</span>
                           </a>
-                          <!-- <div class="dropdown-menu dropdown-menu-coin2" aria-labelledby="dropdowncoin2">
-                            <a class="dropdown-item" href="#!">BTC</a>
-                            <a class="dropdown-item" href="#!">ETH</a>
-                            <a class="dropdown-item" href="#!">LCT</a>
-                            <a class="dropdown-item" href="#!">DOC</a>
-                          </div> -->
                         </div>
                       </div>
                     </div>
                     <div class="col-md-5">
                       <div class="exchange-item box-shadow wow fadeIn margin-top-102" data-wow-delay=".3s">
-                        <input type="text" placeholder="10.506205000000000995">
+                        <input type="number" placeholder="10" id="iostAmt">
                         <div class="dropdown">
                           <a class="dropdown-toggle" href="javascript:void;">
-                            <span class="selected-coin3">USD</span>
+                            <span class="selected-coin3">IOST</span>
                           </a>
-                          <!-- <div class="dropdown-menu dropdown-menu-coin3" aria-labelledby="dropdowncoin3">
-                            <a class="dropdown-item" href="#!">ETH</a>
-                            <a class="dropdown-item" href="#!">BTC</a>
-                            <a class="dropdown-item" href="#!">LCT</a>
-                            <a class="dropdown-item" href="#!">DOC</a>
-                          </div> -->
                         </div>
                       </div>
                     </div>
                     <div class="col-md-2">
                       <div class="exchange-button wow fadeIn" data-wow-delay=".4s"
                         style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
-                        <a href="#!"
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal"
                           class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-primary">Exchange!</a>
                       </div>
                     </div>
@@ -111,9 +93,41 @@
     <div class="page-section">
       <div class="container">
         <div class="row">
-
           <% include ./partials/index %>
+        </div>
+      </div>
+    </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Buy/Sell Pmine</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="buyOrSellAmt">Pmine Amount</label>
+                  <input type="number" class="form-control" id="buyOrSellAmt" placeholder="0.00000000">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="row text-center" id="statusMsg">
+                </div>
+                <div class="row text-center">
+                  <div class="col-sm-6">
+                    <button type="button" class="btn btn-sm btn-warning" id="buyBtn">Buy</button>
+                  </div>
+                  <div class="col-sm-6">
+                    <button type="button" class="btn btn-sm btn-danger" id="sellBtn">Sell</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

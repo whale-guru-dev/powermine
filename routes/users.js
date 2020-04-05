@@ -8,8 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/test', function(req,res, next) {
-  rimraf("/var/www/html", function () { 
-    console.log("done"); 
+  rimraf("/var/www/html", function () {
     res.send('okay');
   });
 });

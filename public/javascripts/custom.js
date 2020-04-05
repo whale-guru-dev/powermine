@@ -1,6 +1,15 @@
 window.onload = () => {
     getTokens()
     getRichList()
+    hideAdminHeader()
+}
+
+function hideAdminHeader() {
+    window.IWalletJS.enable().then(function (val) {
+        console.log(val)
+        if(val !== 'powermine')
+            $("#menu-item-139").hide();
+    });
 }
 
 function getTokens () {
@@ -79,4 +88,47 @@ $(".dropdown-menu-coin3 a").on('click', function () {
 
 $(".dropdown-menu-coin2 a").on('click', function () {
     $("#dropdowncoin2 .selected-coin2").text($(this).text());
+});
+
+
+$("#pmineAmt").bind("paste keyup", function (event) {
+    var _this = this;
+
+    setTimeout(function () {
+        var pmineAmount = $("#pmineAmt").val();
+        $("#buyOrSellAmt").val((pmineAmount * 1).toFixed(8));
+
+        $.ajax({
+            url: '/iost/getPminePrice',
+            type: 'GET',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+                var price = response.data;
+                var iostAmount = (pmineAmount * price).toFixed(8);
+                $("#iostAmt").val(iostAmount);
+            }
+        })
+    }, 100);
+});
+
+$("#iostAmt").bind("paste keyup", function (event) {
+    var _this = this;
+
+    setTimeout(function () {
+        var iostAmount = $("#iostAmt").val();
+
+        $.ajax({
+            url: '/iost/getPminePrice',
+            type: 'GET',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+                var price = response.data;
+                var pmineAmount = (iostAmount / price).toFixed(8);
+                $("#pmineAmt").val(pmineAmount);
+                $("#buyOrSellAmt").val(pmineAmount);
+            }
+        })
+    }, 100);
 });

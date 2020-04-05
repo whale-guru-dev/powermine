@@ -9,8 +9,7 @@ exports.grab_pmine_balance = () => {
                     return reject(error)
                 }
             })
-        }
-        catch (e) {
+        } catch (e) {
             return reject(e)
         }
     })
@@ -26,7 +25,9 @@ exports.grab_pmine_accounts = () => {
 
                 //check balance of powermine
                 for (var check_pmine_acc = 0; check_pmine_acc < 15; check_pmine_acc++) {
-                    if (objx.holders[check_pmine_acc].account == "powermine") { pmine_balance = parseFloat(objx.holders[check_pmine_acc].balance).toFixed(3) }
+                    if (objx.holders[check_pmine_acc].account == "powermine") {
+                        pmine_balance = parseFloat(objx.holders[check_pmine_acc].balance).toFixed(3)
+                    }
                 }
 
                 //end checking balance of powermine
@@ -38,14 +39,13 @@ exports.grab_pmine_accounts = () => {
                         if (objx.holders[j].account != "powermine") {
                             result.push({
                                 rank: j,
-                                account:strip_name(objx.holders[j].account),
+                                account: strip_name(objx.holders[j].account),
                                 balance: objx.holders[j].balance,
                                 percent: parseFloat(parseFloat(parseFloat(objx.holders[j].balance) / (20000 - pmine_balance)) * 100).toFixed(2)
                             })
                         }
 
-                    }
-                    catch (e) {
+                    } catch (e) {
                         console.log(e);
                         return reject(e)
                     }
@@ -59,9 +59,21 @@ exports.grab_pmine_accounts = () => {
     })
 }
 
-function strip_name (holder) {
+function strip_name(holder) {
     var name = "";
     name = holder;
     name = name.slice(0, 6) + "***";
     return name;
+}
+
+exports.getPminePrice = () => {
+    return new Promise((resolve, reject) => {
+        require('request').post('http://18.209.137.246:30001/getContractStorage',{body: JSON.stringify({id:"Contract6rYnZmu8gUNPMKHz5vUpXZ8XH4pA9z6JXSGKeoEwwG1g",key:"tokenPrice",by_longest_chain:true})}, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                return resolve(body)
+            } else {
+                return reject('Failed')
+            }
+        })
+    })
 }
