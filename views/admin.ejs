@@ -77,6 +77,8 @@
             window.IWalletJS.enable().then(function (val) {
                 if(val !== 'powermine')
                     window.location.href='/';
+            }).catch(error => {
+                window.location.href='/';
             })
         }
     </script>

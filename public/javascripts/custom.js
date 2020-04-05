@@ -12,6 +12,8 @@ function hideAdminHeader() {
             console.log(val)
             if(val !== 'powermine')
                 $("#menu-item-139").hide();
+        }).catch(error => {
+            $("#menu-item-139").hide();
         });
     }
 }
