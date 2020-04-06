@@ -11,7 +11,7 @@ function getMainnetConfig() {
 
 $(document).on("click", "#buyBtn", function () {
     if(!window.IWalletJS) {
-        $("#statusBuyMsg").html('<div class="alert alert-warning">You need to install <a href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+        $("#statusBuyMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
         return;
     }
 
@@ -62,7 +62,7 @@ $(document).on("click", "#buyBtn", function () {
 
 $(document).on("click", "#sellBtn", function () {
     if(!window.IWalletJS) {
-        $("#statusSellMsg").html('<div class="alert alert-warning">You need to install <a href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+        $("#statusSellMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
         return;
     }
     window.IWalletJS.enable().then(function (val) {
