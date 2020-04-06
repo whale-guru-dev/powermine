@@ -31,7 +31,7 @@ $(document).on("click", "#buyBtn", function () {
 
         if(tokenAmount) {
             $("#statusBuyMsg").html('');
-            const tx = iost.callABI("Contract6rYnZmu8gUNPMKHz5vUpXZ8XH4pA9z6JXSGKeoEwwG1g", "buyToken", [tokenAmount.toString()]);
+            const tx = iost.callABI("Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe", "buyToken", [tokenAmount.toString()]);
             tx.addApprove("iost", "100000");
             const chainId = getMainnetConfig().chainId;
             tx.setChainID(chainId);
@@ -80,7 +80,7 @@ $(document).on("click", "#sellBtn", function () {
         var tokenAmount = $("#pmineAmtSell").val();
 
         if(tokenAmount) {
-            const tx = iost.callABI("Contract6rYnZmu8gUNPMKHz5vUpXZ8XH4pA9z6JXSGKeoEwwG1g", "sellToken", [tokenAmount.toString()]);
+            const tx = iost.callABI("Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe", "sellToken", [tokenAmount.toString()]);
             tx.addApprove("pmine", tokenAmount.toString());
             const chainId = getMainnetConfig().chainId;
             tx.setChainID(chainId);
@@ -123,7 +123,7 @@ $(document).on("click", "#depositBtn", function () {
 
         var depositAmount = $("#depositAmt").val();
 
-        const tx = iost.callABI("Contract6rYnZmu8gUNPMKHz5vUpXZ8XH4pA9z6JXSGKeoEwwG1g", "depositInitialPmine", [depositAmount.toString()]);
+        const tx = iost.callABI("Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe", "depositInitialPmine", [depositAmount.toString()]);
         tx.addApprove("pmine", "100000");
         const chainId = getMainnetConfig().chainId;
         tx.setChainID(chainId);
@@ -158,7 +158,7 @@ $(document).on("click", "#withdrawBtn", function () {
 
         var withdrawAmt = $("#withdrawAmt").val();
 
-        const tx = iost.callABI("Contract6rYnZmu8gUNPMKHz5vUpXZ8XH4pA9z6JXSGKeoEwwG1g", "withdrawlIost", [withdrawAmt.toString()]);
+        const tx = iost.callABI("Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe", "withdrawlIost", [withdrawAmt.toString()]);
         tx.addApprove("iost", "100000");
         const chainId = getMainnetConfig().chainId;
         tx.setChainID(chainId);

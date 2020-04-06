@@ -5,7 +5,7 @@ const tokenDecimal = 8;
 const totalSupply = 20000;
 
 //specify orginal price.  
-const originalPrice = 4700;
+const originalPrice = 5000;
 
 //specifies admin of the contract.  
 const admin = "powermine";
@@ -36,6 +36,9 @@ class SwapContract {
         pmineAmount = (pmineAmount * 1).toFixed(tokenDecimal);
 
         blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["pmine", tx.publisher, blockchain.contractName(), pmineAmount.toString(), "Admin intial deposit of unbought pmines. "]));
+		
+		let pmine_contract = storage.get("pmineAmountOnContract") * 1;
+		pmine_contract = (pmine_contract + pmineAmount * 1).toFixed(tokenDecimal);
 
         //update block storage for total sold and pmine on contract.
         storage.put("pmineAmountOnContract", pmineAmount.toString());
