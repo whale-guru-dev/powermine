@@ -139,7 +139,7 @@ $(document).on("click", "#depositBtn", function () {
         }).on('failed', function (result) {
             console.log('======>failed', result);
             $(".page-loader").hide();
-            $("#statusMsg").html('<div class="alert alert-warning">'+result.message+'</div>');
+            $("#statusMsg").html('<div class="alert alert-warning">'+result+'</div>');
         });
     });
 });
