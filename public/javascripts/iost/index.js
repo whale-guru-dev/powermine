@@ -10,6 +10,11 @@ function getMainnetConfig() {
 
 
 $(document).on("click", "#buyBtn", function () {
+    if(!window.IWalletJS) {
+        $("#statusBuyMsg").html('<div class="alert alert-warning">You need to install iWallet Chrome Extension.</div>');
+        return;
+    }
+
     window.IWalletJS.enable().then(function (val) {
         $("#statusBuyMsg").html('');
         iost = window.IWalletJS.newIOST(IOST);
@@ -56,6 +61,10 @@ $(document).on("click", "#buyBtn", function () {
 });
 
 $(document).on("click", "#sellBtn", function () {
+    if(!window.IWalletJS) {
+        $("#statusSellMsg").html('<div class="alert alert-warning">You need to install iWallet Chrome Extension.</div>');
+        return;
+    }
     window.IWalletJS.enable().then(function (val) {
         $("#statusSellMsg").html('');
         iost = window.IWalletJS.newIOST(IOST); console.log(val)
