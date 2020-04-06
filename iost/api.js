@@ -68,7 +68,7 @@ function strip_name(holder) {
 
 exports.getPminePrice = () => {
     return new Promise((resolve, reject) => {
-        require('request').post('http://api.iost.io/getContractStorage',{body: JSON.stringify({id:"Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe",key:"tokenPrice",by_longest_chain:true})}, function (error, response, body) {
+        require('request').post('http://api.iost.io/getContractStorage',{body: JSON.stringify({id:"ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq",key:"tokenPrice",by_longest_chain:true})}, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 return resolve(body)
             } else {

@@ -16,7 +16,7 @@ class SwapContract {
         storage.put("tokenPrice", originalPrice.toString());
 
         //sets total sold to zero because admin has not deposited yet.
-        storage.put("totalSold", "3740");
+        storage.put("totalSold", "4166");
 
         //sets pmine on contract to zero because admin has not deposited yet.
         storage.put("pmineAmountOnContract", "0");
@@ -41,7 +41,7 @@ class SwapContract {
 		pmine_contract = (pmine_contract + pmineAmount * 1).toFixed(tokenDecimal);
 
         //update block storage for total sold and pmine on contract.
-        storage.put("pmineAmountOnContract", pmineAmount.toString());
+        storage.put("pmineAmountOnContract", pmine_contract.toString());
         // storage.put("totalSold", total_sold.toString());
 
         //Updates the current price based on circulation.
