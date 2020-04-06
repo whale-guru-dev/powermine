@@ -19,10 +19,10 @@ $(document).on("click", "#buyBtn", function () {
         $("#statusBuyMsg").html('');
         iost = window.IWalletJS.newIOST(IOST);
 
-        const rpcUrl = getMainnetConfig().rpcUrl;
         // const rpcUrl = getMainnetConfig().rpcUrl;
-        const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
-        iost.setRPC(rpc);
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
@@ -33,8 +33,8 @@ $(document).on("click", "#buyBtn", function () {
             $("#statusBuyMsg").html('');
             const tx = iost.callABI("Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe", "buyToken", [tokenAmount.toString()]);
             tx.addApprove("iost", "100000");
-            const chainId = getMainnetConfig().chainId;
-            tx.setChainID(chainId);
+            // const chainId = getMainnetConfig().chainId;
+            // tx.setChainID(chainId);
 
             iost.signAndSend(tx).on('pending', function (txid) {
                 console.log("======>pending", txid);
@@ -67,12 +67,12 @@ $(document).on("click", "#sellBtn", function () {
     }
     window.IWalletJS.enable().then(function (val) {
         $("#statusSellMsg").html('');
-        iost = window.IWalletJS.newIOST(IOST); console.log(val)
+        iost = window.IWalletJS.newIOST(IOST);
 
-        const rpcUrl = getMainnetConfig().rpcUrl;
         // const rpcUrl = getMainnetConfig().rpcUrl;
-        const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
-        iost.setRPC(rpc);
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
@@ -82,8 +82,8 @@ $(document).on("click", "#sellBtn", function () {
         if(tokenAmount) {
             const tx = iost.callABI("Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe", "sellToken", [tokenAmount.toString()]);
             tx.addApprove("pmine", tokenAmount.toString());
-            const chainId = getMainnetConfig().chainId;
-            tx.setChainID(chainId);
+            // const chainId = getMainnetConfig().chainId;
+            // tx.setChainID(chainId);
 
             iost.signAndSend(tx).on('pending', function (txid) {
                 console.log("======>pending", txid);
@@ -113,10 +113,10 @@ $(document).on("click", "#depositBtn", function () {
     window.IWalletJS.enable().then(function (val) {
         iost = window.IWalletJS.newIOST(IOST);
 
-        const rpcUrl = getMainnetConfig().rpcUrl;
         // const rpcUrl = getMainnetConfig().rpcUrl;
-        const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
-        iost.setRPC(rpc);
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
@@ -125,8 +125,8 @@ $(document).on("click", "#depositBtn", function () {
 
         const tx = iost.callABI("Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe", "depositInitialPmine", [depositAmount.toString()]);
         tx.addApprove("pmine", "100000");
-        const chainId = getMainnetConfig().chainId;
-        tx.setChainID(chainId);
+        // const chainId = getMainnetConfig().chainId;
+        // tx.setChainID(chainId);
 
         iost.signAndSend(tx).on('pending', function (txid) {
             console.log("======>pending", txid);
@@ -148,10 +148,10 @@ $(document).on("click", "#withdrawBtn", function () {
     window.IWalletJS.enable().then(function (val) {
         iost = window.IWalletJS.newIOST(IOST);
 
-        const rpcUrl = getMainnetConfig().rpcUrl;
         // const rpcUrl = getMainnetConfig().rpcUrl;
-        const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
-        iost.setRPC(rpc);
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
@@ -160,8 +160,8 @@ $(document).on("click", "#withdrawBtn", function () {
 
         const tx = iost.callABI("Contract8XUzqFFx9jonpNaTs4bmcUWXZ7qxK2cKtXSfF4nC8iZe", "withdrawlIost", [withdrawAmt.toString()]);
         tx.addApprove("iost", "100000");
-        const chainId = getMainnetConfig().chainId;
-        tx.setChainID(chainId);
+        // const chainId = getMainnetConfig().chainId;
+        // tx.setChainID(chainId);
 
         iost.signAndSend(tx).on('pending', function (txid) {
             console.log("======>pending", txid);
