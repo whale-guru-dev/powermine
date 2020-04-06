@@ -1,6 +1,7 @@
 window.onload = () => {
     getTokens()
     getRichList()
+    updatePminePrice()
     hideAdminHeader()
 }
 
@@ -25,7 +26,7 @@ function getTokens () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('token-value').innerText = parseFloat(20000 - xhttp.responseText).toFixed(0)
                 document.getElementById("token-msg").innerHTML = `
-                PowerMine account holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>. 
+                Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>. 
                 There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> pmine in circulation.`
             }
         };
@@ -97,12 +98,12 @@ $(".dropdown-menu-coin2 a").on('click', function () {
 });
 
 
-$("#pmineAmt").bind("paste keyup", function (event) {
+$("#pmineAmtBuy").bind("paste keyup", function (event) {
     var _this = this;
 
     setTimeout(function () {
-        var pmineAmount = $("#pmineAmt").val();
-        $("#buyOrSellAmt").val((pmineAmount * 1).toFixed(8));
+        var pmineAmount = $("#pmineAmtBuy").val();
+        // $("#buyOrSellAmt").val((pmineAmount * 1).toFixed(8));
 
         $.ajax({
             url: '/iost/getPminePrice',
@@ -112,17 +113,17 @@ $("#pmineAmt").bind("paste keyup", function (event) {
             success: function(response) {
                 var price = response.data;
                 var iostAmount = (pmineAmount * price).toFixed(8);
-                $("#iostAmt").val(iostAmount);
+                $("#iostAmtBuy").val(iostAmount);
             }
         })
     }, 100);
 });
 
-$("#iostAmt").bind("paste keyup", function (event) {
+$("#iostAmtBuy").bind("paste keyup", function (event) {
     var _this = this;
 
     setTimeout(function () {
-        var iostAmount = $("#iostAmt").val();
+        var iostAmount = $("#iostAmtBuy").val();
 
         $.ajax({
             url: '/iost/getPminePrice',
@@ -132,9 +133,70 @@ $("#iostAmt").bind("paste keyup", function (event) {
             success: function(response) {
                 var price = response.data;
                 var pmineAmount = (iostAmount / price).toFixed(8);
-                $("#pmineAmt").val(pmineAmount);
-                $("#buyOrSellAmt").val(pmineAmount);
+                $("#pmineAmtBuy").val(pmineAmount);
+                // $("#buyOrSellAmt").val(pmineAmount);
             }
         })
     }, 100);
 });
+
+$("#pmineAmtSell").bind("paste keyup", function (event) {
+    var _this = this;
+
+    setTimeout(function () {
+        var pmineAmount = $("#pmineAmtSell").val();
+        // $("#buyOrSellAmt").val((pmineAmount * 1).toFixed(8));
+
+        $.ajax({
+            url: '/iost/getPminePrice',
+            type: 'GET',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+                var price = response.data;
+                var iostAmount = (pmineAmount * price * 0.6).toFixed(8);
+                $("#iostAmtSell").val(iostAmount);
+            }
+        })
+    }, 100);
+});
+
+$("#iostAmtSell").bind("paste keyup", function (event) {
+    var _this = this;
+
+    setTimeout(function () {
+        var iostAmount = $("#iostAmtSell").val();
+
+        $.ajax({
+            url: '/iost/getPminePrice',
+            type: 'GET',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+                var price = response.data;
+                var pmineAmount = (iostAmount / (price*0.6)).toFixed(8);
+                $("#pmineAmtSell").val(pmineAmount);
+                // $("#buyOrSellAmt").val(pmineAmount);
+            }
+        })
+    }, 100);
+});
+
+function updatePminePrice () {
+    const getTokenPrice = () => {
+        $.ajax({
+            url: '/iost/getPminePrice',
+            type: 'GET',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+                var price = response.data;
+                $("#pminePrice").html((price*1).toFixed(2))
+            }
+        })
+    }
+
+    getTokenPrice();
+    setInterval(getTokenPrice,10 * 60 * 1000)
+}
+
