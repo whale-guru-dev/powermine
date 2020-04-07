@@ -199,9 +199,6 @@ class SwapContract {
     updateInit() {
         this._assertAccountAuth('opasheck');
         storage.put('totalSold', '4184.6311');
-
-
-
     }
     _assertAccountAuth(account) {
         if (!blockchain.requireAuth(account, 'active')) {
@@ -210,3 +207,4 @@ class SwapContract {
     }
 }
 module.exports = SwapContract;
+

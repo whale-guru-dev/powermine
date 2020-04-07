@@ -1,7 +1,7 @@
 exports.grab_pmine_balance = () => {
     return new Promise((resolve, reject) => {
         try {
-            require('request').get('http://api.iost.io/getTokenBalance/powermine/pmine/true', function (error, response, body) {
+            require('request').get('http://api.iost.io/getTokenBalance/ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq/pmine/true', function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     const objx = JSON.parse(body)
                     return resolve(parseFloat(objx.balance).toFixed(4))
@@ -36,7 +36,7 @@ exports.grab_pmine_accounts = () => {
                 for (var j = 0; j < 21; j++) {
                     try {
 
-                        if (objx.holders[j].account != "powermine") {
+                        if (objx.holders[j].account != "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq") {
                             result.push({
                                 rank: j,
                                 account: strip_name(objx.holders[j].account),
