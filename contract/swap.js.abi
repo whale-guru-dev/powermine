@@ -1,100 +1,65 @@
-[
+{
+  "lang": "javascript",
+  "version": "1.0.0",
+  "abi": [
     {
-        "name": "depositInitialPmine",
-        "args": [
-            "string"
-        ],
-        "amountLimit": [
-            {
-                "token": "iost",
-                "val": "100000"
-            },
-            {
-                "token": "pmine",
-                "val": "100000"
-            }
-        ],
-        "description": ""
+      "name": "depositInitialPmine",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
     },
     {
-        "name": "depositIOST",
-        "args": [
-            "string"
-        ],
-        "amountLimit": [{
-                "token": "iost",
-                "val": "100000"
-            },
-            {
-                "token": "pmine",
-                "val": "100000"
-            }],
-        "description": ""
+      "name": "depositIOST",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
     },
     {
-        "name": "withdrawlIost",
-        "args": [
-            "string"
-        ],
-        "amountLimit": [{
-                "token": "iost",
-                "val": "100000"
-            },
-            {
-                "token": "pmine",
-                "val": "100000"
-            }],
-        "description": ""
+      "name": "withdrawlIost",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
     },
     {
-        "name": "buyToken",
-        "args": [
-            "string"
-        ],
-        "amountLimit": [{
-                "token": "iost",
-                "val": "100000"
-            },
-            {
-                "token": "pmine",
-                "val": "100000"
-            }],
-        "description": ""
+      "name": "buyToken",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
     },
     {
-        "name": "sellToken",
-        "args": [
-            "string"
-        ],
-        "amountLimit": [{
-                "token": "iost",
-                "val": "100000"
-            },
-            {
-                "token": "pmine",
-                "val": "100000"
-            }],
-        "description": ""
+      "name": "sellToken",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
     },
     {
-        "name": "can_update",
-        "args": [
-            "string"
-        ],
-        "amountLimit": [{
-                "token": "iost",
-                "val": "100000"
-            },
-            {
-                "token": "pmine",
-                "val": "100000"
-            }],
-        "description": ""
+      "name": "can_update",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
     },
     {
-        "name": "updateInit",
-        "args": [],
-        "amountLimit": [],
-        "description": ""
+      "name": "updateInit",
+      "args": [],
+      "amountLimit": []
     }
-]
+  ]
+}
