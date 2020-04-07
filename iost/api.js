@@ -80,12 +80,17 @@ exports.getPminePrice = () => {
 
 exports.getIOSTInContract = () => {
     return new Promise((resolve, reject) => {
-        require('request').post('http://api.iost.io/getContractStorage',{body: JSON.stringify({id:"ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq",key:"iostOnContract",by_longest_chain:true})}, function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                return resolve(body)
-            } else {
-                return reject('Failed')
-            }
-        })
+        try {
+            require('request').get('http://api.iost.io/getTokenBalance/ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq/iost/true', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    const objx = JSON.parse(body)
+                    return resolve(parseFloat(objx.balance).toFixed(8))
+                } else {
+                    return reject(error)
+                }
+            })
+        } catch (e) {
+            return reject(e)
+        }
     })
 }
