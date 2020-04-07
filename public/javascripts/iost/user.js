@@ -200,3 +200,102 @@ function updatePminePrice () {
     setInterval(getTokenPrice,10 * 60 * 1000)
 }
 
+$(document).on("click", "#buyBtn", function () {
+    if(!window.IWalletJS) {
+        $("#statusBuyMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+        return;
+    }
+
+    window.IWalletJS.enable().then(function (val) {
+        $("#statusBuyMsg").html('');
+        iost = window.IWalletJS.newIOST(IOST);
+
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var tokenAmount = $("#pmineAmtBuy").val();
+
+        if(tokenAmount) {
+            $("#statusBuyMsg").html('');
+            const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "buyToken", [tokenAmount.toString()]);
+            tx.addApprove("iost", "100000");
+            // const chainId = getMainnetConfig().chainId;
+            // tx.setChainID(chainId);
+
+            iost.signAndSend(tx).on('pending', function (txid) {
+                console.log("======>pending", txid);
+                $(".page-loader").show();
+                $(".loader-inner").show();
+            }).on('success', function (result) {
+                console.log('======>buy success', result);
+                $(".page-loader").hide();
+                $("#statusBuyMsg").html('<div class="alert alert-success">Successfully purchased. Please check your wallet</div>');
+            }).on('failed', function (result) {
+                console.log('======>failed', result);
+                $(".page-loader").hide();
+                $("#statusBuyMsg").html('<div class="alert alert-warning">'+result.message+'</div>');
+            });
+        } else {
+            $("#statusBuyMsg").html('<div class="alert alert-warning">Please input purchase amount.</div>');
+        }
+
+
+    }).catch(error => {
+        if(error.type == "locked")
+            $("#statusBuyMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+    });
+});
+
+$(document).on("click", "#sellBtn", function () {
+    if(!window.IWalletJS) {
+        $("#statusSellMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+        return;
+    }
+    window.IWalletJS.enable().then(function (val) {
+        $("#statusSellMsg").html('');
+        iost = window.IWalletJS.newIOST(IOST);
+
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var tokenAmount = $("#pmineAmtSell").val();
+
+        if(tokenAmount) {
+            const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "sellToken", [tokenAmount.toString()]);
+            tx.addApprove("pmine", tokenAmount.toString());
+            // const chainId = getMainnetConfig().chainId;
+            // tx.setChainID(chainId);
+
+            iost.signAndSend(tx).on('pending', function (txid) {
+                console.log("======>pending", txid);
+                $(".page-loader").show();
+                $(".loader-inner").show();
+            }).on('success', function (result) {
+                console.log('======>sell success', result);
+                $(".page-loader").hide();
+                $("#statusSellMsg").html('<div class="alert alert-success">Successfully sold. Please check your wallet</div>');
+            }).on('failed', function (result) {
+                console.log('======>failed', result);
+                $(".page-loader").hide();
+                $("#statusSellMsg").html('<div class="alert alert-warning">'+result.message+'</div>');
+            });
+        } else {
+            $("#statusSellMsg").html('<div class="alert alert-warning">Please input sell amount.</div>');
+        }
+
+
+    }).catch(error => {
+        if(error.type == "locked")
+            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+    });
+});

@@ -27,4 +27,10 @@ router.get('/getPminePrice', function(req,res,next) {
         .catch(e => res.send(e))
 });
 
+router.get('/getIOSTInContract', function(req,res,next) {
+    iost.getIOSTInContract()
+        .then(result => res.send(result))
+        .catch(e => res.send(e))
+});
+
 module.exports = router;

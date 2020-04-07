@@ -45,6 +45,11 @@
     </header>
     <div class="page-section">
         <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                <h2>IOST in Smart Contract : <span id="iostAmtInContract"></span> IOST</h2>
+                </div>
+            </div>
             <div class="row text-center" id="statusMsg">
             </div>
             <div class="row text-center">
@@ -66,10 +71,21 @@
                     <button type="button" id="withdrawBtn" class="btn btn-primary">Withdraw IOST</button>
                 </form>
             </div>
+            <hr>
+            <div class="row text-center">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="depositIostAmt">Amount (in IOST)</label>
+                        <input type="text" class="form-control" id="depositIostAmt" placeholder="Amount">
+                    </div>
+                    <button type="button" id="depositIostBtn" class="btn btn-primary">Deposit IOST</button>
+                </form>
+            </div>
         </div>
     </div>
 
     <% include ./partials/footer %>
+    <script type="text/javascript" src="/javascripts/iost/admin.js"></script>
     <script>
         if(!window.IWalletJS) {
             window.location.href='/';
