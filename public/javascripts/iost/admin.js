@@ -20,7 +20,7 @@ function updateIOSTAmount () {
             data: {},
             dataType: 'json',
             success: function(response) {
-                var amount = response.data;
+                var amount = response;
                 $("#iostAmtInContract").html((amount*1).toFixed(8))
             }
         })
