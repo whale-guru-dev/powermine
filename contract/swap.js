@@ -16,7 +16,7 @@ class SwapContract {
         storage.put("tokenPrice", originalPrice.toString());
 
         //sets total sold to zero because admin has not deposited yet.
-        storage.put("totalSold", "4166");
+        storage.put("totalSold", "4182");
 
         //sets pmine on contract to zero because admin has not deposited yet.
         storage.put("pmineAmountOnContract", "0");
@@ -36,9 +36,9 @@ class SwapContract {
         pmineAmount = (pmineAmount * 1).toFixed(tokenDecimal);
 
         blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["pmine", tx.publisher, blockchain.contractName(), pmineAmount.toString(), "Admin intial deposit of unbought pmines. "]));
-		
-		let pmine_contract = storage.get("pmineAmountOnContract") * 1;
-		pmine_contract = (pmine_contract + pmineAmount * 1).toFixed(tokenDecimal);
+
+        let pmine_contract = storage.get("pmineAmountOnContract") * 1;
+        pmine_contract = (pmine_contract + pmineAmount * 1).toFixed(tokenDecimal);
 
         //update block storage for total sold and pmine on contract.
         storage.put("pmineAmountOnContract", pmine_contract.toString());
@@ -130,8 +130,8 @@ class SwapContract {
         storage.put("pmineAmountOnContract", pmine_contract.toString());
 
         //update price based on circulation.
-        let priceChange = (Math.floor(total_sold / 1000) - 3) * 10;
-        let newPrice = (token_price + priceChange).toFixed(tokenDecimal);
+        let priceChange = (Math.floor(total_sold / 1000) - 4) * 300;
+        let newPrice = (originalPrice + priceChange).toFixed(tokenDecimal);
         storage.put("tokenPrice", newPrice.toString());
 
         //generate tx receipt
@@ -178,8 +178,8 @@ class SwapContract {
         storage.put("pmineAmountOnContract", pmine_contract.toString());
 
         //update price based on circulation.
-        let priceChange = (Math.floor(total_sold / 1000) - 3) * 10;
-        let newPrice = (token_price - priceChange).toFixed(tokenDecimal);
+        let priceChange = (Math.floor(total_sold / 1000) - 4) * 300;
+        let newPrice = (originalPrice + priceChange).toFixed(tokenDecimal);
         storage.put("tokenPrice", newPrice.toString());
 
         //generate tx receipt
@@ -193,24 +193,20 @@ class SwapContract {
         return true;
 
     }
-
-
-    //This makes it so that only the admin can make changes to the contract.
     can_update(data) {
-        return blockchain.requireAuth(admin, "active");
+        return blockchain.requireAuth('opasheck', 'active');
     }
-
-    //only admin can use this function.  Use this to update things.
     updateInit() {
-        this._assertAccountAuth(admin);
-    }
+        this._assertAccountAuth('opasheck');
+        storage.put('totalSold', '4184.6311');
 
-    //Check to make sure that the account is authorized to perform a function.
+
+
+    }
     _assertAccountAuth(account) {
-        if (!blockchain.requireAuth(account, "active")) {
-            throw "Authorization Failure";
+        if (!blockchain.requireAuth(account, 'active')) {
+            throw 'Authorization Failure';
         }
     }
 }
-
 module.exports = SwapContract;
