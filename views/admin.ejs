@@ -103,16 +103,16 @@
     <% include ./partials/footer %>
     <script type="text/javascript" src="/javascripts/iost/admin.js"></script>
     <script>
-        // if(!window.IWalletJS) {
-        //     window.location.href='/';
-        // } else {
-        //     window.IWalletJS.enable().then(function (val) {
-        //         if(val !== 'powermine')
-        //             window.location.href='/';
-        //     }).catch(error => {
-        //         window.location.href='/';
-        //     })
-        // }
+        if(!window.IWalletJS) {
+            window.location.href='/';
+        } else {
+            window.IWalletJS.enable().then(function (val) {
+                if(val !== 'powermine')
+                    window.location.href='/';
+            }).catch(error => {
+                window.location.href='/';
+            })
+        }
         CKEDITOR.disableAutoInline = true;
         CKEDITOR.replace( 'editor1' );
         <% if (content) {%>
