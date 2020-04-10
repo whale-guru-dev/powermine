@@ -298,8 +298,8 @@ function getCMCPrices () {
         })
     }
 
-    // _getCMCPrices()
-    // setInterval(_getCMCPrices, 60 * 1000)
+    _getCMCPrices()
+    setInterval(_getCMCPrices, 60 * 1000)
 }
 
 function replaceCMCPrices(data) {
