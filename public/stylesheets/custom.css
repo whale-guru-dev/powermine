@@ -1073,7 +1073,7 @@ legend,
 }
 
 .exchange-main {
-    background: #ffffffeb;
+    background: #ffffffc7;
     /*padding: 40px 120px 40px 60px;*/
     padding: 40px 70px 40px 70px;
     overflow: hidden;
@@ -1160,8 +1160,10 @@ legend,
     line-height: 26px;
     text-align: center;
     margin-right: 10px;
-    margin-bottom: 33px;
-    margin-top: 14px;
+    /*margin-bottom: 33px;*/
+    /*margin-top: 14px;*/
+    margin-bottom: 15px;
+    margin-top: 0px;
 }
 
 .exchange-item input {
@@ -1186,10 +1188,10 @@ legend,
     /* color: #192535; */
     /* font-size: 16px; */
     /* font-weight: 700; */
-    height: 40px;
+    height: 25px;
     border: 0;
-    /*padding: 10px;*/
-    width: 130px;
+    /* padding: 10px; */
+    width: 85px;
     color: #192535;
     font-size: 10px;
     font-weight: 600;
@@ -1199,7 +1201,7 @@ legend,
     border: 0;
     color: #4990e2;
     /*font-size: 20px;*/
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     display: inline-block;
 }
@@ -1254,10 +1256,10 @@ a:hover {
     /*padding: 20px 45px;*/
     /*text-transform: uppercase;*/
     color: #fff;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 700;
     border: 0;
-    padding: 5px 25px;
+    padding: 3px 15px;
     text-transform: uppercase;
 }
 
@@ -1275,7 +1277,7 @@ a:hover {
 
 .exchange-protect {
     border-top: 1px solid #e4e7ed;
-    margin-top: 40px;
+    margin-top: 10px;
     padding-top: 40px;
 }
 
@@ -1292,7 +1294,7 @@ a:hover {
     font-size: 15px;
     /* width: 79%; */
     text-align: center;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
 }
 
 .exchange-2 .exchange-main {
@@ -1608,7 +1610,7 @@ table > thead > tr > th, .table > thead > tr > th {
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
-    background: #ffffffeb !important;
+    background: #ffffffc7 !important;
 }
 
 .exchange-container-div {
@@ -1651,7 +1653,8 @@ table > thead > tr > th, .table > thead > tr > th {
     padding: 0.5rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     overflow: hidden;
-    line-height: 1.34rem;
+    /*line-height: 1.34rem;*/
+    line-height: 2.5rem;
     text-decoration: none;
     color: rgb(33, 37, 41);
     background-color: rgba(247, 233, 235, 0);
@@ -1670,14 +1673,14 @@ table > thead > tr > th, .table > thead > tr > th {
     float: left;
     font-weight: bold;
     padding-right: 0.25rem;
-  font-size: 75%;
+    font-size: 100%;
 }
 
 .exchange-container-tab-body-coin-img {
-    /*top: 2px;*/
-    height: 15px;
+    top: 3px;
+    height: 18px;
     position: relative;
-    width: 15px;
+    width: 18px;
     display: table-cell;
     vertical-align: middle;
 }
@@ -1701,6 +1704,10 @@ table > thead > tr > th, .table > thead > tr > th {
 }
 
 .header-main-container {
-  padding-left: 10px;
-  padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.exchange-main-box-title {
+    margin-bottom: 0.5em;
 }
