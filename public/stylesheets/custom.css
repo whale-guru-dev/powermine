@@ -1588,9 +1588,16 @@ table > thead > tr > th, .table > thead > tr > th {
     }
 }
 
+@media (min-width: 1200px) {
+    .container {
+        width: 1250px !important;
+    }
+}
+
+
 .coin-price-section {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .coin-price-section-div {
