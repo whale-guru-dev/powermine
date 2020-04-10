@@ -33,4 +33,10 @@ router.get('/getIOSTInContract', function(req,res,next) {
         .catch(e => res.send(e))
 });
 
+router.get('/getCMCPrices', function(req,res, next) {
+    iost.getCMCPrices()
+        .then(result => res.send(result))
+        .catch(e => res.send(e))
+});
+
 module.exports = router;

@@ -94,3 +94,27 @@ exports.getIOSTInContract = () => {
         }
     })
 }
+
+exports.getCMCPrices = () => {
+    return new Promise((resolve, reject) => {
+        try {
+            require('request').get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=100&convert=USD,EUR,CNY,GBP', {headers:{'X-CMC_PRO_API_KEY':'4c5ba714-ac80-4654-80f1-2b10eaacf6b0'}},function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    const objx = JSON.parse(body).data
+                    const coin_pair = ['BTC', "ETH", "TRX", "IOST"];
+                    let responseData = [];
+                    objx.forEach(coin => {
+                       if(coin_pair.includes(coin.symbol)) {
+                           responseData.push(coin);
+                       }
+                    });
+                    return resolve(responseData)
+                } else {
+                    return reject(error)
+                }
+            })
+        } catch (e) {
+            return reject(e)
+        }
+    })
+}

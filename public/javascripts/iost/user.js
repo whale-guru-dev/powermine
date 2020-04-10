@@ -3,6 +3,7 @@ window.onload = () => {
     getRichList()
     updatePminePrice()
     hideAdminHeader()
+    getCMCPrices()
 }
 
 function hideAdminHeader() {
@@ -103,7 +104,6 @@ $("#pmineAmtBuy").bind("paste keyup", function (event) {
 
     setTimeout(function () {
         var pmineAmount = $("#pmineAmtBuy").val();
-        // $("#buyOrSellAmt").val((pmineAmount * 1).toFixed(8));
 
         $.ajax({
             url: '/iost/getPminePrice',
@@ -134,7 +134,6 @@ $("#iostAmtBuy").bind("paste keyup", function (event) {
                 var price = response.data;
                 var pmineAmount = (iostAmount / price).toFixed(8);
                 $("#pmineAmtBuy").val(pmineAmount);
-                // $("#buyOrSellAmt").val(pmineAmount);
             }
         })
     }, 100);
@@ -145,7 +144,6 @@ $("#pmineAmtSell").bind("paste keyup", function (event) {
 
     setTimeout(function () {
         var pmineAmount = $("#pmineAmtSell").val();
-        // $("#buyOrSellAmt").val((pmineAmount * 1).toFixed(8));
 
         $.ajax({
             url: '/iost/getPminePrice',
@@ -210,11 +208,6 @@ $(document).on("click", "#buyBtn", function () {
         $("#statusBuyMsg").html('');
         iost = window.IWalletJS.newIOST(IOST);
 
-        // const rpcUrl = getMainnetConfig().rpcUrl;
-        // const rpcUrl = getMainnetConfig().rpcUrl;
-        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
-        // iost.setRPC(rpc);
-
         let account = new IOST.Account(val);
         iost.setAccount(account);
 
@@ -224,8 +217,6 @@ $(document).on("click", "#buyBtn", function () {
             $("#statusBuyMsg").html('');
             const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "buyToken", [tokenAmount.toString()]);
             tx.addApprove("iost", "100000");
-            // const chainId = getMainnetConfig().chainId;
-            // tx.setChainID(chainId);
 
             iost.signAndSend(tx).on('pending', function (txid) {
                 console.log("======>pending", txid);
@@ -260,11 +251,6 @@ $(document).on("click", "#sellBtn", function () {
         $("#statusSellMsg").html('');
         iost = window.IWalletJS.newIOST(IOST);
 
-        // const rpcUrl = getMainnetConfig().rpcUrl;
-        // const rpcUrl = getMainnetConfig().rpcUrl;
-        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
-        // iost.setRPC(rpc);
-
         let account = new IOST.Account(val);
         iost.setAccount(account);
 
@@ -273,8 +259,6 @@ $(document).on("click", "#sellBtn", function () {
         if(tokenAmount) {
             const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "sellToken", [tokenAmount.toString()]);
             tx.addApprove("pmine", tokenAmount.toString());
-            // const chainId = getMainnetConfig().chainId;
-            // tx.setChainID(chainId);
 
             iost.signAndSend(tx).on('pending', function (txid) {
                 console.log("======>pending", txid);
@@ -298,4 +282,230 @@ $(document).on("click", "#sellBtn", function () {
         if(error.type == "locked")
             $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
     });
+});
+
+function getCMCPrices () {
+    const _getCMCPrices = () => {
+        $.ajax({
+            url: '/iost/getCMCPrices',
+            type: 'GET',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+                var prices = response;
+                replaceCMCPrices(prices)
+            }
+        })
+    }
+
+    _getCMCPrices()
+    setInterval(_getCMCPrices, 60 * 1000)
+}
+
+function replaceCMCPrices(data) {
+    data.forEach((coin) => {
+        if(coin.symbol === 'BTC') {
+            $("#usd_btc_price").html('$' + coin.quote.USD.price.toFixed(2));
+            $("#eur_btc_price").html('€' + coin.quote.EUR.price.toFixed(2));
+            $("#gbp_btc_price").html('£' + coin.quote.GBP.price.toFixed(2));
+            $("#cny_btc_price").html('¥' + coin.quote.CNY.price.toFixed(2));
+            $("#usd_btc_price_change").html('(' + coin.quote.USD.percent_change_24h.toFixed(2) + '%)');
+            $("#eur_btc_price_change").html('(' + coin.quote.EUR.percent_change_24h.toFixed(2) + '%)');
+            $("#gbp_btc_price_change").html('(' + coin.quote.GBP.percent_change_24h.toFixed(2) + '%)');
+            $("#cny_btc_price_change").html('(' + coin.quote.CNY.percent_change_24h.toFixed(2) + '%)');
+            if(coin.quote.USD.percent_change_24h > 0) {
+                $("#usd_btc_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#usd_btc_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#usd_btc_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#usd_btc_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.EUR.percent_change_24h > 0) {
+                $("#eur_btc_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#eur_btc_price").css('color', 'rgb(176, 42, 55)');
+            } else {
+                $("#eur_btc_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#eur_btc_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.GBP.percent_change_24h > 0) {
+                $("#gbp_btc_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#gbp_btc_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#gbp_btc_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#gbp_btc_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.CNY.percent_change_24h > 0) {
+                $("#cny_btc_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#cny_btc_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#cny_btc_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#cny_btc_price").css('color', 'rgb(176, 42, 55)');
+            }
+        } else if(coin.symbol === 'ETH') {
+            $("#usd_eth_price").html('$' + coin.quote.USD.price.toFixed(2));
+            $("#eur_eth_price").html('€' + coin.quote.EUR.price.toFixed(2));
+            $("#gbp_eth_price").html('£' + coin.quote.GBP.price.toFixed(2));
+            $("#cny_eth_price").html('¥' + coin.quote.CNY.price.toFixed(2));
+            $("#usd_eth_price_change").html('(' + coin.quote.USD.percent_change_24h.toFixed(2) + '%)');
+            $("#eur_eth_price_change").html('(' + coin.quote.EUR.percent_change_24h.toFixed(2) + '%)');
+            $("#gbp_eth_price_change").html('(' + coin.quote.GBP.percent_change_24h.toFixed(2) + '%)');
+            $("#cny_eth_price_change").html('(' + coin.quote.CNY.percent_change_24h.toFixed(2) + '%)');
+            if(coin.quote.USD.percent_change_24h > 0) {
+                $("#usd_eth_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#usd_eth_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#usd_eth_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#usd_eth_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.EUR.percent_change_24h > 0) {
+                $("#eur_eth_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#eur_eth_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#eur_eth_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#eur_eth_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.GBP.percent_change_24h > 0) {
+                $("#gbp_eth_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#gbp_eth_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#gbp_eth_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#gbp_eth_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.CNY.percent_change_24h > 0) {
+                $("#cny_eth_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#cny_eth_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#cny_eth_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#cny_eth_price").css('color', 'rgb(176, 42, 55)');
+            }
+        } else if(coin.symbol === 'TRX') {
+            $("#usd_trx_price").html('$' + coin.quote.USD.price.toFixed(5));
+            $("#eur_trx_price").html('€' + coin.quote.EUR.price.toFixed(5));
+            $("#gbp_trx_price").html('£' + coin.quote.GBP.price.toFixed(5));
+            $("#cny_trx_price").html('¥' + coin.quote.CNY.price.toFixed(5));
+            $("#usd_trx_price_change").html('(' + coin.quote.USD.percent_change_24h.toFixed(2) + '%)');
+            $("#eur_trx_price_change").html('(' + coin.quote.EUR.percent_change_24h.toFixed(2) + '%)');
+            $("#gbp_trx_price_change").html('(' + coin.quote.GBP.percent_change_24h.toFixed(2) + '%)');
+            $("#cny_trx_price_change").html('(' + coin.quote.CNY.percent_change_24h.toFixed(2) + '%)');
+            if(coin.quote.USD.percent_change_24h > 0) {
+                $("#usd_trx_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#usd_trx_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#usd_trx_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#usd_trx_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.EUR.percent_change_24h > 0) {
+                $("#eur_trx_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#eur_trx_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#eur_trx_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#eur_trx_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.GBP.percent_change_24h > 0) {
+                $("#gbp_trx_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#gbp_trx_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#gbp_trx_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#gbp_trx_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.CNY.percent_change_24h > 0) {
+                $("#cny_trx_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#cny_trx_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#cny_trx_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#cny_trx_price").css('color', 'rgb(176, 42, 55)');
+            }
+        } else if(coin.symbol === 'IOST') {
+            $("#usd_iost_price").html('$' + coin.quote.USD.price.toFixed(6));
+            $("#eur_iost_price").html('€' + coin.quote.EUR.price.toFixed(6));
+            $("#gbp_iost_price").html('£' + coin.quote.GBP.price.toFixed(6));
+            $("#cny_iost_price").html('¥' + coin.quote.CNY.price.toFixed(6));
+            $("#usd_iost_price_change").html('(' + coin.quote.USD.percent_change_24h.toFixed(2) + '%)');
+            $("#eur_iost_price_change").html('(' + coin.quote.EUR.percent_change_24h.toFixed(2) + '%)');
+            $("#gbp_iost_price_change").html('(' + coin.quote.GBP.percent_change_24h.toFixed(2) + '%)');
+            $("#cny_iost_price_change").html('(' + coin.quote.CNY.percent_change_24h.toFixed(2) + '%)');
+            if(coin.quote.USD.percent_change_24h > 0) {
+                $("#usd_iost_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#usd_iost_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#usd_iost_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#usd_iost_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.EUR.percent_change_24h > 0) {
+                $("#eur_iost_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#eur_iost_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#eur_iost_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#eur_iost_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.GBP.percent_change_24h > 0) {
+                $("#gbp_iost_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#gbp_iost_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#gbp_iost_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#gbp_iost_price").css('color', 'rgb(176, 42, 55)');
+            }
+
+            if(coin.quote.CNY.percent_change_24h > 0) {
+                $("#cny_iost_price_change").css('color', 'rgb(32, 133, 55)');
+                $("#cny_iost_price").css('color', 'rgb(32, 133, 55)');
+            } else {
+                $("#cny_iost_price_change").css('color', 'rgb(176, 42, 55)');
+                $("#cny_iost_price").css('color', 'rgb(176, 42, 55)');
+            }
+        }
+    });
+}
+
+$(document).on("click", ".exchange-container-tab-header", function() {
+    var coinType = $(this).data('tabId');
+    if(coinType === 'USD') {
+        $("#exchange-container-tab-USD").show();
+        $("#exchange-container-tab-EUR").hide();
+        $("#exchange-container-tab-GBP").hide();
+        $("#exchange-container-tab-CNY").hide();
+        $("#tab-usd").addClass('exchange-container-tab-header-select');
+        $("#tab-eur").removeClass('exchange-container-tab-header-select');
+        $("#tab-cny").removeClass('exchange-container-tab-header-select');
+        $("#tab-gbp").removeClass('exchange-container-tab-header-select');
+    } else if(coinType === 'EUR') {
+        $("#exchange-container-tab-USD").hide();
+        $("#exchange-container-tab-EUR").show();
+        $("#exchange-container-tab-GBP").hide();
+        $("#exchange-container-tab-CNY").hide();
+        $("#tab-usd").removeClass('exchange-container-tab-header-select');
+        $("#tab-eur").addClass('exchange-container-tab-header-select');
+        $("#tab-cny").removeClass('exchange-container-tab-header-select');
+        $("#tab-gbp").removeClass('exchange-container-tab-header-select');
+    } else if(coinType === 'GBP') {
+        $("#exchange-container-tab-USD").hide();
+        $("#exchange-container-tab-EUR").hide();
+        $("#exchange-container-tab-GBP").show();
+        $("#exchange-container-tab-CNY").hide();
+        $("#tab-usd").removeClass('exchange-container-tab-header-select');
+        $("#tab-eur").removeClass('exchange-container-tab-header-select');
+        $("#tab-cny").removeClass('exchange-container-tab-header-select');
+        $("#tab-gbp").addClass('exchange-container-tab-header-select');
+    } else if(coinType === 'CNY') {
+        $("#exchange-container-tab-USD").hide();
+        $("#exchange-container-tab-EUR").hide();
+        $("#exchange-container-tab-GBP").hide();
+        $("#exchange-container-tab-CNY").show();
+        $("#tab-usd").removeClass('exchange-container-tab-header-select');
+        $("#tab-eur").removeClass('exchange-container-tab-header-select');
+        $("#tab-cny").addClass('exchange-container-tab-header-select');
+        $("#tab-gbp").removeClass('exchange-container-tab-header-select');
+    }
+
 });

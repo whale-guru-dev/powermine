@@ -1393,7 +1393,7 @@ fieldset[disabled] .added_to_cart {
 .add_to_cart_button.btn-has-icon,
 .added_to_cart.btn-has-icon {
   position: relative;
-  padding-left: 85px;
+  /*padding-left: 85px;*/
 }
 .btn.btn-has-icon .fa,
 .tagcloud > a.btn-has-icon .fa,
@@ -8253,7 +8253,7 @@ ul.products li.product:before {
     position: absolute;
     left: 0;
     right: 0;
-    top: 60px;
+    top: 140px;
     border-top: none;
     box-shadow: none;
     background: #36274c;
@@ -8279,7 +8279,7 @@ ul.products li.product:before {
   color: #fff !important;
   font-size: 14px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 25px;
   text-transform: uppercase;
   padding: 12px 0;
 }
