@@ -990,8 +990,8 @@ legend,
 
 @media (max-width: 767px) {
     .header .logo img {
-        max-width: 450px;
-        width: 450px;
+        max-width: 200px;
+        width: 200px;
     }
 }
 
@@ -1457,7 +1457,12 @@ a:hover {
     position: absolute;
     right: 0;
     /*height: 100%;*/
-    height: 30%;
+}
+
+@media (min-width: 768px) {
+    .toggler-right-0 {
+        height: 30%;
+    }
 }
 
 .alert {
@@ -1713,4 +1718,45 @@ table > thead > tr > th, .table > thead > tr > th {
 
 .exchange-main-box-title {
     margin-bottom: 0.5em;
+}
+
+@media (min-width: 768px) {
+    .bank-roll-assets {
+        display: flex;
+    }
+}
+
+@media (max-width: 991px) {
+    .exchange-main {
+        padding: 0;
+    }
+
+    .exchange-main p {
+        margin: 1.5em 0 0.0em 0;
+    }
+
+    .exchange-form-row {
+        text-align: start;
+    }
+
+    .exchange-item input {
+        width: 75%;
+        margin-left: 10%;
+    }
+
+    .exchange-form-row-div_start {
+        text-align: start;
+    }
+
+    .exchange-form-row-div_center {
+        text-align: center;
+    }
+
+    .exchange-item .dropdown {
+        font-size: 8px;
+    }
+
+    .exchange-protect p {
+        font-size: 12px;
+    }
 }
