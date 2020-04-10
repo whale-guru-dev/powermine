@@ -3,7 +3,7 @@ window.onload = () => {
     getRichList()
     updatePminePrice()
     hideAdminHeader()
-    getCMCPrices()
+    // getCMCPrices()
 }
 
 function hideAdminHeader() {

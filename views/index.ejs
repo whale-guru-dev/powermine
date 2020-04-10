@@ -15,8 +15,44 @@
 </div>
 <div class="page-wrapper">
     <% include ./partials/header-wrapper %>
-    <header id="pmine-exchange"
+    <header id="pmine-exchange" style="padding: 0px"
             class="page-title section-title-wrapper section-title-wrapper__no-bottom-margin page-title-layout__both-centered page_title_preset_1 page-title_overflow">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Ticker Tape</span></a> by TradingView</div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                        {
+                            "symbols": [
+                            {
+                                "proName": "BINANCE:IOSTUSDT",
+                                "title": "IOST/USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:BTCUSD",
+                                "title": "BTC/USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:ETHUSD",
+                                "title": "ETH/USD"
+                            },
+                            {
+                                "proName": "BINANCE:TRXUSDT",
+                                "title": "TRX/USD"
+                            }
+                        ],
+                            "colorTheme": "dark",
+                            "isTransparent": true,
+                            "displayMode": "adaptive",
+                            "locale": "en"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+        </div>
         <div class="section-title-inner">
             <div class="container">
                 <div class="section-title-decoration">
