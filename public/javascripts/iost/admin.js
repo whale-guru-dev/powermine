@@ -149,3 +149,27 @@ $(document).on("click", "#depositIostBtn", function () {
         });
     });
 });
+
+$(document).on("click", "#saveContentBtn", function () {
+    var content = CKEDITOR.instances.editor1.getData();
+    $("#statusMsg").html('');
+    $.ajax({
+       url:'/admin/content',
+       type: 'POST',
+       data: {
+           name: 'bankRollAsset',
+           content: content
+       },
+        dataType: 'json',
+        success: function(response) {
+            if(response.status === 'success') {
+                $("#contentStatusMsg").html('<div class="alert alert-success">Content Save Success</div>');
+            } else {
+                $("#contentStatusMsg").html('<div class="alert alert-success">Content Save Error, Try again later</div>');
+            }
+        },
+        error: function(error) {
+            $("#contentStatusMsg").html('<div class="alert alert-success">Content Save Error, Try again later</div>');
+        }
+    });
+});
