@@ -48,6 +48,33 @@
       ]
     },
     {
+      "name": "stake",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "unstake",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "payDividends",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
       "name": "can_update",
       "args": [
         "string"
