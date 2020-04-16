@@ -81,7 +81,7 @@ $(document).on("click", "#withdrawBtn", function () {
         var withdrawAmt = $("#withdrawAmt").val();
 
         const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "withdrawlIost", [withdrawAmt.toString()]);
-        tx.addApprove("iost", "100000");
+        tx.addApprove("iost", "10000000");
         // const chainId = getMainnetConfig().chainId;
         // tx.setChainID(chainId);
 
@@ -116,7 +116,7 @@ $(document).on("click", "#depositIostBtn", function () {
         var withdrawAmt = $("#depositIostAmt").val();
 
         const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "depositIOST", [withdrawAmt.toString()]);
-        tx.addApprove("iost", "100000");
+        tx.addApprove("iost", "10000000");
         // const chainId = getMainnetConfig().chainId;
         // tx.setChainID(chainId);
 
@@ -149,6 +149,37 @@ $(document).on("click", "#depositIostBtn", function () {
         });
     });
 });
+
+
+$(document).on("click", "#paydividends", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var divAmount = $("#divAmount").val();
+
+        const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "payDividends", [divAmount.toString()]);
+        tx.addApprove("iost", "10000000");
+    
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>Dividends payout success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Payment of Dividends Succeeded. </div>');
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">' + result + '</div>');
+        });
+    });
+});
+
 
 $(document).on("click", "#saveContentBtn", function () {
     var content = CKEDITOR.instances.editor1.getData();

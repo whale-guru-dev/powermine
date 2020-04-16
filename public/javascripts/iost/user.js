@@ -3,6 +3,7 @@ window.onload = () => {
     getRichList()
     updatePminePrice()
     hideAdminHeader()
+    getTotalStaked()
     // getCMCPrices()
 }
 
@@ -39,32 +40,54 @@ function getTokens () {
     setInterval(fetchToken, 10 * 60 * 1000)
 }
 
+function getTotalStaked() {
+    const fetchToken = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("staked-msg").innerHTML = `
+                <b><span style="font-size: 18px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} PMINE`
+            }
+        };
+        xhttp.open("GET", "/iost/totalStaked", true);
+        xhttp.send();
+    }
+
+    fetchToken()
+    setInterval(fetchToken, 10 * 60 * 1000)
+}
+
 function getRichList () {
 
     const fetchPmineRichlist = () => {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                let richlist = JSON.parse(xhttp.responseText)
+                let richlist = JSON.parse(xhttp.responseText);
+                while (richlist.length < 20) {
+                    richlist.push({ account: 'N/A', balance: 'N/A', percent: 'N/A' });
+                }
+          
+                
                 let tablebody1 = ``, tablebody2 = ``
 
                 for (let i in richlist) {
                     if (i <= 9) {
                         tablebody1 += `
                         <tr>
-                            <td data-label="RANK">${richlist[i].rank}.</td>
-                            <td data-label="ADDRESS">${richlist[i].account}</td>
-                            <td data-label="AMOUNT">${richlist[i].balance}</td>
-                            <td data-label="HOLDING">${richlist[i].percent} %</td>
+                            <td data-label="RANK">${i * 1 +1}.</td>
+                            <td data-label="ADDRESS"><b>${richlist[i].account}***</b></td>
+                            <td data-label="AMOUNT">${(richlist[i].balance *1).toFixed(4)}</td>
+                            <td data-label="HOLDING">${(richlist[i].percent * 100).toFixed(2)} %</td>
                         </tr>
                         `
-                    } else {
+                    } else if(i>9 && i<=20) {
                         tablebody2 += `
                         <tr>
-                            <td data-label="RANK">${richlist[i].rank}.</td>
-                            <td data-label="ADDRESS">${richlist[i].account}</td>
-                            <td data-label="AMOUNT">${richlist[i].balance}</td>
-                            <td data-label="HOLDING">${richlist[i].percent} %</td>
+                            <td data-label="RANK">${i * 1 +1}.</td>
+                            <td data-label="ADDRESS"><b>${richlist[i].account}***</b></td>
+                            <td data-label="AMOUNT">${(richlist[i].balance*1).toFixed(4)}</td>
+                            <td data-label="HOLDING">${(richlist[i].percent * 100).toFixed(2)} %</td>
                         </tr>
                         `
                     }
@@ -216,7 +239,7 @@ $(document).on("click", "#buyBtn", function () {
         if(tokenAmount) {
             $("#statusBuyMsg").html('');
             const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "buyToken", [tokenAmount.toString()]);
-            tx.addApprove("iost", "100000");
+            tx.addApprove("iost", "1000000");
 
             iost.signAndSend(tx).on('pending', function (txid) {
                 console.log("======>pending", txid);
@@ -280,6 +303,96 @@ $(document).on("click", "#sellBtn", function () {
 
     }).catch(error => {
         if(error.type == "locked")
+            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+    });
+});
+
+
+$(document).on("click", "#stakeBtn", function () {
+    if (!window.IWalletJS) {
+        $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+        return;
+    }
+    window.IWalletJS.enable().then(function (val) {
+        $("#statusStakeMsg").html('');
+        iost = window.IWalletJS.newIOST(IOST);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var tokenAmount = $("#pmineAmtStake").val();
+
+        if (tokenAmount) {
+            const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "stake", [tokenAmount.toString()]);
+            tx.addApprove("pmine", tokenAmount.toString());
+
+            iost.signAndSend(tx).on('pending', function (txid) {
+                console.log("======>pending", txid);
+                $(".page-loader").show();
+                $(".loader-inner").show();
+            }).on('success', function (result) {
+                console.log('======>sell success', result);
+                $(".page-loader").hide();
+                $("#statusStakeMsg").html('<div class="alert alert-success">Successfully staked. Please check your wallet</div>');
+                getRichList();
+                getTotalStaked();
+            }).on('failed', function (result) {
+                console.log('======>failed', result);
+                $(".page-loader").hide();
+                $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
+            
+            });
+        } else {
+            $("#statusStakeMsg").html('<div class="alert alert-warning">Please input stake amount.</div>');
+        }
+
+
+    }).catch(error => {
+        if (error.type == "locked")
+            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+    });
+});
+
+$(document).on("click", "#unstakeBtn", function () {
+    if (!window.IWalletJS) {
+        $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+        return;
+    }
+    window.IWalletJS.enable().then(function (val) {
+        $("#statusStakeMsg").html('');
+        iost = window.IWalletJS.newIOST(IOST);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var tokenAmount = $("#pmineAmtStake").val();
+
+        if (tokenAmount) {
+            const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "unstake", [tokenAmount.toString()]);
+            tx.addApprove("pmine", tokenAmount.toString());
+
+            iost.signAndSend(tx).on('pending', function (txid) {
+                console.log("======>pending", txid);
+                $(".page-loader").show();
+                $(".loader-inner").show();
+            }).on('success', function (result) {
+                console.log('======>unstake success', result);
+                $(".page-loader").hide();
+                $("#statusStakeMsg").html('<div class="alert alert-success">Successfully unstaked. Please check your wallet</div>');
+                getRichList();
+                getTotalStaked();
+            }).on('failed', function (result) {
+                console.log('======>failed', result);
+                $(".page-loader").hide();
+                $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
+            });
+        } else {
+            $("#statusStakeMsg").html('<div class="alert alert-warning">Please input unstake amount.</div>');
+        }
+
+
+    }).catch(error => {
+        if (error.type == "locked")
             $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
     });
 });

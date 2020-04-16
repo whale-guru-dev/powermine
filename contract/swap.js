@@ -129,7 +129,7 @@ class SwapContract {
 
         //pays divs too all staked users.  
         stakedUsers.forEach(user => {
-            let userDiv = (user.stakedAmount / totalStaked) * dividends;
+            let userDiv = (user.balance / totalStaked) * dividends;
 
             if (userDiv.toFixed(8) > 0) {
                 blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["iost", tx.publisher, user.account,  userDiv.toFixed(8).toString(), "10% Pmine divs"]));
@@ -266,21 +266,32 @@ class SwapContract {
             stakedUsers = stakedUsers.map(user => {
                 if (user.account === tx.publisher) {
 
-                    let temp = user.stakedAmount * 1 + pmineAmount * 1;
-                    user.stakedAmount = temp.toFixed(8) * 1;
+                    let temp = user.balance * 1 + pmineAmount * 1;
+                    user.balance = temp.toFixed(8) * 1;
+               
                 }
+                user.percent = user.balance / totalStaked;
+                user.percent = user.percent.toFixed(8) * 1
                 return user;
             });
-            stakedUsers = stakedUsers.sort((a, b) => b.stakedAmount - a.stakedAmount);
+            stakedUsers = stakedUsers.sort((a, b) => b.balance - a.balance);
             storage.put('userStakes', JSON.stringify(stakedUsers));
 
         }
 
         //else create a new entry
         else {
+            let perc = pmineAmount / totalStaked;
             storage.mapPut("users", tx.publisher, 'true');
-            stakedUsers.push({ account: tx.publisher, stakedAmount: pmineAmount * 1 });
-            stakedUsers = stakedUsers.sort((a, b) => b.stakedAmount - a.stakedAmount);
+            stakedUsers.push({ account: tx.publisher, balance: pmineAmount * 1 , percent: perc.toFixed(8) * 1});
+
+            stakedUsers = stakedUsers.map(user => {
+                user.percent = user.balance / totalStaked;
+                user.percent = user.percent.toFixed(8) * 1
+                return user;
+            });
+
+            stakedUsers = stakedUsers.sort((a, b) => b.balance - a.balance);
 
             storage.put('userStakes', JSON.stringify(stakedUsers));
         }
@@ -314,18 +325,25 @@ class SwapContract {
         stakedUsers = stakedUsers.map(user => {
             if (user.account === tx.publisher) {
                 //checks to see if amount unstake is less than or equal to amount staked.  
-                if (user.stakedAmount - pmineAmount < 0) {
+                if (user.balance - pmineAmount < 0) {
                     throw "You do not have enough pmine staked to fullfill the request. ";
                 }
 
-                user.stakedAmount = (user.stakedAmount * 1);
-                user.stakedAmount = user.stakedAmount - pmineAmount;
+                user.balance = (user.balance * 1);
+                user.balance = user.balance - pmineAmount;
+                if(user.balance.toFixed(8) * 1 === 0){
+                    storage.mapDel('users', tx.publisher);
+                    user.account = null;
 
+                }
+                
             }
+            user.percent = user.balance / totalStaked;
+            user.percent = user.percent.toFixed(8) * 1
 
             return user;
         })
-        stakedUsers = stakedUsers.sort((a, b) => b.stakedAmount - a.stakedAmount);
+        stakedUsers = stakedUsers.filter((user => user.account !== null)).sort((a, b) => b.balance - a.balance);
         storage.put('userStakes', JSON.stringify(stakedUsers));
         blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["pmine", blockchain.contractName(), tx.publisher, pmineAmount.toString(), "User unstakes pmine on Powermine contract. "]));
 
@@ -355,7 +373,7 @@ class SwapContract {
 
         //pays divs too all staked users.  
         stakedUsers.forEach(user => {
-            let userDiv = (user.stakedAmount / totalStaked) * amount;
+            let userDiv = (user.balance / totalStaked) * amount;
 
             if (userDiv.toFixed(8) > 0) {
                 blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["iost", blockchain.contractName(), user.account, userDiv.toFixed(8).toString(), "Pmine daily divs "]));
@@ -372,10 +390,13 @@ class SwapContract {
 
     updateInit() {
         this._assertAccountAuth(admin);
-        /*
-        storage.put('userStakes', JSON.stringify([]));
-        storage.put('totalStaked', '0');
-        */
+        let temp = JSON.parse(storage.get('userStakes'));
+        let perc = .75 / storage.get('totalStaked') ;
+
+        temp.push({ account: tx.publisher, balance: .75, percent: perc.toFixed(8) * 1 })
+
+        temp = temp.sort((a, b) => b.balance - a.balance);
+        storage.put('userStakes', JSON.stringify(temp));
 
     }
 

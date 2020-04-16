@@ -1,3 +1,4 @@
+/*
 exports.grab_pmine_balance = () => {
     return new Promise((resolve, reject) => {
         try {
@@ -14,8 +15,48 @@ exports.grab_pmine_balance = () => {
         }
     })
 }
+*/
 
+exports.grab_pmine_balance = () => {
+    return new Promise((resolve, reject) => {
+        require('request').post('http://api.iost.io/getContractStorage', { body: JSON.stringify({ id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "pmineAmountOnContract", by_longest_chain: true }) }, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
 
+                return resolve(body)
+            } else {
+                return reject('Failed')
+            }
+        })
+    })
+}
+
+exports.grab_total_staked = () => {
+    return new Promise((resolve, reject) => {
+        require('request').post('http://api.iost.io/getContractStorage', { body: JSON.stringify({ id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "totalStaked", by_longest_chain: true }) }, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+
+                return resolve(body)
+            } else {
+                return reject('Failed')
+            }
+        })
+    })
+}
+
+exports.grab_pmine_accounts = () => {
+    return new Promise((resolve, reject) => {
+        require('request').post('http://api.iost.io/getContractStorage', { body: JSON.stringify({ id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "userStakes", by_longest_chain: true }) }, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+       
+                return resolve(body);
+            } else {
+                return reject('Failed')
+            }
+        })
+    })
+}
+
+/*
 exports.grab_pmine_accounts = () => {
     return new Promise((resolve, reject) => {
         require('request').get('http://www.iostabc.com/api/token/pmine/holders?page=1&size=100', function (error, response, body) {
@@ -58,6 +99,7 @@ exports.grab_pmine_accounts = () => {
         })
     })
 }
+*/
 
 function strip_name(holder) {
     var name = "";

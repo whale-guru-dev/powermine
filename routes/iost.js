@@ -10,14 +10,33 @@ router.get('/', function (req, res, next) {
 /* GET CIRCULATION */
 router.get('/circulation', function (req, res, next) {
     iost.grab_pmine_balance()
-        .then(result => res.send(result))
+        .then(result => {
+
+            return res.send(JSON.parse(result).data)
+        })
         .catch(e => res.send(e))
 });
+
+/* Get total staked    */
+router.get('/totalStaked', function (req, res, next) {
+    iost.grab_total_staked()
+        .then(result => {
+
+            return res.send(JSON.parse(result).data)
+        })
+        .catch(e => res.send(e))
+});
+
 
 /* GET RICHLIST */
 router.get('/richlist', function (req, res, next) {
     iost.grab_pmine_accounts()
-        .then(result => res.send(result))
+        .then(result => {
+            let list = JSON.parse(result).data;
+     
+
+            return res.send(list);
+        })
         .catch(e => res.send(e))
 });
 
