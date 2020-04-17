@@ -235,7 +235,7 @@ $(document).on("click", "#buyBtn", function () {
         iost.setAccount(account);
         const defaultConfig = {
             gasRatio: 1,
-            gasLimit: 800000,
+            gasLimit: 2000000,
             delay: 0,
             expiration: 60,
             defaultLimit: "unlimited"
