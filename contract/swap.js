@@ -121,7 +121,7 @@ class SwapContract {
         //Specifies the amount of iost that is required for this transaction. Also fixed the decimal on iost.  Then send it to blockchain.
         let total_iost = (pmineAmount * token_price);
 
-        /*
+  
         //Auto process dividends.
         let dividends = total_iost * .1; 
         let stakedUsers = JSON.parse(storage.get('userStakes'));
@@ -145,11 +145,7 @@ class SwapContract {
 
         //total iost sent to contract.
         let contractIost = total_iost * .8;
-
-        */
-
-
-        blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["iost", tx.publisher, blockchain.contractName(), total_iost.toFixed(8).toString(), "Sends iost to powermine contract for swap. "]));
+        blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["iost", tx.publisher, blockchain.contractName(), contractIost.toFixed(8).toString(), "Sends iost to powermine contract for swap. "]));
 
         //send pmine from contract to user.
         blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["pmine", blockchain.contractName(), tx.publisher, pmineAmount.toString(), "Powermine contract sends pmines to user. "]));

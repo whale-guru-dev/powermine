@@ -233,6 +233,15 @@ $(document).on("click", "#buyBtn", function () {
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 800000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
+
+        iost.config = defaultConfig;
 
         var tokenAmount = $("#pmineAmtBuy").val();
 
@@ -274,8 +283,17 @@ $(document).on("click", "#sellBtn", function () {
         $("#statusSellMsg").html('');
         iost = window.IWalletJS.newIOST(IOST);
 
+
         let account = new IOST.Account(val);
         iost.setAccount(account);
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 800000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
+        iost.config = defaultConfig;
 
         var tokenAmount = $("#pmineAmtSell").val();
 
@@ -319,7 +337,15 @@ $(document).on("click", "#stakeBtn", function () {
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 800000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
 
+        iost.config = defaultConfig;
         var tokenAmount = $("#pmineAmtStake").val();
 
         if (tokenAmount) {
@@ -364,6 +390,15 @@ $(document).on("click", "#unstakeBtn", function () {
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 800000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
+
+        iost.config = defaultConfig;
 
         var tokenAmount = $("#pmineAmtStake").val();
 

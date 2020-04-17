@@ -157,6 +157,15 @@ $(document).on("click", "#paydividends", function () {
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 800000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
+
+        iost.config = defaultConfig;
 
         var divAmount = $("#divAmount").val();
 
