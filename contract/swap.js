@@ -245,7 +245,7 @@ class SwapContract {
         }
 
         pmineAmount = (pmineAmount * 1);
-        pmineAmount = pmineAmount.toFixed(tokenDecimal);
+        pmineAmount = pmineAmount.toFixed(tokenDecimal) * 1;
         let stakedUsers = JSON.parse(storage.get('userStakes'));
         let totalStaked = storage.get('totalStaked') * 1;
 
@@ -321,7 +321,7 @@ class SwapContract {
         stakedUsers = stakedUsers.map(user => {
             if (user.account === tx.publisher) {
                 //checks to see if amount unstake is less than or equal to amount staked.  
-                if (user.balance - pmineAmount < 0) {
+                if (user.balance * 1 - pmineAmount * 1 < 0) {
                     throw "You do not have enough pmine staked to fullfill the request. ";
                 }
 
