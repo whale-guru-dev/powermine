@@ -339,6 +339,8 @@ class SwapContract {
     //write codes in this function if you want to update block storage. 
     updateInit() {
         this._assertAccountAuth('pmine_admin');
+        storage.put("userStakes", JSON.stringify([]));
+        storage.put("totalStaked", "0");
 
     }
 
