@@ -39,15 +39,6 @@
       ]
     },
     {
-      "name": "sellToken",
-      "args": [
-        "string"
-      ],
-      "amountLimit": [
-        {"token": "*", "val": "unlimited"}
-      ]
-    },
-    {
       "name": "stake",
       "args": [
         "string"
