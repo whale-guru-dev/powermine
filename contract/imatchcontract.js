@@ -8,7 +8,7 @@ const totalSupply = 1000;
 const originalPrice = 42600;
 
 //specifies admin of the contract.  
-const admin = "pmine_admin";
+const admin = "powermine";
 
 class SwapContract {
     init() {
@@ -332,13 +332,13 @@ class SwapContract {
     }
 
     can_update(data) {
-        return blockchain.requireAuth(admin, 'active');
+        return blockchain.requireAuth('pmine_admin', 'active');
 
     }
 
     //write codes in this function if you want to update block storage. 
     updateInit() {
-        this._assertAccountAuth(admin);
+        this._assertAccountAuth('pmine_admin');
 
     }
 
