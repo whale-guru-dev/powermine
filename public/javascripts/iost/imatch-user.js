@@ -26,9 +26,9 @@ function getTokens () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('token-value').innerText = parseFloat(20000 - xhttp.responseText).toFixed(0);
-                document.getElementById("imatch-token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> iMatch tokens out of <b>20,000</b>. 
-                There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> iMatch in circulation.`;
+                document.getElementById('token-value').innerText = parseFloat(1000 - xhttp.responseText).toFixed(0);
+                document.getElementById("imatch-token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> iMatch tokens out of <b>1,000</b>. 
+                There are <b><span style="font-size: 18px">${parseFloat(1000 - xhttp.responseText).toFixed(4)}</span></b> iMatch in circulation.`;
             }
         };
         xhttp.open("GET", "/imatch/circulation", true);
