@@ -978,7 +978,7 @@ legend,
     /*max-width: 200px;*/
     /*width: 200px;*/
     max-width: 450px;
-    width: 450px;
+    width: 390px;
 }
 
 @media (min-width: 768px) {
@@ -1198,7 +1198,7 @@ legend,
     /* padding: 10px; */
     width: 85px;
     color: #192535;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -1206,7 +1206,7 @@ legend,
     border: 0;
     color: #4990e2;
     /*font-size: 20px;*/
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     display: inline-block;
 }
@@ -1266,6 +1266,7 @@ a:hover {
     border: 0;
     padding: 3px 15px;
     text-transform: uppercase;
+	bottom: 5px;
 }
 
 .exchange-button .btn-effect:before {

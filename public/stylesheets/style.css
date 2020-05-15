@@ -8277,7 +8277,7 @@ ul.products li.product:before {
 }
 .navbar-nav > li > a {
   color: #fff !important;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 25px;
   text-transform: uppercase;
@@ -10002,7 +10002,8 @@ body.page-template-onepage .form-search__nav {
 }
 @media (min-width: 992px) {
   .timeline > div > a h5 {
-    margin-bottom: 36px;
+    margin-bottom: 19px;
+    height: 33px;
   }
 }
 .timeline > div > a .desc-holder {
