@@ -377,7 +377,7 @@ $(document).on("click", "#stakeBtn", function () {
         };
 
         iost.config = defaultConfig;
-        var tokenAmount = $("#pmineAmtStake").val();
+        var tokenAmount = $("#iMatchAmtStake").val();
 
         if (tokenAmount) {
             const tx = iost.callABI("Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", "stake", [tokenAmount.toString()]);
@@ -431,7 +431,7 @@ $(document).on("click", "#unstakeBtn", function () {
 
         iost.config = defaultConfig;
 
-        var tokenAmount = $("#pmineAmtStake").val();
+        var tokenAmount = $("#iMatchAmtStake").val();
 
         if (tokenAmount) {
             const tx = iost.callABI("Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", "unstake", [tokenAmount.toString()]);
