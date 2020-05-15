@@ -175,8 +175,8 @@ function getRichList () {
                     }
                 }
 
-                document.getElementById('pmine-table-body').innerHTML = tablebody1
-                document.getElementById('pmine-table2-body').innerHTML = tablebody2
+                document.getElementById('iMatch-table-body').innerHTML = tablebody1
+                document.getElementById('iMatch-table2-body').innerHTML = tablebody2
             }
         };
         xhttp.open("GET", "/imatch/richlist", true);
