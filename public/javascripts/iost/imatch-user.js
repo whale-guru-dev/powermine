@@ -27,11 +27,11 @@ function getTokens () {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('token-value').innerText = parseFloat(20000 - xhttp.responseText).toFixed(0);
-                document.getElementById("token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>. 
-                There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> pmine in circulation.`;
+                document.getElementById("imatch-token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> iMatch tokens out of <b>20,000</b>. 
+                There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> iMatch in circulation.`;
             }
         };
-        xhttp.open("GET", "/iost/circulation", true);
+        xhttp.open("GET", "/imatch/circulation", true);
         xhttp.send();
     }
 
@@ -53,7 +53,7 @@ function getTotalStaked() {
                             getUserBalance(account);
                             document.getElementById("account-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${account}`
-                            
+
                         })
                         .catch(err => {
                             document.getElementById("account-logged-in").innerHTML = `
@@ -67,10 +67,10 @@ function getTotalStaked() {
                 }
 
                 document.getElementById("staked-msg").innerHTML = `
-                <b><span style="font-size: 14px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} PMINE`
+                <b><span style="font-size: 14px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} iMatch`
             }
         };
-        xhttp.open("GET", "/iost/totalStaked", true);
+        xhttp.open("GET", "/imatch/totalStaked", true);
         xhttp.send();
     }
 
@@ -79,40 +79,40 @@ function getTotalStaked() {
 }
 
 function getUserBalance(account){
- 
-        try {
-            fetch('https://api.iost.io/getTokenBalance/' + account  + '/pmine/true').then(res => res.json()).then(json => {
-                document.getElementById("user-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
 
-                document.getElementById("exchange-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">PMINE Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
-            }).catch(err => {
-                document.getElementById("user-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} PMINE`
-                document.getElementById("exchange-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">PMINE Balance: </span></b> ${((0).toFixed(4))} PMINE`
-            })
-            fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
-                document.getElementById("exchange-iost-balance").innerHTML = `
-                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} IOST`
-                document.getElementById("exchange-logged-in").innerHTML = `
-                <b><span style="font-size: 14px">Logged In: </span></b> ${account}`
-            }).catch(err => {
-                document.getElementById("exchange-iost-balance").innerHTML = `
-                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${((0).toFixed(4))} IOST`
-                document.getElementById("exchange-logged-in").innerHTML = `
-                <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
-            })
-        } catch (e) {
+    try {
+        fetch('https://api.iost.io/getTokenBalance/' + account  + '/imatch/true').then(res => res.json()).then(json => {
             document.getElementById("user-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} PMINE`
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} iMatch`
+
+            document.getElementById("exchange-pmine-balance").innerHTML = `
+                                <b><span style="font-size: 14px">iMatch Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} iMatch`
+        }).catch(err => {
+            document.getElementById("user-pmine-balance").innerHTML = `
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} iMatch`
+            document.getElementById("exchange-pmine-balance").innerHTML = `
+                                <b><span style="font-size: 14px">iMatch Balance: </span></b> ${((0).toFixed(4))} iMatch`
+        })
+        fetch('https://api.iost.io/getTokenBalance/' + account + '/imatch/true').then(res => res.json()).then(json => {
+            document.getElementById("exchange-iost-balance").innerHTML = `
+                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} IOST`
+            document.getElementById("exchange-logged-in").innerHTML = `
+                <b><span style="font-size: 14px">Logged In: </span></b> ${account}`
+        }).catch(err => {
+            document.getElementById("exchange-iost-balance").innerHTML = `
+                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${((0).toFixed(4))} IOST`
             document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
-            document.getElementById("exchange-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">PMINE Balance: </span></b> ${((0).toFixed(4))} PMINE`
-        }
- 
+        })
+    } catch (e) {
+        document.getElementById("user-pmine-balance").innerHTML = `
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} iMatch`
+        document.getElementById("exchange-logged-in").innerHTML = `
+                <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
+        document.getElementById("exchange-pmine-balance").innerHTML = `
+                                <b><span style="font-size: 14px">iMatch Balance: </span></b> ${((0).toFixed(4))} iMatch`
+    }
+
 }
 
 function getRichList () {
@@ -131,26 +131,26 @@ function getRichList () {
                             var user = richlist.find(e => e.account === account);
 
                             document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> ${parseFloat(user.balance).toFixed(4)} PMINE`
+                                <b><span style="font-size: 14px">You Staked: </span></b> ${parseFloat(user.balance).toFixed(4)} iMatch`
 
 
                         })
                         .catch(err => {
                             document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> ${(0).toFixed(4)} PMINE`
+                                <b><span style="font-size: 14px">You Staked: </span></b> ${(0).toFixed(4)} iMatch`
                             return;
                         });
                 } catch (error) {
                     document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> ${(0).toFixed(4)} PMINE`
+                                <b><span style="font-size: 14px">You Staked: </span></b> ${(0).toFixed(4)} iMatch`
                     return;
                 }
 
                 while (richlist.length < 20) {
                     richlist.push({ account: 'N/A', balance: 'N/A', percent: 'N/A' });
                 }
-          
-                
+
+
                 let tablebody1 = ``, tablebody2 = ``
 
                 for (let i in richlist) {
@@ -179,7 +179,7 @@ function getRichList () {
                 document.getElementById('pmine-table2-body').innerHTML = tablebody2
             }
         };
-        xhttp.open("GET", "/iost/richlist", true);
+        xhttp.open("GET", "/imatch/richlist", true);
         xhttp.send();
     }
 
@@ -211,7 +211,7 @@ $("#pmineAmtBuy").bind("paste keyup", function (event) {
         var pmineAmount = $("#pmineAmtBuy").val();
 
         $.ajax({
-            url: '/iost/getPminePrice',
+            url: '/imatch/getiMatchPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -231,7 +231,7 @@ $("#iostAmtBuy").bind("paste keyup", function (event) {
         var iostAmount = $("#iostAmtBuy").val();
 
         $.ajax({
-            url: '/iost/getPminePrice',
+            url: '/imatch/getiMatchPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -251,7 +251,7 @@ $("#pmineAmtSell").bind("paste keyup", function (event) {
         var pmineAmount = $("#pmineAmtSell").val();
 
         $.ajax({
-            url: '/iost/getPminePrice',
+            url: '/imatch/getiMatchPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -271,7 +271,7 @@ $("#iostAmtSell").bind("paste keyup", function (event) {
         var iostAmount = $("#iostAmtSell").val();
 
         $.ajax({
-            url: '/iost/getPminePrice',
+            url: '/imatch/getiMatchPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -288,7 +288,7 @@ $("#iostAmtSell").bind("paste keyup", function (event) {
 function updatePminePrice () {
     const getTokenPrice = () => {
         $.ajax({
-            url: '/iost/getPminePrice',
+            url: '/imatch/getiMatchPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -329,7 +329,7 @@ $(document).on("click", "#buyBtn", function () {
 
         if(tokenAmount) {
             $("#statusBuyMsg").html('');
-            const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "buyToken", [tokenAmount.toString()]);
+            const tx = iost.callABI("Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", "buyToken", [tokenAmount.toString()]);
             tx.addApprove("iost", "1000000");
 
             iost.signAndSend(tx).on('pending', function (txid) {
@@ -353,57 +353,6 @@ $(document).on("click", "#buyBtn", function () {
     }).catch(error => {
         if(error.type == "locked")
             $("#statusBuyMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
-});
-
-$(document).on("click", "#sellBtn", function () {
-    if(!window.IWalletJS) {
-        $("#statusSellMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusSellMsg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 800000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-        iost.config = defaultConfig;
-
-        var tokenAmount = $("#pmineAmtSell").val();
-
-        if(tokenAmount) {
-            const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "sellToken", [tokenAmount.toString()]);
-            tx.addApprove("pmine", tokenAmount.toString());
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>sell success', result);
-                $(".page-loader").hide();
-                $("#statusSellMsg").html('<div class="alert alert-success">Successfully sold. Please check your wallet</div>');
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusSellMsg").html('<div class="alert alert-warning">'+result.message+'</div>');
-            });
-        } else {
-            $("#statusSellMsg").html('<div class="alert alert-warning">Please input sell amount.</div>');
-        }
-
-
-    }).catch(error => {
-        if(error.type == "locked")
-            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
     });
 });
 
@@ -431,7 +380,7 @@ $(document).on("click", "#stakeBtn", function () {
         var tokenAmount = $("#pmineAmtStake").val();
 
         if (tokenAmount) {
-            const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "stake", [tokenAmount.toString()]);
+            const tx = iost.callABI("Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", "stake", [tokenAmount.toString()]);
             tx.addApprove("pmine", tokenAmount.toString());
 
             iost.signAndSend(tx).on('pending', function (txid) {
@@ -448,7 +397,7 @@ $(document).on("click", "#stakeBtn", function () {
                 console.log('======>failed', result);
                 $(".page-loader").hide();
                 $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
-            
+
             });
         } else {
             $("#statusStakeMsg").html('<div class="alert alert-warning">Please input stake amount.</div>');
@@ -485,7 +434,7 @@ $(document).on("click", "#unstakeBtn", function () {
         var tokenAmount = $("#pmineAmtStake").val();
 
         if (tokenAmount) {
-            const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "unstake", [tokenAmount.toString()]);
+            const tx = iost.callABI("Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", "unstake", [tokenAmount.toString()]);
             tx.addApprove("pmine", tokenAmount.toString());
 
             iost.signAndSend(tx).on('pending', function (txid) {
@@ -517,7 +466,7 @@ $(document).on("click", "#unstakeBtn", function () {
 function getCMCPrices () {
     const _getCMCPrices = () => {
         $.ajax({
-            url: '/iost/getCMCPrices',
+            url: '/imatch/getCMCPrices',
             type: 'GET',
             data: {},
             dataType: 'json',

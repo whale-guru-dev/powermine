@@ -1074,6 +1074,10 @@ legend,
     padding: 100px 0 100px 0;
 }
 
+.imatch-exchange {
+    padding: 50px 0 100px 0;
+}
+
 .exchange-main {
     background: #ffffffa3;
     /*padding: 40px 120px 40px 60px;*/
@@ -1209,6 +1213,10 @@ legend,
     font-size: 12px;
     font-weight: 700;
     display: inline-block;
+}
+
+.imatch-exchange-item .dropdown {
+    font-size: 9px !important;
 }
 
 .btn-1,
@@ -1499,6 +1507,10 @@ a:hover {
 
 #pmine-exchange {
     background: url(../images/background.jpg) no-repeat center center / cover;
+}
+
+#imatch-exchange {
+    background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
 }
 
 table > thead > tr > th, .table > thead > tr > th, table > tbody > tr > th, .table > tbody > tr > th, table > tfoot > tr > th, .table > tfoot > tr > th, table > thead > tr > td, .table > thead > tr > td, table > tbody > tr > td, .table > tbody > tr > td, table > tfoot > tr > td, .table > tfoot > tr > td {
