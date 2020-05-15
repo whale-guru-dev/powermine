@@ -47,7 +47,7 @@ exports.grab_iMatch_accounts = () => {
     return new Promise((resolve, reject) => {
         require('request').post('http://api.iost.io/getContractStorage', { body: JSON.stringify({ id: "Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", key: "userStakes", by_longest_chain: true }) }, function (error, response, body) {
             if (!error && response.statusCode == 200) {
-
+console.log(body);
                 return resolve(body);
             } else {
                 return reject('Failed')
