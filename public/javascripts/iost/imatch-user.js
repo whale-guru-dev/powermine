@@ -82,15 +82,15 @@ function getUserBalance(account){
 
     try {
         fetch('https://api.iost.io/getTokenBalance/' + account  + '/imatch/true').then(res => res.json()).then(json => {
-            document.getElementById("user-pmine-balance").innerHTML = `
+            document.getElementById("user-iMatch-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} iMatch`
 
-            document.getElementById("exchange-pmine-balance").innerHTML = `
+            document.getElementById("exchange-imatch-balance").innerHTML = `
                                 <b><span style="font-size: 14px">iMatch Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} iMatch`
         }).catch(err => {
-            document.getElementById("user-pmine-balance").innerHTML = `
+            document.getElementById("user-iMatch-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} iMatch`
-            document.getElementById("exchange-pmine-balance").innerHTML = `
+            document.getElementById("exchange-imatch-balance").innerHTML = `
                                 <b><span style="font-size: 14px">iMatch Balance: </span></b> ${((0).toFixed(4))} iMatch`
         })
         fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
