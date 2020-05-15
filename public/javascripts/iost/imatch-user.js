@@ -381,7 +381,7 @@ $(document).on("click", "#stakeBtn", function () {
 
         if (tokenAmount) {
             const tx = iost.callABI("Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", "stake", [tokenAmount.toString()]);
-            tx.addApprove("pmine", tokenAmount.toString());
+            tx.addApprove("imatch", tokenAmount.toString());
 
             iost.signAndSend(tx).on('pending', function (txid) {
                 console.log("======>pending", txid);
@@ -435,7 +435,7 @@ $(document).on("click", "#unstakeBtn", function () {
 
         if (tokenAmount) {
             const tx = iost.callABI("Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", "unstake", [tokenAmount.toString()]);
-            tx.addApprove("pmine", tokenAmount.toString());
+            tx.addApprove("imatch", tokenAmount.toString());
 
             iost.signAndSend(tx).on('pending', function (txid) {
                 console.log("======>pending", txid);
