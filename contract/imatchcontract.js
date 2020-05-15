@@ -8,7 +8,7 @@ const totalSupply = 1000;
 const originalPrice = 42600;
 
 //specifies admin of the contract.  
-const admin = "imatch_admin";
+const admin = "pmine_admin";
 
 class SwapContract {
     init() {
@@ -17,6 +17,7 @@ class SwapContract {
 
         //sets total sold to zero because admin has not deposited yet.
         storage.put("totalSold", "0");
+
 
         //sets imatch on contract to zero because admin has not deposited yet.
         storage.put("imatchAmountOnContract", "0");
@@ -32,6 +33,9 @@ class SwapContract {
         if (imatchAmount * 0 !== 0 || imatchAmount * 1 <= 0) {
             throw "Not a valid number. "
         }
+        if (storage.get("totalSold") > 0){
+            throw "Admin has already deposited initial IMatch tokens. "
+        }
 
         imatchAmount = (imatchAmount * 1);
         imatchAmount = imatchAmount.toFixed(tokenDecimal);
@@ -45,12 +49,12 @@ class SwapContract {
         //update block storage for total sold and imatch on contract.
         storage.put("imatchAmountOnContract", imatch_contract.toString());
 
-        //updates total sold. 
+        //updates total sold.    
         let total_sold = totalSupply - imatchAmount * 1
         storage.put("totalSold", total_sold.toString());
 
         //Updates the current price based on circulation.
-        let newPrice = Math.ceil(total_sold / 100) * 200 + originalPrice * 1
+        let newPrice = Math.floor(total_sold / 100) * 200 + originalPrice * 1
         storage.put("tokenPrice", newPrice.toString());
 
 
@@ -167,7 +171,7 @@ class SwapContract {
         storage.put("imatchAmountOnContract", imatch_contract.toString());
 
         //update price based on circulation.
-        let newPrice = Math.ceil(total_sold / 100) * 200 + originalPrice * 1;
+        let newPrice = Math.floor(total_sold / 100) * 200 + originalPrice * 1;
         storage.put("tokenPrice", newPrice.toString());
 
         //generate tx receipt
