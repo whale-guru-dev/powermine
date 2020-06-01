@@ -169,6 +169,9 @@
             window.IWalletJS.enable().then(function (val) {
                 if(val !== 'powermine')
                     window.location.href='/';
+                else if(val === 'powermine') {
+                    $("#menu-item-139").show();
+                }
             }).catch(error => {
                 window.location.href='/';
             })
