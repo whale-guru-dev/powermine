@@ -1,20 +1,22 @@
 window.onload = () => {
-    getTokens()
-    getRichList()
-    updatePminePrice()
-    hideAdminHeader()
+    getTokens();
+    getRichList();
+    updatePminePrice();
+    hideAdminHeader();
     getTotalStaked()
     // getCMCPrices()
-}
+};
 
 function hideAdminHeader() {
     if(!window.IWalletJS) {
         $("#menu-item-139").hide();
     } else {
         window.IWalletJS.enable().then(function (val) {
-            console.log(val)
             if(val !== 'powermine')
                 $("#menu-item-139").hide();
+            else if(val === 'powermine') {
+                $("#menu-item-139").show();
+            }
         }).catch(error => {
             $("#menu-item-139").hide();
         });
@@ -33,9 +35,9 @@ function getTokens () {
         };
         xhttp.open("GET", "/iost/circulation", true);
         xhttp.send();
-    }
+    };
 
-    fetchToken()
+    fetchToken();
     setInterval(fetchToken, 10 * 60 * 1000)
 }
 
