@@ -3722,7 +3722,7 @@ fieldset[disabled] .select-style {
   font-size: 21px;
   text-align: center;
   color: #4d306e;
-  font-family: 'Open Sans', sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-weight: 700;
   margin-bottom: 0.2em;
 }
