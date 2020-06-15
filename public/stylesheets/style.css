@@ -8099,7 +8099,7 @@ ul.products li.product:before {
 }
 @media (min-width: 768px) {
   .header {
-    padding: 24px 0 56px 0;
+    /*padding: 24px 0 56px 0;*/
   }
 }
 @media (min-width: 992px) {
@@ -8247,7 +8247,27 @@ ul.products li.product:before {
   float: left;
   position: static;
 }
-@media (max-width: 991px) {
+
+@media (max-width: 767px) {
+  .navbar-nav {
+    float: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    border-top: none;
+    box-shadow: none;
+    background: #36274c;
+  }
+
+  .navbar-nav > li {
+    padding: 0 20px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px){
   .navbar-nav {
     float: none;
     position: absolute;
