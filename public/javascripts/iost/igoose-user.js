@@ -1,9 +1,10 @@
 window.onload = () => {
-    getTokens()
-    getRichList()
-    updatePminePrice()
-    hideAdminHeader()
-    getTotalStaked()
+    getTokens();
+    getRichList();
+    updatePminePrice();
+    hideAdminHeader();
+    getTotalStaked();
+    updateTimer()
     // getCMCPrices()
 }
 
@@ -19,6 +20,26 @@ function hideAdminHeader() {
             $("#menu-item-139").hide();
         });
     }
+}
+
+function updateTimer ()
+{
+    const date = new Date('2020-06-18T00:00:00+00:00');
+    const updateTimer_internal = function() {
+        const present_date = new Date();
+        const Difference_In_Time = date.getTime() - present_date.getTime();
+        var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 60 * 60 * 24));
+        var Difference_In_Hour = Math.floor((Difference_In_Time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var Difference_In_Minutes = Math.floor((Difference_In_Time % (1000 * 60 * 60)) / (1000 * 60));
+        var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
+
+        $("#timer_days").html(Difference_In_Days);
+        $("#timer_hours").html(Difference_In_Hour);
+        $("#timer_minutes").html(Difference_In_Minutes);
+        $("#timer_seconds").html(Difference_In_Seconds);
+    };
+
+    setInterval(updateTimer_internal, 1000);
 }
 
 function getTokens () {

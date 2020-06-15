@@ -1794,6 +1794,17 @@ table > thead > tr > th, .table > thead > tr > th {
     align-items: center;
 }
 
+.landing__page-timer {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 992px) {
+    .landing__page-timer {
+        padding-top: 120px;
+    }
+}
+
 @-webkit-keyframes timerotate {
     0% {
         -webkit-transform: rotate(-10deg);
@@ -1917,10 +1928,10 @@ table > thead > tr > th, .table > thead > tr > th {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 70px;
+    width: 80px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    height: 70px;
+    height: 80px;
     margin: 0 10px
 }
 
@@ -1976,10 +1987,10 @@ table > thead > tr > th, .table > thead > tr > th {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 70px;
+    width: 80px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    height: 70px;
+    height: 80px;
     position: absolute
 }
 
@@ -2005,7 +2016,7 @@ table > thead > tr > th, .table > thead > tr > th {
 }
 
 .landing__page-timer>div>div span:last-child {
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
     position: relative;
@@ -2015,10 +2026,10 @@ table > thead > tr > th, .table > thead > tr > th {
 }
 
 .landing__page-timer .is-box {
-    width: 70px;
+    width: 80px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    height: 70px;
+    height: 80px;
     border-radius: 10px;
     background: linear-gradient(95deg, #2a2e2f, #212224);
     display: -webkit-box;
@@ -2043,14 +2054,14 @@ table > thead > tr > th, .table > thead > tr > th {
 .landing__page-timer .is-box.is-box--green:after,
 .landing__page-timer .is-box.is-box--green:before {
     left: 0;
-    width: 80px;
+    width: 90px;
     background: linear-gradient(-45deg, #0fd560, #212224)
 }
 
 .landing__page-timer .is-box:after,
 .landing__page-timer .is-box:before {
     left: 0;
-    width: 80px;
+    width: 90px;
     background: linear-gradient(-45deg, #fdda2a, #212224);
     opacity: .1;
     -webkit-transform: rotate(180deg);
