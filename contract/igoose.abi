@@ -1,0 +1,83 @@
+{
+  "lang": "javascript",
+  "version": "1.0.0",
+  "abi": [
+    {
+      "name": "depositInitialIGoose",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "depositIOST",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "withdrawlIost",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "buyToken",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "stake",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "unstake",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "payDividends",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "can_update",
+      "args": [
+        "string"
+      ],
+      "amountLimit": [
+        {"token": "*", "val": "unlimited"}
+      ]
+    },
+    {
+      "name": "updateInit",
+      "args": [],
+      "amountLimit": []
+    }
+  ]
+}
