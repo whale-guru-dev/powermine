@@ -1805,6 +1805,32 @@ table > thead > tr > th, .table > thead > tr > th {
     }
 }
 
+@media (min-width: 1421px) {
+    .landing__page-timer {
+        transform: scale(.9);
+    }
+
+    .igoose-timer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1420px) {
+    .landing__page-timer {
+        transform: scale(.7);
+    }
+
+    .igoose-timer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .igoose-timer {
+        justify-content: center;
+    }
+}
+
 @-webkit-keyframes timerotate {
     0% {
         -webkit-transform: rotate(-10deg);
