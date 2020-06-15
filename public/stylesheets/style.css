@@ -8242,9 +8242,9 @@ ul.products li.product:before {
   top: 0;
 }
 .navbar-nav {
-  padding: 0 40px 0 0;
+  padding: 0 40px 0 50px !important;
   margin: 0;
-  float: right;
+  float: left;
   position: static;
 }
 @media (max-width: 991px) {

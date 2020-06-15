@@ -983,7 +983,7 @@ legend,
 
 @media (min-width: 768px) {
     .header.affix .logo img {
-        max-width: 450px;
+        max-width: 400px;
         width: 450px;
     }
 }
