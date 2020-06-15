@@ -11,6 +11,7 @@ function getMainnetConfig() {
 window.onload = () => {
     updateIOSTAmount();
     updateIOSTiMatchAmount();
+    updateIOSTiGooseAmount();
 };
 
 function updateIOSTAmount () {
@@ -47,6 +48,24 @@ function updateIOSTiMatchAmount () {
 
     updateIOSTiMatchAmount_internal();
     setInterval(updateIOSTiMatchAmount_internal,10 * 60 * 1000)
+}
+
+function updateIOSTiGooseAmount () {
+    const updateIOSTiGooseAmount_internal = () => {
+        $.ajax({
+            url: '/igoose/getIOSTInContract',
+            type: 'GET',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+                var amount = response;
+                $("#iostAmtIniGooseContract").html((amount*1).toFixed(8))
+            }
+        })
+    };
+
+    updateIOSTiGooseAmount_internal();
+    setInterval(updateIOSTiGooseAmount_internal,10 * 60 * 1000)
 }
 
 
@@ -372,6 +391,165 @@ $(document).on("click", "#paydividendsiMatch", function () {
         var divAmount = $("#divAmountiMatch").val();
 
         const tx = iost.callABI("Contract6EXwvev8u8gqiLPqkfr7XXCpiA6VhVxiAqTZcWjuEwV2", "payDividends", [divAmount.toString()]);
+        tx.addApprove("iost", "10000000");
+
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>Dividends payout success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Payment of Dividends Succeeded. </div>');
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">' + result + '</div>');
+        });
+    });
+});
+
+// iGoose
+$(document).on("click", "#depositiGooseBtn", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var depositAmount = $("#depositiGooseAmt").val();
+
+        const tx = iost.callABI("ContractBbjSHzs2CEwWECHcUwFJXiSJRr2jb8NhvANa1MJgWX97", "depositInitialIGoose", [depositAmount.toString()]);
+        tx.addApprove("igoose", "100000");
+        // const chainId = getMainnetConfig().chainId;
+        // tx.setChainID(chainId);
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>buy success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Deposit Success. Please check your wallet</div>');
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">'+result+'</div>');
+        });
+    });
+});
+
+$(document).on("click", "#withdrawiGooseBtn", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var withdrawAmt = $("#withdrawiGooseAmt").val();
+
+        const tx = iost.callABI("ContractBbjSHzs2CEwWECHcUwFJXiSJRr2jb8NhvANa1MJgWX97", "withdrawlIost", [withdrawAmt.toString()]);
+        tx.addApprove("iost", "10000000");
+        // const chainId = getMainnetConfig().chainId;
+        // tx.setChainID(chainId);
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>buy success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Withdrawal Success. Please check your wallet</div>');
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">'+result+'</div>');
+        });
+    });
+});
+
+$(document).on("click", "#depositIostiGooseBtn", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var withdrawAmt = $("#depositIostiGooseAmt").val();
+
+        const tx = iost.callABI("ContractBbjSHzs2CEwWECHcUwFJXiSJRr2jb8NhvANa1MJgWX97", "depositIOST", [withdrawAmt.toString()]);
+        tx.addApprove("iost", "10000000");
+        // const chainId = getMainnetConfig().chainId;
+        // tx.setChainID(chainId);
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>buy success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Deposit IOST Success. Please check your wallet</div>');
+
+            setTimeout(function () {
+                $.ajax({
+                    url: '/iost/getIOSTInContract',
+                    type: 'GET',
+                    data: {},
+                    dataType: 'json',
+                    success: function(response) {
+                        var amount = response.data;
+                        $("#iostAmtInContract").html((amount*1).toFixed(8))
+                    }
+                })
+            }, 1000);
+
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">'+result+'</div>');
+        });
+    });
+});
+
+
+$(document).on("click", "#paydividendsiGoose", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 2000000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
+
+        iost.config = defaultConfig;
+
+        var divAmount = $("#divAmountiGoose").val();
+
+        const tx = iost.callABI("ContractBbjSHzs2CEwWECHcUwFJXiSJRr2jb8NhvANa1MJgWX97", "payDividends", [divAmount.toString()]);
         tx.addApprove("iost", "10000000");
 
 

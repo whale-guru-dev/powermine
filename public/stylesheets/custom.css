@@ -1078,6 +1078,10 @@ legend,
     padding: 50px 0 100px 0;
 }
 
+.igoose-exchange {
+    padding: 50px 0 100px 0;
+}
+
 .exchange-main {
     background: #ffffffa3;
     /*padding: 40px 120px 40px 60px;*/
@@ -1216,6 +1220,10 @@ legend,
 }
 
 .imatch-exchange-item .dropdown {
+    font-size: 9px !important;
+}
+
+.igoose-exchange-item .dropdown {
     font-size: 9px !important;
 }
 
@@ -1513,6 +1521,10 @@ a:hover {
     background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
 }
 
+#igoose-exchange {
+    background: url(../images/igoose-background.jpg) no-repeat center center / cover;
+}
+
 table > thead > tr > th, .table > thead > tr > th, table > tbody > tr > th, .table > tbody > tr > th, table > tfoot > tr > th, .table > tfoot > tr > th, table > thead > tr > td, .table > thead > tr > td, table > tbody > tr > td, .table > tbody > tr > td, table > tfoot > tr > td, .table > tfoot > tr > td {
     padding: 10px;
     line-height: 1.6;
@@ -1774,4 +1786,293 @@ table > thead > tr > th, .table > thead > tr > th {
     .exchange-protect p {
         font-size: 12px;
     }
+}
+
+/*timer*/
+.igoose-timer {
+    display: flex;
+    align-items: center;
+}
+
+@-webkit-keyframes timerotate {
+    0% {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg)
+    }
+    50% {
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg)
+    }
+    to {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg)
+    }
+}
+
+@keyframes timerotate {
+    0% {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg)
+    }
+    50% {
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg)
+    }
+    to {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg)
+    }
+}
+
+@-webkit-keyframes timerotatereverse {
+    0% {
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg)
+    }
+    50% {
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg)
+    }
+    to {
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg)
+    }
+}
+
+@keyframes timerotatereverse {
+    0% {
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg)
+    }
+    50% {
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg)
+    }
+    to {
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg)
+    }
+}
+
+.landing__page-timer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+    /*padding-top: 30px*/
+}
+
+@media (max-width:710px) {
+    .landing__page-timer {
+        -webkit-transform: scale(.6);
+        transform: scale(.6)
+    }
+}
+
+.landing__page-timer .is-spacer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.landing__page-timer .is-spacer span {
+    width: 8px;
+    height: 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 999em;
+    margin: 5px;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .1)
+}
+
+.landing__page-timer .is-spacer span:first-child {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0fd560), to(#008b43));
+    background: linear-gradient(#0fd560, #008b43);
+    -webkit-animation: pulsespacerreverse 2s infinite backwards;
+    animation: pulsespacerreverse 2s infinite backwards
+}
+
+.landing__page-timer .is-spacer span:last-child {
+    background: -webkit-gradient(linear, left top, left bottom, from(#fdda2a), to(#ffc100));
+    background: linear-gradient(#fdda2a, #ffc100);
+    -webkit-animation: pulsespacer 4s infinite backwards;
+    animation: pulsespacer 4s infinite backwards
+}
+
+.landing__page-timer>div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 70px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 70px;
+    margin: 0 10px
+}
+
+.landing__page-timer>div:first-child .is-box {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+    -webkit-animation: timerotate 2s infinite;
+    animation: timerotate 2s infinite
+}
+
+.landing__page-timer>div:nth-child(2) .is-box {
+    -webkit-animation: timerotatereverse 2s infinite;
+    animation: timerotatereverse 2s infinite;
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg)
+}
+
+.landing__page-timer>div:nth-child(4)>div span:first-child {
+    color: #fdda2a;
+    text-shadow: 2px 2px 0 rgba(240, 206, 39, .6), 0 0 20px rgba(240, 206, 39, .6)
+}
+
+.landing__page-timer>div:nth-child(4) .is-box {
+    -webkit-animation: timerotate 2s infinite;
+    animation: timerotate 2s infinite;
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg)
+}
+
+.landing__page-timer>div:last-child>div span:first-child {
+    color: #fdda2a;
+    text-shadow: 2px 2px 0 rgba(240, 206, 39, .6), 0 0 20px rgba(240, 206, 39, .6)
+}
+
+.landing__page-timer>div:last-child .is-box {
+    -webkit-animation: timerotatereverse 2s infinite;
+    animation: timerotatereverse 2s infinite;
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg)
+}
+
+.landing__page-timer>div>div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 70px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 70px;
+    position: absolute
+}
+
+.landing__page-timer>div>div:hover span:first-child {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1)
+}
+
+.landing__page-timer>div>div:hover span:last-child {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15)
+}
+
+.landing__page-timer>div>div span:first-child {
+    font-size: 24px;
+    font-weight: 800;
+    font-family: Dosis, sans-serif;
+    color: #0fd560;
+    text-shadow: 2px 2px 0 rgba(15, 213, 96, .6), 0 0 20px rgba(15, 213, 96, .6);
+    position: relative;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out
+}
+
+.landing__page-timer>div>div span:last-child {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    color: #fff;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out
+}
+
+.landing__page-timer .is-box {
+    width: 70px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 70px;
+    border-radius: 10px;
+    background: linear-gradient(95deg, #2a2e2f, #212224);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .1);
+    position: absolute;
+    overflow: hidden
+}
+
+.landing__page-timer .is-box.is-box--green:after,
+.landing__page-timer .is-box.is-box--green:before {
+    left: 0;
+    width: 80px;
+    background: linear-gradient(-45deg, #0fd560, #212224)
+}
+
+.landing__page-timer .is-box:after,
+.landing__page-timer .is-box:before {
+    left: 0;
+    width: 80px;
+    background: linear-gradient(-45deg, #fdda2a, #212224);
+    opacity: .1;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.landing__page-timer .is-box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 99em 99em 9em 999em
+}
+
+.landing__page-timer .is-box:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 85%;
+    right: 0;
+    left: auto;
+    border-radius: 99em 9999em 9em 999em
 }

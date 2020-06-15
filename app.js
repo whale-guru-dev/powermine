@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var iostRouter = require('./routes/iost');
 var imatchRouter = require('./routes/imatch');
+var igooseRouter = require('./routes/igoose');
 var adminRouter = require('./routes/admin');
 
 var app = express();
@@ -27,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/iost', iostRouter);
 app.use('/admin', adminRouter);
 app.use('/imatch', imatchRouter);
+app.use('/igoose', igooseRouter);
 
 app.get('*', function (req, res) {
   res.render('404');
