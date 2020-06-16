@@ -24,8 +24,8 @@ function hideAdminHeader() {
 
 function updateTimer ()
 {
-    // const date = new Date('2020-06-18T00:00:00+00:00');
-    const date = new Date((new Date()).getTime() + 120*1000);
+    const date = new Date('2020-06-18T16:00:00+00:00');
+    // const date = new Date((new Date()).getTime() + 120*1000);
     const updateTimer_internal = function() {
         const present_date = new Date();
         const Difference_In_Time = date.getTime() - present_date.getTime();
