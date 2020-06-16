@@ -22,6 +22,7 @@ class IGooseContract {
 
     //Only admin can use this function.  Admin must first deposit igoose to the contract from account admin
     depositInitialIGoose(igooseAmount) {
+        this._assertTimeLock();
         this._assertAccountAuth("pmine_admin");
 
         if (igooseAmount * 0 !== 0 || igooseAmount * 1 <= 0) {
@@ -56,6 +57,7 @@ class IGooseContract {
 
     //Admin can deposit IOST to the contract.
     depositIOST(iostAmount) {
+        this._assertTimeLock();
         //checks to make sure that admin is the active account calling this function.
         this._assertAccountAuth("powermine");
 
@@ -81,6 +83,7 @@ class IGooseContract {
 
     //Admin can withdrawl IOST from the contract.
     withdrawlIost(iostAmount) {
+        this._assertTimeLock();
         //checks to make sure that admin is the active account calling this function.
         this._assertAccountAuth("powermine");
 
@@ -105,7 +108,7 @@ class IGooseContract {
 
     //User trigger this function to buy igoose.
     buyToken(igooseAmount) {
-
+        this._assertTimeLock();
         //Checks to make sure igooseAmount is not a string but number.
         //Also checks to make sure it is not less than zero
         if (igooseAmount * 0 !== 0 || igooseAmount * 1 <= 0) {
@@ -186,6 +189,7 @@ class IGooseContract {
 
     //allows user to stake igoose
     stake(igooseAmount) {
+        this._assertTimeLock();
         //Checks to make sure igooseAmount is not a string but number.
         //Also checks to make sure it is not less than zero
         if (igooseAmount * 0 !== 0 || igooseAmount * 1 <= 0) {
@@ -244,6 +248,7 @@ class IGooseContract {
 
     //allows user to unstake igoose
     unstake(igooseAmount) {
+        this._assertTimeLock();
         //Checks to make sure igooseAmount is not a string but number.
         //Also checks to make sure it is not less than zero
         if (igooseAmount * 0 !== 0 || igooseAmount * 1 <= 0) {
@@ -297,6 +302,7 @@ class IGooseContract {
 
     //allows admin to specify dividends amount to payout.  
     payDividends(amount) {
+        this._assertTimeLock();
         //only admin can use this function. 
         this._assertAccountAuth("powermine");
 
@@ -335,13 +341,34 @@ class IGooseContract {
     //write codes in this function if you want to update block storage. 
     updateInit() {
         this._assertAccountAuth('pmine_admin');
-        
+
+        blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["igoose", tx.publisher, blockchain.contractName(), "1.09392018", "igoose depoist"]));
+
+        let igoose_contract = storage.get("igooseAmountOnContract") * 1;
+        igoose_contract = (igoose_contract + 1.09392018);
+        igoose_contract = igoose_contract.toFixed(8);
+
+        //update block storage for total sold and igoose on contract.
+        storage.put("igooseAmountOnContract", igoose_contract.toString());
+
+        //updates total sold.    
+        let total_sold = storage.get("totalSold") * 1;
+        total_sold -= 1.09392018;
+        storage.put("totalSold", (total_sold).toFixed(8));
+
+      
 
     }
 
     _assertAccountAuth(account) {
         if (!blockchain.requireAuth(account, 'active')) {
             throw 'Authorization Failure';
+        }
+    }
+
+    _assertTimeLock(){
+        if (block.time <= 1592499600000000000){
+            throw "Contract is locked until 10:00am Thursday June 18th, 2020"
         }
     }
 }
