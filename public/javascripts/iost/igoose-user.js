@@ -24,8 +24,8 @@ function hideAdminHeader() {
 
 function updateTimer ()
 {
-    const date = new Date('2020-06-18T00:00:00+00:00');
-    // const date = new Date();
+    // const date = new Date('2020-06-18T00:00:00+00:00');
+    const date = new Date((new Date()).getTime() + 120*1000);
     const updateTimer_internal = function() {
         const present_date = new Date();
         const Difference_In_Time = date.getTime() - present_date.getTime();
@@ -39,12 +39,44 @@ function updateTimer ()
 
             $("#iGoose-table-body").hide();
             $("#iGoose-table2-body").hide();
+
+            if(!$("#buyBtn").hasClass('disabled')) {
+                $("#buyBtn").addClass('disabled');
+            }
+
+            if(!$("#stakeBtn").hasClass('disabled')) {
+                $("#stakeBtn").addClass('disabled');
+            }
+
+            if(!$("#unstakeBtn").hasClass('disabled')) {
+                $("#unstakeBtn").addClass('disabled');
+            }
+
+            $( "#pmineAmtBuy" ).prop( "disabled", true );
+            $( "#iostAmtBuy" ).prop( "disabled", true );
+            $( "#iGooseAmtStake" ).prop( "disabled", true );
         } else {
             Difference_In_Days = Difference_In_Hour = Difference_In_Minutes = Difference_In_Seconds = 0;
 
             isTimerValid = true;
             $("#iGoose-table-body").show();
             $("#iGoose-table2-body").show();
+
+            if($("#buyBtn").hasClass('disabled')) {
+                $("#buyBtn").removeClass('disabled');
+            }
+
+            if($("#stakeBtn").hasClass('disabled')) {
+                $("#stakeBtn").removeClass('disabled');
+            }
+
+            if($("#unstakeBtn").hasClass('disabled')) {
+                $("#unstakeBtn").removeClass('disabled');
+            }
+
+            $( "#pmineAmtBuy" ).prop( "disabled", false );
+            $( "#iostAmtBuy" ).prop( "disabled", false );
+            $( "#iGooseAmtStake" ).prop( "disabled", false );
         }
 
         $("#timer_days").html(Difference_In_Days);
@@ -395,109 +427,113 @@ $(document).on("click", "#buyBtn", function () {
 
 
 $(document).on("click", "#stakeBtn", function () {
-    if (!window.IWalletJS) {
-        $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusStakeMsg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 800000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-        var tokenAmount = $("#iGooseAmtStake").val();
-
-        if (tokenAmount) {
-            const tx = iost.callABI("ContractBbjSHzs2CEwWECHcUwFJXiSJRr2jb8NhvANa1MJgWX97", "stake", [tokenAmount.toString()]);
-            tx.addApprove("igoose", tokenAmount.toString());
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>sell success', result);
-                $(".page-loader").hide();
-                $("#statusStakeMsg").html('<div class="alert alert-success">Successfully staked. Please check your wallet</div>');
-                getRichList();
-                getTotalStaked();
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
-
-            });
-        } else {
-            $("#statusStakeMsg").html('<div class="alert alert-warning">Please input stake amount.</div>');
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
         }
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusStakeMsg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
+
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 800000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+            var tokenAmount = $("#iGooseAmtStake").val();
+
+            if (tokenAmount) {
+                const tx = iost.callABI("ContractBbjSHzs2CEwWECHcUwFJXiSJRr2jb8NhvANa1MJgWX97", "stake", [tokenAmount.toString()]);
+                tx.addApprove("igoose", tokenAmount.toString());
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>sell success', result);
+                    $(".page-loader").hide();
+                    $("#statusStakeMsg").html('<div class="alert alert-success">Successfully staked. Please check your wallet</div>');
+                    getRichList();
+                    getTotalStaked();
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
+
+                });
+            } else {
+                $("#statusStakeMsg").html('<div class="alert alert-warning">Please input stake amount.</div>');
+            }
 
 
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
+    }
 });
 
 $(document).on("click", "#unstakeBtn", function () {
-    if (!window.IWalletJS) {
-        $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusStakeMsg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 800000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-
-        var tokenAmount = $("#iGooseAmtStake").val();
-
-        if (tokenAmount) {
-            const tx = iost.callABI("ContractBbjSHzs2CEwWECHcUwFJXiSJRr2jb8NhvANa1MJgWX97", "unstake", [tokenAmount.toString()]);
-            tx.addApprove("igoose", tokenAmount.toString());
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>unstake success', result);
-                $(".page-loader").hide();
-                $("#statusStakeMsg").html('<div class="alert alert-success">Successfully unstaked. Please check your wallet</div>');
-                getRichList();
-                getTotalStaked();
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
-            });
-        } else {
-            $("#statusStakeMsg").html('<div class="alert alert-warning">Please input unstake amount.</div>');
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
         }
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusStakeMsg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
+
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 800000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+
+            var tokenAmount = $("#iGooseAmtStake").val();
+
+            if (tokenAmount) {
+                const tx = iost.callABI("ContractBbjSHzs2CEwWECHcUwFJXiSJRr2jb8NhvANa1MJgWX97", "unstake", [tokenAmount.toString()]);
+                tx.addApprove("igoose", tokenAmount.toString());
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>unstake success', result);
+                    $(".page-loader").hide();
+                    $("#statusStakeMsg").html('<div class="alert alert-success">Successfully unstaked. Please check your wallet</div>');
+                    getRichList();
+                    getTotalStaked();
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
+                });
+            } else {
+                $("#statusStakeMsg").html('<div class="alert alert-warning">Please input unstake amount.</div>');
+            }
 
 
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
+    }
 });
 
 function getCMCPrices () {
