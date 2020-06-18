@@ -1513,7 +1513,7 @@ a:hover {
     align-items: center;
 }
 
-#pmine-exchange {
+#pmine-richlist {
     background: url(../images/background.jpg) no-repeat center center / cover;
 }
 
@@ -1621,7 +1621,7 @@ table > thead > tr > th, .table > thead > tr > th {
 
 @media (min-width: 992px) {
     .page-section {
-        padding: 50px 0 100px 0;
+        padding: 0px 0 100px 0;
     }
 }
 

@@ -4,7 +4,7 @@ window.onload = () => {
     updatePminePrice();
     hideAdminHeader();
     getTotalStaked();
-    updateTimer()
+    // updateTimer()
     // getCMCPrices()
 };
 var isTimerValid = false;

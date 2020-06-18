@@ -1,386 +1,444 @@
-
-
 <main id="primary" class="site-main col-md-12">
-  <div id="post-42" class="post-42 page type-page status-publish hentry">
-    <div class="entry-content">
-      <div class="vc_row-full-width vc_clearfix"></div>
-      <div id="pmine-richlist" data-vc-full-width="true" data-vc-full-width-init="false" data-rocket-separator="true"
-        data-rocket-separator-type="waves_svg_separator" data-rocket-separator-position="top_bottom_separator"
-        data-rocket-separator-shape-background="#f1f2f4"
-        class="vc_row wpb_row vc_row-fluid page-section page-section__dark vc_row-o-content-middle vc_row-flex rocket-row-with-separator rocket-row-separator-type-waves_svg_separator">
+    <div id="post-42" class="post-42 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div class="vc_row-full-width vc_clearfix"></div>
 
-        <div class="wpb_column vc_column_container vc_col-sm-12">
-          <div class="vc_column-inner">
-            <div class="wpb_wrapper">
-              <div id="rocket__section-title-rdd5lt1odo" class="section-title-wrapper" style="margin-bottom: 0px;">
-                <div class="section-title-inner section-title-inner__alt">
-                  <h1 class="section-title section-title__lg">STAKE PMINE</h1>
-                  <div class="row text-center" id="statusStakeMsg">
+            <div id="pmine-richlist" data-vc-full-width="true" data-vc-full-width-init="false"
+                 data-rocket-separator="true"
+                 data-rocket-separator-type="waves_svg_separator" data-rocket-separator-position="top_bottom_separator"
+                 data-rocket-separator-shape-background="#f1f2f4"
+                 class="vc_row wpb_row vc_row-fluid page-section page-section__dark vc_row-o-content-middle vc_row-flex rocket-row-with-separator rocket-row-separator-type-waves_svg_separator">
+<!--                <div class="row">-->
+                    <div class="vc_col-sm-12">
+                        <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Ticker Tape</span></a> by TradingView</div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                                {
+                                    "symbols": [
+                                    {
+                                        "proName": "BINANCE:IOSTUSDT",
+                                        "title": "IOST/USD"
+                                    },
+                                    {
+                                        "proName": "BITSTAMP:BTCUSD",
+                                        "title": "BTC/USD"
+                                    },
+                                    {
+                                        "proName": "BITSTAMP:ETHUSD",
+                                        "title": "ETH/USD"
+                                    },
+                                    {
+                                        "proName": "BINANCE:IOTXUSDT",
+                                        "title": "IOTX/USD"
+                                    },
+                                    {
+                                        "proName": "BINANCE:TRXUSDT",
+                                        "title": "TRX/USD"
+                                    }
+                                ],
+                                    "colorTheme": "dark",
+                                    "isTransparent": true,
+                                    "displayMode": "regular",
+                                    "locale": "en"
+                                }
+                            </script>
+                        </div>
+                        <!-- TradingView Widget END -->
+                    </div>
+<!--                </div>-->
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div id="rocket__section-title-rdd5lt1odo" class="section-title-wrapper"
+                                 style="margin-bottom: 0px;">
+                                <div class="section-title-inner section-title-inner__alt">
+                                    <span style="color: white;">PMINEs are sold out. Please continue to Uniswap to purchase Pmine on Powerdefi.io</span>
+                                    <h1 class="section-title section-title__lg" style="color: #ffffff">STAKE PMINE</h1>
+                                    <div class="row text-center" id="statusStakeMsg">
 
-                  </div>
-                  <div class="row" style="width: 50%; margin: auto; ">
-                    <p class="col-md-4" id="account-logged-in" style="text-align: center;"></p>
-                    <p class="col-md-4" id="user-staked-balance" style="text-align: center;"></p>
-                    <p class="col-md-4" id="user-pmine-balance" style="text-align: center;"></p>
-                  </div>
-                  <div class="row" >
-                    <input type="number" id="pmineAmtStake"
-                      style="width: 100px; margin: auto; box-shadow: 2px 2px 4px black;">
-                    <br><br>
-                  
-                    <div class="exchange-form-row-div_center">
-                      <div class="exchange-button wow fadeIn" data-wow-delay=".4s"
-                        style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn; margin: auto;">
-                        <a href="javascript:void(0)"
-                          class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-primary"
-                          style="width: 100px;" id="stakeBtn">Stake!</a>
-                        <a href="javascript:void(0)"
-                          class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-secondary"
-                          style="width: 100px;" id="unstakeBtn">UnStake!</a>
-                      </div>
-                    </div><br>
-        
-          
-                      <p id="staked-msg"></p>
-                      
-       
-                  </div>
+                                    </div>
+                                    <div class="row" style="width: 50%; margin: auto; color: white; text-shadow: 2px 2px 4px black;">
+                                        <p class="col-md-3" id="account-logged-in" style="text-align: center;"></p>
+                                        <p class="col-md-3" id="exchange-iost-balance" style="text-align: center;"></p>
+                                        <p class="col-md-3" id="user-staked-balance" style="text-align: center;"></p>
+                                        <p class="col-md-3" id="user-pmine-balance" style="text-align: center;"></p>
+                                    </div>
+                                    <div class="row">
+                                        <input type="number" id="pmineAmtStake"
+                                               style="width: 100px; margin: auto; box-shadow: 2px 2px 4px black; background-color: #ffffffc7; border: 0;">
+                                        <br><br>
 
-                  <hr>
-                  <span class="section-desc">TOP
-                    STAKEHOLDERS</span><span class="section-title-dots"><span class="dot1"></span><span
-                      class="dot2"></span><span class="dot3"></span></span>
+                                        <div class="exchange-form-row-div_center">
+                                            <div class="exchange-button wow fadeIn" data-wow-delay=".4s"
+                                                 style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn; margin: auto;">
+                                                <a href="javascript:void(0)"
+                                                   class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-primary"
+                                                   style="width: 100px;" id="stakeBtn">Stake!</a>
+                                                <a href="javascript:void(0)"
+                                                   class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-secondary"
+                                                   style="width: 100px;" id="unstakeBtn">UnStake!</a>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <p id="staked-msg" style="color: white; "></p>
+                                    </div>
+
+<!--                                    <hr>-->
+                                    <h2 class="section-title section-title__sm" style="color: white;">TOP STAKEHOLDERS</h2>
+<!--                                    <span class="section-title-dots">-->
+<!--                                        <span class="dot1"></span>-->
+<!--                                        <span class="dot2"></span>-->
+<!--                                        <span class="dot3"></span>-->
+<!--                                    </span>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="wpb_column vc_column_container vc_col-sm-2"></div>
-        <div class="wpb_column vc_column_container vc_col-sm-4">
-          <div class="vc_column-inner">
-            <div class="wpb_text_column wpb_content_element ">
-              <div class="wpb_wrapper">
-                <table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%"
-                  style="width: 100%;">
-                  <thead>
-                    <tr>
-                      <th scope="col" data-label="RANK">RANK</th>
-                      <th scope="col" data-label="ADDRESS">ADDRESS</th>
-                      <th scope="col" data-label=" AMOUNT">AMOUNT</th>
-                      <th scope="col" data-label=" HOLDING">STAKED %</th>
-                    </tr>
-                  </thead>
-                  <tbody id="pmine-table-body">
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="wpb_column vc_column_container vc_col-sm-4">
-          <div class="vc_column-inner">
-            <div class="wpb_text_column wpb_content_element ">
-              <div class="wpb_wrapper">
-                <table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%"
-                  style="width: 100%;">
-                  <thead>
-                    <tr>
-                      <th scope="col" data-label="RANK">RANK</th>
-                      <th scope="col" data-label="ADDRESS">ADDRESS</th>
-                      <th scope="col" data-label=" AMOUNT">AMOUNT</th>
-                      <th scope="col" data-label=" HOLDING">STAKED %</th>
-                    </tr>
-                  </thead>
-                  <tbody id="pmine-table2-body">
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+                <div class="wpb_column vc_column_container vc_col-sm-2"></div>
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_text_column wpb_content_element ">
+                            <div class="wpb_wrapper">
+                                <table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%"
+                                       style="width: 100%; background-color: #ffffffa3;">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" data-label="RANK">RANK</th>
+                                        <th scope="col" data-label="ADDRESS">ADDRESS</th>
+                                        <th scope="col" data-label=" AMOUNT">AMOUNT</th>
+                                        <th scope="col" data-label=" HOLDING">STAKED %</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="pmine-table-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_text_column wpb_content_element ">
+                            <div class="wpb_wrapper">
+                                <table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%"
+                                       style="width: 100%; background-color: #ffffffa3;">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" data-label="RANK">RANK</th>
+                                        <th scope="col" data-label="ADDRESS">ADDRESS</th>
+                                        <th scope="col" data-label=" AMOUNT">AMOUNT</th>
+                                        <th scope="col" data-label=" HOLDING">STAKED %</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="pmine-table2-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        
-      </div>
-      <div class="vc_row-full-width vc_clearfix"></div>
-      <!-- How we work -->
-      <div id="section-work" data-vc-full-width="true" data-vc-full-width-init="false" data-rocket-separator="true"
-        data-rocket-separator-type="waves_svg_separator" data-rocket-separator-position="top_bottom_separator"
-        data-rocket-separator-shape-background="#f1f2f4"
-        class="vc_row wpb_row vc_row-fluid vc_custom_1475176205752 vc_row-has-fill page-section page-section__darkest rocket-row-with-separator rocket-row-separator-type-waves_svg_separator">
-        <svg class="rocket-separator waves_svg_separator" xmlns="http://www.w3.org/2000/svg" version="1.0" width="1200"
-          fill="#e2e5eb" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">
-          <path
-            d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z" />
-        </svg> <svg class="rocket-separator waves_svg_separator" xmlns="http://www.w3.org/2000/svg" version="1.0"
-          width="1200" fill="#e2e5eb" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">
-          <path
-            d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z" />
-        </svg>
-        <div class="wpb_column vc_column_container vc_col-sm-12">
-          <div class="vc_column-inner">
-            <div class="wpb_wrapper">
-              <div id="rocket__section-title-4kjsabj4gn" class="section-title-wrapper">
-                <div class="section-title-inner section-title-inner__alt">
-                  <h1 class="section-title section-title__lg" style="color: #ffffff">HOW IT WORKS</h1><span
-                    class="section-desc">Our Process to
+
+            </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <!-- How we work -->
+            <div id="section-work" data-vc-full-width="true" data-vc-full-width-init="false"
+                 data-rocket-separator="true"
+                 data-rocket-separator-type="waves_svg_separator" data-rocket-separator-position="top_bottom_separator"
+                 data-rocket-separator-shape-background="#f1f2f4"
+                 class="vc_row wpb_row vc_row-fluid vc_custom_1475176205752 vc_row-has-fill page-section page-section__darkest rocket-row-with-separator rocket-row-separator-type-waves_svg_separator">
+<!--                <svg class="rocket-separator waves_svg_separator" xmlns="http://www.w3.org/2000/svg" version="1.0"-->
+<!--                     width="1200"-->
+<!--                     fill="#e2e5eb" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">-->
+<!--                    <path-->
+<!--                            d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z"/>-->
+<!--                </svg>-->
+<!--                <svg class="rocket-separator waves_svg_separator" xmlns="http://www.w3.org/2000/svg" version="1.0"-->
+<!--                     width="1200" fill="#e2e5eb" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">-->
+<!--                    <path-->
+<!--                            d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z"/>-->
+<!--                </svg>-->
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div id="rocket__section-title-4kjsabj4gn" class="section-title-wrapper">
+                                <div class="section-title-inner section-title-inner__alt">
+                                    <h1 class="section-title section-title__lg" style="color: #ffffff">HOW IT WORKS</h1>
+                                    <span
+                                            class="section-desc">Our Process to
                     succeed</span><span class="section-title-dots"><span class="dot1"></span><span
-                      class="dot2"></span><span class="dot3"></span></span>
-                </div>
-              </div>
-              <div id="timeline-2bmiw0qnpr" class="timeline row  timeline-layout--horizontal">
-                <div class="timeline-step ">
-                  <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
-                    onclick="event.preventDefault();">
-                    <h5 class="timeline__item-title"> Time-Efficiency</h5>
-                    <div class="desc-holder">
+                                                class="dot2"></span><span class="dot3"></span></span>
+                                </div>
+                            </div>
+                            <div id="timeline-2bmiw0qnpr" class="timeline row  timeline-layout--horizontal">
+                                <div class="timeline-step ">
+                                    <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
+                                       onclick="event.preventDefault();">
+                                        <h5 class="timeline__item-title"> Time-Efficiency</h5>
+                                        <div class="desc-holder">
                       <span class="desc"> Stay up to date in an ever changing
                         industry</span>
-                    </div>
-                  </a>
-                </div>
-                <div class="timeline-step ">
-                  <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
-                    onclick="event.preventDefault();">
-                    <h5 class="timeline__item-title"> Resource-Efficiency</h5>
-                    <div class="desc-holder">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="timeline-step ">
+                                    <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
+                                       onclick="event.preventDefault();">
+                                        <h5 class="timeline__item-title"> Resource-Efficiency</h5>
+                                        <div class="desc-holder">
                       <span class="desc"> Pooling resources to become more
                         efficient</span>
-                    </div>
-                  </a>
-                </div>
-                <div class="timeline-step ">
-                  <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
-                    onclick="event.preventDefault();">
-                    <h5 class="timeline__item-title"> Diversification Efficiency
-                    </h5>
-                    <div class="desc-holder">
-                      <span class="desc"> Having a well researched and diversified plan of attack for playing Dapps...</span>
-                    </div>
-                  </a>
-                </div>
-                <div class="timeline-step ">
-                  <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
-                    onclick="event.preventDefault();">
-                    <h5 class="timeline__item-title"> SUSTAINABILITY</h5>
-                    <div class="desc-holder">
-                      <span class="desc"> Crypto platforms and protocols which are here to stay</span>
-                    </div>
-                  </a>
-                </div>
-                <div class="timeline-step ">
-                  <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
-                    onclick="event.preventDefault();">
-                    <h5 class="timeline__item-title"> Community Driven</h5>
-                    <div class="desc-holder">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="timeline-step ">
+                                    <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
+                                       onclick="event.preventDefault();">
+                                        <h5 class="timeline__item-title"> Diversification Efficiency
+                                        </h5>
+                                        <div class="desc-holder">
+                                            <span class="desc"> Having a well researched and diversified plan of attack for playing Dapps...</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="timeline-step ">
+                                    <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
+                                       onclick="event.preventDefault();">
+                                        <h5 class="timeline__item-title"> SUSTAINABILITY</h5>
+                                        <div class="desc-holder">
+                                            <span class="desc"> Crypto platforms and protocols which are here to stay</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="timeline-step ">
+                                    <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
+                                       onclick="event.preventDefault();">
+                                        <h5 class="timeline__item-title"> Community Driven</h5>
+                                        <div class="desc-holder">
                       <span class="desc"> We value our community and view all
                         proposals objectively</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="timeline-step ">
+                                    <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
+                                       onclick="event.preventDefault();">
+                                        <h5 class="timeline__item-title"> VOTING RIGHTS</h5>
+                                        <div class="desc-holder">
+                                            <span class="desc"> All decisions of the group on which games to play are made together by community poll...</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <script>
+                                ;
+                                (function ($) {
+                                    "use strict";
+                                    var timelineSteps = $('#timeline-2bmiw0qnpr .timeline-step').length;
+                                    var timelineStep = $('.timeline-step');
+                                    if (timelineSteps == 1) {
+                                        timelineStep.addClass('col-md-12');
+                                    } else if (timelineSteps == 2) {
+                                        timelineStep.addClass('col-md-6');
+                                    } else if (timelineSteps == 3) {
+                                        timelineStep.addClass('col-md-4');
+                                    } else if (timelineSteps == 4) {
+                                        timelineStep.addClass('col-md-3');
+                                    } else if (timelineSteps == 6) {
+                                        timelineStep.addClass('col-md-2');
+                                    }
+                                })(jQuery);
+                            </script>
+                        </div>
                     </div>
-                  </a>
                 </div>
-                <div class="timeline-step ">
-                  <a href="#" class="item-link timeline-step__non-active item-checkmark__non-active"
-                    onclick="event.preventDefault();">
-                    <h5 class="timeline__item-title"> VOTING RIGHTS</h5>
-                    <div class="desc-holder">
-                      <span class="desc"> All decisions of the group on which games to play are made together by community poll...</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <script>
-                ;
-                (function ($) {
-                  "use strict";
-                  var timelineSteps = $('#timeline-2bmiw0qnpr .timeline-step').length;
-                  var timelineStep = $('.timeline-step');
-                  if (timelineSteps == 1) {
-                    timelineStep.addClass('col-md-12');
-                  } else if (timelineSteps == 2) {
-                    timelineStep.addClass('col-md-6');
-                  } else if (timelineSteps == 3) {
-                    timelineStep.addClass('col-md-4');
-                  } else if (timelineSteps == 4) {
-                    timelineStep.addClass('col-md-3');
-                  } else if (timelineSteps == 6) {
-                    timelineStep.addClass('col-md-2');
-                  }
-                })(jQuery);
-              </script>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="vc_row-full-width vc_clearfix"></div>
-      <!-- About section -->
-      <div id="section-about" class="vc_row wpb_row vc_row-fluid vc_custom_1584223162085 vc_row-has-fill">
-        <div class="wpb_column vc_column_container vc_col-sm-12">
-		<br><br><h1 class="section-title section-title__lg">PARTNER PROJECTS</h1>
-          <div class="vc_column-inner">
-            <div class="wpb_wrapper">
-              <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                <div class="wpb_column vc_column_container">
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div class="wpb_text_column wpb_content_element ">
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <!-- About section -->
+            <div id="section-about" class="vc_row wpb_row vc_row-fluid vc_custom_1584223162085 vc_row-has-fill">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <br><br>
+                    <h1 class="section-title section-title__lg">PARTNER PROJECTS</h1>
+                    <div class="vc_column-inner">
                         <div class="wpb_wrapper">
-                          <div class="row text-center">
-                              <div class="col-md-3 col-sm-6">
-                                <a href="https://sonata.asia/" style="
+                            <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                <div class="wpb_column vc_column_container">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element ">
+                                                <div class="wpb_wrapper">
+                                                    <div class="row text-center">
+                                                        <div class="col-md-3 col-sm-6">
+                                                            <a href="https://sonata.asia/" style="
 								margin: auto;" target="_blank">
-                                  <img src="/images/Sonata-logo.png" style="height:60px;width: 137px;"></a>
-                              </div>
+                                                                <img src="/images/Sonata-logo.png"
+                                                                     style="height:60px;width: 137px;"></a>
+                                                        </div>
 
-                              <div class="col-md-3 col-sm-6">
-                                <a href="https://cryptodiffer.com/news/" style="
+                                                        <div class="col-md-3 col-sm-6">
+                                                            <a href="https://cryptodiffer.com/news/" style="
 								margin: auto;" target="_blank">
-                                  <img src="/images/cryptodiffer.png" style="height:42px;width: 226px;margin-top:3%;"></a>
-                              </div>
+                                                                <img src="/images/cryptodiffer.png"
+                                                                     style="height:42px;width: 226px;margin-top:3%;"></a>
+                                                        </div>
 
-                            <div class="col-md-3 col-sm-6">
-                              <a href="https://metanyx.com/" style="
+                                                        <div class="col-md-3 col-sm-6">
+                                                            <a href="https://metanyx.com/" style="
 								margin: auto;" target="_blank">
-                                <img src="/images/sivi-logo.png" style="height:22px;margin-top: 7%;"></a>
+                                                                <img src="/images/sivi-logo.png"
+                                                                     style="height:22px;margin-top: 7%;"></a>
+                                                        </div>
+
+                                                        <div class="col-md-3 col-sm-6">
+                                                            <a href="https://bitboycrypto.com/" style="
+								margin: auto;" target="_blank">
+                                                                <img src="/images/bitboy-crypto.png"
+                                                                     style="height:60px;"></a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-
-                            <div class="col-md-3 col-sm-6">
-                              <a href="https://bitboycrypto.com/" style="
-								margin: auto;" target="_blank">
-                                <img src="/images/bitboy-crypto.png" style="height:60px;"></a>
-                            </div>
-                          </div>
-
-						</div>
-                      </div><br>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                
-              </div>
+
+
             </div>
-          </div>
-        </div>
-
-
-      </div>
-      <div class="vc_row-full-width vc_clearfix"></div>
-      <!-- Token sale -->
-      <div data-vc-full-width="true" data-vc-full-width-init="false" data-rocket-separator="true"
-        data-rocket-separator-type="waves_svg_separator" data-rocket-separator-position="top_bottom_separator"
-        data-rocket-separator-shape-background="#f1f2f4"
-        class="vc_row wpb_row vc_row-fluid vc_custom_1475176295065 vc_row-has-fill page-section page-section__darkest rocket-row-with-separator rocket-row-separator-type-waves_svg_separator">
-        <svg class="rocket-separator waves_svg_separator" xmlns="http://www.w3.org/2000/svg" version="1.0" width="1200"
-          fill="#e2e5eb" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">
-          <path
-            d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z" />
-        </svg> <svg class="rocket-separator waves_svg_separator" xmlns="http://www.w3.org/2000/svg" version="1.0"
-          width="1200" fill="#e2e5eb" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">
-          <path
-            d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z" />
-        </svg>
-        <div class="wpb_column vc_column_container vc_col-sm-12">
-          <div class="vc_column-inner">
-            <div class="wpb_wrapper" id="bankroll-assets">
-              <div id="rocket__section-title-x6e37p55v2" class="section-title-wrapper">
-                <div class="section-title-inner section-title-inner__alt">
-                  <h1 class="section-title section-title__lg" style="color: #ffffff">PMINE SPECIFICS</h1><span
-                    class="section-desc">GET YOUR PMINE
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <!-- Token sale -->
+            <div data-vc-full-width="true" data-vc-full-width-init="false" data-rocket-separator="true"
+                 data-rocket-separator-type="waves_svg_separator" data-rocket-separator-position="top_bottom_separator"
+                 data-rocket-separator-shape-background="#f1f2f4"
+                 class="vc_row wpb_row vc_row-fluid vc_custom_1475176295065 vc_row-has-fill page-section page-section__darkest rocket-row-with-separator rocket-row-separator-type-waves_svg_separator">
+                <svg class="rocket-separator waves_svg_separator" xmlns="http://www.w3.org/2000/svg" version="1.0"
+                     width="1200"
+                     fill="#e2e5eb" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">
+                    <path
+                            d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z"/>
+                </svg>
+                <svg class="rocket-separator waves_svg_separator" xmlns="http://www.w3.org/2000/svg" version="1.0"
+                     width="1200" fill="#e2e5eb" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">
+                    <path
+                            d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z"/>
+                </svg>
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper" id="bankroll-assets">
+                            <div id="rocket__section-title-x6e37p55v2" class="section-title-wrapper">
+                                <div class="section-title-inner section-title-inner__alt">
+                                    <h1 class="section-title section-title__lg" style="color: #ffffff">PMINE
+                                        SPECIFICS</h1><span
+                                            class="section-desc">GET YOUR PMINE
                     TODAY!</span><span class="section-title-dots"><span class="dot1"></span><span
-                      class="dot2"></span><span class="dot3"></span></span>
-                </div>
-              </div>
-              <div class="vc_row wpb_row vc_inner vc_row-fluid bank-roll-assets">
-                <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-xs-12"
-                  style="display: flex;align-items: center;">
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="rocket_counter rocket_counter-border rocket_counter-color__primary rocket_counter-shape__circle   rocket_counter-size__normal">
-                        <span id="token-value" class="rocket_counter-value"></span>
-                      </div>
-                      <h3 class="rocket_counter-label">Pmine in circulation
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-3  vc_col-xs-6">
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div class="wpb_text_column wpb_content_element ">
-                        <div class="wpb_wrapper">
-                          <p><b>TOKEN DETAILS</b><br />
-                            Token Specifics: PMINE (IOST)<br />
-                            Max supply: 20,000<br />
-                            Phase 1: 0-1000 3800 IOST each<br />
-                            Phase 2: 1000-2000 4100 IOST each<br />
-                            Phase 3: 2000-3000 4400 IOST each<br />
-                            Phase 4: 3000-4000 4700 IOST each<br />
-                            Phase 5: 4000-5000 5000 IOST each<br />
-                            Phase 6: 5000-6000 5300 IOST each<br />
-                            Phase 7: 6000-7000 5600 IOST each<br />
-                            Phase 8: 7000-8000 5900 IOST each<br />
-                            Phase 9: 8000-9000 6200 IOST each<br />
-                            Phase 10: 9000-10000 6500 IOST each<br />
-							Phase 11: 10000-11000 6800 IOST each<br />
-							Phase 12: 11000-12000 7100 IOST each<br />
-							Phase 13: 12000-13000 7400 IOST each<br />
-							Phase 14: 13000-14000 7700 IOST each<br />
-							Phase 15: 14000-15000 8000 IOST each<br />
-							Phase 16: 15000-16000 8300 IOST each<br />
-							Phase 17: 16000-17000 8600 IOST each<br />
-							Phase 18: 17000-18000 8900 IOST each<br />
-							Phase 19: 18000-19000 9200 IOST each<br />
-							Phase 20: 19000-20000 9500 IOST each<br />
-                            For every buy in:<br />
-                            -80% of the purchase price goes to the
-                            mining pool bankroll.<br />
-                            -10% is airdropped to existing holders<br />
-                            -10% Management fee</p>
+                                                class="dot2"></span><span class="dot3"></span></span>
+                                </div>
+                            </div>
+                            <div class="vc_row wpb_row vc_inner vc_row-fluid bank-roll-assets">
+                                <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-xs-12"
+                                     style="display: flex;align-items: center;">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div
+                                                    class="rocket_counter rocket_counter-border rocket_counter-color__primary rocket_counter-shape__circle   rocket_counter-size__normal">
+                                                <span id="token-value" class="rocket_counter-value"></span>
+                                            </div>
+                                            <h3 class="rocket_counter-label">Pmine in circulation
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-3  vc_col-xs-6">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element ">
+                                                <div class="wpb_wrapper">
+                                                    <p><b>TOKEN DETAILS</b><br/>
+                                                        Token Specifics: PMINE (IOST)<br/>
+                                                        Max supply: 20,000<br/>
+                                                        Phase 1: 0-1000 3800 IOST each<br/>
+                                                        Phase 2: 1000-2000 4100 IOST each<br/>
+                                                        Phase 3: 2000-3000 4400 IOST each<br/>
+                                                        Phase 4: 3000-4000 4700 IOST each<br/>
+                                                        Phase 5: 4000-5000 5000 IOST each<br/>
+                                                        Phase 6: 5000-6000 5300 IOST each<br/>
+                                                        Phase 7: 6000-7000 5600 IOST each<br/>
+                                                        Phase 8: 7000-8000 5900 IOST each<br/>
+                                                        Phase 9: 8000-9000 6200 IOST each<br/>
+                                                        Phase 10: 9000-10000 6500 IOST each<br/>
+                                                        Phase 11: 10000-11000 6800 IOST each<br/>
+                                                        Phase 12: 11000-12000 7100 IOST each<br/>
+                                                        Phase 13: 12000-13000 7400 IOST each<br/>
+                                                        Phase 14: 13000-14000 7700 IOST each<br/>
+                                                        Phase 15: 14000-15000 8000 IOST each<br/>
+                                                        Phase 16: 15000-16000 8300 IOST each<br/>
+                                                        Phase 17: 16000-17000 8600 IOST each<br/>
+                                                        Phase 18: 17000-18000 8900 IOST each<br/>
+                                                        Phase 19: 18000-19000 9200 IOST each<br/>
+                                                        Phase 20: 19000-20000 9500 IOST each<br/>
+                                                        For every buy in:<br/>
+                                                        -80% of the purchase price goes to the
+                                                        mining pool bankroll.<br/>
+                                                        -10% is airdropped to existing holders<br/>
+                                                        -10% Management fee</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-3  vc_col-xs-6">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element">
+                                                <div class="wpb_wrapper">
+                                                    <% if(content) { %>
+                                                        <%- content.content %>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                <div class="wpb_column vc_column_container vc_col-sm-6"></div>
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div
+                                            class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_dashed vc_sep_pos_align_center vc_separator_no_text vc_sep_color_grey">
+                                        <span class="vc_sep_holder vc_sep_holder_l"><span
+                                                    class="vc_sep_line"></span></span><span
+                                                class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+                                    </div>
+                                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                        <div class="wpb_column vc_column_container vc_col-sm-2 vc_col-xs-2"></div>
+                                        <div class="wpb_column vc_column_container vc_col-sm-8 vc_col-xs-8 text-center">
+                                            <div class="vc_btn3-container vc_btn3-inline">
+                                                <a class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-has-icon icon-left btn-primary purchPmineLink"
+                                                   href="/#pmine-exchange" title="Powermine Telegram">
+                                                    <!--                          <i class="btn-icon fas fa-sign-out-alt"></i>-->
+                                                    <img src="/images/Powerminer-logo.png" alt="powerminer logo"
+                                                         width="30"/>
+                                                    Purchase Pmine</a></div>
+                                        </div>
+                                        <div class="wpb_column vc_column_container vc_col-sm-2 vc_col-xs-2"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-                <div class="wpb_column vc_column_container vc_col-sm-3  vc_col-xs-6">
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div class="wpb_text_column wpb_content_element">
-                        <div class="wpb_wrapper">
-                          <% if(content) {%>
-                          <%- content.content %>
-                          <% }%>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                <div class="wpb_column vc_column_container vc_col-sm-6"></div>
-                <div class="wpb_column vc_column_container vc_col-sm-6">
-                  <div
-                    class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_dashed vc_sep_pos_align_center vc_separator_no_text vc_sep_color_grey">
-                    <span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span><span
-                      class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
-                  </div>
-                  <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                    <div class="wpb_column vc_column_container vc_col-sm-2 vc_col-xs-2"></div>
-                    <div class="wpb_column vc_column_container vc_col-sm-8 vc_col-xs-8 text-center">
-                      <div class="vc_btn3-container vc_btn3-inline">
-                        <a class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-has-icon icon-left btn-primary purchPmineLink"
-                          href="/#pmine-exchange" title="Powermine Telegram">
-                          <!--                          <i class="btn-icon fas fa-sign-out-alt"></i>-->
-                          <img src="/images/Powerminer-logo.png" alt="powerminer logo" width="30" />
-                          Purchase Pmine</a></div>
-                    </div>
-                    <div class="wpb_column vc_column_container vc_col-sm-2 vc_col-xs-2"></div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
         </div>
-      </div>
-      <div class="vc_row-full-width vc_clearfix"></div>
     </div>
-  </div>
 </main>

@@ -15,181 +15,84 @@
 </div>
 <div class="page-wrapper">
     <% include ./partials/header-wrapper %>
-    <header id="pmine-exchange" style="padding: 0px"
-            class="page-title section-title-wrapper section-title-wrapper__no-bottom-margin page-title-layout__both-centered page_title_preset_1 page-title_overflow">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Ticker Tape</span></a> by TradingView</div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-                        {
-                            "symbols": [
-                            {
-                                "proName": "BINANCE:IOSTUSDT",
-                                "title": "IOST/USD"
-                            },
-                            {
-                                "proName": "BITSTAMP:BTCUSD",
-                                "title": "BTC/USD"
-                            },
-                            {
-                                "proName": "BITSTAMP:ETHUSD",
-                                "title": "ETH/USD"
-                            },
-                            {
-                                "proName": "BINANCE:IOTXUSDT",
-                                "title": "IOTX/USD"
-                            },
-                            {
-                                "proName": "BINANCE:TRXUSDT",
-                                "title": "TRX/USD"
-                            }
-                        ],
-                            "colorTheme": "dark",
-                            "isTransparent": true,
-                            "displayMode": "regular",
-                            "locale": "en"
-                        }
-                    </script>
-                </div>
-                <!-- TradingView Widget END -->
+<!--    <header id="pmine-exchange" style="padding: 0px"-->
+<!--            class="page-title section-title-wrapper section-title-wrapper__no-bottom-margin page-title-layout__both-centered page_title_preset_1 page-title_overflow">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                &lt;!&ndash; TradingView Widget BEGIN &ndash;&gt;-->
+<!--                <div class="tradingview-widget-container">-->
+<!--                    <div class="tradingview-widget-container__widget"></div>-->
+<!--                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Ticker Tape</span></a> by TradingView</div>-->
+<!--                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>-->
+<!--                        {-->
+<!--                            "symbols": [-->
+<!--                            {-->
+<!--                                "proName": "BINANCE:IOSTUSDT",-->
+<!--                                "title": "IOST/USD"-->
+<!--                            },-->
+<!--                            {-->
+<!--                                "proName": "BITSTAMP:BTCUSD",-->
+<!--                                "title": "BTC/USD"-->
+<!--                            },-->
+<!--                            {-->
+<!--                                "proName": "BITSTAMP:ETHUSD",-->
+<!--                                "title": "ETH/USD"-->
+<!--                            },-->
+<!--                            {-->
+<!--                                "proName": "BINANCE:IOTXUSDT",-->
+<!--                                "title": "IOTX/USD"-->
+<!--                            },-->
+<!--                            {-->
+<!--                                "proName": "BINANCE:TRXUSDT",-->
+<!--                                "title": "TRX/USD"-->
+<!--                            }-->
+<!--                        ],-->
+<!--                            "colorTheme": "dark",-->
+<!--                            "isTransparent": true,-->
+<!--                            "displayMode": "regular",-->
+<!--                            "locale": "en"-->
+<!--                        }-->
+<!--                    </script>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; TradingView Widget END &ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="section-title-inner">-->
+<!--            <div class="container">-->
+<!--                <div class="section-title-decoration">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-12">-->
+<!--                            <h1 class="section-title section-title__lg" style="color: #ffffff">STAKE PMINE</h1>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-12 breadcrumbs-default">-->
+<!--                            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">-->
+<!--                                <li><a href="/">Home</a></li>-->
+<!--                            </ol>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <span class="section-title-dots">-->
+<!--                      <span class="dot1"></span>-->
+<!--                      <span class="dot2"></span>-->
+<!--                      <span class="dot3"></span>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="section-title-overlay"></div>-->
+<!--        </div>-->
+<!--        <div class="row" style="width: 50%; margin: auto; margin-top: 50px; margin-bottom: -50px; color: white; text-shadow: 2px 2px 4px black;">-->
+<!--            <p class="col-md-3" id="account-logged-in" style="text-align: center;"></p>-->
+<!--            <p class="col-md-3" id="exchange-iost-balance" style="text-align: center;"></p>-->
+<!--            <p class="col-md-3" id="user-staked-balance" style="text-align: center;"></p>-->
+<!--            <p class="col-md-3" id="user-pmine-balance" style="text-align: center;"></p>-->
+<!--        </div>-->
+<!--        <div class="exchange">-->
+<!--            <div class="container">-->
+<!--                <div class="row exchange-container-div">-->
 
-
-            </div>
-        </div>
-        <div class="section-title-inner">
-            <div class="container">
-                <div class="section-title-decoration">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="section-title section-title__lg" style="color: #ffffff">PMINE DEX</h1>
-                        </div>
-                        <div class="col-md-12 breadcrumbs-default">
-                            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-                                <li><a href="/">Home</a></li>
-                            </ol>
-                        </div>
-                    </div>
-                    <span class="section-title-dots">
-              <span class="dot1"></span>
-              <span class="dot2"></span>
-              <span class="dot3"></span>
-            </span>
-                </div>
-            </div>
-            <div class="section-title-overlay"></div>
-        </div>
-        <div class="row" style="width: 50%; margin: auto; margin-top: 50px; margin-bottom: -50px; color: white; text-shadow: 2px 2px 4px black;">
-            <p class="col-md-4" id="exchange-logged-in" style="text-align: center;"></p>
-            <p class="col-md-4" id="exchange-iost-balance" style="text-align: center;"></p>
-            <p class="col-md-4" id="exchange-pmine-balance" style="text-align: center;"></p>
-        </div>
-        <div class="exchange">
-            <div class="container">
-                <div class="row exchange-container-div">
-
-                    <div class="col-md-3 coin-price-section">
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="exchange-main box-shadow">
-                            <span class="stamp is-approved">Sold out</span>
-                            <form>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p><i class="fa fa-check"></i> 1 Pmine = <span id="pminePrice"></span> IOST</p>
-                                    </div>
-                                </div>
-                                <h4 class="exchange-main-box-title">Buy Pmine</h4>
-                                <div class="row text-center" id="statusBuyMsg">
-                                </div>
-                                <div class="row exchange-form-row">
-                                    <div class="col-md-5 col-xs-12 exchange-form-row-div_start">
-                                        <div class="exchange-item box-shadow wow fadeIn" data-wow-delay=".2s">
-                                            <input type="number" id="pmineAmtBuy" disabled>
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle" href="javascript:void(0)">
-                                                    <span class="selected-coin2">Pmine</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5 col-xs-12 exchange-form-row-div_start">
-                                        <div class="exchange-item box-shadow wow fadeIn" data-wow-delay=".3s">
-                                            <input type="number" id="iostAmtBuy" disabled>
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle" href="javascript:void(0)">
-                                                    <span class="selected-coin3">IOST</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-xs-12 exchange-form-row-div_center">
-                                        <div class="exchange-button wow fadeIn" data-wow-delay=".4s"
-                                             style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
-                                            <a href="javascript:void(0)"
-                                               class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-primary disabled"
-                                               id="buyBtn">Buy!</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <h4 class="exchange-main-box-title">Sell Pmine</h4>
-                                <div class="row text-center" id="statusSellMsg">
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 col-xs-12 exchange-form-row-div_start">
-                                        <div class="exchange-item box-shadow wow fadeIn" data-wow-delay=".2s">
-                                            <input type="number" id="pmineAmtSell" disabled>
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle" href="javascript:void(0)">
-                                                    <span class="selected-coin2">Pmine</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5 col-xs-12 exchange-form-row-div_start">
-                                        <div class="exchange-item box-shadow wow fadeIn" data-wow-delay=".3s">
-                                            <input type="number" id="iostAmtSell" disabled>
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle" href="javascript:void(0)">
-                                                    <span class="selected-coin3">IOST</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-xs-12 exchange-form-row-div_center">
-                                        <div class="exchange-button wow fadeIn" data-wow-delay=".4s"
-                                             style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
-                                            <a href="javascript:void(0)"
-                                               class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-primary disabled"
-                                               id="sellBtn">Sell!</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p>Buyback price is 60% of the current DEX rate.</p>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="exchange-protect">
-                                        <!-- <img src="/images/protect.png" alt="..."> -->
-                                        <p id="token-msg"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3"></div>
-                </div>
-            </div>
-        </div>
-    </header>
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </header>-->
     <div class="page-section" style="background: #e2e5eb;">
         <div class="container">
             <div class="row">

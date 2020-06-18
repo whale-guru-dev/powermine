@@ -29,8 +29,8 @@ function getTokens () {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('token-value').innerText = parseFloat(20000 - xhttp.responseText).toFixed(0);
-                document.getElementById("token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>. 
-                There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> pmine in circulation.`;
+                // document.getElementById("token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>.
+                // There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> pmine in circulation.`;
             }
         };
         xhttp.open("GET", "/iost/circulation", true);
@@ -87,8 +87,8 @@ function getUserBalance(account){
                 document.getElementById("user-pmine-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
 
-                document.getElementById("exchange-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">PMINE Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
+                // document.getElementById("exchange-pmine-balance").innerHTML = `
+                //                 <b><span style="font-size: 14px">PMINE Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
             }).catch(err => {
                 document.getElementById("user-pmine-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} PMINE`
@@ -98,8 +98,8 @@ function getUserBalance(account){
             fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
                 document.getElementById("exchange-iost-balance").innerHTML = `
                                 <b><span style="font-size: 14px">IOST Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} IOST`
-                document.getElementById("exchange-logged-in").innerHTML = `
-                <b><span style="font-size: 14px">Logged In: </span></b> ${account}`
+                // document.getElementById("exchange-logged-in").innerHTML = `
+                // <b><span style="font-size: 14px">Logged In: </span></b> ${account}`
             }).catch(err => {
                 document.getElementById("exchange-iost-balance").innerHTML = `
                                 <b><span style="font-size: 14px">IOST Balance: </span></b> ${((0).toFixed(4))} IOST`
