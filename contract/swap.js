@@ -101,6 +101,7 @@ class SwapContract {
 
 
     //User trigger this function to buy Pmine.
+    /*
     buyToken(pmineAmount) {
 
         //Checks to make sure pmineAmount is not a string but number.
@@ -234,7 +235,7 @@ class SwapContract {
         return true;
 
     }
-
+    */
 
     //allows user to stake pmine
     stake(pmineAmount) {
@@ -386,13 +387,8 @@ class SwapContract {
 
     updateInit() {
         this._assertAccountAuth(admin);
-        let temp = JSON.parse(storage.get('userStakes'));
-        let perc = .75 / storage.get('totalStaked') ;
-
-        temp.push({ account: tx.publisher, balance: .75, percent: perc.toFixed(8) * 1 })
-
-        temp = temp.sort((a, b) => b.balance - a.balance);
-        storage.put('userStakes', JSON.stringify(temp));
+        storage.put("totalSold", "20000");
+        storage.put("pmineAmountOnContract", "0");
 
     }
 

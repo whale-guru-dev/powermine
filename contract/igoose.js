@@ -22,7 +22,6 @@ class IGooseContract {
 
     //Only admin can use this function.  Admin must first deposit igoose to the contract from account admin
     depositInitialIGoose(igooseAmount) {
-        this._assertTimeLock();
         this._assertAccountAuth("pmine_admin");
 
         if (igooseAmount * 0 !== 0 || igooseAmount * 1 <= 0) {
@@ -57,7 +56,6 @@ class IGooseContract {
 
     //Admin can deposit IOST to the contract.
     depositIOST(iostAmount) {
-        this._assertTimeLock();
         //checks to make sure that admin is the active account calling this function.
         this._assertAccountAuth("powermine");
 
@@ -83,7 +81,6 @@ class IGooseContract {
 
     //Admin can withdrawl IOST from the contract.
     withdrawlIost(iostAmount) {
-        this._assertTimeLock();
         //checks to make sure that admin is the active account calling this function.
         this._assertAccountAuth("powermine");
 
@@ -108,7 +105,6 @@ class IGooseContract {
 
     //User trigger this function to buy igoose.
     buyToken(igooseAmount) {
-        this._assertTimeLock();
         //Checks to make sure igooseAmount is not a string but number.
         //Also checks to make sure it is not less than zero
         if (igooseAmount * 0 !== 0 || igooseAmount * 1 <= 0) {
@@ -164,6 +160,11 @@ class IGooseContract {
 
         //update total igoose sold
         total_sold = (total_sold + igooseAmount * 1);
+        
+        if(total_sold > totalSupply){
+            throw "Failed to buy, because you are trying to buy more than what is available in supply.  "
+        }
+
         total_sold = total_sold.toFixed(tokenDecimal);
         storage.put("totalSold", total_sold.toString());
 
@@ -191,7 +192,6 @@ class IGooseContract {
 
     //allows user to stake igoose
     stake(igooseAmount) {
-        this._assertTimeLock();
         //Checks to make sure igooseAmount is not a string but number.
         //Also checks to make sure it is not less than zero
         if (igooseAmount * 0 !== 0 || igooseAmount * 1 <= 0) {
@@ -250,7 +250,6 @@ class IGooseContract {
 
     //allows user to unstake igoose
     unstake(igooseAmount) {
-        this._assertTimeLock();
         //Checks to make sure igooseAmount is not a string but number.
         //Also checks to make sure it is not less than zero
         if (igooseAmount * 0 !== 0 || igooseAmount * 1 <= 0) {
@@ -304,7 +303,6 @@ class IGooseContract {
 
     //allows admin to specify dividends amount to payout.  
     payDividends(amount) {
-        this._assertTimeLock();
         //only admin can use this function. 
         this._assertAccountAuth("powermine");
 

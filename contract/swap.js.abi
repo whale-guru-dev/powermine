@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "abi": [
     {
-      "name": "depositInitialImatch",
+      "name": "depositInitialPmine",
       "args": [
         "string"
       ],
@@ -22,24 +22,6 @@
     },
     {
       "name": "withdrawlIost",
-      "args": [
-        "string"
-      ],
-      "amountLimit": [
-        {"token": "*", "val": "unlimited"}
-      ]
-    },
-    {
-      "name": "buyToken",
-      "args": [
-        "string"
-      ],
-      "amountLimit": [
-        {"token": "*", "val": "unlimited"}
-      ]
-    },
-    {
-      "name": "sellToken",
       "args": [
         "string"
       ],
