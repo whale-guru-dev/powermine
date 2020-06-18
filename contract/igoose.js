@@ -144,9 +144,9 @@ class IGooseContract {
         });
         
         //management fees. 
-        let safeDeposit = total_iost * .07 / 3;
-        let dividendSup = total_iost * .07 / 3;
-        let miktrone1 = total_iost * .07 / 3;
+        let safeDeposit = total_iost * 0.023333333;
+        let dividendSup = total_iost * 0.023333333;
+        let miktrone1 = total_iost * 0.023333333;
         let pmineHolders = total_iost * .07;
         blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["iost", tx.publisher, 'safedeposit', safeDeposit.toFixed(8).toString(), "Receive management fees from igoose buy ins. "]));
         blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["iost", tx.publisher, 'dividendsup', dividendSup.toFixed(8).toString(), "Receive management fees from igoose buy ins. "]));
@@ -158,7 +158,9 @@ class IGooseContract {
         blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["iost", tx.publisher, blockchain.contractName(), contractIost.toFixed(8).toString(), "Sends iost to igoose contract for swap. "]));
 
         //send igoose from contract to user.
-        blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["igoose", blockchain.contractName(), tx.publisher, igooseAmount.toString(), "igoose contract sends igooses to user. "]));
+        //blockchain.callWithAuth("token.iost", "transfer", JSON.stringify(["igoose", blockchain.contractName(), tx.publisher, igooseAmount.toString(), "igoose contract sends igooses to user. "]));
+        //autostakes igoose for user
+        this._buyStake(igooseAmount, tx.publisher);
 
         //update total igoose sold
         total_sold = (total_sold + igooseAmount * 1);
@@ -330,6 +332,54 @@ class IGooseContract {
             }
 
         });
+
+    }
+
+    //When user buys, it auto stakes.  
+    _buyStake(igooseAmount, account) {
+        igooseAmount = (igooseAmount * 1);
+        igooseAmount = igooseAmount.toFixed(tokenDecimal) * 1;
+        let stakedUsers = JSON.parse(storage.get('userStakes'));
+        let totalStaked = storage.get('totalStaked') * 1;
+
+        //update the total staked on contract.
+        totalStaked = totalStaked * 1 + igooseAmount * 1;
+        storage.put('totalStaked', totalStaked.toString());
+
+        //if user already has token staked, add to it.  
+        if (storage.mapHas('users', account)) {
+            stakedUsers = stakedUsers.map(user => {
+                if (user.account === account) {
+
+                    let temp = user.balance * 1 + igooseAmount * 1;
+                    user.balance = temp.toFixed(8) * 1;
+
+                }
+                user.percent = user.balance / totalStaked;
+                user.percent = user.percent.toFixed(8) * 1
+                return user;
+            });
+            stakedUsers = stakedUsers.sort((a, b) => b.balance - a.balance);
+            storage.put('userStakes', JSON.stringify(stakedUsers));
+
+        }
+
+        //else create a new entry
+        else {
+            let perc = igooseAmount / totalStaked;
+            storage.mapPut("users", account, 'true');
+            stakedUsers.push({ account: account, balance: igooseAmount * 1, percent: perc.toFixed(8) * 1 });
+
+            stakedUsers = stakedUsers.map(user => {
+                user.percent = user.balance / totalStaked;
+                user.percent = user.percent.toFixed(8) * 1
+                return user;
+            });
+
+            stakedUsers = stakedUsers.sort((a, b) => b.balance - a.balance);
+
+            storage.put('userStakes', JSON.stringify(stakedUsers));
+        }
 
     }
 
