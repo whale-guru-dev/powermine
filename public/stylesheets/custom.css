@@ -1621,6 +1621,10 @@ table > thead > tr > th, .table > thead > tr > th {
 
 @media (min-width: 992px) {
     .page-section {
+        padding: 50px 0 100px 0;
+    }
+
+    .pmine-page-section {
         padding: 0px 0 100px 0;
     }
 }
