@@ -2113,3 +2113,36 @@ table > thead > tr > th, .table > thead > tr > th {
     left: auto;
     border-radius: 99em 9999em 9em 999em
 }
+/*Sold out*/
+.stamp {
+    transform: rotate(12deg);
+    color: #555;
+    font-size: 4rem;
+    font-weight: 700;
+    border: 1rem solid #555;
+    display: inline-block;
+    padding: 2rem 3.5rem;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    font-family: 'Courier';
+    -webkit-mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png');
+    -webkit-mask-size: 944px 604px;
+    mix-blend-mode: multiply;
+}
+
+.is-approved {
+    color: red;
+    border: 1rem solid red;
+    -webkit-mask-position: 15rem 9rem;
+    transform: rotate(-14deg);
+    border-radius: 0;
+
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    z-index: 100;
+}
+
+button[disabled], html input[disabled] {
+    background-color: #BBBDBC;
+}
