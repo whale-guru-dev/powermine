@@ -8244,8 +8244,24 @@ ul.products li.product:before {
 .navbar-nav {
   padding: 0 40px 0 50px !important;
   margin: 0;
-  float: left;
+  float: right;
   position: static;
+}
+
+@media (min-width: 1600px) {
+  .navbar-nav > li {
+    padding: 0 10px !important;
+	
+  }
+  .navbar-nav > li > a {
+	font-size: 13.5px !important;
+  }
+}
+
+@media (max-width: 1160px) {
+  .navbar-nav > li.menu-img img {
+    width:120px!important;
+  }
 }
 
 @media (max-width: 767px) {
