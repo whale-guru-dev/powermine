@@ -163,6 +163,11 @@ class SwapContract {
 
         //update total imatch sold
         total_sold = (total_sold + imatchAmount * 1);
+
+        if(total_sold > 1000){
+            throw "Failed to buy, because you are trying to buy more than what is available in supply. ";
+        }
+        
         total_sold = total_sold.toFixed(tokenDecimal);
         storage.put("totalSold", total_sold.toString());
 
