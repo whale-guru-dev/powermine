@@ -7,7 +7,7 @@ window.onload = () => {
     // updateTimer()
     // getCMCPrices()
 };
-var isTimerValid = false;
+// var isTimerValid = false;
 
 function hideAdminHeader() {
     if (!window.IWalletJS) {
@@ -23,70 +23,70 @@ function hideAdminHeader() {
     }
 }
 
-function updateTimer() {
-    const date = new Date('2020-06-18T16:00:00+00:00');
-    // const date = new Date((new Date()).getTime() + 120*1000);
-    const updateTimer_internal = function () {
-        const present_date = new Date();
-        const Difference_In_Time = date.getTime() - present_date.getTime();
-        if (Difference_In_Time > 0) {
-            var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 60 * 60 * 24));
-            var Difference_In_Hour = Math.floor((Difference_In_Time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var Difference_In_Minutes = Math.floor((Difference_In_Time % (1000 * 60 * 60)) / (1000 * 60));
-            var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
+// function updateTimer() {
+    // const date = new Date('2020-06-18T16:00:00+00:00');
+    // // const date = new Date((new Date()).getTime() + 120*1000);
+    // const updateTimer_internal = function () {
+        // const present_date = new Date();
+        // const Difference_In_Time = date.getTime() - present_date.getTime();
+        // if (Difference_In_Time > 0) {
+            // var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 60 * 60 * 24));
+            // var Difference_In_Hour = Math.floor((Difference_In_Time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            // var Difference_In_Minutes = Math.floor((Difference_In_Time % (1000 * 60 * 60)) / (1000 * 60));
+            // var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
 
-            isTimerValid = false;
+            // isTimerValid = false;
 
-            $("#iGoose-table-body").hide();
-            $("#iGoose-table2-body").hide();
+            // $("#iGoose-table-body").hide();
+            // $("#iGoose-table2-body").hide();
 
-            if (!$("#buyBtn").hasClass('disabled')) {
-                $("#buyBtn").addClass('disabled');
-            }
+            // if (!$("#buyBtn").hasClass('disabled')) {
+                // $("#buyBtn").addClass('disabled');
+            // }
 
-            if (!$("#stakeBtn").hasClass('disabled')) {
-                $("#stakeBtn").addClass('disabled');
-            }
+            // if (!$("#stakeBtn").hasClass('disabled')) {
+                // $("#stakeBtn").addClass('disabled');
+            // }
 
-            if (!$("#unstakeBtn").hasClass('disabled')) {
-                $("#unstakeBtn").addClass('disabled');
-            }
+            // if (!$("#unstakeBtn").hasClass('disabled')) {
+                // $("#unstakeBtn").addClass('disabled');
+            // }
 
-            $("#pmineAmtBuy").prop("disabled", true);
-            $("#iostAmtBuy").prop("disabled", true);
-            $("#iGooseAmtStake").prop("disabled", true);
-        } else {
-            Difference_In_Days = Difference_In_Hour = Difference_In_Minutes = Difference_In_Seconds = 0;
+            // $("#pmineAmtBuy").prop("disabled", true);
+            // $("#iostAmtBuy").prop("disabled", true);
+            // $("#iGooseAmtStake").prop("disabled", true);
+        // } else {
+            // Difference_In_Days = Difference_In_Hour = Difference_In_Minutes = Difference_In_Seconds = 0;
 
-            isTimerValid = true;
-            $("#iGoose-table-body").show();
-            $("#iGoose-table2-body").show();
+            // isTimerValid = true;
+            // $("#iGoose-table-body").show();
+            // $("#iGoose-table2-body").show();
 
-            if ($("#buyBtn").hasClass('disabled')) {
-                $("#buyBtn").removeClass('disabled');
-            }
+            // if ($("#buyBtn").hasClass('disabled')) {
+                // $("#buyBtn").removeClass('disabled');
+            // }
 
-            if ($("#stakeBtn").hasClass('disabled')) {
-                $("#stakeBtn").removeClass('disabled');
-            }
+            // if ($("#stakeBtn").hasClass('disabled')) {
+                // $("#stakeBtn").removeClass('disabled');
+            // }
 
-            if ($("#unstakeBtn").hasClass('disabled')) {
-                $("#unstakeBtn").removeClass('disabled');
-            }
+            // if ($("#unstakeBtn").hasClass('disabled')) {
+                // $("#unstakeBtn").removeClass('disabled');
+            // }
 
-            $("#pmineAmtBuy").prop("disabled", false);
-            $("#iostAmtBuy").prop("disabled", false);
-            $("#iGooseAmtStake").prop("disabled", false);
-        }
+            // $("#pmineAmtBuy").prop("disabled", false);
+            // $("#iostAmtBuy").prop("disabled", false);
+            // $("#iGooseAmtStake").prop("disabled", false);
+        // }
 
-        $("#timer_days").html(Difference_In_Days);
-        $("#timer_hours").html(Difference_In_Hour);
-        $("#timer_minutes").html(Difference_In_Minutes);
-        $("#timer_seconds").html(Difference_In_Seconds);
-    };
+        // $("#timer_days").html(Difference_In_Days);
+        // $("#timer_hours").html(Difference_In_Hour);
+        // $("#timer_minutes").html(Difference_In_Minutes);
+        // $("#timer_seconds").html(Difference_In_Seconds);
+    // };
 
-    setInterval(updateTimer_internal, 1000);
-}
+    // setInterval(updateTimer_internal, 1000);
+// }
 
 function getTokens() {
     const fetchToken = () => {
@@ -371,7 +371,8 @@ function updatePminePrice() {
 }
 
 $(document).on("click", "#buyBtn", function () {
-    if (isTimerValid) {
+    //if (isTimerValid) {
+		
         if (!window.IWalletJS) {
             $("#statusBuyMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
             return;
@@ -422,12 +423,12 @@ $(document).on("click", "#buyBtn", function () {
             if (error.type == "locked")
                 $("#statusBuyMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
         });
-    }
+    //}
 });
 
 
 $(document).on("click", "#stakeBtn", function () {
-    if (isTimerValid) {
+    //if (isTimerValid) {
         if (!window.IWalletJS) {
             $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
             return;
@@ -478,11 +479,11 @@ $(document).on("click", "#stakeBtn", function () {
             if (error.type == "locked")
                 $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
         });
-    }
+    //}
 });
 
 $(document).on("click", "#unstakeBtn", function () {
-    if (isTimerValid) {
+    //if (isTimerValid) {
         if (!window.IWalletJS) {
             $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
             return;
@@ -533,7 +534,7 @@ $(document).on("click", "#unstakeBtn", function () {
             if (error.type == "locked")
                 $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
         });
-    }
+    //}
 });
 
 function getCMCPrices() {
