@@ -2161,6 +2161,7 @@ button[disabled], html input[disabled] {
 
 .ticker-row {
     position: absolute;
+    /*top: 80px;*/
     z-index: 100;
 }
 
