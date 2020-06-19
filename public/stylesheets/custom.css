@@ -1629,6 +1629,10 @@ table > thead > tr > th, .table > thead > tr > th {
     }
 }
 
+.pmine-page-section {
+    padding-top: 0px;
+}
+
 @media (min-width: 1200px) {
     .container {
         width: 1250px !important;
@@ -2149,4 +2153,17 @@ table > thead > tr > th, .table > thead > tr > th {
 
 button[disabled], html input[disabled] {
     background-color: #BBBDBC;
+}
+
+.padding-25 {
+    padding: 25px;
+}
+
+.ticker-row {
+    position: absolute;
+    z-index: 100;
+}
+
+.stake-pmine-section {
+    padding-top: 80px;
 }
