@@ -2168,3 +2168,9 @@ button[disabled], html input[disabled] {
 .stake-pmine-section {
     padding-top: 80px;
 }
+
+#statusStakeMsg {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
