@@ -49,14 +49,40 @@ class PerToken {
 
     transfer(token_name, from, to, amount, memo) {
         this._checkToken(token_name);
-        amount = this._amount(amount);
+        let amountAfterFee = this._amount(amount) * .98;
+        let burn = this._amount(amount) * .005;
+        let lobby = this._amount(amount) * .01;
+        let staking = this._amount(amount) * .005;
+
+        //sends to destination address
         blockchain.callWithAuth('token.iost', 'transfer', [
             token_name,
             from,
             to,
-            amount,
+            amountAfterFee.toFixed(decimal),
             memo
         ]);
+
+        // 0.5% sends to staking pool
+        blockchain.callWithAuth('token.iost', 'transfer', [
+            token_name,
+            from,
+            "Contract6HVXnk7oBMYHizdgYHjQZZu74mj2XEMbZzVQ6Eijiu5f",
+            staking.toFixed(decimal),
+            memo
+        ]);
+
+        // 0.5% sends to lobby
+        blockchain.callWithAuth('token.iost', 'transfer', [
+            token_name,
+            from,
+            "ContractKyprrbkxFd3nbheawCbazP9pTTB31TbnZ5pNQL6xHpF",
+            lobby.toFixed(decimal),
+            memo
+        ]);
+
+        // 1% burnt forever. 
+        this.destroy("per", from, burn);
     }
 
     transferFreeze(token_name, from, to, amount, timestamp, memo) {

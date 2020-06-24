@@ -1,0 +1,40 @@
+{
+    "lang": "javascript",
+    "version": "1.0.0",
+    "abi": [
+        {
+            "name": "lobbyTransform",
+            "args": [
+                "string"
+            ],
+            "amountLimit": [{"token": "*", "val": "unlimited"}],
+            "description": ""
+        },
+        {
+            "name": "distribute",
+            "args": [],
+            "amountLimit": [{"token": "*", "val": "unlimited"}],
+            "description": ""
+        },
+        {
+            "name": "claim",
+            "args": [],
+            "amountLimit": [{"token": "*", "val": "unlimited"}],
+            "description": ""
+        },
+        {
+            "name": "can_update",
+            "args": [
+                "string"
+            ],
+            "amountLimit": [],
+            "description": ""
+        },
+        {
+            "name": "updateInit",
+            "args": [],
+            "amountLimit": [],
+            "description": ""
+        }
+    ]
+}

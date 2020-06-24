@@ -1,5 +1,6 @@
 //specifies admin of the contract.  
 const admin = "pmine_admin";
+const lobbyContract = "ContractKyprrbkxFd3nbheawCbazP9pTTB31TbnZ5pNQL6xHpF"; 
 
 const penaltyFees = {
     "1M": .1,
@@ -11,10 +12,12 @@ const penaltyFees = {
     "Indefinitely": .8
 }
 
-class PerStaking {
+class PerStakingForPer {
     init() {
         storage.put("totalShares", "0");
+        storage.put("totalPer", "0");
         storage.put("stakeID", "0");
+        storage.put("rewardsUnclaimed", "0");
         storage.put("usersKey", JSON.stringify([]));
     }
 
@@ -26,7 +29,7 @@ class PerStaking {
     }
 
     //allows user to stake per in the per staking pool
-    stakeForPer(perAmount, lockTime) {
+    stake(perAmount, lockTime) {
         //Checks to make sure per is not a string but number.
         //Also checks to make sure it is not less than zero
         if (perAmount * 0 !== 0 || perAmount * 1 <= 0) {
@@ -36,6 +39,7 @@ class PerStaking {
         let perAfterFee = perAmount * .98;
 
         let totalShares = storage.get("totalShares") * 1; 
+        let totalPer = storage.get("totalPer") * 1;
         let users = JSON.parse(storage.get("usersKey"));
         let multiplier; 
         let time = block.time; 
@@ -91,9 +95,11 @@ class PerStaking {
 
         storage.mapPut("stakings", id, JSON.stringify({id: id, user: tx.publisher, per: perAfterFee.toFixed(8), shares: userShares.toFixed(8), stakedTime: time, lockPeriod: lockPeriod, lockTime: lockTime }))
         totalShares += userShares; 
+        totalPer += perAfterFee; 
 
         //updates the total share of PER staked on the contract. 
         storage.put("totalShares", totalShares.toFixed(8));
+        storage.put("totalPer", totalPer.toFixed(8));
         
         this._transfer("per", tx.publisher, blockchain.contractName(), (perAmount * 1).toFixed(8), "User stakes PER on contract. ");
 
@@ -101,7 +107,7 @@ class PerStaking {
     }
 
     //allows user to unstake per in the per staking pool
-    unstakeForPer(id) {
+    unstake(id) {
 
         if (!storage.mapHas("users", tx.publisher)){
             throw "User has no stake entries. "
@@ -116,16 +122,29 @@ class PerStaking {
         let entry = JSON.parse(storage.mapGet("stakings", id));
 
         if(entry.user !== tx.publisher){
-            throw "You are not authorized to unstake this entry. "
+            throw "You are not authorized to unstake this entry. ";
         }
 
         let totalShares = storage.get("totalShares") * 1;
+        let totalPer = storage.get("totalPer") * 1; 
 
         //check if there is penalty
         //there is penalty
         if(block.time < entry.lockPeriod){
             let unstakeAmt = entry["per"] * 1 - entry["per"] * penaltyFees[entry.lockTime]; 
+            let lobbyPool = entry["per"] * penaltyFees[entry.lockTime] * .5; 
+            let burn = entry["per"] * penaltyFees[entry.lockTime] * .25;
+            //sends to user
             this._transfer("per", blockchain.contractName(), tx.publisher, unstakeAmt.toFixed(8), "User unstakes from contract with penalty. ");
+            //sends to lobby
+            this._transfer("per", blockchain.contractName(), lobbyContract, lobbyPool.toFixed(8), "Penalty charge got sent to lobby pool");
+
+            //burns.  
+            blockchain.callWithAuth("ContractH8iSeyTq9T8o1ukfxxwqvZYiTX4MTKjKoBecLYrp2FPU", "destroy", [
+                'per',
+                blockchain.contractName(),
+                burn.toFixed(8)
+            ]);
         }
         //there is no penalty
         else {
@@ -133,10 +152,12 @@ class PerStaking {
             this._transfer("per", blockchain.contractName(), tx.publisher, unstakeAmt.toFixed(8), "User unstakes from contract with no penalty. ");
         }
 
-        totalShares -= entry[shares] * 1; 
+        totalShares -= entry["shares"] * 1; 
+        totalPer -= entry["per"] * 1; 
         
         //update total share
         storage.put("totalShares", totalShares.toFixed(8));
+        storage.put("totalPer", totalPer.toFixed(8));
 
         //update user's staking entries
         userData.stakings = userData.stakings.filter(i => i !== id);
@@ -159,14 +180,70 @@ class PerStaking {
     }
 
    
+    //Payout rewards to users. 
+    payOutPers() {
+        this._assertAccountAuth("powermine");
 
-    getStakedUsersForPer() {
+        let balance = blockchain.callWithAuth("token.iost", "balanceOf", [
+            "per",
+            blockchain.contractName()
+        ]) * 1;
+
+        let rewardsUnclaimed = storage.get("rewardsUnclaimed") * 1; 
+        let totalPer = storage.get("totalPer") * 1;
+
+        //The available payout pool is calculated by balance of per minus the total staked and rewards unclaimed. 
+        let pool = balance - totalPer - rewardsUnclaimed; 
+
+        // 5% of reward pool goes to payout.  
+        let rewards = pool * .05; 
+
+        let users = JSON.parse(storage.get("usersKey"));
+        let totalShares = storage.get("totalShares") * 1; 
+        
+        //Pays out per to all staked users based on shares.  Users will have to claim rewards.  
+        users.forEach(user => {
+            let userData = JSON.parse(storage.mapPut("users", user));
+            let shares = userData.total * 1; 
+            let userReward = rewards * shares / totalShares;
+
+            if(!storage.mapHas("usersUnclaimed", user)){
+                storage.mapPut("usersUnclaimed", user, userReward.toFixed(8)); 
+            }
+            else{
+                let usersUnclaimed = storage.mapGet("usersUnclaimed", user) * 1; 
+                usersUnclaimed += userReward; 
+                storage.mapPut("usersUnclaimed", user, usersUnclaimed.toFixed(8));
+            }
+                      
+        });
+
+        rewardsUnclaimed += rewards; 
+        storage.put("rewardsUnclaimed", rewardsUnclaimed.toFixed(8));
 
     }
 
-    getStakedUsersForIost() {
+
+    //user claim rewards
+    claimReward(){
+        if(!storage.mapHas("usersUnclaimed", tx.publisher)){
+            throw "You don't have rewards for claim. "
+        }
+
+        let usersUnclaimed = storage.mapGet('usersUnclaimed', tx.publisher) * 1; 
+
+        if(usersUnclaimed === 0){
+            throw "You have zero rewards available for claim. "
+        }
+
+        this._transfer("per", blockchain.contractName(), tx.publisher, usersUnclaimed.toFixed(8), "User claims PER reward. ");
+        let rewardsUnclaimed = storage.get('rewardsUnclaimed') * 1 - usersUnclaimed; 
+
+        storage.put('rewardsUnclaimed', rewardsUnclaimed.toFixed(8));
+        storage.mapPut('usersUnclaimed', tx.publisher, "0");
 
     }
+    
 
 
     can_update(data) {
@@ -201,4 +278,4 @@ class PerStaking {
 
 
 }
-module.exports = PerStaking;
+module.exports = PerStakingForPer;

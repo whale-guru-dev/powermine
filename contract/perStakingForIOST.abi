@@ -1,0 +1,49 @@
+{
+    "lang": "javascript",
+    "version": "1.0.0",
+    "abi": [
+        {
+            "name": "stake",
+            "args": [
+                "string",
+                "string"
+            ],
+            "amountLimit": [{"token": "*", "val": "unlimited"}],
+            "description": ""
+        },
+        {
+            "name": "unstake",
+            "args": [
+                "string"
+            ],
+            "amountLimit": [{"token": "*", "val": "unlimited"}],
+            "description": ""
+        },
+        {
+            "name": "payOutIOST",
+            "args": [],
+            "amountLimit": [{"token": "*", "val": "unlimited"}],
+            "description": ""
+        },
+        {
+            "name": "claimReward",
+            "args": [],
+            "amountLimit": [{"token": "*", "val": "unlimited"}],
+            "description": ""
+        },
+        {
+            "name": "can_update",
+            "args": [
+                "string"
+            ],
+            "amountLimit": [],
+            "description": ""
+        },
+        {
+            "name": "updateInit",
+            "args": [],
+            "amountLimit": [],
+            "description": ""
+        }
+    ]
+}
