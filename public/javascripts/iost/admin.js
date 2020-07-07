@@ -68,6 +68,41 @@ function updateIOSTiGooseAmount () {
     setInterval(updateIOSTiGooseAmount_internal,10 * 60 * 1000)
 }
 
+//airdrop iwallet integration
+$(document).on("click", "#airdropBtn", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpcUrl = getMainnetConfig().rpcUrl;
+        // const rpc = new IOST.RPC(new IOST.HTTPProvider(rpcUrl));
+        // iost.setRPC(rpc);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var airdropAmt = $("#airdropAmt").val();
+
+        const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "airDropPer", [airdropAmt.toString()]);
+        tx.addApprove("per", "10000000");
+        // const chainId = getMainnetConfig().chainId;
+        // tx.setChainID(chainId);
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>airdrop success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Airdrop Success. Please check your wallet</div>');
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">' + result + '</div>');
+        });
+    });
+});
 
 $(document).on("click", "#depositBtn", function () {
     window.IWalletJS.enable().then(function (val) {
