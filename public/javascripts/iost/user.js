@@ -12,9 +12,9 @@ function hideAdminHeader() {
         $("#menu-item-139").hide();
     } else {
         window.IWalletJS.enable().then(function (val) {
-            if(val !== 'powermine')
+            if(val !== 'powermine' || val !== 'pmine_admin')
                 $("#menu-item-139").hide();
-            else if(val === 'powermine') {
+            else if(val === 'powermine' || val === 'pmine_admin') {
                 $("#menu-item-139").show();
             }
         }).catch(error => {

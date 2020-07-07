@@ -210,9 +210,9 @@
             window.location.href='/';
         } else {
             window.IWalletJS.enable().then(function (val) {
-                if(val !== 'powermine')
+                if(val !== 'powermine' || val !== 'pmine_admin')
                     window.location.href='/';
-                else if(val === 'powermine') {
+                else if(val === 'powermine' || val === 'pmine_admin') {
                     $("#menu-item-139").show();
                 }
             }).catch(error => {
