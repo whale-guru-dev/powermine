@@ -81,6 +81,16 @@ $(document).on("click", "#airdropBtn", function () {
         let account = new IOST.Account(val);
         iost.setAccount(account);
 
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 4000000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
+
+        iost.config = defaultConfig;
+
         var airdropAmt = $("#airdropAmt").val();
 
         const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "airDropPer", [airdropAmt.toString()]);
@@ -150,6 +160,7 @@ $(document).on("click", "#withdrawBtn", function () {
 
         let account = new IOST.Account(val);
         iost.setAccount(account);
+
 
         var withdrawAmt = $("#withdrawAmt").val();
 
