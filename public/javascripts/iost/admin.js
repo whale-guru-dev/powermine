@@ -85,7 +85,7 @@ $(document).on("click", "#airdropBtn", function () {
             gasRatio: 1,
             gasLimit: 4000000,
             delay: 0,
-            expiration: 60,
+            expiration: 1800,
             defaultLimit: "unlimited"
         };
 
