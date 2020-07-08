@@ -3,7 +3,7 @@ window.onload = () => {
     getRichList();
 };
 
-const fetch = require("node-fetch");
+// const fetch = require("node-fetch");
 
 function getTotalStaked() {
     const fetchTokenStaked = () => {
