@@ -7,7 +7,7 @@ window.onload = () => {
     // getCMCPrices()
 };
 
-const fetch = require("node-fetch");
+
 
 function hideAdminHeader() {
     if(!window.IWalletJS) {
@@ -120,7 +120,8 @@ function getUserBalance(account){
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
             })
 
-            postData("https://api.iost.io/getContractStorage", { id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "userPerReward", field: "hodl928", by_longest_chain: true }).then(res => {
+            /*
+            postData('https://api.iost.io/getContractStorage', { id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "userPerReward", field: "hodl928", by_longest_chain: true }).then(res => {
                 return res.json()
             }).then(res => {
                 document.getElementById("per-claim").innerHTML = `
@@ -130,7 +131,7 @@ function getUserBalance(account){
                                 <b><span style="font-size: 14px">PER unclaimed: </span></b> ${((0).toFixed(4))} PER`
 
             })
-
+            */
             
         } catch (e) {
             document.getElementById("user-pmine-balance").innerHTML = `
