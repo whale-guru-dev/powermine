@@ -2265,6 +2265,7 @@ button[disabled], html input[disabled] {
 }
 .accordion button[aria-expanded='true'] {
     color: #03b5d2;
+    font-weight: bold;
 }
 .accordion button[aria-expanded='true'] .icon::after {
     width: 0;
