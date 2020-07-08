@@ -1,12 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
     "\\iost",
     "\\public",
     "\\public\\javascripts",
     "\\public\\javascripts\\iost",
-    "\\views"
+    "\\routes",
+    "\\views",
+    "\\views\\partials"
   ],
-  "SelectedNode": "\\public\\javascripts\\iost\\admin.js",
+  "SelectedNode": "\\public\\javascripts\\iost\\user.js",
   "PreviewInSolutionExplorer": false
 }
