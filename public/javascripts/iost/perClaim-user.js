@@ -42,7 +42,18 @@ function getTotalStaked() {
     setInterval(fetchTokenStaked, 10 * 60 * 1000)
 }
 
-function getUserBalance(account) {
+async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', },
+        credentials: 'omit',
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response; // parses JSON response into native JavaScript objects
+}
+
+function getUserBalance(account){
 
     try {
         fetch('https://api.iost.io/getTokenBalance/' + account  + '/pmine/true').then(res => res.json()).then(json => {
