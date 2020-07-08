@@ -73,5 +73,9 @@ router.get('/igoose/', function(req, res, next) {
   })
 });
 
+router.get('/per-airdrop-claim/', function(req, res, next) {
+  res.render('airdropClaim');
+});
+
 
 module.exports = router;
