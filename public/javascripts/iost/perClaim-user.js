@@ -76,8 +76,7 @@ function getUserBalance(account){
             credentials: 'omit',
             body: JSON.stringify({ id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "userPerReward", field: account, by_longest_chain: true }) // body data type must match "Content-Type" header
         }).then(res => res.json()).then(json => {
-            document.getElementById("per-claim").innerHTML = `
-                                <b><span style="font-size: 14px">PER unclaimed: </span></b> ${(JSON.parse(json.data) ? JSON.parse(json.data) : "0.00000000")} PER`
+            document.getElementById("amountPerToClaim").innerHTML = `${(JSON.parse(json.data) ? JSON.parse(json.data) : "0.00000000")}`
         });
 
      
