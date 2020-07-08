@@ -2285,6 +2285,7 @@ button[disabled], html input[disabled] {
     will-change: opacity, max-height;
 }
 .accordion .accordion-content p {
+    color: #212c5b;
     font-size: 1.5rem;
     font-weight: 300;
     margin: 2em 0;
