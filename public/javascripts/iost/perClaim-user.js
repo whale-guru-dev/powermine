@@ -3,6 +3,8 @@ window.onload = () => {
     getRichList();
 };
 
+const fetch = require("node-fetch");
+
 function getTotalStaked() {
     const fetchTokenStaked = () => {
         var xhttp = new XMLHttpRequest();
@@ -41,18 +43,6 @@ function getTotalStaked() {
     fetchTokenStaked()
     setInterval(fetchTokenStaked, 10 * 60 * 1000)
 }
-
-async function postData(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', },
-        credentials: 'omit',
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return response; // parses JSON response into native JavaScript objects
-}
-
 function getUserBalance(account){
 
     try {
@@ -80,21 +70,18 @@ function getUserBalance(account){
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
         })
 
-        fetch('https://api.iost.io/getContractStorage/', {
-            method: 'post',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', },
-            credentials: 'omit',
-            body: JSON.stringify({
-                id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "userPerReward", field: account, by_longest_chain: true})
-        }).then(res => res.json()).then(json => {
+        postData("https://api.iost.io/getContractStorage", { id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "userPerReward", field: "hodl928", by_longest_chain: true }).then(res => {
+            return res.json()
+        }).then(res => {
             document.getElementById("per-claim").innerHTML = `
-                                <b><span style="font-size: 14px">PER unclaimed: </span></b> ${(parseFloat(json.data).toFixed(4))} PER`
-
+                                <b><span style="font-size: 14px">PER unclaimed: </span></b> ${(parseFloat(res.data).toFixed(4))} PER`
         }).catch(err => {
             document.getElementById("per-claim").innerHTML = `
                                 <b><span style="font-size: 14px">PER unclaimed: </span></b> ${((0).toFixed(4))} PER`
 
         })
+
+
     } catch (e) {
         document.getElementById("user-pmine-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} PMINE`
