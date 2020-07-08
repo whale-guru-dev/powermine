@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./partials/header %>
+</head>
+
+<body
+        class="home page-template-default page page-id-42 sticky-header rocket_layout_fullwidth wpb-js-composer js-comp-ver-6.1 vc_responsive">
+<div class="page-loader">
+    <div class="loader-inner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+<div class="page-wrapper">
+    <% include ./partials/header-wrapper %>
+    <header id="airdrop-claim" style="padding: 0px"
+            class="page-title section-title-wrapper section-title-wrapper__no-bottom-margin page-title-layout__both-centered page_title_preset_1 page-title_overflow">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener"
+                                                                 target="_blank"><span
+                                    class="blue-text">Ticker Tape</span></a> by TradingView
+                    </div>
+                    <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                        {
+                            "symbols"
+                        :
+                            [
+                                {
+                                    "proName": "BINANCE:IOSTUSDT",
+                                    "title": "IOST/USD"
+                                },
+                                {
+                                    "proName": "BITSTAMP:BTCUSD",
+                                    "title": "BTC/USD"
+                                },
+                                {
+                                    "proName": "BITSTAMP:ETHUSD",
+                                    "title": "ETH/USD"
+                                },
+                                {
+                                    "proName": "BINANCE:TRXUSDT",
+                                    "title": "TRX/USD"
+                                }
+                            ],
+                                "colorTheme"
+                        :
+                            "dark",
+                                "isTransparent"
+                        :
+                            true,
+                                "displayMode"
+                        :
+                            "regular",
+                                "locale"
+                        :
+                            "en"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+
+            </div>
+        </div>
+
+        <div class="airdrop-claim">
+            <div class="container">
+                <div class="row" style="width: 50%; margin: auto; color: white; text-shadow: 2px 2px 4px black;">
+                    <p class="col-md-3" id="account-logged-in" style="text-align: center;"></p>
+                    <p class="col-md-3" id="exchange-iost-balance" style="text-align: center;"></p>
+                    <p class="col-md-3" id="user-staked-balance" style="text-align: center;"></p>
+                    <p class="col-md-3" id="user-pmine-balance" style="text-align: center;"></p>
+
+                </div>
+
+                <div class="row" id="per-claim" style="width: 50%; margin: auto; color: white; text-shadow: 2px 2px 4px black;">
+                </div>
+                <div class="row text-center" id="statusStakeMsg">
+                </div>
+                <div class="row exchange-container-div">
+
+                    <div class="col-md-3 coin-price-section">
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="exchange-main box-shadow">
+                            <form>
+                                <h4 class="exchange-main-box-title">Per Airdrop Claim</h4>
+
+                                <a href="javascript:void(0)"
+                                   class="btn btn-primary"
+                                   id="claimBtn">Claim PER!</a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+
+                <p id="staked-msg" style="color: white; "></p>
+            </div>
+        </div>
+    </header>
+    <div class="page-section" style="background: #e2e5eb;">
+        <div class="container">
+            <div class="row">
+                <% include ./partials/airdropClaim %>
+            </div>
+        </div>
+    </div>
+
+    <% include ./partials/footer %>
+        <script type="text/javascript" src="/javascripts/iost/perClaim-user.js"></script>
+</body>
+
+</html>

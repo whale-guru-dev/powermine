@@ -587,7 +587,7 @@ $(document).on("click", "#claimBtn", function () {
 
     }).catch(error => {
         if (error.type == "locked")
-            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+            $("#statusStakeMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
     });
 });
 
