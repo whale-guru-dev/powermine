@@ -1,6 +1,6 @@
 window.onload = () => {
     getTotalStaked();
-    getRichList();
+    // getRichList();
 };
 
 // const fetch = require("node-fetch");
@@ -32,8 +32,8 @@ function getTotalStaked() {
                     return;
                 }
 
-                document.getElementById("staked-msg").innerHTML = `
-                <b><span style="font-size: 14px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} PMINE`
+                // document.getElementById("staked-msg").innerHTML = `
+                // <b><span style="font-size: 14px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} PMINE`
             }
         };
         xhttp.open("GET", "/iost/totalStaked", true);
@@ -46,18 +46,18 @@ function getTotalStaked() {
 function getUserBalance(account){
 
     try {
-        fetch('https://api.iost.io/getTokenBalance/' + account  + '/pmine/true').then(res => res.json()).then(json => {
-            document.getElementById("user-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
-
-            // document.getElementById("exchange-pmine-balance").innerHTML = `
-            //                 <b><span style="font-size: 14px">PMINE Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
-        }).catch(err => {
-            document.getElementById("user-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} PMINE`
-            document.getElementById("exchange-pmine-balance").innerHTML = `
-                                <b><span style="font-size: 14px">PMINE Balance: </span></b> ${((0).toFixed(4))} PMINE`
-        })
+        // fetch('https://api.iost.io/getTokenBalance/' + account  + '/pmine/true').then(res => res.json()).then(json => {
+        //     document.getElementById("user-pmine-balance").innerHTML = `
+        //                         <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
+        //
+        //     // document.getElementById("exchange-pmine-balance").innerHTML = `
+        //     //                 <b><span style="font-size: 14px">PMINE Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} PMINE`
+        // }).catch(err => {
+        //     document.getElementById("user-pmine-balance").innerHTML = `
+        //                         <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} PMINE`
+        //     document.getElementById("exchange-pmine-balance").innerHTML = `
+        //                         <b><span style="font-size: 14px">PMINE Balance: </span></b> ${((0).toFixed(4))} PMINE`
+        // })
         fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
             document.getElementById("exchange-iost-balance").innerHTML = `
                                 <b><span style="font-size: 14px">IOST Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} IOST`
@@ -188,7 +188,7 @@ $(document).on("click", "#claim-per", function () {
     });
 });
 
-const items = document.querySelectorAll(".accordion button");
+var items = document.querySelectorAll(".accordion button");
 
 function toggleAccordion() {
     const itemToggle = this.getAttribute('aria-expanded');
