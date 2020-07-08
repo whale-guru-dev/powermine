@@ -1083,7 +1083,7 @@ legend,
 }
 
 .exchange-main {
-    background: #ffffffa3;
+    background: #ffffff75;
     /*padding: 40px 120px 40px 60px;*/
     padding: 40px 70px 40px 70px;
     overflow: hidden;
@@ -2196,6 +2196,10 @@ button[disabled], html input[disabled] {
     }
 }
 
+#claim-per {
+    padding: 3px 15px;
+}
+
 /*Faq Css*/
 @import url("https://fonts.googleapis.com/css?family=Hind:300,400&display=swap");
 .accordion .accordion-item {
@@ -2290,5 +2294,5 @@ button[disabled], html input[disabled] {
     margin: 0 auto;
     padding: 4rem;
     width: 60rem;
-    background: #ffffffa3;
+    background: #ffffff75;
 }
