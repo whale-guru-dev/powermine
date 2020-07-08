@@ -2210,7 +2210,7 @@ button[disabled], html input[disabled] {
     text-align: left;
     width: 100%;
     padding: 1em 0;
-    color: #7288a2;
+    color: #202b5b;
     font-size: 1.75rem;
     font-weight: 400;
     border: none;
@@ -2290,4 +2290,5 @@ button[disabled], html input[disabled] {
     margin: 0 auto;
     padding: 4rem;
     width: 60rem;
+    background: #ffffffa3;
 }
