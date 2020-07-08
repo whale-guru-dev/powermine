@@ -70,17 +70,17 @@ function getUserBalance(account){
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
         })
 
-        postData("https://api.iost.io/getContractStorage", { id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "userPerReward", field: "hodl928", by_longest_chain: true }).then(res => {
-            return res.json()
-        }).then(res => {
+        fetch("https://api.iost.io/getContractStorage", {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', },
+            credentials: 'omit',
+            body: JSON.stringify({ id: "ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", key: "userPerReward", field: account, by_longest_chain: true }) // body data type must match "Content-Type" header
+        }).then(res => res.json()).then(json => {
             document.getElementById("per-claim").innerHTML = `
-                                <b><span style="font-size: 14px">PER unclaimed: </span></b> ${(parseFloat(res.data).toFixed(4))} PER`
-        }).catch(err => {
-            document.getElementById("per-claim").innerHTML = `
-                                <b><span style="font-size: 14px">PER unclaimed: </span></b> ${((0).toFixed(4))} PER`
+                                <b><span style="font-size: 14px">PER unclaimed: </span></b> ${(JSON.parse(json.data) ? JSON.parse(json.data) : "0.00000000")} PER`
+        });
 
-        })
-
+     
 
     } catch (e) {
         document.getElementById("user-pmine-balance").innerHTML = `
@@ -138,8 +138,9 @@ function getRichList () {
     setInterval(fetchPmineRichlist, 10 * 60 * 1000)
 }
 
-$(document).on("click", "#claimBtn", function () {
+$(document).on("click", "#claim-per", function () {
     if (!window.IWalletJS) {
+      
         $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
         return;
     }
@@ -161,7 +162,7 @@ $(document).on("click", "#claimBtn", function () {
 
 
         const tx = iost.callABI("ContractC3DW2h2qVyuFdzo3aKhN8Lhc8Jcp8wetYNvayKyhCjQq", "claimPer", []);
-        tx.addApprove("per", tokenAmount.toString());
+
 
         iost.signAndSend(tx).on('pending', function (txid) {
             console.log("======>pending", txid);
@@ -178,6 +179,7 @@ $(document).on("click", "#claimBtn", function () {
             $(".page-loader").hide();
             $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
         });
+
 
 
     }).catch(error => {
