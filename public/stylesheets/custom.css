@@ -2301,5 +2301,5 @@ button[disabled], html input[disabled] {
 }
 
 .header {
-	z-index: 101;
+	/* z-index: 101; */
 }
