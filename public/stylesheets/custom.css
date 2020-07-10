@@ -2296,6 +2296,7 @@ button[disabled], html input[disabled] {
     margin: 0 auto;
     padding: 4rem;
     width: 60rem;
+	max-width: 100%;
     background: #ffffff75;
 }
 
