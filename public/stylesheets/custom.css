@@ -2298,3 +2298,7 @@ button[disabled], html input[disabled] {
     width: 60rem;
     background: #ffffff75;
 }
+
+.header {
+	z-index: 101;
+}
