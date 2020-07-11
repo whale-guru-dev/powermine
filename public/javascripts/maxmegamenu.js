@@ -639,4 +639,5 @@
     $(function() {
         $(".max-mega-menu").maxmegamenu();
     });
+	
 }( jQuery ));

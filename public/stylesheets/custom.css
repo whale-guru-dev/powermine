@@ -1476,6 +1476,7 @@ a:hover {
     position: absolute;
     right: 0;
     /*height: 100%;*/
+	z-index: 100000;
 }
 
 @media (min-width: 768px) {
@@ -2301,5 +2302,5 @@ button[disabled], html input[disabled] {
 }
 
 .header {
-	z-index: 101;
+	/* z-index: 101; */
 }
