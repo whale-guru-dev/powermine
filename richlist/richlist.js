@@ -40,7 +40,7 @@ const getPERrichlist = async () => {
         return b.balance - a.balance;
     });
 
-    return richList.slice(0, 20);
+    return richList.slice(0, 10);
 };
 
 const getPERrichlistUsers = () => {
@@ -113,7 +113,7 @@ const getIOSTrichlist = async () => {
         return b.balance - a.balance;
     });
 
-    return richList.slice(0, 20);
+    return richList.slice(0, 10);
 };
 
 const getIOSTrichlistUsers = () => {
