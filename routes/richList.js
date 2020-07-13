@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var RichListModel = require("../models/richlist");
 
-router.post('/per', function(req, res, next) {
+router.get('/per', function(req, res, next) {
     var data = req.body;
 
     RichListModel.findOne(
@@ -20,7 +20,7 @@ router.post('/per', function(req, res, next) {
     );
 });
 
-router.post('/iost', function(req, res, next) {
+router.get('/iost', function(req, res, next) {
     var data = req.body;
 
     RichListModel.findOne(
