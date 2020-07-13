@@ -31,7 +31,7 @@ const getPERrichlist = async () => {
         let userStaked = await getPERUserStaked(PERrichlistUsers[i]);
         richList.push({
             "account": PERrichlistUsers[i],
-            "balance": userStaked,
+            "balance": (userStaked * 1).toFixed(8),
             "percent": ((userStaked * 100) / (totalShares * 1)).toFixed(2)
         })
     }
@@ -104,7 +104,7 @@ const getIOSTrichlist = async () => {
         let userStaked = await getIOSTUserStaked(IOSTrichlistUsers[i]);
         richList.push({
             "account": IOSTrichlistUsers[i],
-            "balance": (userStaked * 1),
+            "balance": (userStaked * 1).toFixed(8),
             "percent": ((userStaked * 100) / (totalShares * 1)).toFixed(2)
         })
     }
