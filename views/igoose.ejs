@@ -15,179 +15,63 @@
 </div>
 <div class="page-wrapper">
     <% include ./partials/header-wrapper %>
-    <header id="igoose-exchange" style="padding: 0px"
-            class="page-title section-title-wrapper section-title-wrapper__no-bottom-margin page-title-layout__both-centered page_title_preset_1 page-title_overflow">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener"
-                                                                 target="_blank"><span
-                                    class="blue-text">Ticker Tape</span></a> by TradingView
-                    </div>
-                    <script type="text/javascript"
-                            src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-                        {
-                            "symbols"
-                        :
-                            [
-                                {
-                                    "proName": "BINANCE:IOSTUSDT",
-                                    "title": "IOST/USD"
-                                },
-                                {
-                                    "proName": "BITSTAMP:BTCUSD",
-                                    "title": "BTC/USD"
-                                },
-                                {
-                                    "proName": "BITSTAMP:ETHUSD",
-                                    "title": "ETH/USD"
-                                },
-                                {
-                                    "proName": "BINANCE:TRXUSDT",
-                                    "title": "TRX/USD"
-                                }
-                            ],
-                                "colorTheme"
-                        :
-                            "dark",
-                                "isTransparent"
-                        :
-                            true,
-                                "displayMode"
-                        :
-                            "regular",
-                                "locale"
-                        :
-                            "en"
-                        }
-                    </script>
+
+    <div class="page-section igoose-page-section" style="background: #e2e5eb;">
+
+        <div class="vc_col-sm-12 ticker-row">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener"
+                                                             target="_blank"><span class="blue-text">Ticker Tape</span></a>
+                    by TradingView
                 </div>
-                <!-- TradingView Widget END -->
-
+                <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols"
+                    :
+                        [
+                            {
+                                "proName": "BINANCE:IOSTUSDT",
+                                "title": "IOST/USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:BTCUSD",
+                                "title": "BTC/USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:ETHUSD",
+                                "title": "ETH/USD"
+                            },
+                            {
+                                "proName": "BINANCE:IOTXUSDT",
+                                "title": "IOTX/USD"
+                            },
+                            {
+                                "proName": "BINANCE:TRXUSDT",
+                                "title": "TRX/USD"
+                            }
+                        ],
+                            "colorTheme"
+                    :
+                        "dark",
+                            "isTransparent"
+                    :
+                        true,
+                            "displayMode"
+                    :
+                        "regular",
+                            "locale"
+                    :
+                        "en"
+                    }
+                </script>
             </div>
+            <!-- TradingView Widget END -->
         </div>
-        <div class="section-title-inner">
-            <div class="container">
-                <div class="section-title-decoration">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <img src="/images/IgooseV2Transpanoshadow.png">
-                        </div>
-                        <!--                        <div class="col-md-12">-->
-                        <!--                            <h1 class="section-title section-title__lg" style="color: #ffffff">iMatch EXCHANGE</h1>-->
-                        <!--                        </div>-->
-                        <!--                        <div class="col-md-12 breadcrumbs-default">-->
-                        <!--                            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">-->
-                        <!--                                <li><a href="/">Home</a></li>-->
-                        <!--                            </ol>-->
-                        <!--                        </div>-->
-                    </div>
-                    <!--                    <span class="section-title-dots">-->
-                    <!--                      <span class="dot1"></span>-->
-                    <!--                      <span class="dot2"></span>-->
-                    <!--                      <span class="dot3"></span>-->
-                    <!--                    </span>-->
-                </div>
-            </div>
-            <div class="section-title-overlay"></div>
-        </div>
-        <div class="row"
-             style="width: 50%; margin: auto; margin-bottom: -50px; color: white; text-shadow: 2px 2px 4px black;">
-            <p class="col-md-4" id="exchange-logged-in" style="text-align: center;"></p>
-            <p class="col-md-4" id="exchange-iost-balance" style="text-align: center;"></p>
-            <p class="col-md-4" id="exchange-igoose-balance" style="text-align: center;"></p>
-        </div>
-        <div class="igoose-exchange">
-            <div class="container">
-                <div class="row">
 
-<!--                    <div class="col-md-3 coin-price-section igoose-timer">-->
-<!--                        <div class="landing__page-timer">-->
-<!--                            <div>-->
-<!--                                <div class="is-box is-box&#45;&#45;green"></div>-->
-<!--                                <div><span id="timer_days">15</span><span>Days</span></div>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <div class="is-box is-box&#45;&#45;green"></div>-->
-<!--                                <div><span id="timer_hours">19</span><span>Hours</span></div>-->
-<!--                            </div>-->
-<!--                            <span class="is-spacer"><span></span><span></span></span>-->
-<!--                            <div>-->
-<!--                                <div class="is-box"></div>-->
-<!--                                <div><span id="timer_minutes">21</span><span>Minutes</span></div>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <div class="is-box"></div>-->
-<!--                                <div><span id="timer_seconds">02</span><span>Seconds</span></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="exchange-main box-shadow">
 
-                            <form>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p><i class="fa fa-check"></i> 1 iGoose = <span id="pminePrice"></span> IOST</p>
-                                    </div>
-                                </div>
-                                <h4 class="exchange-main-box-title">Buy iGoose</h4>
-                                <div class="row text-center" id="statusBuyMsg">
-                                </div>
-                                <div class="row exchange-form-row">
-                                    <div class="col-md-5 col-xs-12 exchange-form-row-div_start">
-                                        <div class="igoose-exchange-item exchange-item box-shadow wow fadeIn"
-                                             data-wow-delay=".2s">
-                                            <input type="number" id="pmineAmtBuy">
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle" href="javascript:void(0)">
-                                                    <span class="selected-coin2">iGoose</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5 col-xs-12 exchange-form-row-div_start">
-                                        <div class="igoose-exchange-item exchange-item box-shadow wow fadeIn"
-                                             data-wow-delay=".3s">
-                                            <input type="number" id="iostAmtBuy">
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle" href="javascript:void(0)">
-                                                    <span class="selected-coin3">IOST</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-xs-12 exchange-form-row-div_center">
-                                        <div class="exchange-button wow fadeIn" data-wow-delay=".4s"
-                                             style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
-                                            <a href="javascript:void(0)"
-                                               class="vc_general vc_btn3 btn btn-md vc_btn3-shape-rounded vc_btn3-style-default btn-primary"
-                                               id="buyBtn">Buy!</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="exchange-protect">
-                                        <!-- <img src="/images/protect.png" alt="..."> -->
-                                        <p id="igoose-token-msg"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3"></div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="page-section" style="background: #e2e5eb;">
         <div class="container">
             <div class="row">
                 <% include ./partials/igoose %>
@@ -195,7 +79,73 @@
         </div>
     </div>
 
-    <% include ./partials/footer %>
+    <footer class="footer page-section" id="footer">
+        <div class="container">
+            <div class="footer-inner">
+
+                <!-- <ul class="footer-social-links footer-social-links__rounded list-inline text-center"></ul> -->
+                <div class="footer-text text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            Powermine All Right Reserved </div>
+                        <div class="col-md-13">This decentralized application has been made for entertainment purposes
+                            and is a game, not an investment platform. No guarantees or warranties
+                            are issued to any participants. Please do not participate in this game
+                            if it is not legal to do so in your particular locality.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<link rel='stylesheet' href="/stylesheets/js_composer/css/v4-shims.min.css" type='text/css' media='all' />
+<link rel='stylesheet' id='vc_font_awesome_5-css' href="/stylesheets/js_composer/css/all.min.css" type='text/css'
+      media='all' />
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var wpcf7 = {
+        "apiSettings": {
+            "root": "http:\/\/powermine.club\/wp-json\/contact-form-7\/v1",
+            "namespace": "contact-form-7\/v1"
+        },
+        "cached": "1"
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript' src="/javascripts/contact-form-7/scripts.js">
+</script>
+<script type='text/javascript' src="/stylesheets/bootstrap/bootstrap.min.js">
+</script>
+<script type='text/javascript' src="/stylesheets/bootstrap/bootstrap-scripts.js">
+</script>
+<script type='text/javascript' src="/javascripts/jquery/jquery.easing.1.3.js"></script>
+<script type='text/javascript' src="/stylesheets/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script type='text/javascript' src="/javascripts/jquery/jquery.scrollTo.min.js"></script>
+<script type='text/javascript' src="/javascripts/jquery/jquery.localScroll.min.js"></script>
+<script type='text/javascript' src="/javascripts/jquery/jquery.viewport.mini.js"></script>
+<script type='text/javascript' src="/javascripts/rocket/custom.js"></script>
+<script type='text/javascript' src="/javascripts/hoverIntent.min.js"></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var megamenu = {
+        "timeout": "300",
+        "interval": "100"
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript' src="/javascripts/maxmegamenu.js"></script>
+<script type='text/javascript' src="/javascripts/wp-embed.min.js"></script>
+<script type='text/javascript' src="/javascripts/js_composer_front.min.js"></script>
+<script type='text/javascript' src="/javascripts/jquery/jquery.appear.js"></script>
+<script type='text/javascript' src="/javascripts/jquery/jquery.countTo.js"></script>
+<script type='text/javascript' src="/javascripts/jquery/jquery.countToInit-counter.js"></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/iost@0.1.22/dist/iost.min.js'></script>
+<div id="back-top" class="back-top">
+    <div class="link-holder scroll-local">
+        <a href="#top" id="back-to-top-btn" class="top-link"><i class="fa fa-chevron-up"></i></a>
+    </div>
+</div>
     <script type="text/javascript" src="/javascripts/iost/igoose-user.js"></script>
 </body>
 

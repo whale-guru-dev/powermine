@@ -1518,6 +1518,10 @@ a:hover {
     background: url(../images/background.jpg) no-repeat center center / cover;
 }
 
+#iGoose-richlist {
+    background: url(../images/igoose-background.jpg) no-repeat center center / cover;
+}
+
 #imatch-exchange {
     background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
 }
@@ -1637,10 +1641,19 @@ table > thead > tr > th, .table > thead > tr > th {
     .pmine-page-section {
         padding: 0px 0 100px 0;
     }
+
+    .igoose-page-section {
+        padding: 0px 0 0px 0;
+    }
 }
 
 .pmine-page-section {
     padding-top: 0px;
+}
+
+.igoose-page-section {
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 @media (min-width: 1200px) {
@@ -2176,6 +2189,10 @@ button[disabled], html input[disabled] {
 }
 
 .stake-pmine-section {
+    padding-top: 80px;
+}
+
+.stake-igoose-section {
     padding-top: 80px;
 }
 
