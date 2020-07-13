@@ -13,7 +13,6 @@ router.get('/per', function(req, res, next) {
                 res.json({status: 'error'})
             } else {
                 // handle document
-                console.log(contentIns)
                 res.json({richList: richList})
             }
         }
@@ -31,7 +30,6 @@ router.get('/iost', function(req, res, next) {
                 res.json({status: 'error'})
             } else {
                 // handle document
-                console.log(contentIns)
                 res.json({richList: richList})
             }
         }
