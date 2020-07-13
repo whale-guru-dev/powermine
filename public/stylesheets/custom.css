@@ -2206,6 +2206,10 @@ button[disabled], html input[disabled] {
     padding: 50px 0 100px 0;
 }
 
+.airdrop-claim-exchange {
+    background: #ffffff52;
+}
+
 /*Airdrop claim page*/
 @media (max-width: 991px) {
     .airdrop-claim .exchange-main {
@@ -2333,7 +2337,8 @@ button[disabled], html input[disabled] {
 }
 
 .orange-color {
-    background: linear-gradient(to right, #EFA31A 0%, #D38B14 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /*background: linear-gradient(to right, #EFA31A 0%, #D38B14 100%);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    color: #2ee800 !important;
 }
