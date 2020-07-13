@@ -2301,6 +2301,16 @@ button[disabled], html input[disabled] {
     background: #ffffff75;
 }
 
-.header {
-	/* z-index: 101; */
+@media (max-width: 992px) {
+	.header {
+		/* z-index: 101 !important; */
+	}
+	
+	.ticker-row {
+		/* z-index: 99; */
+	}
+	
+	.header-main-container {
+		/* z-index: 102 !important; */
+	}
 }
