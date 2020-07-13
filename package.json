@@ -17,6 +17,7 @@
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
     "request": "^2.88.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "axios": "^0.19.2"
   }
 }
