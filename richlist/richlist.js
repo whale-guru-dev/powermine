@@ -10,14 +10,12 @@ const grab_per_iost_richlist = async () => {
         {name: "per", richList: JSON.stringify(PERrichlist)},
         {upsert: true, new: true, runValidators: true});
 
-    console.log('perRichListins', perRichListins)
 
     let iostRichListins = await RichlistModel.findOneAndUpdate(
         {name: "iost"},
         {name: "iost", richList: JSON.stringify(IOSTrichlist)},
         {upsert: true, new: true, runValidators: true});
 
-    console.log('iostRichListins', iostRichListins)
     return true;
 }
 
