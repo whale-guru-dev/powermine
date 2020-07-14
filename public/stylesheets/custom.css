@@ -1010,8 +1010,16 @@ legend,
     background-image: url("../images/bg1.png");
 }
 
+#iChip-exchange .top-wrapper {
+    background: transparent !important;
+}
+
 .header.affix {
     background: rgba(26, 39, 88, 0.95);
+}
+
+#iChip-exchange .header.affix {
+    background: transparent !important;
 }
 
 .footer {
