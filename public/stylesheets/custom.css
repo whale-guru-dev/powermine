@@ -1092,11 +1092,16 @@ legend,
 
 .iChip-exchange {
     /*padding: 50px 0 100px 0;*/
-    padding-top: 200px;
+    /*padding-top: 200px;*/
 }
 
 #iChip-exchange .section-title-inner {
     padding-bottom: 130px;
+}
+
+#iChip-exchange .header .logo img {
+    max-width: 400px;
+    width: 350px;
 }
 
 .exchange-main {
@@ -2245,10 +2250,10 @@ table > thead > tr > th, .table > thead > tr > th {
 }
 
 .timer-default {
-    color: azure;
-    --color1: azure;
-    --color2: aqua;
-    --color3: dodgerblue;
+    color: #F1F9FB;
+    --color1: #63C7E9;
+    --color2: #48B4F8;
+    --color3: #3FA8FA;
     --color4: blue;
 }
 
