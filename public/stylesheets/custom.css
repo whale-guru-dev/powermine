@@ -1837,6 +1837,11 @@ table > thead > tr > th, .table > thead > tr > th {
     align-items: center;
 }
 
+.iChip-timer {
+    display: flex;
+    align-items: center;
+}
+
 .landing__page-timer {
     margin-right: auto;
     margin-left: auto;
@@ -1856,6 +1861,10 @@ table > thead > tr > th, .table > thead > tr > th {
     .igoose-timer {
         justify-content: center;
     }
+
+    .iChip-timer {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 1420px) {
@@ -1866,10 +1875,18 @@ table > thead > tr > th, .table > thead > tr > th {
     .igoose-timer {
         justify-content: center;
     }
+
+    .iChip-timer {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 992px) {
     .igoose-timer {
+        justify-content: center;
+    }
+
+    .iChip-timer {
         justify-content: center;
     }
 }
@@ -1943,7 +1960,7 @@ table > thead > tr > th, .table > thead > tr > th {
     align-items: center;
     position: relative;
     z-index: 3;
-    /*padding-top: 30px*/
+    padding-top: 30px
 }
 
 @media (max-width:710px) {
