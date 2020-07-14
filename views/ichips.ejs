@@ -17,43 +17,6 @@
     <header id="iChip-exchange" style="padding: 0px"
             class="page-title section-title-wrapper section-title-wrapper__no-bottom-margin page-title-layout__both-centered page_title_preset_1 page-title_overflow">
         <% include ./partials/header-wrapper %>
-        <div class="row">
-            <div class="col-md-12">
-                <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Ticker Tape</span></a> by TradingView</div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-                        {
-                            "symbols": [
-                            {
-                                "proName": "BINANCE:IOSTUSDT",
-                                "title": "IOST/USD"
-                            },
-                            {
-                                "proName": "BITSTAMP:BTCUSD",
-                                "title": "BTC/USD"
-                            },
-                            {
-                                "proName": "BITSTAMP:ETHUSD",
-                                "title": "ETH/USD"
-                            },
-                            {
-                                "proName": "BINANCE:TRXUSDT",
-                                "title": "TRX/USD"
-                            }
-                        ],
-                            "colorTheme": "dark",
-                            "isTransparent": true,
-                            "displayMode": "regular",
-                            "locale": "en"
-                        }
-                    </script>
-                </div>
-                <!-- TradingView Widget END -->
-
-            </div>
-        </div>
         <div class="section-title-inner">
             <div class="container">
                 <div class="section-title-decoration">
@@ -74,31 +37,21 @@
             <p class="col-md-4" id="exchange-iChip-balance" style="text-align: center;"></p>
         </div>
         <div class="iChip-exchange">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row exchange-container-div">
 
-                    <div class="col-md-3 coin-price-section iChip-timer">
-                        <div class="landing__page-timer">
-                            <div>
-                                <div class="is-box is-box--green"></div>
-                                <div><span id="timer_days">15</span><span>Days</span></div>
-                            </div>
-                            <div>
-                                <div class="is-box is-box--green"></div>
-                                <div><span id="timer_hours">19</span><span>Hours</span></div>
-                            </div>
-                            <span class="is-spacer"><span></span><span></span></span>
-                            <div>
-                                <div class="is-box"></div>
-                                <div><span id="timer_minutes">21</span><span>Minutes</span></div>
-                            </div>
-                            <div>
-                                <div class="is-box"></div>
-                                <div><span id="timer_seconds">02</span><span>Seconds</span></div>
-                            </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12 coin-price-section iChip-timer">
+                        <div class="timer">
+                            <ul class="text-center">
+                                <li class="timer-default timer-unique"><span id="timer_days">0</span>Days</li>
+                                <li class="timer-default timer-unique"><span id="timer_hours">0</span>Hours</li>
+                                <li class="timer-default timer-unique"><span id="timer_minutes">0</span>Minutes</li>
+                                <li class="timer-default timer-unique"><span id="timer_seconds">0</span>Seconds</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12">
+
+                    <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="exchange-main box-shadow">
 
                             <form>
@@ -153,8 +106,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-4 col-sm-12 col-xs-12"></div>
                 </div>
+            </div>
+        </div>
+
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker__item">Letterpress chambray brunch.</div>
+                <div class="ticker__item">Vice mlkshk crucifix beard chillwave meditation hoodie asymmetrical Helvetica.</div>
+                <div class="ticker__item">Ugh PBR&B kale chips Echo Park.</div>
+                <div class="ticker__item">Gluten-free mumblecore chambray mixtape food truck. </div>
             </div>
         </div>
     </header>

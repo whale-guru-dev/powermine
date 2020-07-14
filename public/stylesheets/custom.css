@@ -1974,7 +1974,12 @@ table > thead > tr > th, .table > thead > tr > th {
 @media (max-width:710px) {
     .landing__page-timer {
         -webkit-transform: scale(.6);
-        transform: scale(.6)
+        transform: scale(.6);
+    }
+
+    .timer {
+        -webkit-transform: scale(.6);
+        transform: scale(.6);
     }
 }
 
@@ -2181,6 +2186,72 @@ table > thead > tr > th, .table > thead > tr > th {
     left: auto;
     border-radius: 99em 9999em 9em 999em
 }
+
+
+.countdown-round-text {
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: white;
+
+    color: transparent;
+//background: linear-gradient(180deg, #fefefe, #bbb);
+//background: linear-gradient(to right, #B9AF5B 0%, #DCD880 100%);
+    background: linear-gradient(to right, #EFA31A 0%, #D38B14 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-filter: drop-shadow(-1px -1px white) drop-shadow(1px 1px darken(white, 50%)) drop-shadow(1px 1px darken(white, 52%)) drop-shadow(1px 1px darken(white, 54%)) drop-shadow(1px 1px darken(white, 56%)) drop-shadow(1px 1px darken(white, 58%)) drop-shadow(1px 1px darken(white, 60%)) drop-shadow(12px 12px 30px rgba(black, 0.2)) drop-shadow(12px 12px 10px rgba(black, 0.2));
+}
+
+.timer li{
+    display: inline-block;
+    font-size: 12px;
+    list-style-type: none;
+    padding: 5px;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.timer li span {
+    display: block;
+    font-size: 50px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.timer ul {
+    padding-inline-start: 0;
+}
+
+@keyframes flicker {
+    50% {
+        color: white;
+        filter: saturate(200%) hue-rotate(20deg);
+    }
+}
+
+.timer-default {
+    color: azure;
+    --color1: azure;
+    --color2: aqua;
+    --color3: dodgerblue;
+    --color4: blue;
+}
+
+.timer-unique {
+    --interval: 1s;
+    display: block;
+    text-shadow: 0 0 10px var(--color1), 0 0 20px var(--color2),
+    0 0 40px var(--color3), 0 0 80px var(--color4);
+    will-change: filter, color;
+    filter: saturate(60%);
+    animation: flicker steps(100) var(--interval) 1s infinite;
+}
+
+.timer ul li:before {
+    display: none;
+}
+
 /*Sold out*/
 .stamp {
     transform: rotate(12deg);
@@ -2379,3 +2450,66 @@ button[disabled], html input[disabled] {
     /*-webkit-text-fill-color: transparent;*/
     color: #2ee800 !important;
 }
+
+/*ticker*/
+@-webkit-keyframes ticker {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes ticker {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.ticker-wrap {
+    /*position: fixed;*/
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 4rem;
+    background-color: rgba(#000, 0.9);
+    padding-left: 100%;
+    box-sizing: content-box;
+}
+
+.ticker {
+    display: inline-block;
+    height: 4rem;
+    line-height: 4rem;
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+    animation-name: ticker;
+    -webkit-animation-duration: 30s;
+    animation-duration: 30s;
+}
+
+.ticker__item {
+     display: inline-block;
+     padding: 0 2rem;
+     font-size: 2rem;
+     color: white;
+ }
