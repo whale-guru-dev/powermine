@@ -1104,6 +1104,15 @@ legend,
     margin-right: auto;
 }
 
+.iChip-exchange .exchange-main {
+    padding: 5px 30px 5px 30px;
+}
+
+.iChip-exchange .exchange-protect {
+     margin-top: 0px;
+     padding-top: 0px;
+}
+
 .exchange ul li {
     color: #fff;
     display: inline-block;
