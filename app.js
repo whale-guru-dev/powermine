@@ -12,6 +12,7 @@ var imatchRouter = require('./routes/imatch');
 var igooseRouter = require('./routes/igoose');
 var adminRouter = require('./routes/admin');
 var richListRouter = require('./routes/richList');
+var iChipRouter = require('./routes/ichips');
 
 var richList = require('./richlist/richlist');
 
@@ -35,6 +36,7 @@ app.use('/admin', adminRouter);
 app.use('/imatch', imatchRouter);
 app.use('/igoose', igooseRouter);
 app.use('/richList', richListRouter);
+app.use('/iChip', iChipRouter);
 
 app.get('*', function (req, res) {
   res.render('404');

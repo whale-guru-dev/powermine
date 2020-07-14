@@ -1082,6 +1082,10 @@ legend,
     padding: 50px 0 100px 0;
 }
 
+.iChip-exchange {
+    padding: 50px 0 100px 0;
+}
+
 .exchange-main {
     background: #ffffff75;
     /*padding: 40px 120px 40px 60px;*/
@@ -1224,6 +1228,10 @@ legend,
 }
 
 .igoose-exchange-item .dropdown {
+    font-size: 9px !important;
+}
+
+.iChip-exchange-item .dropdown {
     font-size: 9px !important;
 }
 
@@ -1528,6 +1536,10 @@ a:hover {
 
 #igoose-exchange {
     background: url(../images/igoose-background.jpg) no-repeat center center / cover;
+}
+
+#iChip-exchange {
+    background: url(../images/ICHIP-background.jpg) no-repeat center center / cover;
 }
 
 #airdrop-claim {
