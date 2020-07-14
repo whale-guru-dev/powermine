@@ -48,8 +48,8 @@ function getTokens () {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('token-value').innerText = parseFloat(1000 - xhttp.responseText).toFixed(0);
-                document.getElementById("iChip-token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> iChip tokens out of <b>1,000</b>. 
-                There are <b><span style="font-size: 18px">${parseFloat(1000 - xhttp.responseText).toFixed(4)}</span></b> iChip in circulation.`;
+                document.getElementById("iChip-token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> Ichips tokens out of <b>1,000</b>. 
+                There are <b><span style="font-size: 18px">${parseFloat(1000 - xhttp.responseText).toFixed(4)}</span></b> Ichips in circulation.`;
             }
         };
         xhttp.open("GET", "/iChip/circulation", true);
@@ -88,7 +88,7 @@ function getTotalStaked() {
                 }
 
                 document.getElementById("staked-msg").innerHTML = `
-                <b><span style="font-size: 14px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} iChip`
+                <b><span style="font-size: 14px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} Ichips`
             }
         };
         xhttp.open("GET", "/iChip/totalStaked", true);
@@ -104,15 +104,15 @@ function getUserBalance(account){
     try {
         fetch('https://api.iost.io/getTokenBalance/' + account  + '/ichips/true').then(res => res.json()).then(json => {
             document.getElementById("user-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} iChip`
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} Ichips`
 
             document.getElementById("exchange-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">iChip Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} iChip`
+                                <b><span style="font-size: 14px">Ichips Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} Ichips`
         }).catch(err => {
             document.getElementById("user-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} iChip`
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} Ichips`
             document.getElementById("exchange-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">iChip Balance: </span></b> ${((0).toFixed(4))} iChip`
+                                <b><span style="font-size: 14px">Ichips Balance: </span></b> ${((0).toFixed(4))} Ichips`
         })
         fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
             document.getElementById("exchange-iost-balance").innerHTML = `
@@ -127,11 +127,11 @@ function getUserBalance(account){
         })
     } catch (e) {
         document.getElementById("user-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} iChip`
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} Ichips`
         document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
         document.getElementById("exchange-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">iChip Balance: </span></b> ${((0).toFixed(4))} iChip`
+                                <b><span style="font-size: 14px">Ichips Balance: </span></b> ${((0).toFixed(4))} Ichips`
     }
 
 }
@@ -152,18 +152,18 @@ function getRichList () {
                             var user = richlist.find(e => e.account === account);
 
                             document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> ${parseFloat(user.balance).toFixed(4)} iChip`
+                                <b><span style="font-size: 14px">You Staked: </span></b> ${parseFloat(user.balance).toFixed(4)} Ichips`
 
 
                         })
                         .catch(err => {
                             document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> ${(0).toFixed(4)} iChip`
+                                <b><span style="font-size: 14px">You Staked: </span></b> ${(0).toFixed(4)} Ichips`
                             return;
                         });
                 } catch (error) {
                     document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> ${(0).toFixed(4)} iChip`
+                                <b><span style="font-size: 14px">You Staked: </span></b> ${(0).toFixed(4)} Ichips`
                     return;
                 }
 
