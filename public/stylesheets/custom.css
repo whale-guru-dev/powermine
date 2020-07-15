@@ -1116,6 +1116,7 @@ legend,
 
 .iChip-exchange .exchange-main {
     padding: 5px 55px 5px 55px;
+    max-width: 100%;
 }
 
 .iChip-exchange .exchange-protect {
