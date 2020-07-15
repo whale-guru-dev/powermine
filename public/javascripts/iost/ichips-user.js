@@ -116,12 +116,12 @@ function getUserBalance(account){
         })
         fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
             document.getElementById("exchange-iost-balance").innerHTML = `
-                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} IOST`
+                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))}`
             document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${account}`
         }).catch(err => {
             document.getElementById("exchange-iost-balance").innerHTML = `
-                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${((0).toFixed(4))} IOST`
+                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${((0).toFixed(4))}`
             document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
         })
