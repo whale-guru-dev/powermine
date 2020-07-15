@@ -1100,8 +1100,8 @@ legend,
 }
 
 #iChip-exchange .header .logo img {
-    max-width: 400px;
-    width: 350px;
+    /*max-width: 400px;*/
+    /*width: 350px;*/
 }
 
 .exchange-main {
@@ -2234,7 +2234,7 @@ table > thead > tr > th, .table > thead > tr > th {
 
 .timer li span {
     display: block;
-    font-size: 60px;
+    font-size: 150px;
     font-family: 'Orbitron', sans-serif;
 }
 
