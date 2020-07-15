@@ -2234,7 +2234,7 @@ table > thead > tr > th, .table > thead > tr > th {
 
 .timer li span {
     display: block;
-    font-size: 50px;
+    font-size: 60px;
     font-family: 'Orbitron', sans-serif;
 }
 
@@ -2522,8 +2522,8 @@ button[disabled], html input[disabled] {
     animation-timing-function: linear;
     -webkit-animation-name: ticker;
     animation-name: ticker;
-    -webkit-animation-duration: 30s;
-    animation-duration: 30s;
+    -webkit-animation-duration: 150s;
+    animation-duration: 150s;
 }
 
 .ticker__item {
