@@ -126,7 +126,8 @@
                                 <label for="depositIostiMatchAmt">Amount (in IOST)</label>
                                 <input type="text" class="form-control" id="depositIostiMatchAmt" placeholder="Amount">
                             </div>
-                            <button type="button" id="depositIostiMatchBtn" class="btn btn-primary">Deposit IOST</button>
+                            <button type="button" id="depositIostiMatchBtn" class="btn btn-primary">Deposit IOST
+                            </button>
                         </form>
                     </div>
                     <hr>
@@ -136,7 +137,8 @@
                                 <label for="divAmountiMatch">Amount (in IOST)</label>
                                 <input type="text" class="form-control" id="divAmountiMatch" placeholder="Amount">
                             </div>
-                            <button type="button" id="paydividendsiMatch" class="btn btn-primary">Pay Daily Divs</button>
+                            <button type="button" id="paydividendsiMatch" class="btn btn-primary">Pay Daily Divs
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -169,7 +171,8 @@
                                 <label for="depositIostiGooseAmt">Amount (in IOST)</label>
                                 <input type="text" class="form-control" id="depositIostiGooseAmt" placeholder="Amount">
                             </div>
-                            <button type="button" id="depositIostiGooseBtn" class="btn btn-primary">Deposit IOST</button>
+                            <button type="button" id="depositIostiGooseBtn" class="btn btn-primary">Deposit IOST
+                            </button>
                         </form>
                     </div>
                     <hr>
@@ -179,7 +182,53 @@
                                 <label for="divAmountiGoose">Amount (in IOST)</label>
                                 <input type="text" class="form-control" id="divAmountiGoose" placeholder="Amount">
                             </div>
-                            <button type="button" id="paydividendsiGoose" class="btn btn-primary">Pay Daily Divs</button>
+                            <button type="button" id="paydividendsiGoose" class="btn btn-primary">Pay Daily Divs
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <h2>IOST in Ichips Smart Contract : <span id="iostAmtIniChipContract"></span> IOST</h2>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="depositiChipAmt">Amount (in Ichips)</label>
+                                <input type="text" class="form-control" id="depositiChipAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="depositiChipBtn" class="btn btn-primary">Deposit Ichips</button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="withdrawiChipAmt">Amount (in IOST)</label>
+                                <input type="text" class="form-control" id="withdrawiChipAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="withdrawiChipBtn" class="btn btn-primary">Withdraw IOST</button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="depositIostiChipAmt">Amount (in IOST)</label>
+                                <input type="text" class="form-control" id="depositIostiChipAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="depositIostiChipBtn" class="btn btn-primary">Deposit IOST
+                            </button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="divAmountiChip">Amount (in IOST)</label>
+                                <input type="text" class="form-control" id="divAmountiChip" placeholder="Amount">
+                            </div>
+                            <button type="button" id="paydividendsiChip" class="btn btn-primary">Pay Daily Divs
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -188,15 +237,15 @@
             <hr>
 
             <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="airdropAmt">Amount (in PER)</label>
-                                <input type="text" class="form-control" id="airdropAmt" placeholder="Amount">
-                            </div>
-                            <button type="button" id="airdropBtn" class="btn btn-primary">Airdrop PER</button>
-                        </form>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="airdropAmt">Amount (in PER)</label>
+                        <input type="text" class="form-control" id="airdropAmt" placeholder="Amount">
                     </div>
-                    <hr>
+                    <button type="button" id="airdropBtn" class="btn btn-primary">Airdrop PER</button>
+                </form>
+            </div>
+            <hr>
 
             <div class="row text-center">
                 <div class="row text-center">
@@ -212,34 +261,32 @@
             </div>
         </div>
 
-        
+
     </div>
-
-
 
     <% include ./partials/footer %>
     <script type="text/javascript" src="/javascripts/iost/admin.js"></script>
     <script>
-        if(!window.IWalletJS) {
-            window.location.href='/';
+        if (!window.IWalletJS) {
+            window.location.href = '/';
         } else {
             window.IWalletJS.enable().then(function (val) {
-                if(val !== 'powermine' && val !== 'pmine_admin')
-                    window.location.href='/';
-                else if(val === 'powermine' || val === 'pmine_admin') {
+                if (val !== 'powermine' && val !== 'pmine_admin')
+                    window.location.href = '/';
+                else if (val === 'powermine' || val === 'pmine_admin') {
                     $("#menu-item-139").show();
                 }
             }).catch(error => {
-                window.location.href='/';
+                window.location.href = '/';
             })
         }
         CKEDITOR.disableAutoInline = true;
-        CKEDITOR.replace( 'editor1' );
-        <% if (content) {%>
-        var content =  `<%= content.content%>`;
+        CKEDITOR.replace('editor1');
+        <% if (content) { %>
+        var content = `<%= content.content %>`;
         $("#editor1").html(content)
         // CKEDITOR.instances.editor1.setData(content);
-        <% } else {%>
+        <% } else { %>
 
         <% } %>
     </script>
