@@ -1120,8 +1120,12 @@ legend,
     background: #00000052;
 }
 
-.iChip-exchange .exchange-main p, h4{
+.iChip-exchange .exchange-main p{
     color: #f1912e;
+}
+
+.iChip-exchange .exchange-main h4 {
+    color: #5ab6f7;
 }
 
 .iChip-exchange .exchange-main i{
