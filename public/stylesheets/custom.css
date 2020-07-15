@@ -2538,8 +2538,8 @@ button[disabled], html input[disabled] {
     animation-timing-function: linear;
     -webkit-animation-name: ticker;
     animation-name: ticker;
-    -webkit-animation-duration: 300s;
-    animation-duration: 300s;
+    -webkit-animation-duration: 400s;
+    animation-duration: 400s;
 }
 
 .ticker__item {
@@ -2550,5 +2550,5 @@ button[disabled], html input[disabled] {
  }
 
 .ticker__item span {
-    padding-right: 1000px;
+    padding-right: 2000px;
 }
