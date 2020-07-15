@@ -1867,6 +1867,7 @@ table > thead > tr > th, .table > thead > tr > th {
 .iChip-timer {
     display: flex;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 .landing__page-timer {
@@ -2234,7 +2235,7 @@ table > thead > tr > th, .table > thead > tr > th {
 
 .timer li span {
     display: block;
-    font-size: 150px;
+    font-size: 85px;
     font-family: 'Orbitron', sans-serif;
 }
 
