@@ -1117,6 +1117,15 @@ legend,
 .iChip-exchange .exchange-main {
     padding: 5px 55px 5px 55px;
     max-width: 100%;
+    background: #00000052;
+}
+
+.iChip-exchange .exchange-main p, h4{
+    color: #f1912e;
+}
+
+.iChip-exchange .exchange-main i{
+    background: #f1912e;
 }
 
 .iChip-exchange .exchange-protect {
@@ -2524,8 +2533,8 @@ button[disabled], html input[disabled] {
     animation-timing-function: linear;
     -webkit-animation-name: ticker;
     animation-name: ticker;
-    -webkit-animation-duration: 150s;
-    animation-duration: 150s;
+    -webkit-animation-duration: 200s;
+    animation-duration: 200s;
 }
 
 .ticker__item {
