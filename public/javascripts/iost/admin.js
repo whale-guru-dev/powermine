@@ -12,6 +12,7 @@ window.onload = () => {
     updateIOSTAmount();
     updateIOSTiMatchAmount();
     updateIOSTiGooseAmount();
+    updateIOSTiChipAmount();
 };
 
 function updateIOSTAmount () {
@@ -66,6 +67,24 @@ function updateIOSTiGooseAmount () {
 
     updateIOSTiGooseAmount_internal();
     setInterval(updateIOSTiGooseAmount_internal,10 * 60 * 1000)
+}
+
+function updateIOSTiChipAmount () {
+    const updateIOSTiChipAmount_internal = () => {
+        $.ajax({
+            url: '/iChip/getIOSTInContract',
+            type: 'GET',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+                var amount = response;
+                $("#iostAmtIniChipContract").html((amount*1).toFixed(8))
+            }
+        })
+    };
+
+    updateIOSTiChipAmount_internal();
+    setInterval(updateIOSTiChipAmount_internal,10 * 60 * 1000)
 }
 
 //airdrop iwallet integration
