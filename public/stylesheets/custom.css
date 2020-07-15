@@ -2548,3 +2548,7 @@ button[disabled], html input[disabled] {
      font-size: 2rem;
      color: white;
  }
+
+.ticker__item span {
+    padding-right: 250px;
+}
