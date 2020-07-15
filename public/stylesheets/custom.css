@@ -1096,7 +1096,7 @@ legend,
 }
 
 #iChip-exchange .section-title-inner {
-    padding-bottom: 130px;
+    padding-bottom: 145px;
 }
 
 #iChip-exchange .header .logo img {
@@ -1130,6 +1130,7 @@ legend,
 
 .iChip-exchange .exchange-main i{
     background: #f1912e;
+    margin-bottom: 0px;
 }
 
 .iChip-exchange .exchange-protect {
@@ -2537,8 +2538,8 @@ button[disabled], html input[disabled] {
     animation-timing-function: linear;
     -webkit-animation-name: ticker;
     animation-name: ticker;
-    -webkit-animation-duration: 300s;
-    animation-duration: 300s;
+    -webkit-animation-duration: 150s;
+    animation-duration: 150s;
 }
 
 .ticker__item {
