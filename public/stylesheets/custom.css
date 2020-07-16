@@ -1121,6 +1121,16 @@ legend,
     background: #00000052;
 }
 
+.number-empathy {
+    --interval: 1s;
+    /*display: block;*/
+    text-shadow: 0 0 10px var(--color1), 0 0 10px var(--color2),
+    0 0 10px var(--color3), 0 0 10px var(--color4);
+    will-change: filter, color;
+    filter: saturate(60%);
+    animation: flicker steps(100) var(--interval) 1s infinite;
+}
+
 .iChip-exchange .exchange-main p{
     color: #5ab6f7;
 }
