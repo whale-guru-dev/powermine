@@ -36,6 +36,9 @@ function hideAdminHeader() {
             console.log(val)
             if(val !== 'powermine' && val !== 'pmine_admin')
                 $("#menu-item-139").hide();
+            else if(val === 'powermine' || val === 'pmine_admin') {
+                $("#menu-item-139").show();
+            }
         }).catch(error => {
             $("#menu-item-139").hide();
         });
