@@ -2563,3 +2563,10 @@ button[disabled], html input[disabled] {
 .ticker__item span {
     padding-right: 2000px;
 }
+
+/*header navbar*/
+@media (max-width:1460px) {
+    .navbar-nav > li + li {
+        margin-left: 20px;
+    }
+}
