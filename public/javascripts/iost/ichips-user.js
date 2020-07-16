@@ -9,7 +9,7 @@ window.onload = () => {
 
 function updateTimer ()
 {
-    const date = new Date('2020-07-18T00:00:00+00:00');
+    const date = new Date('2020-07-23T10:00:00-06:00');
     const updateTimer_internal = function() {
         const present_date = new Date();
         const Difference_In_Time = date.getTime() - present_date.getTime();
@@ -48,7 +48,7 @@ function getTokens () {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('token-value').innerText = parseFloat(1000 - xhttp.responseText).toFixed(0);
-                document.getElementById("iChip-token-msg").innerHTML = `Smart Contract holds a total of <b class="timer-default number-empathy" ><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> Ichips tokens out of <b class="timer-default number-empathy">1,000</b>. 
+                document.getElementById("iChip-token-msg").innerHTML = `Smart Contract holds a total of <b class="timer-default number-empathy"><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> Ichips tokens out of <b class="timer-default number-empathy">1,000</b>. 
                 There are <b class="timer-default number-empathy" ><span style="font-size: 18px">${parseFloat(1000 - xhttp.responseText).toFixed(4)}</span></b> Ichips in circulation.`;
             }
         };
