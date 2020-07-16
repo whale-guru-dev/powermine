@@ -77,7 +77,7 @@ router.get('/per-airdrop-claim/', function(req, res, next) {
   res.render('airdropClaim');
 });
 
-router.get('/iChip/', function(req, res, next) {
+router.get('/iChips/', function(req, res, next) {
   res.render('ichips');
 });
 
