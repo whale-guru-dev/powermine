@@ -346,7 +346,7 @@ $(document).on("click", "#buyBtn", function () {
 
         iost.config = defaultConfig;
 
-        var tokenAmount = $("#iChipAmtBuy").val();
+        var tokenAmount = $("#pmineAmtBuy").val();
 
         if(tokenAmount) {
             $("#statusBuyMsg").html('');
