@@ -2254,7 +2254,7 @@ table > thead > tr > th, .table > thead > tr > th {
     display: inline-block;
     font-size: 12px;
     list-style-type: none;
-    padding: 5px;
+    padding: 15px;
     text-transform: uppercase;
     font-family: 'Orbitron', sans-serif;
 }
