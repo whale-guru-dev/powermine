@@ -6,17 +6,63 @@ window.onload = () => {
     getTotalStaked()
     updateTimer()
 }
-
+var isTimerValid = false;
 function updateTimer ()
 {
     const date = new Date('2020-07-23T10:00:00-06:00');
     const updateTimer_internal = function() {
         const present_date = new Date();
         const Difference_In_Time = date.getTime() - present_date.getTime();
-        var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 60 * 60 * 24));
-        var Difference_In_Hour = Math.floor((Difference_In_Time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var Difference_In_Minutes = Math.floor((Difference_In_Time % (1000 * 60 * 60)) / (1000 * 60));
-        var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
+
+        if(Difference_In_Time > 0) {
+            var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 60 * 60 * 24));
+            var Difference_In_Hour = Math.floor((Difference_In_Time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var Difference_In_Minutes = Math.floor((Difference_In_Time % (1000 * 60 * 60)) / (1000 * 60));
+            var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
+
+            isTimerValid = false;
+/*
+            $("#iGoose-table-body").hide();
+            $("#iGoose-table2-body").hide();*/
+
+            if(!$("#buyBtn").hasClass('disabled')) {
+                $("#buyBtn").addClass('disabled');
+            }
+
+            if(!$("#stakeBtn").hasClass('disabled')) {
+                $("#stakeBtn").addClass('disabled');
+            }
+
+            if(!$("#unstakeBtn").hasClass('disabled')) {
+                $("#unstakeBtn").addClass('disabled');
+            }
+
+            $( "#pmineAmtBuy" ).prop( "disabled", true );
+            $( "#iostAmtBuy" ).prop( "disabled", true );
+            $( "#iChipAmtStake" ).prop( "disabled", true );
+        } else {
+            Difference_In_Days = Difference_In_Hour = Difference_In_Minutes = Difference_In_Seconds = 0;
+
+            isTimerValid = true;
+            // $("#iGoose-table-body").show();
+            // $("#iGoose-table2-body").show();
+
+            if($("#buyBtn").hasClass('disabled')) {
+                $("#buyBtn").removeClass('disabled');
+            }
+
+            if($("#stakeBtn").hasClass('disabled')) {
+                $("#stakeBtn").removeClass('disabled');
+            }
+
+            if($("#unstakeBtn").hasClass('disabled')) {
+                $("#unstakeBtn").removeClass('disabled');
+            }
+
+            $( "#pmineAmtBuy" ).prop( "disabled", false );
+            $( "#iostAmtBuy" ).prop( "disabled", false );
+            $( "#iChipAmtStake" ).prop( "disabled", false );
+        }
 
         $("#timer_days").html(Difference_In_Days);
         $("#timer_hours").html(Difference_In_Hour);
@@ -328,161 +374,167 @@ function updateiChipPrice () {
 }
 
 $(document).on("click", "#buyBtn", function () {
-    if(!window.IWalletJS) {
-        $("#statusBuyMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusBuyMsg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 2000000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-
-        var tokenAmount = $("#pmineAmtBuy").val();
-
-        if(tokenAmount) {
-            $("#statusBuyMsg").html('');
-            const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "buyToken", [tokenAmount.toString()]);
-            tx.addApprove("iost", "1000000");
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>buy success', result);
-                $(".page-loader").hide();
-                $("#statusBuyMsg").html('<div class="alert alert-success">Successfully purchased. Please check your wallet</div>');
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusBuyMsg").html('<div class="alert alert-warning">'+result.message+'</div>');
-            });
-        } else {
-            $("#statusBuyMsg").html('<div class="alert alert-warning">Please input purchase amount.</div>');
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusBuyMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
         }
 
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusBuyMsg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
 
-    }).catch(error => {
-        if(error.type == "locked")
-            $("#statusBuyMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 2000000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+
+            var tokenAmount = $("#pmineAmtBuy").val();
+
+            if (tokenAmount) {
+                $("#statusBuyMsg").html('');
+                const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "buyToken", [tokenAmount.toString()]);
+                tx.addApprove("iost", "1000000");
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>buy success', result);
+                    $(".page-loader").hide();
+                    $("#statusBuyMsg").html('<div class="alert alert-success">Successfully purchased. Please check your wallet</div>');
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusBuyMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
+                });
+            } else {
+                $("#statusBuyMsg").html('<div class="alert alert-warning">Please input purchase amount.</div>');
+            }
+
+
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusBuyMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
+    }
 });
 
 
 $(document).on("click", "#stakeBtn", function () {
-    if (!window.IWalletJS) {
-        $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusStakeMsg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 800000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-        var tokenAmount = $("#iChipAmtStake").val();
-
-        if (tokenAmount) {
-            const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "stake", [tokenAmount.toString()]);
-            tx.addApprove("ichips", tokenAmount.toString());
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>sell success', result);
-                $(".page-loader").hide();
-                $("#statusStakeMsg").html('<div class="alert alert-success">Successfully staked. Please check your wallet</div>');
-                getRichList();
-                getTotalStaked();
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
-
-            });
-        } else {
-            $("#statusStakeMsg").html('<div class="alert alert-warning">Please input stake amount.</div>');
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
         }
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusStakeMsg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
+
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 800000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+            var tokenAmount = $("#iChipAmtStake").val();
+
+            if (tokenAmount) {
+                const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "stake", [tokenAmount.toString()]);
+                tx.addApprove("ichips", tokenAmount.toString());
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>sell success', result);
+                    $(".page-loader").hide();
+                    $("#statusStakeMsg").html('<div class="alert alert-success">Successfully staked. Please check your wallet</div>');
+                    getRichList();
+                    getTotalStaked();
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
+
+                });
+            } else {
+                $("#statusStakeMsg").html('<div class="alert alert-warning">Please input stake amount.</div>');
+            }
 
 
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
+    }
 });
 
 $(document).on("click", "#unstakeBtn", function () {
-    if (!window.IWalletJS) {
-        $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusStakeMsg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 800000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-
-        var tokenAmount = $("#iChipAmtStake").val();
-
-        if (tokenAmount) {
-            const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "unstake", [tokenAmount.toString()]);
-            tx.addApprove("ichips", tokenAmount.toString());
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>unstake success', result);
-                $(".page-loader").hide();
-                $("#statusStakeMsg").html('<div class="alert alert-success">Successfully unstaked. Please check your wallet</div>');
-                getRichList();
-                getTotalStaked();
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
-            });
-        } else {
-            $("#statusStakeMsg").html('<div class="alert alert-warning">Please input unstake amount.</div>');
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusStakeMsg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;"  href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
         }
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusStakeMsg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
+
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 800000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+
+            var tokenAmount = $("#iChipAmtStake").val();
+
+            if (tokenAmount) {
+                const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "unstake", [tokenAmount.toString()]);
+                tx.addApprove("ichips", tokenAmount.toString());
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>unstake success', result);
+                    $(".page-loader").hide();
+                    $("#statusStakeMsg").html('<div class="alert alert-success">Successfully unstaked. Please check your wallet</div>');
+                    getRichList();
+                    getTotalStaked();
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusStakeMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
+                });
+            } else {
+                $("#statusStakeMsg").html('<div class="alert alert-warning">Please input unstake amount.</div>');
+            }
 
 
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusSellMsg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
+    }
 });
