@@ -1267,6 +1267,10 @@ legend,
     font-weight: 600;
 }
 
+.iChip-exchange .exchange-item input {
+    width: 100%;
+}
+
 .exchange-item .dropdown {
     border: 0;
     color: #4990e2;
