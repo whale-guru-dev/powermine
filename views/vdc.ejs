@@ -6,7 +6,7 @@
 </head>
 
 <body
-        class="home page-template-default page page-id-42 sticky-header rocket_layout_fullwidth wpb-js-composer js-comp-ver-6.1 vc_responsive loan-body-view">
+        class="vdc-body-view">
 <!--<div class="page-loader">-->
 <!--    <div class="loader-inner">-->
 <!--        <div class="dot1"></div>-->
@@ -20,7 +20,7 @@
         <div class="Uniswap container">
             <div class="row text-center margin-auto">
                 <div class="col-md-12">
-                    <h1 class="componenet-title">PMINE LOANS</h1>
+                    <h1 class="componenet-title">VDC</h1>
                 </div>
             </div>
             <div class="row text-center margin-auto">
@@ -29,7 +29,7 @@
                     <p class="text-white margin-bottom-zero">IOST Balance : 0 IOST</p>
                 </div>
             </div>
-            <div class="row margin-auto">
+            <div class="row margin-auto" style="display: flex;">
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 uniswap-container">
                     <div class="swap">
@@ -192,38 +192,38 @@
     <!-- TradingView Widget END -->
     <script src="https://wzrd.in/standalone/charming@latest"></script>
     <script>
-    const d = 40;
+        const d = 40;
 
-    document.querySelectorAll('.rocket-button').forEach(elem => {
+        document.querySelectorAll('.rocket-button').forEach(elem => {
 
-        elem.querySelectorAll('.default, .success > div').forEach(text => {
-            charming(text);
-            text.querySelectorAll('span').forEach((span, i) => {
-                span.innerHTML = span.textContent == ' ' ? '&nbsp;' : span.textContent;
-                span.style.setProperty('--d', i * d + 'ms');
-                span.style.setProperty('--ds', text.querySelectorAll('span').length * d - d - i * d + 'ms');
+            elem.querySelectorAll('.default, .success > div').forEach(text => {
+                charming(text);
+                text.querySelectorAll('span').forEach((span, i) => {
+                    span.innerHTML = span.textContent == ' ' ? '&nbsp;' : span.textContent;
+                    span.style.setProperty('--d', i * d + 'ms');
+                    span.style.setProperty('--ds', text.querySelectorAll('span').length * d - d - i * d + 'ms');
+                });
             });
         });
-    });
 
-    const button = document.getElementById(`rocket-button-0`);
-    button.addEventListener('click', e => {
-        e.preventDefault();
-        if(button.classList.contains('animated')) {
-            button.classList.remove('animated');
-            // return;
-        }
-        button.classList.add('animated');
-        button.classList.toggle('live');
-        setTimeout(() => {
-            button.classList.remove('animated');
-        }, 500);
+        const button = document.getElementById(`rocket-button-0`);
+        button.addEventListener('click', e => {
+            e.preventDefault();
+            if(button.classList.contains('animated')) {
+                button.classList.remove('animated');
+                // return;
+            }
+            button.classList.add('animated');
+            button.classList.toggle('live');
+            setTimeout(() => {
+                button.classList.remove('animated');
+            }, 500);
 
-        setTimeout(() => {
-            button.classList.remove('live');
-        }, 2400);
-    });
-</script>
+            setTimeout(() => {
+                button.classList.remove('live');
+            }, 2400);
+        });
+    </script>
 </body>
 
 </html>
