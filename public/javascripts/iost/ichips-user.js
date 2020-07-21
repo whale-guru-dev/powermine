@@ -6,7 +6,7 @@ window.onload = () => {
     getTotalStaked()
     updateTimer()
 }
-var isTimerValid = true;
+var isTimerValid = false;
 function updateTimer ()
 {
     const date = new Date('2020-07-23T10:00:00-06:00');
@@ -20,48 +20,48 @@ function updateTimer ()
             var Difference_In_Minutes = Math.floor((Difference_In_Time % (1000 * 60 * 60)) / (1000 * 60));
             var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
 
-            // isTimerValid = false;
+            isTimerValid = false;
 /*
             $("#iGoose-table-body").hide();
             $("#iGoose-table2-body").hide();*/
 
-            // if(!$("#buyBtn").hasClass('disabled')) {
-            //     $("#buyBtn").addClass('disabled');
-            // }
-            //
-            // if(!$("#stakeBtn").hasClass('disabled')) {
-            //     $("#stakeBtn").addClass('disabled');
-            // }
-            //
-            // if(!$("#unstakeBtn").hasClass('disabled')) {
-            //     $("#unstakeBtn").addClass('disabled');
-            // }
-            //
-            // $( "#pmineAmtBuy" ).prop( "disabled", true );
-            // $( "#iostAmtBuy" ).prop( "disabled", true );
-            // $( "#iChipAmtStake" ).prop( "disabled", true );
+            if(!$("#buyBtn").hasClass('disabled')) {
+                $("#buyBtn").addClass('disabled');
+            }
+
+            if(!$("#stakeBtn").hasClass('disabled')) {
+                $("#stakeBtn").addClass('disabled');
+            }
+
+            if(!$("#unstakeBtn").hasClass('disabled')) {
+                $("#unstakeBtn").addClass('disabled');
+            }
+
+            $( "#pmineAmtBuy" ).prop( "disabled", true );
+            $( "#iostAmtBuy" ).prop( "disabled", true );
+            $( "#iChipAmtStake" ).prop( "disabled", true );
         } else {
             Difference_In_Days = Difference_In_Hour = Difference_In_Minutes = Difference_In_Seconds = 0;
 
-            // isTimerValid = true;
+            isTimerValid = true;
             // $("#iGoose-table-body").show();
             // $("#iGoose-table2-body").show();
 
-            // if($("#buyBtn").hasClass('disabled')) {
-            //     $("#buyBtn").removeClass('disabled');
-            // }
-            //
-            // if($("#stakeBtn").hasClass('disabled')) {
-            //     $("#stakeBtn").removeClass('disabled');
-            // }
-            //
-            // if($("#unstakeBtn").hasClass('disabled')) {
-            //     $("#unstakeBtn").removeClass('disabled');
-            // }
-            //
-            // $( "#pmineAmtBuy" ).prop( "disabled", false );
-            // $( "#iostAmtBuy" ).prop( "disabled", false );
-            // $( "#iChipAmtStake" ).prop( "disabled", false );
+            if($("#buyBtn").hasClass('disabled')) {
+                $("#buyBtn").removeClass('disabled');
+            }
+
+            if($("#stakeBtn").hasClass('disabled')) {
+                $("#stakeBtn").removeClass('disabled');
+            }
+
+            if($("#unstakeBtn").hasClass('disabled')) {
+                $("#unstakeBtn").removeClass('disabled');
+            }
+
+            $( "#pmineAmtBuy" ).prop( "disabled", false );
+            $( "#iostAmtBuy" ).prop( "disabled", false );
+            $( "#iChipAmtStake" ).prop( "disabled", false );
         }
 
         $("#timer_days").html(Difference_In_Days);
