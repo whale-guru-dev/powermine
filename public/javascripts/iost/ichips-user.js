@@ -6,7 +6,7 @@ window.onload = () => {
     getTotalStaked()
     updateTimer()
 }
-var isTimerValid = false;
+var isTimerValid = true;
 function updateTimer ()
 {
     const date = new Date('2020-07-23T10:00:00-06:00');
@@ -20,7 +20,7 @@ function updateTimer ()
             var Difference_In_Minutes = Math.floor((Difference_In_Time % (1000 * 60 * 60)) / (1000 * 60));
             var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
 
-            isTimerValid = false;
+            // isTimerValid = false;
 /*
             $("#iGoose-table-body").hide();
             $("#iGoose-table2-body").hide();*/
@@ -43,7 +43,7 @@ function updateTimer ()
         } else {
             Difference_In_Days = Difference_In_Hour = Difference_In_Minutes = Difference_In_Seconds = 0;
 
-            isTimerValid = true;
+            // isTimerValid = true;
             // $("#iGoose-table-body").show();
             // $("#iGoose-table2-body").show();
 
