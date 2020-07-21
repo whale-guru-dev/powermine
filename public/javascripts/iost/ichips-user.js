@@ -9,7 +9,7 @@ window.onload = () => {
 var isTimerValid = false;
 function updateTimer ()
 {
-    const date = new Date('2020-07-23T10:00:00-06:00');
+    const date = new Date('2020-07-23T10:00:05-06:00');
     const updateTimer_internal = function() {
         const present_date = new Date();
         const Difference_In_Time = date.getTime() - present_date.getTime();
