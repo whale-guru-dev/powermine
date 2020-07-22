@@ -41,7 +41,7 @@ var snowStorm = (function(window, document) {
     this.flakeRightOffset = 0;      // Right margin/gutter space on edge of container
     this.flakeWidth = 8;            // Max pixel width reserved for snow element
     this.flakeHeight = 8;           // Max pixel height reserved for snow element
-    this.vMaxX = 5;                 // Maximum X velocity range for snow
+    this.vMaxX = 4;                 // Maximum X velocity range for snow
     this.vMaxY = 4;                 // Maximum Y velocity range for snow
     this.zIndex = 0;                // CSS stacking order applied to each snowflake
 
@@ -56,9 +56,9 @@ var snowStorm = (function(window, document) {
         isBackCompatIE = (isIE && document.compatMode === 'BackCompat'),
         noFixed = (isBackCompatIE || isIE6),
         screenX = null, screenX2 = null, screenY = null, scrollY = null, docHeight = null, vRndX = null, vRndY = null,
-        windOffset = 2,
-        windMultiplier = 3,
-        flakeTypes = 9,
+        windOffset = 0,
+        windMultiplier = 0,
+        flakeTypes = 3,
         fixedForEverything = false,
         targetElementIsRelative = false,
         opacitySupported = (function(){
