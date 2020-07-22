@@ -180,7 +180,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div align="center">
-                                            <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-0">
+                                            <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-2">
                                                 <div class="default">Deposit</div>
                                                 <div class="success">
                                                     <svg>
@@ -225,7 +225,7 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
                                         <div align="center">
-                                            <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-1">
+                                            <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-3">
                                                 <div class="default">Withdraw</div>
                                                 <div class="success">
                                                     <svg>
@@ -371,6 +371,42 @@
 
             setTimeout(() => {
                 button1.classList.remove('live');
+            }, 2400);
+        });
+
+        const button2 = document.getElementById("rocket-button-2");
+        button2.addEventListener('click', e => {
+            e.preventDefault();
+            if(button2.classList.contains('animated')) {
+                button2.classList.remove('animated');
+                // return;
+            }
+            button2.classList.add('animated');
+            button2.classList.toggle('live');
+            setTimeout(() => {
+                button2.classList.remove('animated');
+            }, 500);
+
+            setTimeout(() => {
+                button2.classList.remove('live');
+            }, 2400);
+        });
+
+        const button3 = document.getElementById("rocket-button-3");
+        button3.addEventListener('click', e => {
+            e.preventDefault();
+            if(button3.classList.contains('animated')) {
+                button3.classList.remove('animated');
+                // return;
+            }
+            button3.classList.add('animated');
+            button3.classList.toggle('live');
+            setTimeout(() => {
+                button3.classList.remove('animated');
+            }, 500);
+
+            setTimeout(() => {
+                button3.classList.remove('live');
             }, 2400);
         });
     </script>
