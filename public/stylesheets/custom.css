@@ -2911,6 +2911,7 @@ button[disabled], html input[disabled] {
 
 .gold-rocket-button {
     color: black;
+    padding: 8px 15px;
 }
 
 .gold-rocket-button:before {
