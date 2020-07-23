@@ -3049,4 +3049,12 @@ button[disabled], html input[disabled] {
 .vdc-body-view .top-wrapper {
     background: transparent;
 }
+
+.table-dark > thead {
+    background-color: #343a4033;
+}
+
+.table-dark > tbody > tr > td {
+    color: white;
+}
 /*end*/
