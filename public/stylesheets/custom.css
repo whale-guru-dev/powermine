@@ -3044,4 +3044,8 @@ button[disabled], html input[disabled] {
     background-size: cover;
 }
 
+
+.vdc-body-view .top-wrapper {
+    background: transparent;
+}
 /*end*/

@@ -20,7 +20,7 @@
         <div class="Uniswap container">
             <div class="row text-center margin-auto">
                 <div class="col-md-12">
-                    <h1 class="componenet-title">VDC</h1>
+                    <h1 class="componenet-title">PMINE VDC</h1>
                 </div>
             </div>
             <div class="row text-center margin-auto">
@@ -31,6 +31,12 @@
             </div>
             <div class="row margin-auto">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <h2 class="loans-page_orange-color">COMPOUND</h2>
+                        </div>
+                    </div>
+
                     <div class="uniswap-container">
                         <div class="swap">
                             <div class="row text-center margin-auto">
@@ -41,114 +47,190 @@
                             <form action="" autocomplete="off">
                                 <div class="containers">
                                     <div class="row text-center">
-                                        <div class="col-md-6 col-md-offset-3">
-                                            <b class="loans-page_orange-color">Amount of PMINE to Deposit</b>
-                                            <br>
+                                        <div class="col-md-4">
                                             <input type="number" placeholder="0.0" id="borrow-input">
+                                            <br>
+                                            <div align="center" style="margin-top: 10px;">
+                                                <a href="#" class="rocket-button gold-rocket-button"
+                                                   id="rocket-button-0">
+                                                    <div class="default">Deposit</div>
+                                                    <div class="success">
+                                                        <svg>
+                                                            <use xlink:href="#check">
+                                                        </svg>
+                                                        <div>Deposit</div>
+                                                    </div>
+                                                    <div class="animation">
+                                                        <div class="rocket">
+                                                            <svg>
+                                                                <use xlink:href="#rocket"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11"
+                                                            id="check">
+                                                        <polyline stroke="currentColor"
+                                                                  points="1 5.5 5 9.5 12 1.5"></polyline>
+                                                    </symbol>
+                                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36"
+                                                            id="rocket">
+                                                        <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
+                                                              fill="var(--rocket)"></path>
+                                                        <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
+                                                              fill="var(--rocket-shadow-left)"></path>
+                                                        <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
+                                                              fill="var(--rocket-shadow-right)"></path>
+                                                        <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
+                                                              fill="var(--rocket-wing-right)"></path>
+                                                        <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
+                                                              fill="var(--rocket-wing-left)"></path>
+                                                        <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
+                                                                r="3"></circle>
+                                                        <circle fill="var(--rocket-window)" cx="12" cy="12"
+                                                                r="2.5"></circle>
+                                                        <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
+                                                              fill-opacity="0.3" fill="var(--rocket-line)"></path>
+                                                    </symbol>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-md-offset-4">
+                                            <input type="number" placeholder="0.0" id="borrow-input">
+                                            <br>
+                                            <div align="center" style="margin-top: 10px;">
+                                                <a href="#" class="rocket-button gold-rocket-button"
+                                                   id="rocket-button-1">
+                                                    <div class="default">Withdraw</div>
+                                                    <div class="success">
+                                                        <svg>
+                                                            <use xlink:href="#check">
+                                                        </svg>
+                                                        <div>Withdraw</div>
+                                                    </div>
+                                                    <div class="animation">
+                                                        <div class="rocket">
+                                                            <svg>
+                                                                <use xlink:href="#rocket"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11"
+                                                            id="check">
+                                                        <polyline stroke="currentColor"
+                                                                  points="1 5.5 5 9.5 12 1.5"></polyline>
+                                                    </symbol>
+                                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36"
+                                                            id="rocket">
+                                                        <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
+                                                              fill="var(--rocket)"></path>
+                                                        <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
+                                                              fill="var(--rocket-shadow-left)"></path>
+                                                        <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
+                                                              fill="var(--rocket-shadow-right)"></path>
+                                                        <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
+                                                              fill="var(--rocket-wing-right)"></path>
+                                                        <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
+                                                              fill="var(--rocket-wing-left)"></path>
+                                                        <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
+                                                                r="3"></circle>
+                                                        <circle fill="var(--rocket-window)" cx="12" cy="12"
+                                                                r="2.5"></circle>
+                                                        <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
+                                                              fill-opacity="0.3" fill="var(--rocket-line)"></path>
+                                                    </symbol>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row text-center">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <b class="loans-page_orange-color">YOUR HOLDINGS</b>
+                                        <br>
+                                        <input type="number" id="holding-input" readonly="" value="0">
+                                    </div>
+                                </div>
+
+                                <br/>
+
                                 <div align="center">
+                                    <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-2">
+                                        <div class="default">CLAIM PER</div>
+                                        <div class="success">
+                                            <svg>
+                                                <use xlink:href="#check">
+                                            </svg>
+                                            <div>CLAIM PER</div>
+                                        </div>
+                                        <div class="animation">
+                                            <div class="rocket">
+                                                <svg>
+                                                    <use xlink:href="#rocket"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                        </div>
+                                    </a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11" id="check">
+                                            <polyline stroke="currentColor" points="1 5.5 5 9.5 12 1.5"></polyline>
+                                        </symbol>
+                                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" id="rocket">
+                                            <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
+                                                  fill="var(--rocket)"></path>
+                                            <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
+                                                  fill="var(--rocket-shadow-left)"></path>
+                                            <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
+                                                  fill="var(--rocket-shadow-right)"></path>
+                                            <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
+                                                  fill="var(--rocket-wing-right)"></path>
+                                            <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
+                                                  fill="var(--rocket-wing-left)"></path>
+                                            <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
+                                                    r="3"></circle>
+                                            <circle fill="var(--rocket-window)" cx="12" cy="12" r="2.5"></circle>
+                                            <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
+                                                  fill-opacity="0.3" fill="var(--rocket-line)"></path>
+                                        </symbol>
+                                    </svg>
+
+                                    <div class="row text-center">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <input type="number" id="claimPer-input" readonly="" value="0" style="margin-top: 10px;">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+
+                            <br/>
+                            <div class="row text-center">
+                                <div class="col-md-12">
                                     <p class="loans-page_orange-color">
-                                        <b class="loans-page_orange-color">My Position: </b> 0.00000000 IOST
+                                        <b class="loans-page_orange-color">Total PMINE Deposited : </b> 0.00000000
                                     </p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div align="center">
-                                            <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-0">
-                                                <div class="default">Deposit</div>
-                                                <div class="success">
-                                                    <svg>
-                                                        <use xlink:href="#check">
-                                                    </svg>
-                                                    <div>Deposit</div>
-                                                </div>
-                                                <div class="animation">
-                                                    <div class="rocket">
-                                                        <svg>
-                                                            <use xlink:href="#rocket"></use>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                                                </div>
-                                            </a>
-                                            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11" id="check">
-                                                    <polyline stroke="currentColor" points="1 5.5 5 9.5 12 1.5"></polyline>
-                                                </symbol>
-                                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" id="rocket">
-                                                    <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
-                                                          fill="var(--rocket)"></path>
-                                                    <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
-                                                          fill="var(--rocket-shadow-left)"></path>
-                                                    <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
-                                                          fill="var(--rocket-shadow-right)"></path>
-                                                    <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
-                                                          fill="var(--rocket-wing-right)"></path>
-                                                    <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
-                                                          fill="var(--rocket-wing-left)"></path>
-                                                    <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
-                                                            r="3"></circle>
-                                                    <circle fill="var(--rocket-window)" cx="12" cy="12" r="2.5"></circle>
-                                                    <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
-                                                          fill-opacity="0.3" fill="var(--rocket-line)"></path>
-                                                </symbol>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <div align="center">
-                                            <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-1">
-                                                <div class="default">Withdraw</div>
-                                                <div class="success">
-                                                    <svg>
-                                                        <use xlink:href="#check">
-                                                    </svg>
-                                                    <div>Withdraw</div>
-                                                </div>
-                                                <div class="animation">
-                                                    <div class="rocket">
-                                                        <svg>
-                                                            <use xlink:href="#rocket"></use>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                                                </div>
-                                            </a>
-                                            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11" id="check">
-                                                    <polyline stroke="currentColor" points="1 5.5 5 9.5 12 1.5"></polyline>
-                                                </symbol>
-                                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" id="rocket">
-                                                    <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
-                                                          fill="var(--rocket)"></path>
-                                                    <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
-                                                          fill="var(--rocket-shadow-left)"></path>
-                                                    <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
-                                                          fill="var(--rocket-shadow-right)"></path>
-                                                    <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
-                                                          fill="var(--rocket-wing-right)"></path>
-                                                    <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
-                                                          fill="var(--rocket-wing-left)"></path>
-                                                    <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
-                                                            r="3"></circle>
-                                                    <circle fill="var(--rocket-window)" cx="12" cy="12" r="2.5"></circle>
-                                                    <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
-                                                          fill-opacity="0.3" fill="var(--rocket-line)"></path>
-                                                </symbol>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <h2 class="loans-page_orange-color">VOLATILE</h2>
+                        </div>
+                    </div>
+
                     <div class="uniswap-container">
                         <div class="swap">
                             <div class="row text-center margin-auto">
@@ -159,110 +241,180 @@
                             <form action="" autocomplete="off">
                                 <div class="containers">
                                     <div class="row text-center">
-                                        <div class="col-md-6 col-md-offset-3">
-                                            <b class="loans-page_orange-color">Amount of PMINE to Deposit</b>
-                                            <br>
+                                        <div class="col-md-4">
                                             <input type="number" placeholder="0.0" id="borrow-input">
+                                            <br>
+                                            <div align="center" style="margin-top: 10px;">
+                                                <a href="#" class="rocket-button gold-rocket-button"
+                                                   id="rocket-button-3">
+                                                    <div class="default">Deposit</div>
+                                                    <div class="success">
+                                                        <svg>
+                                                            <use xlink:href="#check">
+                                                        </svg>
+                                                        <div>Deposit</div>
+                                                    </div>
+                                                    <div class="animation">
+                                                        <div class="rocket">
+                                                            <svg>
+                                                                <use xlink:href="#rocket"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11"
+                                                            id="check">
+                                                        <polyline stroke="currentColor"
+                                                                  points="1 5.5 5 9.5 12 1.5"></polyline>
+                                                    </symbol>
+                                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36"
+                                                            id="rocket">
+                                                        <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
+                                                              fill="var(--rocket)"></path>
+                                                        <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
+                                                              fill="var(--rocket-shadow-left)"></path>
+                                                        <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
+                                                              fill="var(--rocket-shadow-right)"></path>
+                                                        <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
+                                                              fill="var(--rocket-wing-right)"></path>
+                                                        <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
+                                                              fill="var(--rocket-wing-left)"></path>
+                                                        <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
+                                                                r="3"></circle>
+                                                        <circle fill="var(--rocket-window)" cx="12" cy="12"
+                                                                r="2.5"></circle>
+                                                        <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
+                                                              fill-opacity="0.3" fill="var(--rocket-line)"></path>
+                                                    </symbol>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-md-offset-4">
+                                            <input type="number" placeholder="0.0" id="borrow-input">
+                                            <br>
+                                            <div align="center" style="margin-top: 10px;">
+                                                <a href="#" class="rocket-button gold-rocket-button"
+                                                   id="rocket-button-4">
+                                                    <div class="default">Withdraw</div>
+                                                    <div class="success">
+                                                        <svg>
+                                                            <use xlink:href="#check">
+                                                        </svg>
+                                                        <div>Withdraw</div>
+                                                    </div>
+                                                    <div class="animation">
+                                                        <div class="rocket">
+                                                            <svg>
+                                                                <use xlink:href="#rocket"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11"
+                                                            id="check">
+                                                        <polyline stroke="currentColor"
+                                                                  points="1 5.5 5 9.5 12 1.5"></polyline>
+                                                    </symbol>
+                                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36"
+                                                            id="rocket">
+                                                        <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
+                                                              fill="var(--rocket)"></path>
+                                                        <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
+                                                              fill="var(--rocket-shadow-left)"></path>
+                                                        <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
+                                                              fill="var(--rocket-shadow-right)"></path>
+                                                        <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
+                                                              fill="var(--rocket-wing-right)"></path>
+                                                        <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
+                                                              fill="var(--rocket-wing-left)"></path>
+                                                        <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
+                                                                r="3"></circle>
+                                                        <circle fill="var(--rocket-window)" cx="12" cy="12"
+                                                                r="2.5"></circle>
+                                                        <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
+                                                              fill-opacity="0.3" fill="var(--rocket-line)"></path>
+                                                    </symbol>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div align="center">
-                                    <p class="loans-page_orange-color">
-                                        <b class="loans-page_orange-color">My Position: </b> 0.00000000 IOST
-                                    </p>
+
+                                <div class="row text-center">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <b class="loans-page_orange-color">YOUR HOLDINGS</b>
+                                        <br>
+                                        <input type="number" id="holding-input" readonly="" value="0">
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div align="center">
-                                            <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-2">
-                                                <div class="default">Deposit</div>
-                                                <div class="success">
-                                                    <svg>
-                                                        <use xlink:href="#check">
-                                                    </svg>
-                                                    <div>Deposit</div>
-                                                </div>
-                                                <div class="animation">
-                                                    <div class="rocket">
-                                                        <svg>
-                                                            <use xlink:href="#rocket"></use>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                                                </div>
-                                            </a>
-                                            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11" id="check">
-                                                    <polyline stroke="currentColor" points="1 5.5 5 9.5 12 1.5"></polyline>
-                                                </symbol>
-                                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" id="rocket">
-                                                    <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
-                                                          fill="var(--rocket)"></path>
-                                                    <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
-                                                          fill="var(--rocket-shadow-left)"></path>
-                                                    <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
-                                                          fill="var(--rocket-shadow-right)"></path>
-                                                    <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
-                                                          fill="var(--rocket-wing-right)"></path>
-                                                    <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
-                                                          fill="var(--rocket-wing-left)"></path>
-                                                    <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
-                                                            r="3"></circle>
-                                                    <circle fill="var(--rocket-window)" cx="12" cy="12" r="2.5"></circle>
-                                                    <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
-                                                          fill-opacity="0.3" fill="var(--rocket-line)"></path>
-                                                </symbol>
+
+                                <br/>
+
+                                <div align="center">
+                                    <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-5">
+                                        <div class="default">CLAIM PER</div>
+                                        <div class="success">
+                                            <svg>
+                                                <use xlink:href="#check">
                                             </svg>
+                                            <div>CLAIM PER</div>
+                                        </div>
+                                        <div class="animation">
+                                            <div class="rocket">
+                                                <svg>
+                                                    <use xlink:href="#rocket"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                        </div>
+                                    </a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11" id="check">
+                                            <polyline stroke="currentColor" points="1 5.5 5 9.5 12 1.5"></polyline>
+                                        </symbol>
+                                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" id="rocket">
+                                            <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
+                                                  fill="var(--rocket)"></path>
+                                            <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
+                                                  fill="var(--rocket-shadow-left)"></path>
+                                            <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
+                                                  fill="var(--rocket-shadow-right)"></path>
+                                            <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
+                                                  fill="var(--rocket-wing-right)"></path>
+                                            <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
+                                                  fill="var(--rocket-wing-left)"></path>
+                                            <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
+                                                    r="3"></circle>
+                                            <circle fill="var(--rocket-window)" cx="12" cy="12" r="2.5"></circle>
+                                            <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
+                                                  fill-opacity="0.3" fill="var(--rocket-line)"></path>
+                                        </symbol>
+                                    </svg>
+
+                                    <div class="row text-center">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <input type="number" id="claimPer-input" readonly="" value="0" style="margin-top: 10px;">
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <div align="center">
-                                            <a href="#" class="rocket-button gold-rocket-button" id="rocket-button-3">
-                                                <div class="default">Withdraw</div>
-                                                <div class="success">
-                                                    <svg>
-                                                        <use xlink:href="#check">
-                                                    </svg>
-                                                    <div>Withdraw</div>
-                                                </div>
-                                                <div class="animation">
-                                                    <div class="rocket">
-                                                        <svg>
-                                                            <use xlink:href="#rocket"></use>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="smoke"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                                                </div>
-                                            </a>
-                                            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11" id="check">
-                                                    <polyline stroke="currentColor" points="1 5.5 5 9.5 12 1.5"></polyline>
-                                                </symbol>
-                                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" id="rocket">
-                                                    <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z"
-                                                          fill="var(--rocket)"></path>
-                                                    <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z"
-                                                          fill="var(--rocket-shadow-left)"></path>
-                                                    <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z"
-                                                          fill="var(--rocket-shadow-right)"></path>
-                                                    <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z"
-                                                          fill="var(--rocket-wing-right)"></path>
-                                                    <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z"
-                                                          fill="var(--rocket-wing-left)"></path>
-                                                    <circle fill="var(--rocket-window-shadow)" cx="12" cy="12"
-                                                            r="3"></circle>
-                                                    <circle fill="var(--rocket-window)" cx="12" cy="12" r="2.5"></circle>
-                                                    <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z"
-                                                          fill-opacity="0.3" fill="var(--rocket-line)"></path>
-                                                </symbol>
-                                            </svg>
-                                        </div>
-                                    </div>
                                 </div>
 
                             </form>
+                            <br/>
+                            <div class="row text-center">
+                                <div class="col-md-12">
+                                    <p class="loans-page_orange-color">
+                                        <b class="loans-page_orange-color">Total PMINE Deposited : </b> 0.00000000
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -317,96 +469,10 @@
     </div>
     <!-- TradingView Widget END -->
     <script src="https://wzrd.in/standalone/charming@latest"></script>
-    <script>
-        const d = 40;
-
-        document.querySelectorAll('.rocket-button').forEach(elem => {
-
-            elem.querySelectorAll('.default, .success > div').forEach(text => {
-                charming(text);
-                text.querySelectorAll('span').forEach((span, i) => {
-                    span.innerHTML = span.textContent == ' ' ? '&nbsp;' : span.textContent;
-                    span.style.setProperty('--d', i * d + 'ms');
-                    span.style.setProperty('--ds', text.querySelectorAll('span').length * d - d - i * d + 'ms');
-                });
-            });
-        });
-
-        const button = document.getElementById("rocket-button-0");
-        button.addEventListener('click', e => {
-            e.preventDefault();
-            if(button.classList.contains('animated')) {
-                button.classList.remove('animated');
-                // return;
-            }
-            button.classList.add('animated');
-            button.classList.toggle('live');
-            setTimeout(() => {
-                button.classList.remove('animated');
-            }, 500);
-
-            setTimeout(() => {
-                button.classList.remove('live');
-            }, 2400);
-        });
-
-        const button1 = document.getElementById("rocket-button-1");
-        button1.addEventListener('click', e => {
-            e.preventDefault();
-            if(button1.classList.contains('animated')) {
-                button1.classList.remove('animated');
-                // return;
-            }
-            button1.classList.add('animated');
-            button1.classList.toggle('live');
-            setTimeout(() => {
-                button1.classList.remove('animated');
-            }, 500);
-
-            setTimeout(() => {
-                button1.classList.remove('live');
-            }, 2400);
-        });
-
-        const button2 = document.getElementById("rocket-button-2");
-        button2.addEventListener('click', e => {
-            e.preventDefault();
-            if(button2.classList.contains('animated')) {
-                button2.classList.remove('animated');
-                // return;
-            }
-            button2.classList.add('animated');
-            button2.classList.toggle('live');
-            setTimeout(() => {
-                button2.classList.remove('animated');
-            }, 500);
-
-            setTimeout(() => {
-                button2.classList.remove('live');
-            }, 2400);
-        });
-
-        const button3 = document.getElementById("rocket-button-3");
-        button3.addEventListener('click', e => {
-            e.preventDefault();
-            if(button3.classList.contains('animated')) {
-                button3.classList.remove('animated');
-                // return;
-            }
-            button3.classList.add('animated');
-            button3.classList.toggle('live');
-            setTimeout(() => {
-                button3.classList.remove('animated');
-            }, 500);
-
-            setTimeout(() => {
-                button3.classList.remove('live');
-            }, 2400);
-        });
-    </script>
-    <link rel='stylesheet' href="/stylesheets/js_composer/css/v4-shims.min.css" type='text/css' media='all' />
+    <script src="/javascripts/iost/vdc-rocket-buttons.js"></script>
+    <link rel='stylesheet' href="/stylesheets/js_composer/css/v4-shims.min.css" type='text/css' media='all'/>
     <link rel='stylesheet' id='vc_font_awesome_5-css' href="/stylesheets/js_composer/css/all.min.css" type='text/css'
-          media='all' />
+          media='all'/>
     <script type='text/javascript'>
         /* <![CDATA[ */
         var wpcf7 = {
