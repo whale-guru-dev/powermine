@@ -406,7 +406,7 @@ $(document).on("click", "#buyBtn", function () {
             if (tokenAmount) {
                 $("#statusBuyMsg").html('');
                 const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "buyToken", [tokenAmount.toString()]);
-                tx.addApprove("iost", "1000000");
+                tx.addApprove("iost", "10000000");
 
                 iost.signAndSend(tx).on('pending', function (txid) {
                     console.log("======>pending", txid);
