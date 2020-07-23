@@ -41,6 +41,10 @@ router.get('/powermine-admin/', function(req, res, next) {
   })
 });
 
+router.get('/admin-vdc/', function(req, res, next) {
+    res.render('admin-vdc');
+});
+
 router.get('/imatch/', function(req, res, next) {
   ContentModel.findOne({name: 'bankRollAsset'}, function(err, contentIns) {
     var content = '';

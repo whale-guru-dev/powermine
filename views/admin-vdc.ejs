@@ -3,7 +3,6 @@
 
 <head>
     <% include ./partials/header %>
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 </head>
 
 <body
@@ -23,14 +22,14 @@
                 <div class="section-title-decoration">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="section-title section-title__lg">POWERMINE ADMIN</h1>
+                            <h1 class="section-title section-title__lg">POWERMINE ADMIN FOR VDC</h1>
                         </div>
                         <div class="col-md-12 breadcrumbs-default">
                             <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
                                 <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a
                                             href="/" itemprop=&quot;item&quot;><span
                                                 itemprop="name">Home</span></a></li>
-                                <li class="current"><span>POWERMINE ADMIN</span></li>
+                                <li class="current"><span>POWERMINE ADMIN FOR VDC</span></li>
                             </ol>
                         </div>
                     </div>
@@ -46,105 +45,11 @@
     </header>
     <div class="page-section">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12">
-
-
-                </div>
-            </div>
             <div class="row text-center" id="statusMsg">
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h2>IOST in Pmine Smart Contract : <span id="iostAmtInContract"></span> IOST</h2>
-                    <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="depositAmt">Amount (in Pmine)</label>
-                                <input type="text" class="form-control" id="depositAmt" placeholder="Amount">
-                            </div>
-                            <button type="button" id="depositBtn" class="btn btn-primary">Deposit Pmine</button>
-                        </form>
-                    </div>
-                    <hr>
-                    <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="withdrawAmt">Amount (in IOST)</label>
-                                <input type="text" class="form-control" id="withdrawAmt" placeholder="Amount">
-                            </div>
-                            <button type="button" id="withdrawBtn" class="btn btn-primary">Withdraw IOST</button>
-                        </form>
-                    </div>
-                    <hr>
-                    <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="depositIostAmt">Amount (in IOST)</label>
-                                <input type="text" class="form-control" id="depositIostAmt" placeholder="Amount">
-                            </div>
-                            <button type="button" id="depositIostBtn" class="btn btn-primary">Deposit IOST</button>
-                        </form>
-                    </div>
-                    <hr>
-                    <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="depositIostAmt">Amount (in IOST)</label>
-                                <input type="text" class="form-control" id="divAmount" placeholder="Amount">
-                            </div>
-                            <button type="button" id="paydividends" class="btn btn-primary">Pay Daily Divs</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <h2>IOST in iMatch Smart Contract : <span id="iostAmtIniMatchContract"></span> IOST</h2>
-                    <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="depositiMatchAmt">Amount (in iMatch)</label>
-                                <input type="text" class="form-control" id="depositiMatchAmt" placeholder="Amount">
-                            </div>
-                            <button type="button" id="depositiMatchBtn" class="btn btn-primary">Deposit iMatch</button>
-                        </form>
-                    </div>
-                    <hr>
-                    <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="withdrawiMatchAmt">Amount (in IOST)</label>
-                                <input type="text" class="form-control" id="withdrawiMatchAmt" placeholder="Amount">
-                            </div>
-                            <button type="button" id="withdrawiMatchBtn" class="btn btn-primary">Withdraw IOST</button>
-                        </form>
-                    </div>
-                    <hr>
-                    <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="depositIostiMatchAmt">Amount (in IOST)</label>
-                                <input type="text" class="form-control" id="depositIostiMatchAmt" placeholder="Amount">
-                            </div>
-                            <button type="button" id="depositIostiMatchBtn" class="btn btn-primary">Deposit IOST
-                            </button>
-                        </form>
-                    </div>
-                    <hr>
-                    <div class="row text-center">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="divAmountiMatch">Amount (in IOST)</label>
-                                <input type="text" class="form-control" id="divAmountiMatch" placeholder="Amount">
-                            </div>
-                            <button type="button" id="paydividendsiMatch" class="btn btn-primary">Pay Daily Divs
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <h2>IOST in iGoose Smart Contract : <span id="iostAmtIniGooseContract"></span> IOST</h2>
+                    <h2>PMINE LOAN</h2>
                     <div class="row text-center">
                         <form class="form-inline">
                             <div class="form-group">
@@ -186,10 +91,20 @@
                             </button>
                         </form>
                     </div>
+                    <hr/>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="airdropAmt">Amount (in PER)</label>
+                                <input type="text" class="form-control" id="airdropAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="airdropBtn" class="btn btn-primary">Airdrop PER</button>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="col-sm-12 col-md-6">
-                    <h2>IOST in Ichips Smart Contract : <span id="iostAmtIniChipContract"></span> IOST</h2>
+                    <h2>PMINE VDC</h2>
                     <div class="row text-center">
                         <form class="form-inline">
                             <div class="form-group">
@@ -231,41 +146,27 @@
                             </button>
                         </form>
                     </div>
+                    <hr/>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="airdropAmt">Amount (in PER)</label>
+                                <input type="text" class="form-control" id="airdropAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="airdropBtn" class="btn btn-primary">Airdrop PER</button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
             <hr>
-
-            <div class="row text-center">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="airdropAmt">Amount (in PER)</label>
-                        <input type="text" class="form-control" id="airdropAmt" placeholder="Amount">
-                    </div>
-                    <button type="button" id="airdropBtn" class="btn btn-primary">Airdrop PER</button>
-                </form>
-            </div>
-            <hr>
-
-            <div class="row text-center">
-                <div class="row text-center">
-                    <div class="col-md-12">
-                        <h2>Landing Page Content Management</h2>
-                    </div>
-                </div>
-                <div class="row text-center" id="contentStatusMsg">
-                </div>
-                <textarea name="editor1" id="editor1"></textarea>
-                <br/>
-                <button type="button" id="saveContentBtn" class="btn btn-primary">Save</button>
-            </div>
         </div>
 
 
     </div>
 
     <% include ./partials/footer %>
-    <script type="text/javascript" src="/javascripts/iost/admin.js"></script>
+    <script type="text/javascript" src="/javascripts/iost/admin-vdc.js"></script>
     <script>
         if (!window.IWalletJS) {
             window.location.href = '/';
@@ -281,15 +182,6 @@
                 window.location.href = '/';
             })
         }
-        CKEDITOR.disableAutoInline = true;
-        CKEDITOR.replace('editor1');
-        <% if (content) { %>
-        var content = `<%= content.content %>`;
-        $("#editor1").html(content)
-        // CKEDITOR.instances.editor1.setData(content);
-        <% } else { %>
-
-        <% } %>
     </script>
 </body>
 

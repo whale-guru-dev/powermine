@@ -3040,7 +3040,7 @@ button[disabled], html input[disabled] {
 .vdc-body-view {
     background-image: url(../images/vdc-background.jpg);
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: bottom;
     background-attachment: fixed;
     background-size: cover;
 }
