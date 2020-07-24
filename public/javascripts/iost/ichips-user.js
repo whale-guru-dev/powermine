@@ -4,12 +4,12 @@ window.onload = () => {
     updateiChipPrice()
     hideAdminHeader()
     getTotalStaked()
-    updateTimer()
+    // updateTimer()
 }
-var isTimerValid = false;
+var isTimerValid = true;
 function updateTimer ()
 {
-    const date = new Date('2020-07-23T10:00:05-06:00');
+    const date = new Date('2020-07-23T11:20:05-06:00');
     const updateTimer_internal = function() {
         const present_date = new Date();
         const Difference_In_Time = date.getTime() - present_date.getTime();
@@ -21,9 +21,9 @@ function updateTimer ()
             var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
 
             isTimerValid = false;
-/*
-            $("#iGoose-table-body").hide();
-            $("#iGoose-table2-body").hide();*/
+            /*
+                        $("#iGoose-table-body").hide();
+                        $("#iGoose-table2-body").hide();*/
 
             if(!$("#buyBtn").hasClass('disabled')) {
                 $("#buyBtn").addClass('disabled');
@@ -77,21 +77,16 @@ function updateTimer ()
 function hideAdminHeader() {
     if(!window.IWalletJS) {
         $("#menu-item-139").hide();
-        $("#menu-item-1399").hide();
     } else {
         window.IWalletJS.enable().then(function (val) {
             console.log(val)
-            if(val !== 'powermine' && val !== 'pmine_admin') {
+            if(val !== 'powermine' && val !== 'pmine_admin')
                 $("#menu-item-139").hide();
-                $("#menu-item-1399").hide();
-            }
             else if(val === 'powermine' || val === 'pmine_admin') {
                 $("#menu-item-139").show();
-                $("#menu-item-1399").show();
             }
         }).catch(error => {
             $("#menu-item-139").hide();
-            $("#menu-item-1399").hide();
         });
     }
 }
@@ -406,7 +401,7 @@ $(document).on("click", "#buyBtn", function () {
             if (tokenAmount) {
                 $("#statusBuyMsg").html('');
                 const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "buyToken", [tokenAmount.toString()]);
-                tx.addApprove("iost", "10000000");
+                tx.addApprove("iost", "1000000");
 
                 iost.signAndSend(tx).on('pending', function (txid) {
                     console.log("======>pending", txid);

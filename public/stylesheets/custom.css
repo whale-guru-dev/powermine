@@ -1267,7 +1267,7 @@ legend,
 }
 
 .iChip-exchange .exchange-item input {
-    width: 60%;
+    width: 100%;
 }
 
 .exchange-item .dropdown {
@@ -1896,7 +1896,7 @@ table > thead > tr > th, .table > thead > tr > th {
 .iChip-timer {
     display: flex;
     align-items: center;
-    padding-bottom: 50px;
+    padding-bottom: 200px;
 }
 
 .landing__page-timer {
@@ -3034,6 +3034,46 @@ button[disabled], html input[disabled] {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
+.alert-close-btn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    border: none;
+    background-color: transparent;
+    color: gray;
+}
+
+.loans-alert {
+    position: relative;
+    padding: 12px 20px;
+    margin-bottom: 24px;
+    border: none;
+    border-left: 6px solid transparent;
+    border-radius: 0;
+    font-size: 16px;
+    min-height: 50px;
+    margin: 0 0 20px 0;
+    overflow: hidden;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.loans-alert-success {
+    background-color: #3fb539;
+    border-color: #38a233;
+    color: #fff;
+}
+
+.loans-alert-danger {
+    background-color: #d44546;
+    border-color: #cf3031;
+    color: #fff;
+}
+
+.show-position-btn:hover {
+    cursor: pointer;
+    color: purple;
+    text-decoration: underline;
+}
 /*end*/
 
 /*vdc page*/

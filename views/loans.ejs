@@ -26,7 +26,7 @@
             <div class="row text-center margin-auto">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <p class="text-white margin-bottom-zero">IOST Balance : 0 IOST</p>
+                    <p class="text-white margin-bottom-zero">IOST Balance : <span id="iost-balance">0</span> IOST</span>
                 </div>
             </div>
             <div class="row margin-auto">
@@ -84,7 +84,7 @@
                             <div class="row text-center margin-auto">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">
-                                    <b class="loans-page_orange-color">PMINE Balance : 0 PMINE</b>
+                                    <b class="loans-page_orange-color">PMINE Balance : <span id="pmine-balance">0</span> PMINE</b>
                                 </div>
                                 <div class="col-md-3"></div>
                             </div>
@@ -94,12 +94,12 @@
                                         <div class="col-md-12">
                                             <b class="loans-page_orange-color">Time for Paying Back</b>
                                             <br>
-                                            <select id="loan-time" class="form-control form-control-sm token-select-form">
+                                            <select id="loan-time" class="form-control form-control-sm token-select-form" onchange="updatePenalty(this)">
                                                 <option style="display: none;">---- TIMEFRAME ----</option>
-                                                <option>1 month</option>
-                                                <option>3 months</option>
-                                                <option>6 months</option>
-                                                <option>1 year</option>
+                                                <option value="1 month">1 month</option>
+                                                <option value="3 months">3 months</option>
+                                                <option value="6 months">6 months</option>
+                                                <option value="1 year">1 year</option>
                                             </select>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@
                                         <div class="col-md-6">
                                             <b class="loans-page_orange-color">Amount of IOST To Borrow</b>
                                             <br>
-                                            <input type="number" placeholder="0.0" id="borrow-input">
+                                            <input type="number" placeholder="0.0" id="borrow-input" onchange="updateIOSTLoan(this)">
                                         </div>
                                         <div class="col-md-6">
                                             <b class="loans-page_orange-color">Amount of PER for Collateral</b>
@@ -119,14 +119,14 @@
                                 </div>
                                 <div align="center">
                                     <p class="loans-page_orange-color">
-                                        <b class="loans-page_orange-color">Interest Rate: </b> 0 %
+                                        <b class="loans-page_orange-color">Interest Rate: </b> <span id="interest-rate">0</span> %
                                     </p>
                                     <p class="loans-page_orange-color">
-                                        <b class="loans-page_orange-color">Principal: </b> 0.00000000 IOST
+                                        <b class="loans-page_orange-color">Principal: </b> <span id="principal">0.00000000</span> IOST
                                     </p>
                                 </div>
                                 <div align="center">
-                                    <a href="#" class="rocket-button green-rocket-button" id="rocket-button-0">
+                                    <a href="#" class="rocket-button green-rocket-button" id="rocket-button-0" onclick="loan()">
                                         <div class="default">Loan</div>
                                         <div class="success">
                                             <svg>
@@ -166,13 +166,50 @@
                                         </symbol>
                                     </svg>
                                 </div>
+
+                                <p align="center" id="show_position_btn" class="show-position-btn" onclick="updateShowPosition()" style="display:none; cursor:pointer;">
+                                    <u>Admin Voting</u>
+                                    <span id="lessIcon" style="display: none;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                                    <span id="moreIcon"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
+                                </p>
+
+                                <div align="center" id="positionDiv" style="display: none;">
+                                    <p>
+                                        <b>Contract Voted: </b> <span id="iostVoted">0.00000000</span> IOST
+                                    </p>
+                                    <p>
+                                        <b>Contract Balance: </b> <span id="iostOnContract"></span> IOST
+                                    </p>
+                                    <p>
+                                        <b>Voting Rewards: </b> <span id="iostRewards"></span> IOST
+                                    </p>
+                                    <br />
+                                    
+                                    <input id="candidate-vote-input" type="text" placeholder="Candidate" class="vote-fields" style="width:150px; margin-right: 15px;"/>
+                                    <input id="vote-amount-input" type="number" placeholder="0" class="vote-fields" style="width:150px; margin-right: 15px;" /><button class="vote-btn" type="button" style="width: 75px;" onclick="vote()">Vote</button><br/><br/>
+                                    <input id="candidate-unvote-input" type="text" placeholder="Candidate" class="vote-fields" style="width:150px; margin-right: 15px;" />
+                                    <input id="unvote-amount-input" type="number" placeholder="0" class="vote-fields" style="width:150px; margin-right: 15px;" /><button class="vote-btn" type="button" style="width: 75px;" onclick="unvote()">Unvote</button>
+                                    <br/><br/>
+                                    <button type="button" class="swap-token-btn" onclick="claim()">Claim Rewards</button>
+                                </div>
+                                
+
+                                <div class="loans-alert loans-alert-success" role="alert" id="successAlert" style="display: none;">
+                                    <span id="successMsg"></span>
+                                    <button type="button" class="alert-close-btn" onclick="clearAlerts()">x</button>
+                                </div>
+
+                                <div class="loans-alert loans-alert-danger" role="alert" id="errorAlert" style="display: none;">
+                                    <span id="errorMsg"></span>
+                                    <button type="button" class="alert-close-btn" onclick="clearAlerts()">x</button>
+                                </div>
                             </form>
                         </div>
                     </div>
 
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                    <h2 class="countdown-round-text">IOST/PMINE : 3.00767876</h2>
+                    <h2 class="countdown-round-text">IOST/PMINE : <span id="iost-pmine-ratio">0.00000000</span></h2>
                 </div>
             </div>
             <br>
@@ -324,7 +361,8 @@
             <a href="#top" id="back-to-top-btn" class="top-link"><i class="fa fa-chevron-up"></i></a>
         </div>
     </div>
-    <script type='text/javascript' src="/javascripts/iost/loans-user.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="/javascripts/iost/loans-user.js">
     </script>
 </body>
 
