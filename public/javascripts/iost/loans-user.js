@@ -5,6 +5,7 @@ window.onload = () => {
     updatePMINEBalance()
     updatAccount()
     updatVoteBonus()
+    updateLoanEntries()
 }
 
 function hideAdminHeader() {
@@ -49,6 +50,7 @@ let account = null;
 let iostVoted = 0;
 let iostOnContract = 0;
 let iostRewards = 0;
+let loanEntries = [];
 
 const updateCollateral = () => {
     const updateCollateral_internal = async () => {
@@ -449,3 +451,141 @@ const getTokenSupply = (token) => {
         })
     })
 };
+
+const getLoanEntries = async () => {
+    let postData = {
+        id: contract,
+        key: "users",
+        field: account,
+        by_longest_chain: true
+    }
+
+    let entryKeys = await axios.post(api + "getContractStorage", postData, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }, credentials: 'omit'
+    }).then(res => {
+        let data = JSON.parse(res.data.data);
+
+        Promise.all( data.map(async (entry) => {
+            let postData2 = {
+                id: contract,
+                key: "loans",
+                field: entry,
+                by_longest_chain: true
+            }
+
+            return await axios.post(api + "getContractStorage", postData2, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }, credentials: 'omit'
+            }).then(res => {
+
+                let final = JSON.parse(res.data.data);
+
+                return final
+
+            }).catch(err => {
+                return null;
+            });
+        })).then(resFinal => {
+            loanEntries = resFinal;
+            var tableHtml = "";
+
+            loanEntries.forEach((entry, i) => {
+
+                tableHtml = tableHtml + "<tr> <th scope='row'>" + entry?entry.loanID:null + "</th>"
+                                                + "<td>" + entry?entry.loanAmount:null + "</td>"
+                                                + "<td>" + entry?entry.loanDebt:null +"</td>"
+                                                + "<td>" + entry?timeConverter(entry.endDate):null + "</td>"
+                                                + "<td>"
+                                                +    entry ? "<button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payLoan(this)'>PAY</button>" : null
+                                                + "</td>"
+                                            + "</tr>";
+            })
+
+            $("#loanHistoryTable").html(tableHtml);
+
+        }).catch(err => {
+            loanEntries = [];
+            $("#loanHistoryTable").html("");
+        })
+
+
+    }).catch(err => {
+        loanEntries = [];
+        $("#loanHistoryTable").html();
+    });
+}
+
+const timeConverter = unix_timestamp => {
+    let timestamp = unix_timestamp * 1;
+
+    var date = new Date(timestamp / 1000000);
+    // Hours part from the timestamp
+    var day = date.getDate();
+    var month = date.getMonth() * 1 + 1;
+    var year = date.getFullYear();
+    var hour = date.getHours();
+    var min = date.getMinutes();
+
+
+    // Will display time in 10:30:23 format
+    var formattedTime =
+        month + "/" + day + "/" + year + " " + hour + ":" + min;
+    return formattedTime;
+};
+
+const payLoan = (e) => {
+    let args = [
+        e.id
+    ];
+
+    try {
+        const iost = window.IWalletJS.newIOST(IOST);
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 800000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
+
+
+        iost.config = defaultConfig;
+        const ctx = iost.callABI(contract, "payLoan", args);
+        ctx.addApprove("pmine", "1000000000");
+        ctx.addApprove("iost", "1000000000");
+        iost
+            .signAndSend(ctx)
+            .on("pending", trx => {
+            })
+            .on("success", result => {
+                $("#successAlert").show();
+                $("#successMsg").html("You have successfully paid off your loan.  ");
+            })
+            .on("failed", failed => {
+                if (!failed.message) {
+                    $("#errorAlert").show();
+                    $("#errorMsg").html(`Error: ${failed}`);
+                } else {
+                    $("#errorAlert").show();
+                    $("#errorMsg").html(`Error: ${failed.message}`);
+                }
+            });
+    } catch (error) {
+        $("#errorAlert").show();
+        $("#errorMsg").html(`Error: ${error}`);
+    }
+};
+
+const updateLoanEntries = () => {
+    const updateLoanEntries_internal = async () => {
+        await getLoanEntries();
+    }
+
+    updateLoanEntries_internal();
+    setInterval(updateLoanEntries_internal, 10 * 60 * 1000);
+}
