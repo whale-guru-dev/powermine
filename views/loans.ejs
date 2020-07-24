@@ -96,10 +96,13 @@
                                             <br>
                                             <select id="loan-time" class="form-control form-control-sm token-select-form" onchange="updatePenalty(this)">
                                                 <option style="display: none;">---- TIMEFRAME ----</option>
-                                                <option value="1 month">1 month</option>
-                                                <option value="3 months">3 months</option>
-                                                <option value="6 months">6 months</option>
-                                                <option value="1 year">1 year</option>
+                                                <option value="1 month 60%">1 month 60%</option>
+                                                <option value="1 month 40%">1 month 40%</option>
+                                                <option value="1 month 20%">1 month 20%</option>
+                                                <option value="1 week 60%">1 week 60%</option>
+                                                <option value="1 week 40%">1 week 40%</option>
+                                                <option value="1 week 20%">1 week 20%</option>
+                                                <option value="1 day 60%">1 day 60%</option>
                                             </select>
                                         </div>
                                     </div>
@@ -111,7 +114,7 @@
                                             <input type="number" placeholder="0.0" id="borrow-input" onchange="updateIOSTLoan(this)">
                                         </div>
                                         <div class="col-md-6">
-                                            <b class="loans-page_orange-color">Amount of PER for Collateral</b>
+                                            <b class="loans-page_orange-color">Amount of PMINE for Collateral</b>
                                             <br>
                                             <input type="number" id="collateral-input" readonly="" value="0.00000000">
                                         </div>
