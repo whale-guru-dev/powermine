@@ -49,23 +49,28 @@ const updateAccountBalance = () => {
                 if (!account) {
                     $("#iostBalance").html(0.0000);
                     $("#pmineBalance").html(0.0000);
+                    $("#perBalance").html(0.0000);
                     return;
                 }
 
                 const iostBalance = await getUserBalance(account, "iost");
                 const pmineBalance = await getUserBalance(account, "pmine");
+                const perBalalnce = await getUserBalance(account, "per");
 
                 $("#iostBalance").html(iostBalance);
                 $("#pmineBalance").html(pmineBalance);
+                $("#perBalance").html(perBalalnce)
 
             }).catch(err => {
                 $("#iostBalance").html(0.0000);
                 $("#pmineBalance").html(0.0000);
+                $("#perBalance").html(0.0000);
                 return;
             });
         } catch (error) {
             $("#iostBalance").html(0.0000);
             $("#pmineBalance").html(0.0000);
+            $("#perBalance").html(0.0000);
         }
     }
 
