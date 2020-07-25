@@ -47,9 +47,9 @@ const updateAccountBalance = () => {
             window.IWalletJS.enable().then(async account => {
 
                 if (!account) {
-                    $("#iostBalance").html(0.0000);
-                    $("#pmineBalance").html(0.0000);
-                    $("#perBalance").html(0.0000);
+                    $("#iostBalance").html("0.0000");
+                    $("#pmineBalance").html("0.0000");
+                    $("#perBalance").html("0.0000");
                     return;
                 }
 
@@ -62,15 +62,15 @@ const updateAccountBalance = () => {
                 $("#perBalance").html(perBalalnce)
 
             }).catch(err => {
-                $("#iostBalance").html(0.0000);
-                $("#pmineBalance").html(0.0000);
-                $("#perBalance").html(0.0000);
+                $("#iostBalance").html("0.0000");
+                $("#pmineBalance").html("0.0000");
+                $("#perBalance").html("0.0000");
                 return;
             });
         } catch (error) {
-            $("#iostBalance").html(0.0000);
-            $("#pmineBalance").html(0.0000);
-            $("#perBalance").html(0.0000);
+            $("#iostBalance").html("0.0000");
+            $("#pmineBalance").html("0.0000");
+            $("#perBalance").html("0.0000");
         }
     }
 
@@ -137,19 +137,19 @@ const updateVDC1UserData = () => {
             window.IWalletJS.enable().then(async account => {
 
                 if (!account) {
-                    $("#vdc1-holding-pmine").html(0.00000000);
-                    $("#vdc1-pmine-reward").html(0.00000000);
-                    $("#vdc1-iost-pmine").html(0.00000000);
-                    $("#vdc1-per-pmine").html(0.00000000);
+                    $("#vdc1-holding-pmine").html("0.00000000");
+                    $("#vdc1-pmine-reward").html("0.00000000");
+                    $("#vdc1-iost-pmine").html("0.00000000");
+                    $("#vdc1-per-pmine").html("0.00000000");
                     return;
                 }
 
                 const userData = await get_vdc1_user_data(account);
                 if(userData == null) {
-                    $("#vdc1-holding-pmine").html(0.00000000);
-                    $("#vdc1-pmine-reward").html(0.00000000);
-                    $("#vdc1-iost-pmine").html(0.00000000);
-                    $("#vdc1-per-pmine").html(0.00000000);
+                    $("#vdc1-holding-pmine").html("0.00000000");
+                    $("#vdc1-pmine-reward").html("0.00000000");
+                    $("#vdc1-iost-pmine").html("0.00000000");
+                    $("#vdc1-per-pmine").html("0.00000000");
                 } else {
                     $("#vdc1-holding-pmine").html((userData.balance * 1).toFixed(8));
                     $("#vdc1-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
@@ -158,17 +158,17 @@ const updateVDC1UserData = () => {
                 }
 
             }).catch(err => {
-                $("#vdc1-holding-pmine").html(0.00000000);
-                $("#vdc1-pmine-reward").html(0.00000000);
-                $("#vdc1-iost-pmine").html(0.00000000);
-                $("#vdc1-per-pmine").html(0.00000000);
+                $("#vdc1-holding-pmine").html("0.00000000");
+                $("#vdc1-pmine-reward").html("0.00000000");
+                $("#vdc1-iost-pmine").html("0.00000000");
+                $("#vdc1-per-pmine").html("0.00000000");
                 return;
             });
         } catch (error) {
-            $("#vdc1-holding-pmine").html(0.00000000);
-            $("#vdc1-pmine-reward").html(0.00000000);
-            $("#vdc1-iost-pmine").html(0.00000000);
-            $("#vdc1-per-pmine").html(0.00000000);
+            $("#vdc1-holding-pmine").html("0.00000000");
+            $("#vdc1-pmine-reward").html("0.00000000");
+            $("#vdc1-iost-pmine").html("0.00000000");
+            $("#vdc1-per-pmine").html("0.00000000");
         }
 
     }
@@ -236,28 +236,28 @@ const updateVDC2UserData = () => {
             window.IWalletJS.enable().then(async account => {
 
                 if (!account) {
-                    $("#vdc2-holding-pmine").html(0.00000000);
-                    $("#vdc2-pmine-reward").html(0.00000000);
+                    $("#vdc2-holding-pmine").html("0.00000000");
+                    $("#vdc2-pmine-reward").html("0.00000000");
                     return;
                 }
 
                 const userData = await get_vdc2_user_data(account);
                 if(userData == null) {
-                    $("#vdc2-holding-pmine").html(0.00000000);
-                    $("#vdc2-pmine-reward").html(0.00000000);
+                    $("#vdc2-holding-pmine").html("0.00000000");
+                    $("#vdc2-pmine-reward").html("0.00000000");
                 } else {
                     $("#vdc2-holding-pmine").html((userData.balance * 1).toFixed(8));
                     $("#vdc2-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
                 }
 
             }).catch(err => {
-                $("#vdc2-holding-pmine").html(0.00000000);
-                $("#vdc2-pmine-reward").html(0.00000000);
+                $("#vdc2-holding-pmine").html("0.00000000");
+                $("#vdc2-pmine-reward").html("0.00000000");
                 return;
             });
         } catch (error) {
-            $("#vdc2-holding-pmine").html(0.00000000);
-            $("#vdc2-pmine-reward").html(0.00000000);
+            $("#vdc2-holding-pmine").html("0.00000000");
+            $("#vdc2-pmine-reward").html("0.00000000");
         }
 
     }
