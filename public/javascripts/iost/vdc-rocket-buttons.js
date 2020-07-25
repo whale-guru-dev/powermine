@@ -12,7 +12,7 @@ document.querySelectorAll('.rocket-button').forEach(elem => {
     });
 });
 
-const button = document.getElementById("rocket-button-0");
+const button = document.getElementById("vdc1-deposit-btn");
 button.addEventListener('click', e => {
     e.preventDefault();
     if (button.classList.contains('animated')) {
@@ -30,7 +30,7 @@ button.addEventListener('click', e => {
     }, 2400);
 });
 
-const button1 = document.getElementById("rocket-button-1");
+const button1 = document.getElementById("vdc1-withdraw-btn");
 button1.addEventListener('click', e => {
     e.preventDefault();
     if (button1.classList.contains('animated')) {
@@ -48,7 +48,7 @@ button1.addEventListener('click', e => {
     }, 2400);
 });
 
-const button2 = document.getElementById("rocket-button-2");
+const button2 = document.getElementById("vdc2-deposit-btn");
 button2.addEventListener('click', e => {
     e.preventDefault();
     if (button2.classList.contains('animated')) {
@@ -66,7 +66,7 @@ button2.addEventListener('click', e => {
     }, 2400);
 });
 
-const button3 = document.getElementById("rocket-button-3");
+const button3 = document.getElementById("vdc2-withdraw-btn");
 button3.addEventListener('click', e => {
     e.preventDefault();
     if (button3.classList.contains('animated')) {
@@ -84,7 +84,7 @@ button3.addEventListener('click', e => {
     }, 2400);
 });
 
-const button4 = document.getElementById("rocket-button-4");
+const button4 = document.getElementById("vdc1-claim-btn");
 button4.addEventListener('click', e => {
     e.preventDefault();
     if (button4.classList.contains('animated')) {
@@ -102,7 +102,7 @@ button4.addEventListener('click', e => {
     }, 2400);
 });
 
-const button5 = document.getElementById("rocket-button-5");
+const button5 = document.getElementById("vdc2-claim-btn");
 button5.addEventListener('click', e => {
     e.preventDefault();
     if (button5.classList.contains('animated')) {
