@@ -140,10 +140,18 @@ const updateVDC1UserData = () => {
                 }
 
                 const userData = await get_vdc1_user_data(account);
-                $("#vdc1-holding-pmine").html((userData.balance * 1).toFixed(8));
-                $("#vdc1-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
-                $("#vdc1-iost-pmine").html((userData.iostUnclaimed * 1).toFixed(8));
-                $("#vdc1-per-pmine").html((userData.perUnclaimed * 1).toFixed(8));
+                if(userData == null) {
+                    $("#vdc1-holding-pmine").html(0.00000000);
+                    $("#vdc1-pmine-reward").html(0.00000000);
+                    $("#vdc1-iost-pmine").html(0.00000000);
+                    $("#vdc1-per-pmine").html(0.00000000);
+                } else {
+                    $("#vdc1-holding-pmine").html((userData.balance * 1).toFixed(8));
+                    $("#vdc1-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
+                    $("#vdc1-iost-pmine").html((userData.iostUnclaimed * 1).toFixed(8));
+                    $("#vdc1-per-pmine").html((userData.perUnclaimed * 1).toFixed(8));
+                }
+
             }).catch(err => {
                 $("#vdc1-holding-pmine").html(0.00000000);
                 $("#vdc1-pmine-reward").html(0.00000000);
@@ -229,8 +237,14 @@ const updateVDC2UserData = () => {
                 }
 
                 const userData = await get_vdc2_user_data(account);
-                $("#vdc2-holding-pmine").html((userData.balance * 1).toFixed(8));
-                $("#vdc2-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
+                if(userData == null) {
+                    $("#vdc2-holding-pmine").html(0.00000000);
+                    $("#vdc2-pmine-reward").html(0.00000000);
+                } else {
+                    $("#vdc2-holding-pmine").html((userData.balance * 1).toFixed(8));
+                    $("#vdc2-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
+                }
+
             }).catch(err => {
                 $("#vdc2-holding-pmine").html(0.00000000);
                 $("#vdc2-pmine-reward").html(0.00000000);
