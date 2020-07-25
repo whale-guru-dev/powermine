@@ -3105,4 +3105,8 @@ button[disabled], html input[disabled] {
 .token-select-form {
     font-size: 1.5rem;
 }
+
+.token-select-form, option {
+    text-align:right;
+}
 /*end*/
