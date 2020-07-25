@@ -25,9 +25,11 @@
                 </div>
             </div>
             <div class="row text-center margin-auto">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <p class="text-white margin-bottom-zero">IOST Balance : 0 IOST</p>
+                <div class="col-md-6">
+                    <p class="text-white margin-bottom-zero">IOST Balance : <span id="iostBalance">0</span> IOST</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-white margin-bottom-zero">PMINE Balance : <span id="pmineBalance">0</span> IOST</p>
                 </div>
             </div>
             <div class="row margin-auto">
@@ -43,11 +45,6 @@
 
                     <div class="uniswap-container">
                         <div class="swap">
-                            <div class="row text-center margin-auto">
-                                <div class="col-md-6 col-md-offset-3">
-                                    <b class="loans-page_orange-color">PMINE Balance : <span id="totalPmineVDC1">0</span> PMINE</b>
-                                </div>
-                            </div>
                             <form action="" autocomplete="off">
                                 <div class="containers">
                                     <div class="row text-center">
@@ -161,22 +158,44 @@
                                     <div class="col-md-6 col-md-offset-3">
                                         <b class="loans-page_orange-color">YOUR HOLDINGS</b>
                                         <br>
-
                                     </div>
                                 </div>
+
                                 <div class="row text-center">
-                                    <div class="col-md-6 col-md-offset-3"> PMINE</div>
-
-
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-md-6 col-md-offset-3" id="pmine-holdings-1">0.00000000</div>
-
-
+                                    <div class="col-md-6 col-md-offset-3" id="pmine-holdings-1">
+                                        <p class="loans-page_orange-color"><span id="vdc1-holding-pmine">0.00000000</span> PMINE</p>
+                                    </div>
                                 </div>
                                 <br/>
 
                                 <div align="center">
+                                    <div class="row text-center">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <b class="loans-page_orange-color">YOUR REWARDS</b>
+                                            <br>
+                                        </div>
+                                    </div>
+
+                                    <div class="row text-center">
+                                        <div class="col-md-4 loans-page_orange-color"> PMINE</div>
+                                        <div class="col-md-4 loans-page_orange-color"> IOST</div>
+                                        <div class="col-md-4 loans-page_orange-color"> PER</div>
+
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col-md-4">
+                                            <p class="loans-page_orange-color" id="vdc1-pmine-reward">0.00000000</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="loans-page_orange-color" id="vdc1-iost-reward">0.00000000</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="loans-page_orange-color" id="vdc1-per-reward">0.00000000</p>
+                                        </div>
+                                    </div>
+
+                                    <br/>
+
                                     <a href="#" class="rocket-button gold-rocket-button" id="vdc1-claim-btn">
                                         <div class="default">CLAIM REWARDS</div>
                                         <div class="success">
@@ -217,20 +236,6 @@
                                         </symbol>
                                     </svg>
 
-
-                                    <div class="row text-center">
-                                        <div class="col-md-3 col-md-offset-1"> PMINE</div>
-                                        <div class="col-md-3 col-md-offset-1"> IOST</div>
-                                        <div class="col-md-3 col-md-offset-1"> PER</div>
-
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-md-3 col-md-offset-1" id="unclaimed-pmine-1">0.00000000</div>
-                                        <div class="col-md-3 col-md-offset-1" id="unclaimed-iost">0.00000000</div>
-                                        <div class="col-md-3 col-md-offset-1" id="unclaimed-per">0.00000000</div>
-
-                                    </div>
-
                                 </div>
                             </form>
 
@@ -240,7 +245,7 @@
                     <div class="row text-center">
                         <div class="col-md-12">
                             <p class="loans-page_orange-color">
-                                <b class="loans-page_orange-color">Total PMINE In Contract : </b> 0.00000000
+                                <b class="loans-page_orange-color">Total PMINE In Contract : </b> <span id="totalPmineVDC1">0.00000000</span>
                             </p>
                         </div>
                     </div>
@@ -257,11 +262,6 @@
 
                     <div class="uniswap-container">
                         <div class="swap">
-                            <div class="row text-center margin-auto">
-                                <div class="col-md-6 col-md-offset-3">
-                                    <b class="loans-page_orange-color">PMINE Balance : <span id="totalPmineVDC2">0</span> PMINE</b>
-                                </div>
-                            </div>
                             <form action="" autocomplete="off">
                                 <div class="containers">
                                     <div class="row text-center">
@@ -375,22 +375,34 @@
                                     <div class="col-md-6 col-md-offset-3">
                                         <b class="loans-page_orange-color">YOUR HOLDINGS</b>
                                         <br>
-
                                     </div>
                                 </div>
+
                                 <div class="row text-center">
-                                    <div class="col-md-6 col-md-offset-3"> PMINE</div>
-
-
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-md-6 col-md-offset-3" id="pmine-holdings-2">0.00000000</div>
-
-
+                                    <div class="col-md-6 col-md-offset-3" id="pmine-holdings-1">
+                                        <p class="loans-page_orange-color"><span id="vdc2-holding-pmine">0.00000000</span> PMINE</p>
+                                    </div>
                                 </div>
                                 <br/>
 
                                 <div align="center">
+                                    <div class="row text-center">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <b class="loans-page_orange-color">YOUR REWARDS</b>
+                                            <br/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row text-center">
+                                        <div class="col-md-4 col-md-offset-4 loans-page_orange-color"> PMINE</div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col-md-4 col-md-offset-4" id="unclaimed-pmine-1">
+                                            <p class="loans-page_orange-color" id="vdc2-pmine-reward">0.00000000</p>
+                                        </div>
+                                    </div>
+                                    <br/>
+
                                     <a href="#" class="rocket-button gold-rocket-button" id="vdc2-claim-btn">
                                         <div class="default">CLAIM REWARDS</div>
                                         <div class="success">
@@ -430,15 +442,6 @@
                                                   fill-opacity="0.3" fill="var(--rocket-line)"></path>
                                         </symbol>
                                     </svg>
-
-
-                                    <div class="row text-center">
-                                        <div class="col-md-6 col-md-offset-3"> PMINE</div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-md-6 col-md-offset-3" id="unclaimed-pmine-2">0.00000000</div>
-                                    </div>
-
                                 </div>
 
                             </form>
@@ -448,7 +451,7 @@
                     <div class="row text-center">
                         <div class="col-md-12">
                             <p class="loans-page_orange-color">
-                                <b class="loans-page_orange-color">Total PMINE In Contract : </b> 0.00000000
+                                <b class="loans-page_orange-color">Total PMINE In Contract : </b> <span id="totalPmineVDC2">0.00000000</span>
                             </p>
                         </div>
                     </div>

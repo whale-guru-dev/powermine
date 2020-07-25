@@ -2,6 +2,7 @@ window.onload = () => {
     hideAdminHeader()
     updateVDC1TotalPmine()
     updateVDC2TotalPmine()
+    updateAccountBalance()
     updateVDC1UserData()
     updateVDC2UserData()
 }
@@ -42,8 +43,34 @@ const getUserBalance = async (account, token) => {
 
 const updateAccountBalance = () => {
     updateAccountBalance_interanl = async () => {
-        // const  = getUserBalance("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "pmine")
+        try {
+            window.IWalletJS.enable().then(async account => {
+
+                if (!account) {
+                    $("#iostBalance").html(0.0000);
+                    $("#pmineBalance").html(0.0000);
+                    return;
+                }
+
+                const iostBalance = await getUserBalance(account, "iost");
+                const pmineBalance = await getUserBalance(account, "pmine");
+
+                $("#iostBalance").html(iostBalance);
+                $("#pmineBalance").html(pmineBalance);
+
+            }).catch(err => {
+                $("#iostBalance").html(0.0000);
+                $("#pmineBalance").html(0.0000);
+                return;
+            });
+        } catch (error) {
+            $("#iostBalance").html(0.0000);
+            $("#pmineBalance").html(0.0000);
+        }
     }
+
+    updateAccountBalance_interanl();
+    setInterval(updateAccountBalance_interanl, 10 * 60 * 1000)
 }
 
 //Returns a float that represents the total staked PMINE on VDC1
@@ -101,7 +128,36 @@ const get_vdc1_user_data = async (account) => {
 
 const updateVDC1UserData = () => {
     updateVDC1UserData_internal = async () => {
-        await get_vdc1_user_data();
+        try {
+            window.IWalletJS.enable().then(async account => {
+
+                if (!account) {
+                    $("#vdc1-holding-pmine").html(0.00000000);
+                    $("#vdc1-pmine-reward").html(0.00000000);
+                    $("#vdc1-iost-pmine").html(0.00000000);
+                    $("#vdc1-per-pmine").html(0.00000000);
+                    return;
+                }
+
+                const userData = await get_vdc1_user_data(account);
+                $("#vdc1-holding-pmine").html((userData.balance * 1).toFixed(8));
+                $("#vdc1-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
+                $("#vdc1-iost-pmine").html((userData.iostUnclaimed * 1).toFixed(8));
+                $("#vdc1-per-pmine").html((userData.perUnclaimed * 1).toFixed(8));
+            }).catch(err => {
+                $("#vdc1-holding-pmine").html(0.00000000);
+                $("#vdc1-pmine-reward").html(0.00000000);
+                $("#vdc1-iost-pmine").html(0.00000000);
+                $("#vdc1-per-pmine").html(0.00000000);
+                return;
+            });
+        } catch (error) {
+            $("#vdc1-holding-pmine").html(0.00000000);
+            $("#vdc1-pmine-reward").html(0.00000000);
+            $("#vdc1-iost-pmine").html(0.00000000);
+            $("#vdc1-per-pmine").html(0.00000000);
+        }
+
     }
 
     updateVDC1UserData_internal();
@@ -163,7 +219,28 @@ const get_vdc2_user_data = async (account) => {
 
 const updateVDC2UserData = () => {
     updateVDC2UserData_internal = async () => {
-        await get_vdc2_user_data();
+        try {
+            window.IWalletJS.enable().then(async account => {
+
+                if (!account) {
+                    $("#vdc2-holding-pmine").html(0.00000000);
+                    $("#vdc2-pmine-reward").html(0.00000000);
+                    return;
+                }
+
+                const userData = await get_vdc2_user_data(account);
+                $("#vdc2-holding-pmine").html((userData.balance * 1).toFixed(8));
+                $("#vdc2-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
+            }).catch(err => {
+                $("#vdc2-holding-pmine").html(0.00000000);
+                $("#vdc2-pmine-reward").html(0.00000000);
+                return;
+            });
+        } catch (error) {
+            $("#vdc2-holding-pmine").html(0.00000000);
+            $("#vdc2-pmine-reward").html(0.00000000);
+        }
+
     }
 
     updateVDC2UserData_internal();
