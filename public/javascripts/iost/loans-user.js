@@ -4,7 +4,6 @@ window.onload = () => {
     updateCollateral()
     updatePMINEBalance()
     updatAccount()
-    updatVoteBonus()
     updateLoanEntries()
 }
 
@@ -31,18 +30,25 @@ function hideAdminHeader() {
 
 const contract = "Contract5BWo6oDbYUEyozmZHYZDQvnkvTSCcm4D1UHe31GKuEyX";
 const api = "https://api.iost.io/";
-const penaltyFees = {
-    "1 month": 0,
-    "3 months": .03,
-    "6 months": .10,
-    "1 year": .25,
+
+const loanOptions = {
+    '1': .6,
+    '2': .4,
+    '3': .2,
+    '4': .6,
+    '5': .4,
+    '6': .2,
+    '7': .6
 }
 
-const timeKeys = {
-    "1 month": "1M",
-    "3 months": "3M",
-    "6 months": "6M",
-    "1 year": "1Y",
+const interest = {
+    '1': .1,
+    '2': .05,
+    '3': 0,
+    '4': .03,
+    '5': .02,
+    '6': 0,
+    '7': .01
 }
 
 let loanAmount = 0;
@@ -54,32 +60,25 @@ let loanEntries = [];
 
 const updateCollateral = () => {
     const updateCollateral_internal = async () => {
-        let iostBalance = await getTokenBalance(contract, "iost"); iostOnContract = iostBalance;
-        iostVoted = await getContractVotedIost();
-        let circSupply = await getTokenSupply("pmine");
-        let lobbySupply = await getTokenBalance("ContractKyprrbkxFd3nbheawCbazP9pTTB31TbnZ5pNQL6xHpF", "pmine");
-        let dexSupply = await getTokenBalance("ContractGtK332EbByeomKLKKdMYAY5oqXE8or7spH8ffDdHgnLY", "pmine");
-        let longtermAcc = await getTokenBalance("pmine_admin", "pmine");
-        let loanContract = await getTokenBalance("ContractAqcgt14kaHJFwAbWiFrQUX3m4zcrbJb6dhc4BQgrZwhH", "pmine");
+        
 
-        let circExclude = circSupply - lobbySupply - dexSupply - longtermAcc - loanContract;
-
-        if (iostBalance * 1 === 0) {
-            return;
-        }
+        let price = await getPminePrice(); 
 
         var loanAmount = $("#borrow-input").val();
 
-        let collateral = loanAmount * circExclude / (iostBalance * 1 + iostVoted);
-        $("#collateral-input".val(collateral.toFixed(8)))
+        let option = $("#loan-time").val();
 
-        let ratio = circExclude / (iostBalance * 1 + iostVoted);
+        let collateral = loanAmount / loanOptions[option] / price;
 
-        $("#iost-pmine-ratio").html(1 / ratio);
+        $("#collateral-input").val(collateral.toFixed(8));
+
+        let ratio = price * (loanOptions[option] ? loanOptions[option] : .6);
+
+        $("#iost-pmine-ratio").html( ratio);
     }
 
     updateCollateral_internal()
-    setInterval(updateCollateral_internal, 10 * 60 * 1000)
+    setInterval(updateCollateral_internal, 2000)
 }
 
 const updatAccount = () => {
@@ -120,27 +119,24 @@ const updateIOSTBalance = () => {
     setInterval(updateIOSTBalance_internal, 10 * 60 * 1000)
 }
 
-const updatePenalty = (e) => {
-    const penalty = penaltyFees[e.value];
+const updatePenalty = () => {
+    const updatePenalty_Internal = async () => {
+        let option = $("#loan-time").val();
+        const penalty = interest[option ? option : "1"];
 
-    $("#interest-rate").html(penalty * 100);
+        $("#interest-rate").html(penalty * 100);
 
-    loanAmount = $("#borrow-input").val();
+        loanAmount = $("#borrow-input").val();
 
-    var principal = ((penalty * 1 + 1) * loanAmount).toFixed(8);
-    $("#principal").html(principal);
+        var principal = ((penalty * 1 + 1) * loanAmount).toFixed(8);
+        $("#principal").html(principal);
+    }
+    
+
+    updatePenalty_Internal()
+    setInterval(updatePenalty_Internal, 2000)
 }
 
-const updateIOSTLoan = (e) => {
-    loanAmount = e.value;
-
-    penalty = penaltyFees[$("#loan-time").val()];
-
-    $("#interest-rate").html(penalty * 100);
-
-    var principal = ((penalty * 1 + 1) * loanAmount).toFixed(8);
-    $("#principal").html(principal);
-}
 
 const updatePMINEBalance = () => {
     const updatePMINEBalance_internal = async () => {
@@ -296,10 +292,10 @@ const claim = () => {
 
 const loan = () => {
     let amount = document.getElementById("borrow-input").value;
-    let loanPeriod = timeKeys[document.getElementById("loan-time").value];
+    let option = $("#loan-time").val();
     let args = [
         amount,
-        loanPeriod
+        option
     ];
 
     try {
@@ -362,32 +358,7 @@ const updateShowPosition = () => {
     }
 }
 
-const updatVoteBonus = () => {
-    const updatVoteBonus_internal = async () => {
-        const bonus = await getVoteBonus();
-        iostRewards = bonus;
-        $("#iostRewards").html(iostRewards);
-    }
-    updatVoteBonus_internal()
-    setInterval(updatVoteBonus_internal, 10 * 60 * 1000)
-}
 
-const getVoteBonus = async () => {
-
-    return new Promise((resolve, reject) => {
-        axios.get("https://api.iost.io/getVoterBonus/" + contract + "/1", { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', }, credentials: 'omit' }).then(res => {
-            let voteInfo = res.data.bonus * 1;
-            iostRewards = voteInfo.toFixed(8);
-
-            resolve(voteInfo.toFixed(8));
-
-        }).catch(err => {
-            resolve(0);
-            return
-        })
-    })
-
-}
 
 const getTokenBalance = (acc, token) => {
     if (!acc) {
@@ -410,10 +381,11 @@ const getTokenBalance = (acc, token) => {
     });
 };
 
-const getContractVotedIost = () => {
+//Get the current fixed price of pmine. 
+const getPminePrice = () => {
     let postData = {
         id: contract,
-        key: "iostVoted",
+        key: "price",
         by_longest_chain: true
     }
 
@@ -424,11 +396,9 @@ const getContractVotedIost = () => {
                 'Content-Type': 'application/json',
             }, credentials: 'omit'
         }).then(res => {
-            let votes = JSON.parse(res.data.data) * 1;
+            let price = JSON.parse(res.data.data) * 1;
 
-            iostVoted = votes;
-
-            resolve(votes)
+            resolve(price)
         }).catch(err => {
             resolve(0)
         });
@@ -501,7 +471,7 @@ const getLoanEntries = async () => {
                                                 + "<td>" + entry?entry.loanDebt:null +"</td>"
                                                 + "<td>" + entry?timeConverter(entry.endDate):null + "</td>"
                                                 + "<td>"
-                                                +    entry ? "<button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payLoan(this)'>PAY</button>" : null
+                                + entry ? "<button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payLoan(this)'>PAY</button> <button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payInterest(this)'>PAY INTEREST</button>" : null
                                                 + "</td>"
                                             + "</tr>";
             })
@@ -565,6 +535,50 @@ const payLoan = (e) => {
             .on("success", result => {
                 $("#successAlert").show();
                 $("#successMsg").html("You have successfully paid off your loan.  ");
+            })
+            .on("failed", failed => {
+                if (!failed.message) {
+                    $("#errorAlert").show();
+                    $("#errorMsg").html(`Error: ${failed}`);
+                } else {
+                    $("#errorAlert").show();
+                    $("#errorMsg").html(`Error: ${failed.message}`);
+                }
+            });
+    } catch (error) {
+        $("#errorAlert").show();
+        $("#errorMsg").html(`Error: ${error}`);
+    }
+};
+
+
+const payInterest = (e) => {
+    let args = [
+        e.id
+    ];
+
+    try {
+        const iost = window.IWalletJS.newIOST(IOST);
+        const defaultConfig = {
+            gasRatio: 1,
+            gasLimit: 800000,
+            delay: 0,
+            expiration: 60,
+            defaultLimit: "unlimited"
+        };
+
+
+        iost.config = defaultConfig;
+        const ctx = iost.callABI(contract, "payInterest", args);
+        ctx.addApprove("pmine", "1000000000");
+        ctx.addApprove("iost", "1000000000");
+        iost
+            .signAndSend(ctx)
+            .on("pending", trx => {
+            })
+            .on("success", result => {
+                $("#successAlert").show();
+                $("#successMsg").html("You have successfully paid off your interestt.  ");
             })
             .on("failed", failed => {
                 if (!failed.message) {
