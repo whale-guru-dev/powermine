@@ -505,7 +505,7 @@ $(document).on("click", "#vdc1-claim-btn", function () {
         iost.config = defaultConfig;
 
         $("#statusVDC1Msg").html('');
-        const tx = iost.callABI("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "claim", [""]);
+        const tx = iost.callABI("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "claim", []);
         tx.addApprove("pmine", "1000000");
         tx.addApprove("iost", "1000000");
         tx.addApprove("per", "1000000");
@@ -521,7 +521,7 @@ $(document).on("click", "#vdc1-claim-btn", function () {
         }).on('failed', function (result) {
             console.log('======>failed', result);
             $(".page-loader").hide();
-            $("#statusVDC1Msg").html('<div class="alert alert-warning">' + result + '</div>');
+            $("#statusVDC1Msg").html('<div class="alert alert-warning">' + JSON.stringify(result) + '</div>');
         });
 
     }).catch(error => {
@@ -554,7 +554,7 @@ $(document).on("click", "#vdc2-claim-btn", function () {
         iost.config = defaultConfig;
 
         $("#statusVDC2Msg").html('');
-        const tx = iost.callABI("Contract7FkjXHJ6574QecAxz1wvZmvASxaiWxqohkR6jnJRBjwn", "claim", [""]);
+        const tx = iost.callABI("Contract7FkjXHJ6574QecAxz1wvZmvASxaiWxqohkR6jnJRBjwn", "claim", []);
         tx.addApprove("pmine", "1000000");
         tx.addApprove("iost", "1000000");
         tx.addApprove("per", "1000000");
