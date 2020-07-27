@@ -107,7 +107,7 @@ $("#collateral-input").bind("paste keyup", async function (event) {
 
     let option = $("#loan-time").val();
 
-    let loanAmount = collateral * loanOptions[option] / price;
+    let loanAmount = collateral * loanOptions[option] * price;
 
     $("#borrow-input").val(loanAmount.toFixed(8));
 
