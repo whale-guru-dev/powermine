@@ -2997,6 +2997,20 @@ button[disabled], html input[disabled] {
     -webkit-filter: drop-shadow(-1px -1px white) drop-shadow(1px 1px #808080) drop-shadow(1px 1px #7a7a7a) drop-shadow(1px 1px #757575) drop-shadow(1px 1px #707070) drop-shadow(1px 1px #6b6b6b) drop-shadow(1px 1px #666666) drop-shadow(12px 12px 30px rgba(0, 0, 0, 0.2)) drop-shadow(12px 12px 10px rgba(0, 0, 0, 0.2));
 }
 
+.loans-page_pmine-value-text {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: white;
+    color: transparent;
+    background: linear-gradient(to right, #EFA31A 0%, #D38B14 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-filter: drop-shadow(-1px -1px white) drop-shadow(1px 1px #808080) drop-shadow(1px 1px #7a7a7a) drop-shadow(1px 1px #757575)  drop-shadow(12px 12px 10px rgba(0, 0, 0, 0.2));
+}
+
 .table-dark {
     background-color: #343a4033;
 }
@@ -3074,6 +3088,7 @@ button[disabled], html input[disabled] {
     color: purple;
     text-decoration: underline;
 }
+
 /*end*/
 
 /*vdc page*/
@@ -3099,7 +3114,9 @@ button[disabled], html input[disabled] {
 }
 
 .vdc-alert .alert {
-    width: 80%;margin-right: auto;margin-left: auto;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .token-select-form {
@@ -3107,7 +3124,7 @@ button[disabled], html input[disabled] {
 }
 
 .token-select-form, option {
-    text-align:right;
+    text-align: right;
 }
 
 .vdc-body-view .uniswap-container {
@@ -3124,4 +3141,5 @@ button[disabled], html input[disabled] {
         margin-bottom: 0px;
     }
 }
+
 /*end*/
