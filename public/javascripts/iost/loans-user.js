@@ -632,11 +632,11 @@ const payInterest = (e) => {
     }
 };
 
-const updateLoanEntries = (account) => {
+const updateLoanEntries = async (account) => {
     const updateLoanEntries_internal = async (account) => {
         await getLoanEntries(account);
     }
 
-    updateLoanEntries_internal(account);
+    await updateLoanEntries_internal(account);
     setInterval(updateLoanEntries_internal(account), 10 * 60 * 1000);
 }
