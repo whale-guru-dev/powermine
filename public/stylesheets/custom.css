@@ -3113,4 +3113,15 @@ button[disabled], html input[disabled] {
 .vdc-body-view .uniswap-container {
     padding-bottom: 0px;
 }
+
+.vdc-balance-div {
+    padding: 0 10vw;
+    margin-bottom: -40px;
+}
+
+@media (max-width: 991px) {
+    .vdc-balance-div {
+        margin-bottom: 0px;
+    }
+}
 /*end*/
