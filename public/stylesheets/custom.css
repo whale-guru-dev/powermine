@@ -3109,4 +3109,8 @@ button[disabled], html input[disabled] {
 .token-select-form, option {
     text-align:right;
 }
+
+.vdc-body-view .uniswap-container {
+    padding-bottom: 0px;
+}
 /*end*/
