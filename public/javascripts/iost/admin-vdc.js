@@ -1,4 +1,74 @@
-//airdrop iwallet integration
+$(document).on("click", "#depositIostLoansBtn", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var withdrawAmt = $("#depositIostLoansAmt").val();
+
+        const tx = iost.callABI("Contract5BWo6oDbYUEyozmZHYZDQvnkvTSCcm4D1UHe31GKuEyX", "depositIOST", [withdrawAmt.toString()]);
+        tx.addApprove("iost", "10000000");
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>buy success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Deposit IOST Success. Please check your wallet</div>');
+
+            setTimeout(function () {
+                $.ajax({
+                    url: '/iost/getIOSTInContract',
+                    type: 'GET',
+                    data: {},
+                    dataType: 'json',
+                    success: function(response) {
+                        var amount = response.data;
+                        $("#iostAmtInContract").html((amount*1).toFixed(8))
+                    }
+                })
+            }, 1000);
+
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">'+result+'</div>');
+        });
+    });
+});
+
+$(document).on("click", "#withdrawLoansBtn", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+
+        var withdrawAmt = $("#withdrawIOSTLoansAmt").val();
+
+        const tx = iost.callABI("Contract5BWo6oDbYUEyozmZHYZDQvnkvTSCcm4D1UHe31GKuEyX", "withdrawlIost", [withdrawAmt.toString()]);
+        tx.addApprove("iost", "10000000");
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>buy success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Withdrawal Success. Please check your wallet</div>');
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">'+result+'</div>');
+        });
+    });
+});
+
 $(document).on("click", "#changeLoanPriceBtn", function () {
     window.IWalletJS.enable().then(function (val) {
         iost = window.IWalletJS.newIOST(IOST);
