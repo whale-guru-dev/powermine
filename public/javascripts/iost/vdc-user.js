@@ -5,6 +5,7 @@ window.onload = () => {
     updateAccountBalance()
     updateVDC1UserData()
     updateVDC2UserData()
+    updateTimer()
 }
 
 function hideAdminHeader() {
@@ -26,6 +27,86 @@ function hideAdminHeader() {
             $("#menu-item-1399").hide();
         });
     }
+}
+
+var isTimerValid = true;
+function updateTimer ()
+{
+    const date = new Date('2020-07-28T09:00:00-06:00');
+    const updateTimer_internal = function() {
+        const present_date = new Date();
+        const Difference_In_Time = date.getTime() - present_date.getTime();
+
+        if(Difference_In_Time > 0) {
+            var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 60 * 60 * 24));
+            var Difference_In_Hour = Math.floor((Difference_In_Time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var Difference_In_Minutes = Math.floor((Difference_In_Time % (1000 * 60 * 60)) / (1000 * 60));
+            var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
+
+            isTimerValid = false;
+
+            if(!$("#vdc1-deposit-btn").hasClass('disabled')) {
+                $("#vdc1-deposit-btn").addClass('disabled');
+            }
+
+            if(!$("#vdc1-withdraw-btn").hasClass('disabled')) {
+                $("#vdc1-withdraw-btn").addClass('disabled');
+            }
+
+            if(!$("#vdc2-deposit-btn").hasClass('disabled')) {
+                $("#vdc2-deposit-btn").addClass('disabled');
+            }
+
+            if(!$("#vdc1-withdraw-btn").hasClass('disabled')) {
+                $("#vdc1-withdraw-btn").addClass('disabled');
+            }
+
+            if(!$("#vdc2-withdraw-btn").hasClass('disabled')) {
+                $("#vdc2-withdraw-btn").addClass('disabled');
+            }
+
+            $( "#vdc1-withdraw-amount" ).prop( "disabled", true );
+            $( "#vdc1-deposit-amount" ).prop( "disabled", true );
+            $( "#vdc2-withdraw-amount" ).prop( "disabled", true );
+            $( "#vdc2-deposit-amount" ).prop( "disabled", true );
+        } else {
+            Difference_In_Days = Difference_In_Hour = Difference_In_Minutes = Difference_In_Seconds = 0;
+
+            isTimerValid = true;
+
+            if(!$("#vdc1-deposit-btn").hasClass('disabled')) {
+                $("#vdc1-deposit-btn").removeClass('disabled');
+            }
+
+            if(!$("#vdc1-withdraw-btn").hasClass('disabled')) {
+                $("#vdc1-withdraw-btn").removeClass('disabled');
+            }
+
+            if(!$("#vdc2-deposit-btn").hasClass('disabled')) {
+                $("#vdc2-deposit-btn").removeClass('disabled');
+            }
+
+            if(!$("#vdc1-withdraw-btn").hasClass('disabled')) {
+                $("#vdc1-withdraw-btn").removeClass('disabled');
+            }
+
+            if(!$("#vdc2-withdraw-btn").hasClass('disabled')) {
+                $("#vdc2-withdraw-btn").removeClass('disabled');
+            }
+
+            $( "#vdc1-withdraw-amount" ).prop( "disabled", false );
+            $( "#vdc1-deposit-amount" ).prop( "disabled", false );
+            $( "#vdc2-withdraw-amount" ).prop( "disabled", false );
+            $( "#vdc2-deposit-amount" ).prop( "disabled", false );
+        }
+
+        $("#timer_days").html(Difference_In_Days);
+        $("#timer_hours").html(Difference_In_Hour);
+        $("#timer_minutes").html(Difference_In_Minutes);
+        $("#timer_seconds").html(Difference_In_Seconds);
+    };
+
+    setInterval(updateTimer_internal, 1000);
 }
 
 
@@ -267,195 +348,257 @@ const updateVDC2UserData = () => {
 }
 
 $(document).on("click", "#vdc1-deposit-btn", function () {
-    if (!window.IWalletJS) {
-        $("#statusVDC1Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusVDC1Msg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 2000000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-
-        var amount = $("#vdc1-deposit-amount").val();
-
-        if (amount) {
-            $("#statusVDC1Msg").html('');
-            const tx = iost.callABI("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "depositPmine", [amount.toString()]);
-            tx.addApprove("pmine", "1000000");
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>buy success', result);
-                $(".page-loader").hide();
-                $("#statusVDC1Msg").html('<div class="alert alert-success">Successfully deposited. Please check your wallet</div>');
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusVDC1Msg").html('<div class="alert alert-warning">' + result.message + '</div>');
-            });
-        } else {
-            $("#statusVDC1Msg").html('<div class="alert alert-warning">Please input deposit amount.</div>');
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusVDC1Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
         }
 
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusVDC1Msg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
 
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusVDC1Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 2000000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+
+            var amount = $("#vdc1-deposit-amount").val();
+
+            if (amount) {
+                $("#statusVDC1Msg").html('');
+                const tx = iost.callABI("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "depositPmine", [amount.toString()]);
+                tx.addApprove("pmine", "1000000");
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>buy success', result);
+                    $(".page-loader").hide();
+                    $("#statusVDC1Msg").html('<div class="alert alert-success">Successfully deposited. Please check your wallet</div>');
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusVDC1Msg").html('<div class="alert alert-warning">' + result.message + '</div>');
+                });
+            } else {
+                $("#statusVDC1Msg").html('<div class="alert alert-warning">Please input deposit amount.</div>');
+            }
+
+
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusVDC1Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
+    }
 
 });
 
 $(document).on("click", "#vdc2-deposit-btn", function () {
-    if (!window.IWalletJS) {
-        $("#statusVDC2Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusVDC2Msg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 2000000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-
-        var amount = $("#vdc2-deposit-amount").val();
-
-        if (amount) {
-            $("#statusVDC2Msg").html('');
-            const tx = iost.callABI("Contract7FkjXHJ6574QecAxz1wvZmvASxaiWxqohkR6jnJRBjwn", "depositPmine", [amount.toString()]);
-            tx.addApprove("pmine", "1000000");
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>buy success', result);
-                $(".page-loader").hide();
-                $("#statusVDC2Msg").html('<div class="alert alert-success">Successfully deposited. Please check your wallet</div>');
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusVDC2Msg").html('<div class="alert alert-warning">' + result.message + '</div>');
-            });
-        } else {
-            $("#statusVDC2Msg").html('<div class="alert alert-warning">Please input deposit amount.</div>');
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusVDC2Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
         }
 
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusVDC2Msg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
 
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusVDC2Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 2000000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+
+            var amount = $("#vdc2-deposit-amount").val();
+
+            if (amount) {
+                $("#statusVDC2Msg").html('');
+                const tx = iost.callABI("Contract7FkjXHJ6574QecAxz1wvZmvASxaiWxqohkR6jnJRBjwn", "depositPmine", [amount.toString()]);
+                tx.addApprove("pmine", "1000000");
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>buy success', result);
+                    $(".page-loader").hide();
+                    $("#statusVDC2Msg").html('<div class="alert alert-success">Successfully deposited. Please check your wallet</div>');
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusVDC2Msg").html('<div class="alert alert-warning">' + result.message + '</div>');
+                });
+            } else {
+                $("#statusVDC2Msg").html('<div class="alert alert-warning">Please input deposit amount.</div>');
+            }
+
+
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusVDC2Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
+    }
 
 });
 
 $(document).on("click", "#vdc1-withdraw-btn", function () {
-    if (!window.IWalletJS) {
-        $("#statusVDC1Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusVDC1Msg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 2000000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-
-        var amount = $("#vdc1-withdraw-amount").val();
-
-        if (amount) {
-            $("#statusVDC1Msg").html('');
-            const tx = iost.callABI("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "withdrawPmine", [amount.toString()]);
-            tx.addApprove("pmine", "1000000");
-
-            iost.signAndSend(tx).on('pending', function (txid) {
-                console.log("======>pending", txid);
-                $(".page-loader").show();
-                $(".loader-inner").show();
-            }).on('success', function (result) {
-                console.log('======>buy success', result);
-                $(".page-loader").hide();
-                $("#statusVDC1Msg").html('<div class="alert alert-success">Successfully withdrawn. Please check your wallet</div>');
-            }).on('failed', function (result) {
-                console.log('======>failed', result);
-                $(".page-loader").hide();
-                $("#statusVDC1Msg").html('<div class="alert alert-warning">' + result.message + '</div>');
-            });
-        } else {
-            $("#statusVDC1Msg").html('<div class="alert alert-warning">Please input withdrawal amount.</div>');
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusVDC1Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
         }
 
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusVDC1Msg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
 
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusVDC1Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 2000000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+
+            var amount = $("#vdc1-withdraw-amount").val();
+
+            if (amount) {
+                $("#statusVDC1Msg").html('');
+                const tx = iost.callABI("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "withdrawPmine", [amount.toString()]);
+                tx.addApprove("pmine", "1000000");
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>buy success', result);
+                    $(".page-loader").hide();
+                    $("#statusVDC1Msg").html('<div class="alert alert-success">Successfully withdrawn. Please check your wallet</div>');
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusVDC1Msg").html('<div class="alert alert-warning">' + result.message + '</div>');
+                });
+            } else {
+                $("#statusVDC1Msg").html('<div class="alert alert-warning">Please input withdrawal amount.</div>');
+            }
+
+
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusVDC1Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
+    }
 
 });
 
 $(document).on("click", "#vdc2-withdraw-btn", function () {
-    if (!window.IWalletJS) {
-        $("#statusVDC2Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusVDC2Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
+        }
+
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusVDC2Msg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
+
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 2000000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
+
+            iost.config = defaultConfig;
+
+            var amount = $("#vdc2-withdraw-amount").val();
+
+            if (amount) {
+                $("#statusVDC2Msg").html('');
+                const tx = iost.callABI("Contract7FkjXHJ6574QecAxz1wvZmvASxaiWxqohkR6jnJRBjwn", "withdrawPmine", [amount.toString()]);
+                tx.addApprove("pmine", "1000000");
+
+                iost.signAndSend(tx).on('pending', function (txid) {
+                    console.log("======>pending", txid);
+                    $(".page-loader").show();
+                    $(".loader-inner").show();
+                }).on('success', function (result) {
+                    console.log('======>buy success', result);
+                    $(".page-loader").hide();
+                    $("#statusVDC2Msg").html('<div class="alert alert-success">Successfully withdrawn. Please check your wallet</div>');
+                }).on('failed', function (result) {
+                    console.log('======>failed', result);
+                    $(".page-loader").hide();
+                    $("#statusVDC2Msg").html('<div class="alert alert-warning">' + result.message + '</div>');
+                });
+            } else {
+                $("#statusVDC2Msg").html('<div class="alert alert-warning">Please input withdrawal amount.</div>');
+            }
+
+
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusVDC2Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
+        });
     }
 
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusVDC2Msg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
+});
 
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 2000000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
+$(document).on("click", "#vdc1-claim-btn", function () {
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusVDC1Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
+        }
 
-        iost.config = defaultConfig;
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusVDC1Msg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
 
-        var amount = $("#vdc2-withdraw-amount").val();
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 2000000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
 
-        if (amount) {
-            $("#statusVDC2Msg").html('');
-            const tx = iost.callABI("Contract7FkjXHJ6574QecAxz1wvZmvASxaiWxqohkR6jnJRBjwn", "withdrawPmine", [amount.toString()]);
+            iost.config = defaultConfig;
+
+            $("#statusVDC1Msg").html('');
+            const tx = iost.callABI("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "claim", []);
             tx.addApprove("pmine", "1000000");
+            tx.addApprove("iost", "1000000");
+            tx.addApprove("per", "1000000");
 
             iost.signAndSend(tx).on('pending', function (txid) {
                 console.log("======>pending", txid);
@@ -464,118 +607,68 @@ $(document).on("click", "#vdc2-withdraw-btn", function () {
             }).on('success', function (result) {
                 console.log('======>buy success', result);
                 $(".page-loader").hide();
-                $("#statusVDC2Msg").html('<div class="alert alert-success">Successfully withdrawn. Please check your wallet</div>');
+                $("#statusVDC1Msg").html('<div class="alert alert-success">Successfully claimed. Please check your wallet</div>');
             }).on('failed', function (result) {
                 console.log('======>failed', result);
                 $(".page-loader").hide();
-                $("#statusVDC2Msg").html('<div class="alert alert-warning">' + result.message + '</div>');
+                $("#statusVDC1Msg").html('<div class="alert alert-warning">' + JSON.stringify(result) + '</div>');
             });
-        } else {
-            $("#statusVDC2Msg").html('<div class="alert alert-warning">Please input withdrawal amount.</div>');
-        }
 
-
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusVDC2Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
-
-});
-
-$(document).on("click", "#vdc1-claim-btn", function () {
-    if (!window.IWalletJS) {
-        $("#statusVDC1Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
-
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusVDC1Msg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
-
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 2000000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
-
-        iost.config = defaultConfig;
-
-        $("#statusVDC1Msg").html('');
-        const tx = iost.callABI("Contract9vnm1fv8TZ99Jxpw2hUPkekmdbQTUVRLTxiv6d8jPWdi", "claim", []);
-        tx.addApprove("pmine", "1000000");
-        tx.addApprove("iost", "1000000");
-        tx.addApprove("per", "1000000");
-
-        iost.signAndSend(tx).on('pending', function (txid) {
-            console.log("======>pending", txid);
-            $(".page-loader").show();
-            $(".loader-inner").show();
-        }).on('success', function (result) {
-            console.log('======>buy success', result);
-            $(".page-loader").hide();
-            $("#statusVDC1Msg").html('<div class="alert alert-success">Successfully claimed. Please check your wallet</div>');
-        }).on('failed', function (result) {
-            console.log('======>failed', result);
-            $(".page-loader").hide();
-            $("#statusVDC1Msg").html('<div class="alert alert-warning">' + JSON.stringify(result) + '</div>');
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusVDC1Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
         });
-
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusVDC1Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+    }
 
 });
 
 $(document).on("click", "#vdc2-claim-btn", function () {
-    if (!window.IWalletJS) {
-        $("#statusVDC2Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
-        return;
-    }
+    if(isTimerValid) {
+        if (!window.IWalletJS) {
+            $("#statusVDC2Msg").html('<div class="alert alert-warning">You need to install <a style="color: #fcc56e;" href="https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj">iWallet Chrome Extension</a>.</div>');
+            return;
+        }
 
-    window.IWalletJS.enable().then(function (val) {
-        $("#statusVDC2Msg").html('');
-        iost = window.IWalletJS.newIOST(IOST);
+        window.IWalletJS.enable().then(function (val) {
+            $("#statusVDC2Msg").html('');
+            iost = window.IWalletJS.newIOST(IOST);
 
-        let account = new IOST.Account(val);
-        iost.setAccount(account);
-        const defaultConfig = {
-            gasRatio: 1,
-            gasLimit: 2000000,
-            delay: 0,
-            expiration: 60,
-            defaultLimit: "unlimited"
-        };
+            let account = new IOST.Account(val);
+            iost.setAccount(account);
+            const defaultConfig = {
+                gasRatio: 1,
+                gasLimit: 2000000,
+                delay: 0,
+                expiration: 60,
+                defaultLimit: "unlimited"
+            };
 
-        iost.config = defaultConfig;
+            iost.config = defaultConfig;
 
-        $("#statusVDC2Msg").html('');
-        const tx = iost.callABI("Contract7FkjXHJ6574QecAxz1wvZmvASxaiWxqohkR6jnJRBjwn", "claim", []);
-        tx.addApprove("pmine", "1000000");
-        tx.addApprove("iost", "1000000");
-        tx.addApprove("per", "1000000");
+            $("#statusVDC2Msg").html('');
+            const tx = iost.callABI("Contract7FkjXHJ6574QecAxz1wvZmvASxaiWxqohkR6jnJRBjwn", "claim", []);
+            tx.addApprove("pmine", "1000000");
+            tx.addApprove("iost", "1000000");
+            tx.addApprove("per", "1000000");
 
-        iost.signAndSend(tx).on('pending', function (txid) {
-            console.log("======>pending", txid);
-            $(".page-loader").show();
-            $(".loader-inner").show();
-        }).on('success', function (result) {
-            console.log('======>buy success', result);
-            $(".page-loader").hide();
-            $("#statusVDC2Msg").html('<div class="alert alert-success">Successfully claimed. Please check your wallet</div>');
-        }).on('failed', function (result) {
-            console.log('======>failed', result);
-            $(".page-loader").hide();
-            $("#statusVDC2Msg").html('<div class="alert alert-warning">' + result + '</div>');
+            iost.signAndSend(tx).on('pending', function (txid) {
+                console.log("======>pending", txid);
+                $(".page-loader").show();
+                $(".loader-inner").show();
+            }).on('success', function (result) {
+                console.log('======>buy success', result);
+                $(".page-loader").hide();
+                $("#statusVDC2Msg").html('<div class="alert alert-success">Successfully claimed. Please check your wallet</div>');
+            }).on('failed', function (result) {
+                console.log('======>failed', result);
+                $(".page-loader").hide();
+                $("#statusVDC2Msg").html('<div class="alert alert-warning">' + result + '</div>');
+            });
+
+        }).catch(error => {
+            if (error.type == "locked")
+                $("#statusVDC2Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
         });
-
-    }).catch(error => {
-        if (error.type == "locked")
-            $("#statusVDC2Msg").html('<div class="alert alert-warning">Unlock your iWallet Extension.</div>');
-    });
+    }
 
 });

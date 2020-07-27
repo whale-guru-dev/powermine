@@ -50,7 +50,7 @@ $(document).on("click", "#withdrawLoansBtn", function () {
 
         var withdrawAmt = $("#withdrawIOSTLoansAmt").val();
 
-        const tx = iost.callABI("Contract5BWo6oDbYUEyozmZHYZDQvnkvTSCcm4D1UHe31GKuEyX", "withdrawlIost", [withdrawAmt.toString()]);
+        const tx = iost.callABI("Contract5BWo6oDbYUEyozmZHYZDQvnkvTSCcm4D1UHe31GKuEyX", "withdrawIOST", [withdrawAmt.toString()]);
         tx.addApprove("iost", "10000000");
 
         iost.signAndSend(tx).on('pending', function (txid) {
