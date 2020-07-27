@@ -139,8 +139,8 @@ const updateVDC1UserData = () => {
                 if (!account) {
                     $("#vdc1-holding-pmine").html("0.00000000");
                     $("#vdc1-pmine-reward").html("0.00000000");
-                    $("#vdc1-iost-pmine").html("0.00000000");
-                    $("#vdc1-per-pmine").html("0.00000000");
+                    $("#vdc1-iost-reward").html("0.00000000");
+                    $("#vdc1-per-reward").html("0.00000000");
                     return;
                 }
 
@@ -148,27 +148,27 @@ const updateVDC1UserData = () => {
                 if(userData == null) {
                     $("#vdc1-holding-pmine").html("0.00000000");
                     $("#vdc1-pmine-reward").html("0.00000000");
-                    $("#vdc1-iost-pmine").html("0.00000000");
-                    $("#vdc1-per-pmine").html("0.00000000");
+                    $("#vdc1-iost-reward").html("0.00000000");
+                    $("#vdc1-per-reward").html("0.00000000");
                 } else {
                     $("#vdc1-holding-pmine").html((userData.balance * 1).toFixed(8));
                     $("#vdc1-pmine-reward").html((userData.pmineUnclaimed * 1).toFixed(8));
-                    $("#vdc1-iost-pmine").html((userData.iostUnclaimed * 1).toFixed(8));
-                    $("#vdc1-per-pmine").html((userData.perUnclaimed * 1).toFixed(8));
+                    $("#vdc1-iost-reward").html((userData.iostUnclaimed * 1).toFixed(8));
+                    $("#vdc1-per-reward").html((userData.perUnclaimed * 1).toFixed(8));
                 }
 
             }).catch(err => {
                 $("#vdc1-holding-pmine").html("0.00000000");
                 $("#vdc1-pmine-reward").html("0.00000000");
-                $("#vdc1-iost-pmine").html("0.00000000");
-                $("#vdc1-per-pmine").html("0.00000000");
+                $("#vdc1-iost-reward").html("0.00000000");
+                $("#vdc1-per-reward").html("0.00000000");
                 return;
             });
         } catch (error) {
             $("#vdc1-holding-pmine").html("0.00000000");
             $("#vdc1-pmine-reward").html("0.00000000");
-            $("#vdc1-iost-pmine").html("0.00000000");
-            $("#vdc1-per-pmine").html("0.00000000");
+            $("#vdc1-iost-reward").html("0.00000000");
+            $("#vdc1-per-reward").html("0.00000000");
         }
 
     }

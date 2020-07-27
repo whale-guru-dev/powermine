@@ -1,7 +1,7 @@
 window.onload = () => {
     hideAdminHeader()
     updateIOSTBalance()
-    updateCollateral()
+    // updateCollateral()
     updatePMINEBalance()
     updatAccount()
     updateLoanEntries()
@@ -58,28 +58,64 @@ let iostOnContract = 0;
 let iostRewards = 0;
 let loanEntries = [];
 
-const updateCollateral = () => {
-    const updateCollateral_internal = async () => {
-        
+// const updateCollateral = () => {
+//     const updateCollateral_internal = async () => {
+//         let price = await getPminePrice();
+//
+//         var loanAmount = $("#borrow-input").val();
+//
+//         let option = $("#loan-time").val();
+//
+//         let collateral = loanAmount / loanOptions[option] / price;
+//
+//         $("#collateral-input").val(collateral.toFixed(8));
+//
+//         let ratio = price * (loanOptions[option] ? loanOptions[option] : .6);
+//
+//         $("#iost-pmine-ratio").html( ratio);
+//     }
+//
+//     updateCollateral_internal()
+//     setInterval(updateCollateral_internal, 2000)
+// }
 
-        let price = await getPminePrice(); 
+$("#borrow-input").bind("paste keyup", async function (event) {
+    var _this = this;
 
-        var loanAmount = $("#borrow-input").val();
+    let price = await getPminePrice();
 
-        let option = $("#loan-time").val();
+    var loanAmount = $("#borrow-input").val();
 
-        let collateral = loanAmount / loanOptions[option] / price;
+    let option = $("#loan-time").val();
 
-        $("#collateral-input").val(collateral.toFixed(8));
+    let collateral = loanAmount / loanOptions[option] / price;
 
-        let ratio = price * (loanOptions[option] ? loanOptions[option] : .6);
+    $("#collateral-input").val(collateral.toFixed(8));
 
-        $("#iost-pmine-ratio").html( ratio);
-    }
+    let ratio = price * (loanOptions[option] ? loanOptions[option] : .6);
 
-    updateCollateral_internal()
-    setInterval(updateCollateral_internal, 2000)
-}
+    $("#iost-pmine-ratio").html( ratio);
+
+});
+
+$("#collateral-input").bind("paste keyup", async function (event) {
+    var _this = this;
+
+    let price = await getPminePrice();
+
+    var collateral = $("#collateral-input").val();
+
+    let option = $("#loan-time").val();
+
+    let loanAmount = collateral * loanOptions[option] / price;
+
+    $("#borrow-input").val(loanAmount.toFixed(8));
+
+    let ratio = price * (loanOptions[option] ? loanOptions[option] : .6);
+
+    $("#iost-pmine-ratio").html( ratio);
+
+});
 
 const updatAccount = () => {
     const updateAccount_internal = () => {
