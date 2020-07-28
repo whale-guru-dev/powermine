@@ -1,3 +1,27 @@
+window.onload = () => {
+    updateIOSTPmineLoansAmount();
+};
+
+const updateIOSTPmineLoansAmount = () => {
+    const updateIOSTPmineLoansAmount_internal = async () => {
+        const iostBalance = await getUserBalance("Contract5BWo6oDbYUEyozmZHYZDQvnkvTSCcm4D1UHe31GKuEyX", "iost");
+
+        $("#iostAmtInPmineLoansContract").html(iostBalance);
+    };
+
+    updateIOSTPmineLoansAmount_internal();
+    setInterval(updateIOSTPmineLoansAmount_internal,10 * 60 * 1000)
+}
+
+const getUserBalance = async (account, token) => {
+    return await fetch('https://api.iost.io/getTokenBalance/' + account + '/' + token + '/true').then(res => res.json()).then(json => {
+        console.log(json)
+        return parseFloat(json.balance).toFixed(4);
+    }).catch(err => {
+        return 0;
+    })
+}
+
 $(document).on("click", "#depositIostLoansBtn", function () {
     window.IWalletJS.enable().then(function (val) {
         iost = window.IWalletJS.newIOST(IOST);
