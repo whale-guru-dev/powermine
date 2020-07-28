@@ -5,7 +5,7 @@ window.onload = () => {
     updateAccountBalance()
     updateVDC1UserData()
     updateVDC2UserData()
-    updateTimer()
+    // updateTimer()
 }
 
 function hideAdminHeader() {
