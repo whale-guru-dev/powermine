@@ -8260,7 +8260,7 @@ ul.products li.product:before {
 
 @media (max-width: 1160px) {
   .navbar-nav > li.menu-img img {
-    width:120px!important;
+    /*width:120px!important;*/
   }
 }
 
