@@ -14,26 +14,163 @@
     </div>
 </div>
 <div class="page-wrapper">
-    <% include ./partials/header-wrapper %>
-<!--    <div class="section-title-inner">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-12 col-sm-12 col-xs-12 coin-price-section iChip-timer vdc-timer">-->
-<!--                    <div class="timer">-->
-<!--                        <ul class="text-center">-->
-<!--                            <li class="timer-default timer-unique"><span id="timer_days">0</span>Days</li>-->
-<!--                            <li class="timer-default timer-unique"><span id="timer_hours">0</span>Hours</li>-->
-<!--                            <li class="timer-default timer-unique"><span id="timer_minutes">0</span>Minutes</li>-->
-<!--                            <li class="timer-default timer-unique"><span id="timer_seconds">0</span>Seconds</li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="section-title-decoration">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="section-title-overlay"></div>-->
-<!--    </div>-->
+    <div class="top-wrapper" id="top">
+
+        <div class="header-wrapper">
+            <header class="header header__fixed" id="header">
+                <div class="header-main">
+                    <div class="header-main-container">
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <div class="logo">
+                                    <a href="/vdc" rel="home">
+                                        <img src="/images/vdc-logo.png" srcset="/images/vdc-logo.png 2x"
+                                             alt="powermine" title="Powermine warriors get ready!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="main-nav" class="navbar-holder collapse navbar-collapse">
+                                <div class="menu-header-menu-container">
+                                    <ul id="menu-header-menu" class="nav navbar-nav text-center">
+                                        <li id="menu-item-134"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-134">
+                                            <a href="/per-airdrop-claim" aria-current="page">
+                                                <!--                        <img src="/images/isot.png" width="25"/>-->
+                                                Per Airdrop Claim
+                                            </a>
+                                        </li>
+                                        <li id="menu-item-133"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-133">
+                                            <a href="/pmine-loans" aria-current="page">
+                                                <!--                        <img src="/images/isot.png" width="25"/>-->
+                                                PMINE LOANS
+                                            </a>
+                                        </li>
+
+                                        <li id="menu-item-135"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-135">
+                                            <a href="https://sonata.asia/accountCreation" aria-current="page"
+                                               target="_blank">
+                                                <!--                        <img src="/images/isot.png" width="25"/>-->
+                                                Create IOST Account
+                                            </a>
+                                        </li>
+                                        <!-- <li id="menu-item-137" -->
+                                        <!-- class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-137"> -->
+                                        <!-- <a href="/#pmine-exchange" aria-current="page">PMINE DEX</a></li> -->
+                                        <li id="menu-item-143"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-143">
+                                            <a href="/imatch" aria-current="page">IMATCH</a></li>
+                                        <li id="menu-item-136"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136">
+                                            <a href="/powermine-whitepaper/">WHITEPAPER</a></li>
+                                        <li id="menu-item-142"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-142">
+                                            <a href="https://coinswitch.co/?ref=O86FUWI24E" target="_blank">SWAP-IOST/TRX</a>
+                                        </li>
+                                        <li id="menu-item-141"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-141">
+                                            <a href="/#bankroll-assets" aria-current="page">
+                                                <!--                        <img src="/images/isot.png" width="25"/>-->
+                                                DAPPS
+                                            </a>
+                                        </li>
+                                        <li id="menu-item-138"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-138">
+                                            <a href="/#pmine-richlist" aria-current="page">STAKING</a>
+                                        </li>
+                                        <li id="menu-item-139" style="display: none;"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-139">
+                                            <a href="/powermine-admin/" aria-current="page">ADMIN</a>
+                                        </li>
+                                        <li id="menu-item-1399" style="display: none;"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1399">
+                                            <a href="/admin-vdc/" aria-current="page">ADMIN for VDC</a>
+                                        </li>
+                                        <li id="menu-item-140"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-140">
+                                            <a href="https://t.me/powermine_club" aria-current="page"
+                                               target="_blank"><img
+                                                        src="/images/telegram-icon.png" width="25"/></a>
+                                        </li>
+                                        <li id="menu-item-144"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-141">
+                                            <a href="https://discord.gg/M8XXzGy" aria-current="page"
+                                               target="_blank"><img
+                                                        src="/images/Discord-logo.png" width="25"/></a>
+                                        </li>
+                                        <br style="clear:both">
+                                        <li id="menu-item-148"
+                                            class="menu-img menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-144">
+                                            <a href="/iChips" aria-current="page">
+                                                <img src="/images/iChips-logo.png"
+                                                     alt="iChips" title="ICHIPS!"
+                                                     style="width:150px; margin-top:-15px">
+                                            </a></li>
+                                        <li id="menu-item-144"
+                                            class="menu-img menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-144">
+                                            <a href="/igoose" aria-current="page">
+                                                <img src="/images/IgooseV2Transpanoshadow.png"
+                                                     alt="igoose" title="IGOOSE!"
+                                                     style="width:150px; margin-top:-5px">
+                                            </a></li>
+                                        <li id="menu-item-145"
+                                            class="menu-img menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-145">
+                                            <img src="/images/Dice-comingsoon.png"
+                                                 srcset="/images/Dice-comingsoon.png 2x"
+                                                 alt="powermine" title="Powermine warriors get ready!"
+                                                 style="width:150px;">
+                                        </li>
+                                        <li id="menu-item-146"
+                                            class="menu-img menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-146">
+                                            <a href="http://powerdefi.io/" target="_blank"><img
+                                                        src="/images/powerdefi.png"
+                                                        srcset="/images/powerdefi.png 2x"
+                                                        alt="powermine" title="Powermine warriors get ready!"
+                                                        style="width:200px; margin-top:-15px;"></a>
+                                        </li>
+                                        <li id="menu-item-147"
+                                            class="menu-img menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-146">
+                                            <a href="/"><img src="/images/Powerminer.png"
+                                                             srcset="/images/Powerminer.png 2x"
+                                                             alt="powermine"
+                                                             title="Powermine warriors get ready!"
+                                                             style="width:200px; margin-top:-15px;"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="navbar-toggler toggler-right-0" type="button" data-toggle="collapse"
+                                    data-target="#main-nav" aria-controls="navbarNavDropdown" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </nav>
+
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+    <!--    <div class="section-title-inner">-->
+    <!--        <div class="container">-->
+    <!--            <div class="row">-->
+    <!--                <div class="col-md-12 col-sm-12 col-xs-12 coin-price-section iChip-timer vdc-timer">-->
+    <!--                    <div class="timer">-->
+    <!--                        <ul class="text-center">-->
+    <!--                            <li class="timer-default timer-unique"><span id="timer_days">0</span>Days</li>-->
+    <!--                            <li class="timer-default timer-unique"><span id="timer_hours">0</span>Hours</li>-->
+    <!--                            <li class="timer-default timer-unique"><span id="timer_minutes">0</span>Minutes</li>-->
+    <!--                            <li class="timer-default timer-unique"><span id="timer_seconds">0</span>Seconds</li>-->
+    <!--                        </ul>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="section-title-decoration">-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="section-title-overlay"></div>-->
+    <!--    </div>-->
     <main role="main">
         <div class="Uniswap container">
             <div class="row text-center margin-auto">
@@ -44,9 +181,12 @@
             </div>
             <div class="row text-center margin-auto" style="padding-top: 25px;">
                 <div class="col-md-6 col-md-offset-3 vdc-balance-div">
-                    <p class="text-white margin-bottom-zero" style="display: flex;justify-content: space-between;">IOST Balance : <span id="iostBalance">0</span></p>
-                    <p class="text-white margin-bottom-zero" style="display: flex;justify-content: space-between;">PMINE Balance : <span id="pmineBalance">0</span></p>
-                    <p class="text-white margin-bottom-zero" style="display: flex;justify-content: space-between;">PER Balance : <span id="perBalance">0</span></p>
+                    <p class="text-white margin-bottom-zero" style="display: flex;justify-content: space-between;">IOST
+                        Balance : <span id="iostBalance">0</span></p>
+                    <p class="text-white margin-bottom-zero" style="display: flex;justify-content: space-between;">PMINE
+                        Balance : <span id="pmineBalance">0</span></p>
+                    <p class="text-white margin-bottom-zero" style="display: flex;justify-content: space-between;">PER
+                        Balance : <span id="perBalance">0</span></p>
                 </div>
             </div>
             <div class="row margin-auto">
@@ -184,12 +324,14 @@
 
                                 <div class="row text-center">
                                     <div class="col-md-6 col-md-offset-3" id="pmine-holdings-1">
-                                        <p class="loans-page_orange-color"><span id="vdc1-holding-pmine">0.00000000</span> PMINE</p>
+                                        <p class="loans-page_orange-color"><span
+                                                    id="vdc1-holding-pmine">0.00000000</span> PMINE</p>
                                     </div>
                                 </div>
 
                                 <div align="center">
-                                    <a href="javascript:void(0);" class="rocket-button gold-rocket-button" id="vdc1-claim-btn">
+                                    <a href="javascript:void(0);" class="rocket-button gold-rocket-button"
+                                       id="vdc1-claim-btn">
                                         <div class="default">CLAIM REWARDS</div>
                                         <div class="success">
                                             <svg>
@@ -257,7 +399,8 @@
                     <div class="row text-center">
                         <div class="col-md-12">
                             <p class="loans-page_orange-color">
-                                <b class="loans-page_orange-color">Total PMINE In Contract : </b> <span id="totalPmineVDC1">0.00000000</span>
+                                <b class="loans-page_orange-color">Total PMINE In Contract : </b> <span
+                                        id="totalPmineVDC1">0.00000000</span>
                             </p>
                         </div>
                     </div>
@@ -396,12 +539,14 @@
 
                                 <div class="row text-center">
                                     <div class="col-md-6 col-md-offset-3" id="pmine-holdings-1">
-                                        <p class="loans-page_orange-color"><span id="vdc2-holding-pmine">0.00000000</span> PMINE</p>
+                                        <p class="loans-page_orange-color"><span
+                                                    id="vdc2-holding-pmine">0.00000000</span> PMINE</p>
                                     </div>
                                 </div>
 
                                 <div align="center">
-                                    <a href="javascript:void(0);" class="rocket-button gold-rocket-button" id="vdc2-claim-btn">
+                                    <a href="javascript:void(0);" class="rocket-button gold-rocket-button"
+                                       id="vdc2-claim-btn">
                                         <div class="default">CLAIM REWARDS</div>
                                         <div class="success">
                                             <svg>
@@ -462,7 +607,8 @@
                     <div class="row text-center">
                         <div class="col-md-12">
                             <p class="loans-page_orange-color">
-                                <b class="loans-page_orange-color">Total PMINE In Contract : </b> <span id="totalPmineVDC2">0.00000000</span>
+                                <b class="loans-page_orange-color">Total PMINE In Contract : </b> <span
+                                        id="totalPmineVDC2">0.00000000</span>
                             </p>
                         </div>
                     </div>
@@ -473,27 +619,27 @@
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <p class="loans-page_orange-color">
                         <span style="font-size: 2rem;font-weight: bold;">PMINE Virtual Deposit Contract fee's and information</span><br/>
-                    Compound VDC fees are 11% in and 11% out, they<br/>
-                    are distributed in the following way:<br/>
-                    8% to drip pool<br/>
-                    1% PMINE Bankroll<br/>
-                    1% Dev fee<br/>
-                    1% Volatile VDC<br/>
-                    Recieves IOST and PER divs daily from PMINE staking<br/><br/>
+                        Compound VDC fees are 11% in and 11% out, they<br/>
+                        are distributed in the following way:<br/>
+                        8% to drip pool<br/>
+                        1% PMINE Bankroll<br/>
+                        1% Dev fee<br/>
+                        1% Volatile VDC<br/>
+                        Recieves IOST and PER divs daily from PMINE staking<br/><br/>
 
-                    Volatile VDC fees are 33% in and 33% out, they are<br/>
-                    distributed in the following way:<br/>
-                    30% to drip pool<br/>
-                    2% PMINE Bankroll<br/>
-                    1% Dev fee<br/>
-                    Does not recieve IOST and PER divs daily but does<br/>
-                    recieve 1% of all PMINE deposited into Compound VDC<br/><br/>
+                        Volatile VDC fees are 33% in and 33% out, they are<br/>
+                        distributed in the following way:<br/>
+                        30% to drip pool<br/>
+                        2% PMINE Bankroll<br/>
+                        1% Dev fee<br/>
+                        Does not recieve IOST and PER divs daily but does<br/>
+                        recieve 1% of all PMINE deposited into Compound VDC<br/><br/>
 
-                    THIS DECENTRALIZED APPLICATION HAS BEEN MADE<br/>
-                    FOR ENTERTAINMENT PURPOSES AND IS A GAME, NOT<br/>
-                    AN INVESTMENT PLATFORM. NO GUARANTEES OR<br/>
-                    WARRANTIES ARE ISSUED TO ANY PARTICIPANTS.<br/>
-                    PLEASE DO NOT PARTICIPATE IN THIS GAME IF IT IS NOT<br/>
+                        THIS DECENTRALIZED APPLICATION HAS BEEN MADE<br/>
+                        FOR ENTERTAINMENT PURPOSES AND IS A GAME, NOT<br/>
+                        AN INVESTMENT PLATFORM. NO GUARANTEES OR<br/>
+                        WARRANTIES ARE ISSUED TO ANY PARTICIPANTS.<br/>
+                        PLEASE DO NOT PARTICIPATE IN THIS GAME IF IT IS NOT<br/>
                         LEGAL TO DO SO IN YOUR PARTICULAR LOCALITY.</p>
                 </div>
             </div>
