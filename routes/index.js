@@ -41,6 +41,10 @@ router.get('/powermine-admin/', function(req, res, next) {
   })
 });
 
+router.get('/admin-vdc/', function(req, res, next) {
+    res.render('admin-vdc');
+});
+
 router.get('/imatch/', function(req, res, next) {
   ContentModel.findOne({name: 'bankRollAsset'}, function(err, contentIns) {
     var content = '';
@@ -81,6 +85,13 @@ router.get('/iChips/', function(req, res, next) {
   res.render('ichips');
 });
 
+// router.get('/pmine-loans/', function(req, res, next) {
+//   res.render('loans');
+// });
+
+router.get('/vdc/', function(req, res, next) {
+  res.render('vdc');
+});
 
 
 module.exports = router;

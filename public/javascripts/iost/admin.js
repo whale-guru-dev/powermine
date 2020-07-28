@@ -1,13 +1,3 @@
-function getDebugnetConfig() {
-    // Here we use the local single-node-chain `127.0.0.1` for testing.
-    return { rpcUrl: "http://13.52.105.102:30001", chainId: 1023 };
-}
-
-function getMainnetConfig() {
-    // You can pick any one node from https://developers.iost.io/docs/en/4-running-iost-node/Deployment.html#seed-node-list
-    return { rpcUrl: "http://18.209.137.246:30001", chainId: 1024 };
-}
-
 window.onload = () => {
     updateIOSTAmount();
     updateIOSTiMatchAmount();

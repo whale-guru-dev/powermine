@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./partials/header %>
+</head>
+
+<body
+        class="home page-template-default page page-id-42 sticky-header rocket_layout_fullwidth wpb-js-composer js-comp-ver-6.1 vc_responsive">
+<div class="page-loader">
+    <div class="loader-inner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+<div class="page-wrapper">
+    <% include ./partials/header-wrapper %>
+    <header
+            class="page-title section-title-wrapper section-title-wrapper__no-bottom-margin page-title-layout__both-centered page_title_preset_1 page-title_overflow">
+        <div class="section-title-inner">
+            <div class="container">
+                <div class="section-title-decoration">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="section-title section-title__lg">POWERMINE ADMIN FOR VDC</h1>
+                        </div>
+                        <div class="col-md-12 breadcrumbs-default">
+                            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a
+                                            href="/" itemprop=&quot;item&quot;><span
+                                                itemprop="name">Home</span></a></li>
+                                <li class="current"><span>POWERMINE ADMIN FOR VDC</span></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <span class="section-title-dots">
+                        <span class="dot1"></span>
+                        <span class="dot2"></span>
+                        <span class="dot3"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="section-title-overlay"></div>
+        </div>
+    </header>
+    <div class="page-section">
+        <div class="container">
+            <div class="row text-center" id="statusMsg">
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h2>PMINE LOAN</h2>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="withdrawiGooseAmt">Amount (in IOST)</label>
+                                <input type="text" class="form-control" id="withdrawIOSTLoansAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="withdrawLoansBtn" class="btn btn-primary">Withdraw IOST</button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="depositIostiGooseAmt">Amount (in IOST)</label>
+                                <input type="text" class="form-control" id="depositIostLoansAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="depositIostLoansBtn" class="btn btn-primary">Deposit IOST
+                            </button>
+                        </form>
+                    </div>
+                    <hr/>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="airdropAmt">Ratio</label>
+                                <input type="text" class="form-control" id="pmineRatio" placeholder="Ratio">
+                            </div>
+                            <button type="button" id="changeLoanPriceBtn" class="btn btn-primary">Change PMINE Ratio(Set Loan Price)</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <h2>PMINE VDC</h2>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="depositiChipAmt">Amount (in Ichips)</label>
+                                <input type="text" class="form-control" id="depositiChipAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="depositiChipBtn" class="btn btn-primary">Deposit Ichips</button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="withdrawiChipAmt">Amount (in IOST)</label>
+                                <input type="text" class="form-control" id="withdrawiChipAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="withdrawiChipBtn" class="btn btn-primary">Withdraw IOST</button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="depositIostiChipAmt">Amount (in IOST)</label>
+                                <input type="text" class="form-control" id="depositIostiChipAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="depositIostiChipBtn" class="btn btn-primary">Deposit IOST
+                            </button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="divAmountiChip">Amount (in IOST)</label>
+                                <input type="text" class="form-control" id="divAmountiChip" placeholder="Amount">
+                            </div>
+                            <button type="button" id="paydividendsiChip" class="btn btn-primary">Pay Daily Divs
+                            </button>
+                        </form>
+                    </div>
+                    <hr/>
+                    <div class="row text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="airdropAmt">Amount (in PER)</label>
+                                <input type="text" class="form-control" id="airdropAmt" placeholder="Amount">
+                            </div>
+                            <button type="button" id="airdropBtn" class="btn btn-primary">Airdrop PER</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+
+
+    </div>
+
+    <% include ./partials/footer %>
+    <script type="text/javascript" src="/javascripts/iost/admin-vdc.js"></script>
+    <script>
+        if (!window.IWalletJS) {
+            window.location.href = '/';
+        } else {
+            window.IWalletJS.enable().then(function (val) {
+                if (val !== 'powermine' && val !== 'pmine_admin')
+                    window.location.href = '/';
+                else if (val === 'powermine' || val === 'pmine_admin') {
+                    $("#menu-item-139").show();
+                    $("#menu-item-1399").show();
+                }
+            }).catch(error => {
+                window.location.href = '/';
+            })
+        }
+    </script>
+</body>
+
+</html>
