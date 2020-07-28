@@ -358,6 +358,8 @@ const loan = () => {
             .on("success", result => {
                 $("#successAlert").show();
                 $("#successMsg").html("You have successfully taken a loan.  ");
+
+                updateLoanEntries(account);
             })
             .on("failed", failed => {
                 if (!failed.message) {
