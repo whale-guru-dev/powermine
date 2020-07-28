@@ -82,31 +82,31 @@ function updateTimer ()
 
             isTimerValid = true;
 
-            if(!$("#vdc1-deposit-btn").hasClass('disabled')) {
+            if($("#vdc1-deposit-btn").hasClass('disabled')) {
                 $("#vdc1-deposit-btn").removeClass('disabled');
             }
 
-            if(!$("#vdc1-withdraw-btn").hasClass('disabled')) {
+            if($("#vdc1-withdraw-btn").hasClass('disabled')) {
                 $("#vdc1-withdraw-btn").removeClass('disabled');
             }
 
-            if(!$("#vdc2-deposit-btn").hasClass('disabled')) {
+            if($("#vdc2-deposit-btn").hasClass('disabled')) {
                 $("#vdc2-deposit-btn").removeClass('disabled');
             }
 
-            if(!$("#vdc1-withdraw-btn").hasClass('disabled')) {
+            if($("#vdc1-withdraw-btn").hasClass('disabled')) {
                 $("#vdc1-withdraw-btn").removeClass('disabled');
             }
 
-            if(!$("#vdc2-withdraw-btn").hasClass('disabled')) {
+            if($("#vdc2-withdraw-btn").hasClass('disabled')) {
                 $("#vdc2-withdraw-btn").removeClass('disabled');
             }
 
-            if(!$("#vdc1-claim-btn").hasClass('disabled')) {
+            if($("#vdc1-claim-btn").hasClass('disabled')) {
                 $("#vdc1-claim-btn").removeClass('disabled');
             }
 
-            if(!$("#vdc2-claim-btn").hasClass('disabled')) {
+            if($("#vdc2-claim-btn").hasClass('disabled')) {
                 $("#vdc2-claim-btn").removeClass('disabled');
             }
 
