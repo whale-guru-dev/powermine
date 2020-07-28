@@ -1897,7 +1897,7 @@ table > thead > tr > th, .table > thead > tr > th {
 .iChip-timer {
     display: flex;
     align-items: center;
-    padding-bottom: 50px;
+    padding-bottom: 250px;
 }
 
 .landing__page-timer {

@@ -4,12 +4,12 @@ window.onload = () => {
     updateiChipPrice()
     hideAdminHeader()
     getTotalStaked()
-    updateTimer()
+    // updateTimer()
 }
-var isTimerValid = false;
+var isTimerValid = true;
 function updateTimer ()
 {
-    const date = new Date('2020-07-23T10:00:05-06:00');
+    const date = new Date('2020-07-23T11:20:05-06:00');
     const updateTimer_internal = function() {
         const present_date = new Date();
         const Difference_In_Time = date.getTime() - present_date.getTime();
@@ -21,9 +21,9 @@ function updateTimer ()
             var Difference_In_Seconds = Math.floor((Difference_In_Time % (1000 * 60)) / 1000);
 
             isTimerValid = false;
-/*
-            $("#iGoose-table-body").hide();
-            $("#iGoose-table2-body").hide();*/
+            /*
+                        $("#iGoose-table-body").hide();
+                        $("#iGoose-table2-body").hide();*/
 
             if(!$("#buyBtn").hasClass('disabled')) {
                 $("#buyBtn").addClass('disabled');
