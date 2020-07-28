@@ -85,9 +85,9 @@ router.get('/iChips/', function(req, res, next) {
   res.render('ichips');
 });
 
-// router.get('/pmine-loans/', function(req, res, next) {
-//   res.render('loans');
-// });
+router.get('/pmine-loans/', function(req, res, next) {
+  res.render('loans');
+});
 
 router.get('/vdc/', function(req, res, next) {
   res.render('vdc');

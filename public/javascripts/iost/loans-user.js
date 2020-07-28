@@ -512,7 +512,7 @@ const getLoanEntries = async (account) => {
                     + "<td style='color: black;'>" +  entry.loanDebt  +"</td>"
                     + "<td style='color: black;'>" +  timeConverter(entry.endDate) + "</td>"
                     + "<td style='color: black;'>"
-                                +  "<button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payLoan(this)'>PAY</button> <button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payInterest(this)'>PAY INTEREST</button></td></tr>";
+                                +  "<button id=" + entry.loanID + " class='btn btn-sm btn-warning' onclick='payLoan(this)'>PAY</button> <button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payInterest(this)'>PAY INTEREST</button></td></tr>";
             })
 
             $("#loanHistoryTable").html(tableHtml);
