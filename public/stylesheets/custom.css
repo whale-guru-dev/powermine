@@ -2587,7 +2587,7 @@ button[disabled], html input[disabled] {
 /*header navbar*/
 @media (max-width: 1460px) {
     .navbar-nav > li + li {
-        margin-left: 20px;
+        margin-left: 15px;
     }
 }
 
@@ -3147,3 +3147,94 @@ button[disabled], html input[disabled] {
 }
 
 /*end*/
+
+
+/*start header menu images size*/
+@media (min-width: 1400px) and (max-width: 1600px) {
+    .vdc-logo {width: 180px !important;}
+
+    .igoose-logo {width: 135px !important;}
+
+    .ichips-logo {width: 140px !important;}
+
+    .powerdefi-logo {width: 185px !important;}
+
+    .dice-logo {width: 135px !important;}
+
+    .powermine-logo {width: 185px !important;}
+}
+
+@media (min-width: 992px) and (max-width: 1059px) {
+    .vdc-logo {width: 120px !important;height: 25px !important;}
+
+    .igoose-logo {width: 100px !important;}
+
+    .ichips-logo {width: 80px !important;}
+
+    .powerdefi-logo {width: 150px !important;}
+
+    .dice-logo {width: 100px !important;}
+
+    .powermine-logo {width: 150px !important;}
+}
+
+@media (min-width: 1060px) and (max-width: 1099px) {
+    .vdc-logo {    width: 140px !important;
+        height: 30px !important;}
+
+    .igoose-logo {width: 120px !important;}
+
+    .ichips-logo {width: 90px !important;}
+
+    .powerdefi-logo {width: 160px !important;}
+
+    .dice-logo {width: 120px !important;}
+
+    .powermine-logo {width: 160px !important;}
+}
+
+@media (min-width: 1300px) and (max-width: 1399px) {
+    .vdc-logo {width: 145px !important;}
+
+    .igoose-logo {width: 125px !important;}
+
+    .ichips-logo {width: 125px !important;}
+
+    .powerdefi-logo {width: 170px !important;}
+
+    .dice-logo {width: 125px !important;}
+
+    .powermine-logo {width: 170px !important;}
+}
+
+@media (min-width: 1200px) and (max-width: 1299px) {
+    .vdc-logo {width: 115px !important;
+        height: 25px !important;}
+
+    .igoose-logo {width: 115px !important;}
+
+    .ichips-logo {width: 115px !important;}
+
+    .powerdefi-logo {width: 130px !important;}
+
+    .dice-logo {width: 115px !important;}
+
+    .powermine-logo {width: 130px !important;}
+}
+
+@media (min-width: 1100px) and (max-width: 1199px) {
+    .vdc-logo {width: 100px !important;
+        height: 25px !important;}
+
+    .igoose-logo {width: 90px !important;}
+
+    .ichips-logo {width: 90px !important;}
+
+    .powerdefi-logo {width: 110px !important;}
+
+    .dice-logo {width: 100px !important;}
+
+    .powermine-logo {width: 110px !important;}
+}
+
+/*end header menu images size*/
