@@ -4,7 +4,7 @@ window.onload = () => {
     // updateCollateral()
     updatePMINEBalance()
     updatAccount()
-    updateLoanEntries()
+
 }
 
 function hideAdminHeader() {
@@ -126,6 +126,8 @@ const updatAccount = () => {
                 if(account === "pmine_admin") {
                     // $("#show_position_btn").show();
                 }
+
+                updateLoanEntries(account);
             }).catch(err => {
             account = null;
         });
@@ -458,7 +460,7 @@ const getTokenSupply = (token) => {
     })
 };
 
-const getLoanEntries = async () => {
+const getLoanEntries = async (account) => {
     let postData = {
         id: contract,
         key: "users",
@@ -498,18 +500,17 @@ const getLoanEntries = async () => {
             });
         })).then(resFinal => {
             loanEntries = resFinal;
+
             var tableHtml = "";
 
             loanEntries.forEach((entry, i) => {
 
-                tableHtml = tableHtml + "<tr> <th scope='row'>" + entry?entry.loanID:null + "</th>"
-                                                + "<td>" + entry?entry.loanAmount:null + "</td>"
-                                                + "<td>" + entry?entry.loanDebt:null +"</td>"
-                                                + "<td>" + entry?timeConverter(entry.endDate):null + "</td>"
-                                                + "<td>"
-                                + entry ? "<button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payLoan(this)'>PAY</button> <button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payInterest(this)'>PAY INTEREST</button>" : null
-                                                + "</td>"
-                                            + "</tr>";
+                tableHtml = tableHtml + "<tr > <th scope='row' style='color: black;'>" + entry.loanID + "</th>"
+                    + "<td style='color: black;'>" +  entry.loanAmount + "</td>"
+                    + "<td style='color: black;'>" +  entry.loanDebt  +"</td>"
+                    + "<td style='color: black;'>" +  timeConverter(entry.endDate) + "</td>"
+                    + "<td style='color: black;'>"
+                                +  "<button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payLoan(this)'>PAY</button> <button id=`${entry.loanID}` class='btn btn-sm btn-warning' onclick='payInterest(this)'>PAY INTEREST</button></td></tr>";
             })
 
             $("#loanHistoryTable").html(tableHtml);
@@ -540,7 +541,7 @@ const timeConverter = unix_timestamp => {
 
     // Will display time in 10:30:23 format
     var formattedTime =
-        month + "/" + day + "/" + year + " " + hour + ":" + min;
+        month + "/" + day + "/" + year + " " + hour + ":" + (min.toString().length === 1 ? "0" + min : min);
     return formattedTime;
 };
 
@@ -631,11 +632,11 @@ const payInterest = (e) => {
     }
 };
 
-const updateLoanEntries = () => {
-    const updateLoanEntries_internal = async () => {
-        await getLoanEntries();
+const updateLoanEntries = async (account) => {
+    const updateLoanEntries_internal = async (account) => {
+        await getLoanEntries(account);
     }
 
-    updateLoanEntries_internal();
-    setInterval(updateLoanEntries_internal, 10 * 60 * 1000);
+    await updateLoanEntries_internal(account);
+    setInterval(updateLoanEntries_internal(account), 10 * 60 * 1000);
 }
