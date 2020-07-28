@@ -65,6 +65,14 @@ function updateTimer ()
                 $("#vdc2-withdraw-btn").addClass('disabled');
             }
 
+            if(!$("#vdc1-claim-btn").hasClass('disabled')) {
+                $("#vdc1-claim-btn").addClass('disabled');
+            }
+
+            if(!$("#vdc2-claim-btn").hasClass('disabled')) {
+                $("#vdc2-claim-btn").addClass('disabled');
+            }
+
             $( "#vdc1-withdraw-amount" ).prop( "disabled", true );
             $( "#vdc1-deposit-amount" ).prop( "disabled", true );
             $( "#vdc2-withdraw-amount" ).prop( "disabled", true );
@@ -92,6 +100,14 @@ function updateTimer ()
 
             if(!$("#vdc2-withdraw-btn").hasClass('disabled')) {
                 $("#vdc2-withdraw-btn").removeClass('disabled');
+            }
+
+            if(!$("#vdc1-claim-btn").hasClass('disabled')) {
+                $("#vdc1-claim-btn").removeClass('disabled');
+            }
+
+            if(!$("#vdc2-claim-btn").hasClass('disabled')) {
+                $("#vdc2-claim-btn").removeClass('disabled');
             }
 
             $( "#vdc1-withdraw-amount" ).prop( "disabled", false );
