@@ -13,7 +13,9 @@ var igooseRouter = require('./routes/igoose');
 var adminRouter = require('./routes/admin');
 var richListRouter = require('./routes/richList');
 var iChipRouter = require('./routes/ichips');
+var vdcRouter = require('./routes/vdc');
 
+var vdcRichlist = require('./vdc/api');
 var richList = require('./richlist/richlist');
 
 var app = express();
@@ -37,6 +39,7 @@ app.use('/imatch', imatchRouter);
 app.use('/igoose', igooseRouter);
 app.use('/richList', richListRouter);
 app.use('/iChip', iChipRouter);
+app.use('/vdc', vdcRouter);
 
 app.get('*', function (req, res) {
   res.render('404');
@@ -72,9 +75,11 @@ var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+
 setInterval(
   function() {
     richList.grab_per_iost_richlist();
+    vdcRichlist.grab_vdc_richlist();
   }, 10000);
 
 module.exports = app;

@@ -5,6 +5,7 @@ window.onload = () => {
     updateAccountBalance()
     updateVDC1UserData()
     updateVDC2UserData()
+    updateRichlistTable()
     // updateTimer()
 }
 
@@ -14,7 +15,6 @@ function hideAdminHeader() {
         $("#menu-item-1399").hide();
     } else {
         window.IWalletJS.enable().then(function (val) {
-            console.log(val)
             if (val !== 'powermine' && val !== 'pmine_admin') {
                 $("#menu-item-139").hide();
                 $("#menu-item-1399").hide();
@@ -130,7 +130,6 @@ function updateTimer ()
 //Returns a float that represents the user's balance
 const getUserBalance = async (account, token) => {
     return await fetch('https://api.iost.io/getTokenBalance/' + account + '/' + token + '/true').then(res => res.json()).then(json => {
-        console.log(json)
         return parseFloat(json.balance).toFixed(4);
     }).catch(err => {
         return 0;
@@ -688,3 +687,53 @@ $(document).on("click", "#vdc2-claim-btn", function () {
     }
 
 });
+
+//richlist table update
+const getRichListTable = async (type) => {
+    return await fetch('/richlist/' + type).then(res => res.json()).then(json => {
+        return JSON.parse(json.richList);
+    }).catch(err => {
+        return 0;
+    })
+}
+
+const updateRichlistTable = () => {
+    updateRichlistTable_internal = async () => {
+        const compoundRichlist = await getRichListTable("compound");
+        const volatileRichlist = await getRichListTable("volatile");
+
+        var compoundTableHtml = "";
+        compoundRichlist.forEach((each, index) => {
+            compoundTableHtml = compoundTableHtml + ("<tr key=" + index + ">\n" +
+                "<td data-label=\"RANK\">" + (index + 1) + ".</td>"+
+                "<td data-label=\"ADDRESS\"><b>" + strip_name(each.account) + "</b></td>" +
+                "<td data-label=\"AMOUNT\">" + (each.balance * 1).toFixed(2) + "</td>" +
+                "<td data-label=\"HOLDING\">" + each.percent + "%</td>" +
+                "</tr>")
+        })
+
+        $("#compound-richlist-table-body").html(compoundTableHtml);
+
+        var volatileTableHtml = "";
+        volatileRichlist.forEach((each, index) => {
+            volatileTableHtml = volatileTableHtml + ("<tr key=" + index + "}>\n" +
+                "<td data-label=\"RANK\">" + (index + 1) + ".</td>"+
+                "<td data-label=\"ADDRESS\"><b>" + strip_name(each.account) + "</b></td>" +
+                "<td data-label=\"AMOUNT\">" + (each.balance * 1).toFixed(2) + "</td>" +
+                "<td data-label=\"HOLDING\">" + each.percent + "%</td>" +
+                "</tr>")
+        })
+
+        $("#volatile-richlist-table-body").html(volatileTableHtml);
+    }
+
+    updateRichlistTable_internal()
+    setInterval(updateRichlistTable_internal, 10 * 60 * 1000)
+}
+
+function strip_name (holder) {
+    var name = "";
+    name = holder;
+    name = name.slice(0, 6) + "*";
+    return name;
+}

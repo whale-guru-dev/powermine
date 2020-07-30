@@ -15,7 +15,6 @@ const updateIOSTPmineLoansAmount = () => {
 
 const getUserBalance = async (account, token) => {
     return await fetch('https://api.iost.io/getTokenBalance/' + account + '/' + token + '/true').then(res => res.json()).then(json => {
-        console.log(json)
         return parseFloat(json.balance).toFixed(4);
     }).catch(err => {
         return 0;
