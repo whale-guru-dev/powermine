@@ -15,7 +15,6 @@ function hideAdminHeader() {
         $("#menu-item-1399").hide();
     } else {
         window.IWalletJS.enable().then(function (val) {
-            console.log(val)
             if (val !== 'powermine' && val !== 'pmine_admin') {
                 $("#menu-item-139").hide();
                 $("#menu-item-1399").hide();

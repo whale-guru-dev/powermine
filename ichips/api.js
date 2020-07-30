@@ -46,7 +46,7 @@ exports.grab_iChip_accounts = () => {
             })
         }, function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.log(body);
+
                 return resolve(body);
             } else {
                 return reject('Failed')

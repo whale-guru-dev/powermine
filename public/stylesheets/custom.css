@@ -3146,7 +3146,18 @@ button[disabled], html input[disabled] {
     }
 }
 
-/*end*/
+.richlist-table > tbody > tr > td {
+    border-top: none;
+    color: #B9AF5B;
+}
+
+.richlist-table > thead > tr > th {
+    border-bottom: none !important;
+    background: #343a4033 !important;
+    color: #B9AF5B !important;
+}
+
+/*vdc page end*/
 
 
 /*start header menu images size*/
