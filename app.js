@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+const rateLimit = require("express-rate-limit");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,6 +20,16 @@ var vdcRichlist = require('./vdc/api');
 var richList = require('./richlist/richlist');
 
 var app = express();
+
+app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS if you use an ELB, custom Nginx setup, etc)
+
+const apiLimiter = rateLimit({
+    windowMs: 60 * 1000, // 1 minute
+    max: 5000   //5K request per minute only per IP.  
+});
+
+//  apply to all requests
+app.use(apiLimiter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
