@@ -28,8 +28,10 @@ const apiLimiter = rateLimit({
     max: 10000   //10K request per minute only per IP.  
 });
 
+
+
 //  apply to all requests
-app.use(apiLimiter);
+app.use("/", apiLimiter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
