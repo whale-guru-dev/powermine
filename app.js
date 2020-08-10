@@ -25,7 +25,7 @@ app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Blu
 
 const apiLimiter = rateLimit({
     windowMs: 60 * 1000, // 1 minute
-    max: 5000   //5K request per minute only per IP.  
+    max: 10000   //10K request per minute only per IP.  
 });
 
 //  apply to all requests
