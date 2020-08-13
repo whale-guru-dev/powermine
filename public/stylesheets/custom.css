@@ -1586,6 +1586,10 @@ a:hover {
     background: url(../images/igoose-background.jpg) no-repeat center center / cover;
 }
 
+#iMatch-richlist {
+    background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
+}
+
 #imatch-exchange {
     background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
 }
@@ -1713,6 +1717,10 @@ table > thead > tr > th, .table > thead > tr > th {
     .igoose-page-section {
         padding: 0px 0 100px 0;
     }
+
+    .imatch-page-section {
+        padding: 0px 0 100px 0;
+    }
 }
 
 .pmine-page-section {
@@ -1723,6 +1731,11 @@ table > thead > tr > th, .table > thead > tr > th {
     padding-top: 0px;
     padding-bottom: 100px;
 }
+.imatch-page-section {
+    padding-top: 0px;
+    padding-bottom: 100px;
+}
+
 
 @media (min-width: 1200px) {
     .container {
@@ -2354,6 +2367,10 @@ button[disabled], html input[disabled] {
 }
 
 .stake-igoose-section {
+    padding-top: 80px;
+}
+
+.stake-imacth-section {
     padding-top: 80px;
 }
 
