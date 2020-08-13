@@ -35,8 +35,6 @@ function getTokens () {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('token-value').innerText = parseFloat(1000 - xhttp.responseText).toFixed(0);
-                document.getElementById("imatch-token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> iMatch tokens out of <b>1,000</b>. 
-                There are <b><span style="font-size: 18px">${parseFloat(1000 - xhttp.responseText).toFixed(4)}</span></b> iMatch in circulation.`;
             }
         };
         xhttp.open("GET", "/imatch/circulation", true);
@@ -93,22 +91,18 @@ function getUserBalance(account){
             document.getElementById("user-iMatch-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> ${(parseFloat(json.balance).toFixed(4))} iMatch`
 
-            document.getElementById("exchange-imatch-balance").innerHTML = `
-                                <b><span style="font-size: 14px">iMatch Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} iMatch`
+
         }).catch(err => {
             document.getElementById("user-iMatch-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> ${((0).toFixed(4))} iMatch`
-            document.getElementById("exchange-imatch-balance").innerHTML = `
-                                <b><span style="font-size: 14px">iMatch Balance: </span></b> ${((0).toFixed(4))} iMatch`
+
         })
         fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
-            document.getElementById("exchange-iost-balance").innerHTML = `
-                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${(parseFloat(json.balance).toFixed(4))} IOST`
+
             document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${account}`
         }).catch(err => {
-            document.getElementById("exchange-iost-balance").innerHTML = `
-                                <b><span style="font-size: 14px">IOST Balance: </span></b> ${((0).toFixed(4))} IOST`
+
             document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
         })
