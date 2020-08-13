@@ -93,5 +93,8 @@ router.get('/vdc/', function(req, res, next) {
   res.render('vdc');
 });
 
+router.get('/epic/', function(req, res, next) {
+  res.render('epic');
+});
 
 module.exports = router;
