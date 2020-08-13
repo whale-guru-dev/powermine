@@ -1590,6 +1590,10 @@ a:hover {
     background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
 }
 
+/*#epic-richlist {*/
+/*    background: url(../images/ICHIP-background.jpg) no-repeat center center / cover;*/
+/*}*/
+
 #imatch-exchange {
     background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
 }
@@ -1601,6 +1605,8 @@ a:hover {
 #iChip-exchange {
     background: url(../images/ICHIP-background.jpg) no-repeat center center / cover;
 }
+
+
 
 #airdrop-claim {
     /*background: url(../images/airdrop-background.jpg) no-repeat center center / cover;*/
