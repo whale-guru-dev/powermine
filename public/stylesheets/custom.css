@@ -1651,6 +1651,8 @@ a:hover {
 /*    background: url(../images/ICHIP-background.jpg) no-repeat center center / cover;*/
 /*}*/
 
+
+
 #imatch-exchange {
     background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
 }
@@ -3242,6 +3244,20 @@ button[disabled], html input[disabled] {
 
 /*vdc page end*/
 
+#epic-richlist .richlist-table > thead > tr > th {
+    background: #343a4033 !important;
+}
+
+#epic-richlist .richlist-table > tbody > tr > td {
+    border-top: none;
+    color: black;
+}
+
+#epic-richlist .richlist-table > thead > tr > th {
+    border-bottom: none !important;
+    background: #343a4033 !important;
+    color: black !important;
+}
 
 /*start header menu images size*/
 @media (min-width: 1400px) and (max-width: 1600px) {
