@@ -3250,13 +3250,13 @@ button[disabled], html input[disabled] {
 
 #epic-richlist .richlist-table > tbody > tr > td {
     border-top: none;
-    color: #f53a63;
+    color: #ffffff;
 }
 
 #epic-richlist .richlist-table > thead > tr > th {
     border-bottom: none !important;
     background: #343a4033 !important;
-    color: #f53a63 !important;
+    color: #ffffff !important;
 }
 
 /*start header menu images size*/
