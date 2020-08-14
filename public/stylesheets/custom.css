@@ -1014,11 +1014,19 @@ legend,
     background: transparent !important;
 }
 
+#epic-exchange .top-wrapper {
+    background: transparent !important;
+}
+
 .header.affix {
     background: rgba(26, 39, 88, 0.95);
 }
 
 #iChip-exchange .header.affix {
+    background: transparent !important;
+}
+
+#epic-exchange .header.affix {
     background: transparent !important;
 }
 
@@ -1104,6 +1112,21 @@ legend,
     /*width: 350px;*/
 }
 
+.epic-exchange {
+    /*padding: 50px 0 100px 0;*/
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+#epic-exchange .section-title-inner {
+    padding-bottom: 150px;
+}
+
+#epic-exchange .header .logo img {
+    /*max-width: 400px;*/
+    /*width: 350px;*/
+}
+
 .exchange-main {
     background: #ffffff75;
     /*padding: 40px 120px 40px 60px;*/
@@ -1115,6 +1138,12 @@ legend,
 }
 
 .iChip-exchange .exchange-main {
+    padding: 5px 55px 5px 55px;
+    max-width: 100%;
+    background: #00000052;
+}
+
+.epic-exchange .exchange-main {
     padding: 5px 55px 5px 55px;
     max-width: 100%;
     background: #00000052;
@@ -1144,6 +1173,25 @@ legend,
 }
 
 .iChip-exchange .exchange-protect {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+/*Epic*/
+.epic-exchange .exchange-main p {
+    color: #5ab6f7;
+}
+
+.epic-exchange .exchange-main h4 {
+    color: #5ab6f7;
+}
+
+.epic-exchange .exchange-main i {
+    background: #5ab6f7;
+    margin-bottom: 0px;
+}
+
+.epic-exchange .exchange-protect {
     margin-top: 0px;
     padding-top: 0px;
 }
@@ -1270,6 +1318,10 @@ legend,
     width: 100%;
 }
 
+.epic-exchange .exchange-item input {
+    width: 100%;
+}
+
 .exchange-item .dropdown {
     border: 0;
     color: #4990e2;
@@ -1290,6 +1342,11 @@ legend,
 .iChip-exchange-item .dropdown {
     font-size: 15px !important;
 }
+
+.epic-exchange-item .dropdown {
+    font-size: 15px !important;
+}
+
 
 .btn-1,
 .btn-3 {
@@ -1606,6 +1663,9 @@ a:hover {
     background: url(../images/ICHIP-background.jpg) no-repeat center center / cover;
 }
 
+#epic-exchange {
+    background: url(../images/ICHIP-background.jpg) no-repeat center center / cover;
+}
 
 
 #airdrop-claim {
@@ -3196,6 +3256,8 @@ button[disabled], html input[disabled] {
     .dice-logo {width: 135px !important;}
 
     .powermine-logo {width: 185px !important;}
+
+    .epic-logo {width: 140px !important;}
 }
 
 @media (min-width: 992px) and (max-width: 1059px) {
@@ -3210,6 +3272,8 @@ button[disabled], html input[disabled] {
     .dice-logo {width: 100px !important;}
 
     .powermine-logo {width: 150px !important;}
+
+    .epic-logo {width: 80px !important;}
 }
 
 @media (min-width: 1060px) and (max-width: 1099px) {
@@ -3225,6 +3289,8 @@ button[disabled], html input[disabled] {
     .dice-logo {width: 120px !important;}
 
     .powermine-logo {width: 160px !important;}
+
+    .epic-logo {width: 90px !important;}
 }
 
 @media (min-width: 1300px) and (max-width: 1399px) {
@@ -3239,6 +3305,8 @@ button[disabled], html input[disabled] {
     .dice-logo {width: 125px !important;}
 
     .powermine-logo {width: 170px !important;}
+
+    .epic-logo {width: 125px !important;}
 }
 
 @media (min-width: 1200px) and (max-width: 1299px) {
@@ -3254,6 +3322,8 @@ button[disabled], html input[disabled] {
     .dice-logo {width: 115px !important;}
 
     .powermine-logo {width: 130px !important;}
+
+    .epic-logo {width: 115px !important;}
 }
 
 @media (min-width: 1100px) and (max-width: 1199px) {
@@ -3269,6 +3339,8 @@ button[disabled], html input[disabled] {
     .dice-logo {width: 100px !important;}
 
     .powermine-logo {width: 110px !important;}
+
+    .epic-logo {width: 90px !important;}
 }
 
 /*end header menu images size*/

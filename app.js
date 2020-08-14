@@ -14,6 +14,7 @@ var igooseRouter = require('./routes/igoose');
 var adminRouter = require('./routes/admin');
 var richListRouter = require('./routes/richList');
 var iChipRouter = require('./routes/ichips');
+var epicRouter = require('./routes/epic');
 var vdcRouter = require('./routes/vdc');
 
 var vdcRichlist = require('./vdc/api');
@@ -29,7 +30,6 @@ const apiLimiter = rateLimit({
 });
 
 
-
 //  apply to all requests
 app.use("/", apiLimiter);
 
@@ -39,7 +39,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
@@ -52,35 +52,35 @@ app.use('/imatch', imatchRouter);
 app.use('/igoose', igooseRouter);
 app.use('/richList', richListRouter);
 app.use('/iChip', iChipRouter);
+app.use('/epic', epicRouter);
 app.use('/vdc', vdcRouter);
 
 app.get('*', function (req, res) {
-  res.render('404');
+    res.render('404');
 });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
-
 
 
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
 var mongoDB = 'mongodb://127.0.0.1/powermine';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect(mongoDB, {useNewUrlParser: true});
 
 //Get the default connection
 var db = mongoose.connection;
@@ -90,9 +90,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 setInterval(
-  function() {
-    richList.grab_per_iost_richlist();
-    vdcRichlist.grab_vdc_richlist();
-  }, 10000);
+    function () {
+        richList.grab_per_iost_richlist();
+        vdcRichlist.grab_vdc_richlist();
+    }, 10000);
 
 module.exports = app;
