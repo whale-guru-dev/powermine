@@ -29,6 +29,10 @@ const apiLimiter = rateLimit({
     max: 500   //10K request per minute only per IP.
 });
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 //  apply to all requests
 app.use("/", apiLimiter);
