@@ -704,7 +704,7 @@ $(document).on("click", "#depositepicBtn", function () {
         iost.setAccount(account);
 
         var depositAmount = $("#depositepicAmt").val();
-
+        
         const tx = iost.callABI("Contract5dq6CrmcrW1nrkdusxKC7JS6PUDAWsMGxJWayapriHa6", "depositInitialepic", [depositAmount.toString()]);
         tx.addApprove("epic", "100000");
 
@@ -760,7 +760,7 @@ $(document).on("click", "#depositIostepicBtn", function () {
         let account = new IOST.Account(val);
         iost.setAccount(account);
 
-        var withdrawAmt = $("#depositIostiChipAmt").val();
+        var withdrawAmt = $("#depositIostepicAmt").val();
 
         const tx = iost.callABI("Contract5dq6CrmcrW1nrkdusxKC7JS6PUDAWsMGxJWayapriHa6", "depositIOST", [withdrawAmt.toString()]);
         tx.addApprove("iost", "10000000");
