@@ -96,8 +96,6 @@ function getTokens () {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('token-value').innerText = parseFloat(1000 - xhttp.responseText).toFixed(0);
-                document.getElementById("iChip-token-msg").innerHTML = `Smart Contract holds a total of <b class="timer-default number-empathy"><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> Ichips tokens out of <b class="timer-default number-empathy">1,000</b>. 
-                There are <b class="timer-default number-empathy" ><span style="font-size: 18px">${parseFloat(1000 - xhttp.responseText).toFixed(4)}</span></b> Ichips in circulation.`;
             }
         };
         xhttp.open("GET", "/iChip/circulation", true);
@@ -154,22 +152,14 @@ function getUserBalance(account){
             document.getElementById("user-iChip-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${(parseFloat(json.balance).toFixed(4))} </span>Ichips`
 
-            document.getElementById("exchange-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Ichips Balance: </span></b> <span class="timer-default number-empathy">${(parseFloat(json.balance).toFixed(4))} </span>Ichips`
         }).catch(err => {
             document.getElementById("user-iChip-balance").innerHTML = `
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))} </span>Ichips`
-            document.getElementById("exchange-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Ichips Balance: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))} </span>Ichips`
         })
         fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
-            document.getElementById("exchange-iost-balance").innerHTML = `
-                                <b><span style="font-size: 14px">IOST Balance: </span></b> <span class="timer-default number-empathy">${(parseFloat(json.balance).toFixed(4))}</span>`
             document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${account}`
         }).catch(err => {
-            document.getElementById("exchange-iost-balance").innerHTML = `
-                                <b><span style="font-size: 14px">IOST Balance: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))}</span>`
             document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
         })
@@ -178,8 +168,6 @@ function getUserBalance(account){
                                 <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))} </span>Ichips`
         document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
-        document.getElementById("exchange-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Ichips Balance: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))} </span>Ichips`
     }
 
 }

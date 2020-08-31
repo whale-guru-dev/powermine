@@ -144,6 +144,34 @@ $(document).on("click", "#depositBtn", function () {
     });
 });
 
+$(document).on("click", "#burnpmineBtn", function () {
+    window.IWalletJS.enable().then(function (val) {
+        iost = window.IWalletJS.newIOST(IOST);
+
+        let account = new IOST.Account(val);
+        iost.setAccount(account);
+
+        var depositAmount = $("#burnpmineAmt").val();
+
+        const tx = iost.callABI("token.iost", "destroy", ["pmine", account["_id"], depositAmount.toString()]);
+        tx.addApprove("pmine", "100000");
+
+        iost.signAndSend(tx).on('pending', function (txid) {
+            console.log("======>pending", txid);
+            $(".page-loader").show();
+            $(".loader-inner").show();
+        }).on('success', function (result) {
+            console.log('======>buy success', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-success">Burn Success. Please check your wallet</div>');
+        }).on('failed', function (result) {
+            console.log('======>failed', result);
+            $(".page-loader").hide();
+            $("#statusMsg").html('<div class="alert alert-warning">' + result + '</div>');
+        });
+    });
+});
+
 $(document).on("click", "#withdrawBtn", function () {
     window.IWalletJS.enable().then(function (val) {
         iost = window.IWalletJS.newIOST(IOST);
