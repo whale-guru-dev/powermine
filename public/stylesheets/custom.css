@@ -3263,6 +3263,27 @@ button[disabled], html input[disabled] {
     padding: 5px;
 }
 
+/*iChips page richlist table*/
+#iChip-richlist .richlist-table > thead > tr > th {
+    background: #343a4033 !important;
+}
+
+#iChip-richlist .richlist-table > tbody > tr > td {
+    border-top: none;
+    color: #ffffff;
+}
+
+#iChip-richlist .richlist-table > thead > tr > th {
+    text-align: center;
+    border-bottom: none !important;
+    background: #343a4033 !important;
+    color: #ffffff !important;
+}
+#iChip-richlist table > thead > tr > th, .table > thead > tr > th, table > tbody > tr > th, .table > tbody > tr > th, table > tfoot > tr > th, .table > tfoot > tr > th, table > thead > tr > td, .table > thead > tr > td, table > tbody > tr > td, .table > tbody > tr > td, table > tfoot > tr > td, .table > tfoot > tr > td {
+    padding: 5px;
+}
+/*end*/
+
 
 /*start header menu images size*/
 @media (min-width: 1400px) and (max-width: 1600px) {
