@@ -8274,6 +8274,9 @@ ul.products li.product:before {
     border-top: none;
     box-shadow: none;
     background: #36274c;
+
+    height: 100vh;
+    overflow-y: scroll;
   }
 
   .navbar-nav > li {
