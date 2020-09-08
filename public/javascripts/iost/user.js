@@ -1,5 +1,6 @@
 window.onload = () => {
     getTokens();
+    getBurntTokens();
     getRichList();
     updatePminePrice();
     hideAdminHeader();
@@ -46,6 +47,24 @@ function getTokens () {
 
     fetchToken();
     setInterval(fetchToken, 10 * 60 * 1000)
+}
+
+function getBurntTokens () {
+    const fetchBurntToken = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('token-burnt-value').innerText = parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0);
+                // document.getElementById("token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>.
+                // There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> pmine in circulation.`;
+            }
+        };
+        xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
+        xhttp.send();
+    };
+
+    fetchBurntToken();
+    setInterval(fetchBurntToken, 10 * 60 * 1000)
 }
 
 function getTotalStaked() {
