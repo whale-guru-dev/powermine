@@ -1,5 +1,5 @@
 window.onload = () => {
-    getTokens();
+    // getTokens();
     getBurntTokens();
     getRichList();
     updatePminePrice();
@@ -31,23 +31,23 @@ function hideAdminHeader() {
     }
 }
 
-function getTokens () {
-    const fetchToken = () => {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('token-value').innerText = parseFloat(20000 - xhttp.responseText).toFixed(0);
-                // document.getElementById("token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>.
-                // There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> pmine in circulation.`;
-            }
-        };
-        xhttp.open("GET", "/iost/circulation", true);
-        xhttp.send();
-    };
-
-    fetchToken();
-    setInterval(fetchToken, 10 * 60 * 1000)
-}
+// function getTokens () {
+//     const fetchToken = () => {
+//         var xhttp = new XMLHttpRequest();
+//         xhttp.onreadystatechange = function () {
+//             if (this.readyState == 4 && this.status == 200) {
+//                 document.getElementById('token-value').innerText = parseFloat(20000 - xhttp.responseText).toFixed(0);
+//                 // document.getElementById("token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>.
+//                 // There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> pmine in circulation.`;
+//             }
+//         };
+//         xhttp.open("GET", "/iost/circulation", true);
+//         xhttp.send();
+//     };
+//
+//     fetchToken();
+//     setInterval(fetchToken, 10 * 60 * 1000)
+// }
 
 function getBurntTokens () {
     const fetchBurntToken = () => {
@@ -55,8 +55,7 @@ function getBurntTokens () {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('token-burnt-value').innerText = parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0);
-                // document.getElementById("token-msg").innerHTML = `Smart Contract holds a total of <b><span style="font-size: 18px">${parseFloat(xhttp.responseText).toFixed(4)}</span></b> pmine tokens out of <b>20,000</b>.
-                // There are <b><span style="font-size: 18px">${parseFloat(20000 - xhttp.responseText).toFixed(4)}</span></b> pmine in circulation.`;
+                document.getElementById('token-value').innerText = parseFloat(20000 - JSON.parse(xhttp.responseText).balance).toFixed(0);
             }
         };
         xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
