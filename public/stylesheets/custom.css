@@ -2588,6 +2588,7 @@ button[disabled], html input[disabled] {
 
     .ticker-row {
         /* z-index: 99; */
+        display: none;
     }
 
     .header-main-container {
