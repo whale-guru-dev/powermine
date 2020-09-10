@@ -9600,7 +9600,7 @@ ul.products li.product:before {
 @media (max-width: 767px) {
     .navbar-nav {
         float: none;
-        position: absolute;
+        position: static;
         left: 0;
         right: 0;
         top: 70px;
@@ -9611,7 +9611,7 @@ ul.products li.product:before {
         /*height: 100vh;*/
         /*overflow-y: scroll;*/
         zoom: 0.8;
-        z-index: 999;
+        z-index: 999 !important;
     }
 
     .navbar-nav > li {
