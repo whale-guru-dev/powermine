@@ -2591,6 +2591,10 @@ button[disabled], html input[disabled] {
         display: none;
     }
 
+    .tradingview-widget-container {
+        display: none;
+    }
+
     .header-main-container {
         /* z-index: 102 !important; */
     }
