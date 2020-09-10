@@ -2432,7 +2432,7 @@ button[disabled], html input[disabled] {
 }
 
 .stake-pmine-section {
-    padding-top: 80px;
+    /*padding-top: 80px;*/
 }
 
 .stake-igoose-section {
