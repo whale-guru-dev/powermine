@@ -9608,8 +9608,8 @@ ul.products li.product:before {
         box-shadow: none;
         background: #36274c;
 
-        height: 100vh;
-        overflow-y: scroll;
+        /*height: 100vh;*/
+        /*overflow-y: scroll;*/
         zoom: 0.8;
     }
 
