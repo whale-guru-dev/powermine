@@ -2431,6 +2431,12 @@ button[disabled], html input[disabled] {
     z-index: 100;
 }
 
+#ticker-row {
+    position: absolute;
+    /*top: 80px;*/
+    z-index: 100;
+}
+
 .stake-pmine-section {
     padding-top: 80px;
 }
