@@ -9611,6 +9611,7 @@ ul.products li.product:before {
         /*height: 100vh;*/
         /*overflow-y: scroll;*/
         zoom: 0.8;
+        z-index: 999;
     }
 
     .navbar-nav > li {
