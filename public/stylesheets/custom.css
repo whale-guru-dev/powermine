@@ -1556,6 +1556,7 @@ a:hover {
         display: block;
         margin: auto;
         margin-bottom: 10px;
+        z-index: 999;
     }
 }
 
