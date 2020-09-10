@@ -2584,7 +2584,7 @@ button[disabled], html input[disabled] {
 
 @media (max-width: 992px) {
     .header {
-        /* z-index: 101 !important; */
+         z-index: 101 !important;
     }
 
     .ticker-row {
