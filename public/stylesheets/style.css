@@ -9598,8 +9598,14 @@ ul.products li.product:before {
 }
 
 @media (max-width: 767px) {
+    #main-nav {
+        position: absolute;
+        top: 70px;
+    }
+
+
     .navbar-nav {
-        /*float: none;*/
+        float: none;
         /*position: absolute;*/
         /*position: fixed;*/
         /*left: 0;*/
