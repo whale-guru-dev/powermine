@@ -2591,7 +2591,7 @@ button[disabled], html input[disabled] {
         display: none;
     }
 
-    .tradingview-widget-container {
+    #ticker-row {
         display: none;
     }
 
