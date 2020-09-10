@@ -8277,6 +8277,7 @@ ul.products li.product:before {
 
     height: 100vh;
     overflow-y: scroll;
+  zoom: 0.8;
   }
 
   .navbar-nav > li {
