@@ -2596,7 +2596,7 @@ button[disabled], html input[disabled] {
     }
 
     .header-main-container {
-        /* z-index: 102 !important; */
+         z-index: 102 !important;
     }
 }
 
