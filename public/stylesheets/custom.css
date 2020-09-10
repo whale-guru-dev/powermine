@@ -1556,7 +1556,7 @@ a:hover {
         display: block;
         margin: auto;
         margin-bottom: 10px;
-        z-index: 999;
+        /*z-index: 999;*/
     }
 }
 
@@ -2583,8 +2583,8 @@ button[disabled], html input[disabled] {
 }
 
 @media (max-width: 992px) {
-    .header {
-         z-index: 101 !important;
+    .header-wrapper .header {
+         z-index: 999 !important;
     }
 
     .ticker-row {
@@ -2597,7 +2597,7 @@ button[disabled], html input[disabled] {
     }
 
     .header-main-container {
-         z-index: 102 !important;
+         /*z-index: 102 !important;*/
     }
 }
 
