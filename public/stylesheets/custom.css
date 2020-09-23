@@ -1653,7 +1653,6 @@ a:hover {
 /*}*/
 
 
-
 #imatch-exchange {
     background: url(../images/IMATCH-background.jpg) no-repeat center center / cover;
 }
@@ -1800,6 +1799,7 @@ table > thead > tr > th, .table > thead > tr > th {
     padding-top: 0px;
     padding-bottom: 100px;
 }
+
 .imatch-page-section {
     padding-top: 0px;
     padding-bottom: 100px;
@@ -2584,7 +2584,7 @@ button[disabled], html input[disabled] {
 
 @media (max-width: 992px) {
     .header-wrapper .header {
-         z-index: 999 !important;
+        z-index: 999 !important;
     }
 
     .ticker-row {
@@ -2597,7 +2597,7 @@ button[disabled], html input[disabled] {
     }
 
     .header-main-container {
-         /*z-index: 102 !important;*/
+        /*z-index: 102 !important;*/
     }
 }
 
@@ -3103,7 +3103,7 @@ button[disabled], html input[disabled] {
     background: linear-gradient(to right, #EFA31A 0%, #D38B14 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-filter: drop-shadow(-1px -1px white) drop-shadow(1px 1px #808080) drop-shadow(1px 1px #7a7a7a) drop-shadow(1px 1px #757575)  drop-shadow(12px 12px 10px rgba(0, 0, 0, 0.2));
+    -webkit-filter: drop-shadow(-1px -1px white) drop-shadow(1px 1px #808080) drop-shadow(1px 1px #7a7a7a) drop-shadow(1px 1px #757575) drop-shadow(12px 12px 10px rgba(0, 0, 0, 0.2));
 }
 
 .table-dark {
@@ -3195,7 +3195,6 @@ button[disabled], html input[disabled] {
     background-size: cover;
 }
 
-
 .vdc-body-view .top-wrapper {
     background: transparent;
 }
@@ -3265,6 +3264,7 @@ button[disabled], html input[disabled] {
     background: #343a4033 !important;
     color: #ffffff !important;
 }
+
 #epic-richlist table > thead > tr > th, .table > thead > tr > th, table > tbody > tr > th, .table > tbody > tr > th, table > tfoot > tr > th, .table > tfoot > tr > th, table > thead > tr > td, .table > thead > tr > td, table > tbody > tr > td, .table > tbody > tr > td, table > tfoot > tr > td, .table > tfoot > tr > td {
     padding: 5px;
 }
@@ -3285,110 +3285,526 @@ button[disabled], html input[disabled] {
     background: #343a4033 !important;
     color: #ffffff !important;
 }
+
 #iChip-richlist table > thead > tr > th, .table > thead > tr > th, table > tbody > tr > th, .table > tbody > tr > th, table > tfoot > tr > th, .table > tfoot > tr > th, table > thead > tr > td, .table > thead > tr > td, table > tbody > tr > td, .table > tbody > tr > td, table > tfoot > tr > td, .table > tfoot > tr > td {
     padding: 5px;
 }
+
 /*end*/
 
 
 /*start header menu images size*/
 @media (min-width: 1400px) and (max-width: 1600px) {
-    .vdc-logo {width: 180px !important;}
+    .vdc-logo {
+        width: 180px !important;
+    }
 
-    .igoose-logo {width: 135px !important;}
+    .igoose-logo {
+        width: 135px !important;
+    }
 
-    .ichips-logo {width: 140px !important;}
+    .ichips-logo {
+        width: 140px !important;
+    }
 
-    .powerdefi-logo {width: 185px !important;}
+    .powerdefi-logo {
+        width: 185px !important;
+    }
 
-    .dice-logo {width: 135px !important;}
+    .dice-logo {
+        width: 135px !important;
+    }
 
-    .powermine-logo {width: 185px !important;}
+    .powermine-logo {
+        width: 185px !important;
+    }
 
-    .epic-logo {width: 125px !important;}
+    .epic-logo {
+        width: 125px !important;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1059px) {
-    .vdc-logo {width: 120px !important;height: 25px !important;}
+    .vdc-logo {
+        width: 120px !important;
+        height: 25px !important;
+    }
 
-    .igoose-logo {width: 100px !important;}
+    .igoose-logo {
+        width: 100px !important;
+    }
 
-    .ichips-logo {width: 80px !important;}
+    .ichips-logo {
+        width: 80px !important;
+    }
 
-    .powerdefi-logo {width: 150px !important;}
+    .powerdefi-logo {
+        width: 150px !important;
+    }
 
-    .dice-logo {width: 100px !important;}
+    .dice-logo {
+        width: 100px !important;
+    }
 
-    .powermine-logo {width: 150px !important;}
+    .powermine-logo {
+        width: 150px !important;
+    }
 
-    .epic-logo {width: 80px !important;}
+    .epic-logo {
+        width: 80px !important;
+    }
 }
 
 @media (min-width: 1060px) and (max-width: 1099px) {
-    .vdc-logo {    width: 140px !important;
-        height: 30px !important;}
+    .vdc-logo {
+        width: 140px !important;
+        height: 30px !important;
+    }
 
-    .igoose-logo {width: 120px !important;}
+    .igoose-logo {
+        width: 120px !important;
+    }
 
-    .ichips-logo {width: 90px !important;}
+    .ichips-logo {
+        width: 90px !important;
+    }
 
-    .powerdefi-logo {width: 160px !important;}
+    .powerdefi-logo {
+        width: 160px !important;
+    }
 
-    .dice-logo {width: 120px !important;}
+    .dice-logo {
+        width: 120px !important;
+    }
 
-    .powermine-logo {width: 160px !important;}
+    .powermine-logo {
+        width: 160px !important;
+    }
 
-    .epic-logo {width: 90px !important;}
+    .epic-logo {
+        width: 90px !important;
+    }
 }
 
 @media (min-width: 1300px) and (max-width: 1399px) {
-    .vdc-logo {width: 145px !important;}
+    .vdc-logo {
+        width: 145px !important;
+    }
 
-    .igoose-logo {width: 125px !important;}
+    .igoose-logo {
+        width: 125px !important;
+    }
 
-    .ichips-logo {width: 125px !important;}
+    .ichips-logo {
+        width: 125px !important;
+    }
 
-    .powerdefi-logo {width: 170px !important;}
+    .powerdefi-logo {
+        width: 170px !important;
+    }
 
-    .dice-logo {width: 125px !important;}
+    .dice-logo {
+        width: 125px !important;
+    }
 
-    .powermine-logo {width: 170px !important;}
+    .powermine-logo {
+        width: 170px !important;
+    }
 
-    .epic-logo {width: 125px !important;}
+    .epic-logo {
+        width: 125px !important;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1299px) {
-    .vdc-logo {width: 115px !important;
-        height: 25px !important;}
+    .vdc-logo {
+        width: 115px !important;
+        height: 25px !important;
+    }
 
-    .igoose-logo {width: 115px !important;}
+    .igoose-logo {
+        width: 115px !important;
+    }
 
-    .ichips-logo {width: 115px !important;}
+    .ichips-logo {
+        width: 115px !important;
+    }
 
-    .powerdefi-logo {width: 130px !important;}
+    .powerdefi-logo {
+        width: 130px !important;
+    }
 
-    .dice-logo {width: 115px !important;}
+    .dice-logo {
+        width: 115px !important;
+    }
 
-    .powermine-logo {width: 130px !important;}
+    .powermine-logo {
+        width: 130px !important;
+    }
 
-    .epic-logo {width: 115px !important;}
+    .epic-logo {
+        width: 115px !important;
+    }
 }
 
 @media (min-width: 1100px) and (max-width: 1199px) {
-    .vdc-logo {width: 100px !important;
-        height: 25px !important;}
+    .vdc-logo {
+        width: 100px !important;
+        height: 25px !important;
+    }
 
-    .igoose-logo {width: 90px !important;}
+    .igoose-logo {
+        width: 90px !important;
+    }
 
-    .ichips-logo {width: 90px !important;}
+    .ichips-logo {
+        width: 90px !important;
+    }
 
-    .powerdefi-logo {width: 110px !important;}
+    .powerdefi-logo {
+        width: 110px !important;
+    }
 
-    .dice-logo {width: 100px !important;}
+    .dice-logo {
+        width: 100px !important;
+    }
 
-    .powermine-logo {width: 110px !important;}
+    .powermine-logo {
+        width: 110px !important;
+    }
 
-    .epic-logo {width: 90px !important;}
+    .epic-logo {
+        width: 90px !important;
+    }
 }
 
 /*end header menu images size*/
+
+
+/*The chosen one page start*/
+.thechosenone-body-view {
+    background-image: url(../images/thechosenone-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.thechosenone-body-view .top-wrapper {
+    background: transparent;
+}
+
+.thechosenone-body-view .uniswap-container {
+    padding-bottom: 0px;
+}
+
+.thechosenone-body-view .header .logo img {
+    max-width: 200px;
+    width: 200px;
+}
+
+
+#disclaimerModal .modal-body {
+    background: #030303;
+    color: white;
+    text-align: center;
+}
+
+#disclaimerModal .btn {
+    background: linear-gradient(to right, #B9AF5B 0%, #DCD880 100%);
+    color: black;
+}
+
+.left-info-box {
+    height: 100%;
+    padding: 5px 15px 15px;
+    border-radius: 4px;
+    border: 3px solid #bfac5b;
+    color: white;
+}
+
+.space-between-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+    .thechosenone-body-view #main-nav {
+        position: absolute;
+        top: 195px;
+    }
+}
+
+.thechosenone-body-view .tab-content {
+    background: transparent;
+}
+
+.thechosenone-body-view .tab-header-img{
+    height: 25px;
+    width: 25px;
+}
+
+.thechosenone-body-view .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: transparent;
+    border: none;
+}
+
+.thechosenone-body-view .nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+}
+
+.thechosenone-body-view .nav-tabs > li {
+    width: 50%;
+}
+
+.thechosenone-body-view .nav-tabs li.active {
+    color: #ffeb00;
+    background-color: transparent;
+    border-color: transparent transparent #ffbd00;
+    border-bottom: 4px solid !important;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.thechosenone-body-view .stat-table > tbody > tr > td {
+    border-top: none;
+    color: white;
+}
+
+.thechosenone-body-view header#header {
+    padding-top: 0px;
+}
+
+.thechosenone-body-view caption {
+    padding-top: 0px;
+}
+
+.animated-box {
+    -webkit-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    overflow: hidden;
+    color: white;
+    text-decoration: none;
+    -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.animated-box::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    opacity: 0;
+    -webkit-transition: .2s opacity ease-in-out;
+    transition: .2s opacity ease-in-out;
+}
+
+.animated-box:hover::before {
+    opacity: 0.2;
+}
+
+.animated-box span {
+    position: absolute;
+}
+
+.animated-box span:nth-child(1) {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 4px;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(43, 8, 8, 0)), to(#FFDF00));
+    background: linear-gradient(to left, rgba(43, 8, 8, 0), #FFDF00);
+    -webkit-animation: 2s animateTop linear infinite;
+    animation: 2s animateTop linear infinite;
+}
+
+@keyframes animateTop {
+    0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+.animated-box span:nth-child(2) {
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 4px;
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 8, 8, 0)), to(#FFDF00));
+    background: linear-gradient(to top, rgba(43, 8, 8, 0), #FFDF00);
+    -webkit-animation: 2s animateRight linear -1s infinite;
+    animation: 2s animateRight linear -1s infinite;
+}
+
+@keyframes animateRight {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+    100% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+}
+
+.animated-box span:nth-child(3) {
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 4px;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(43, 8, 8, 0)), to(#FFDF00));
+    background: linear-gradient(to right, rgba(43, 8, 8, 0), #FFDF00);
+    -webkit-animation: 2s animateBottom linear infinite;
+    animation: 2s animateBottom linear infinite;
+}
+
+@keyframes animateBottom {
+    0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+    100% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+}
+
+.animated-box span:nth-child(4) {
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 4px;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 8, 8, 0)), to(#FFDF00));
+    background: linear-gradient(to bottom, rgba(43, 8, 8, 0), #FFDF00);
+    -webkit-animation: 2s animateLeft linear -1s infinite;
+    animation: 2s animateLeft linear -1s infinite;
+}
+
+@keyframes animateLeft {
+    0% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    100% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+}
+
+.round-text {
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: white;
+    color: transparent;
+    background: linear-gradient(180deg, #fefefe, #B9AF5B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-filter: drop-shadow(-1px -1px white) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(12px 12px 30px rgba(0, 0, 0, 0.2)) drop-shadow(12px 12px 10px rgba(0, 0, 0, 0.2));
+}
+
+.left-info-box-title {
+    color: hsla(0,0%,0%,0);
+    perspective: 80px;
+    outline: none;
+}
+
+.left-info-box-title--stat {
+    display: inline-block;
+    text-shadow: #bbb 0 0 1px, #fff 0 -1px 2px, #fff 0 -3px 2px, rgba(0,0,0,0.8) 0 30px 25px;
+    transition: margin-left 0.3s cubic-bezier(0, 1, 0, 1);
+}
+
+.left-info-box-title--king {
+    display: inline-block;
+    text-shadow: #bbb 0 0 1px, #fff 0 -1px 2px, #fff 0 -3px 2px, rgba(0,0,0,0.8) 0 30px 25px;
+    transition: margin-left 0.3s cubic-bezier(0, 1, 0, 1);
+    margin-bottom: 0px;
+}
+
+.left-info-box:hover .left-info-box-title--stat {
+    margin-left: 20px;
+    transition: margin-left 1s cubic-bezier(0, 0.75, 0, 1);
+}
+
+.left-info-box:hover .left-info-box-title--king {
+    margin-left: 20px;
+    transition: margin-left 1s cubic-bezier(0, 0.75, 0, 1);
+}
+
+.dice-panel {
+    display: flex;
+    align-items: center;
+}
+
+.dice-panel-input {
+    background-color: #1b1b1b94;
+    padding: 0 15px;
+    border: 1px solid #828282;
+    display: flex;
+    align-items: center;
+}
+
+.dice-deposit-amount {
+    text-align: right;
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    color: #fff;
+
+    border: none;
+    box-shadow: none;
+    min-width: 0;
+}
+
+.dice-roll-btn {
+    margin: auto;
+    border-bottom: 2px solid #B9AF5B;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 185px;
+    height: 60px;
+    background: linear-gradient(#dcd06b, #9e954c);
+    color: #fff;
+}
+
+.dice-roll-btn:hover {
+    background: linear-gradient(#efe275, #847c40);
+}
+
+.dice-roll-btn:active {
+    background: linear-gradient(#eadd71, #878041);
+    outline: none;
+}
+
+.mr-05 {
+    margin-right: .5rem!important;
+}
+
+.dice-roll-btn--shadow {
+    margin-left: 7px;
+    border-radius: 45px/8px;
+    width: 45px;
+    height: 8px;
+    background: #6f6932;
+}
+
+.dice-roll-btn-caption .text {
+    font-size: 15px;
+    text-shadow: 1px 1px 1px #666;
+}
+/*The chosen one page end*/

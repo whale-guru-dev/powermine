@@ -16,6 +16,7 @@ var richListRouter = require('./routes/richList');
 var iChipRouter = require('./routes/ichips');
 var epicRouter = require('./routes/epic');
 var vdcRouter = require('./routes/vdc');
+var thechosenoneRouter = require('./routes/thechosenone');
 
 var vdcRichlist = require('./vdc/api');
 var richList = require('./richlist/richlist');
@@ -58,6 +59,7 @@ app.use('/richList', richListRouter);
 app.use('/iChip', iChipRouter);
 app.use('/epic', epicRouter);
 app.use('/vdc', vdcRouter);
+app.use('/thechosenone', thechosenoneRouter);
 
 app.get('*', function (req, res) {
     res.render('404');

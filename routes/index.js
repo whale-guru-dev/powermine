@@ -97,4 +97,8 @@ router.get('/epic/', function(req, res, next) {
   res.render('epic');
 });
 
+router.get('/thechosenone/', function(req, res, next) {
+  res.render('thechosenone');
+});
+
 module.exports = router;
