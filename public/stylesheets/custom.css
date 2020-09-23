@@ -3769,6 +3769,11 @@ button[disabled], html input[disabled] {
 }
 
 .dice-roll-btn {
+    background-color: transparent;
+    border: none;
+    outline: none!important;
+    cursor: pointer;
+
     margin: auto;
     border-bottom: 2px solid #B9AF5B;
     text-transform: uppercase;
