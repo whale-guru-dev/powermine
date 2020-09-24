@@ -2636,7 +2636,7 @@ button[disabled], html input[disabled] {
 }
 
 .ticker-wrap {
-    /*position: fixed;*/
+    position: fixed;
     bottom: 0;
     width: 100%;
     overflow: hidden;
@@ -3781,8 +3781,8 @@ button[disabled], html input[disabled] {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 185px;
-    height: 60px;
+    width: 105px;
+    height: 35px;
     background: linear-gradient(#dcd06b, #9e954c);
     color: #fff;
 }
@@ -3803,13 +3803,13 @@ button[disabled], html input[disabled] {
 .dice-roll-btn--shadow {
     margin-left: 7px;
     border-radius: 45px/8px;
-    width: 45px;
-    height: 8px;
+    width: 35px;
+    height: 3px;
     background: #6f6932;
 }
 
 .dice-roll-btn-caption .text {
-    font-size: 15px;
+    font-size: 10px;
     text-shadow: 1px 1px 1px #666;
 }
 
@@ -3849,5 +3849,14 @@ button[disabled], html input[disabled] {
             0 0 90px #e0e584,
             0 0 100px #e0e584,
             0 0 150px #e0e584;
+}
+
+.space-around-text {
+    display: flex;
+    justify-content: space-around;
+}
+
+.display-flex {
+    display: flex;
 }
 /*The chosen one page end*/
