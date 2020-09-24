@@ -3483,7 +3483,7 @@ button[disabled], html input[disabled] {
 
 /*The chosen one page start*/
 .thechosenone-body-view {
-    background-image: url(../images/thechosenone-bg.jpg);
+    background-image: url(../images/thechosenone-bg.png);
     background-repeat: no-repeat;
     background-position: right bottom;
     background-attachment: fixed;
