@@ -2660,8 +2660,8 @@ button[disabled], html input[disabled] {
     animation-timing-function: linear;
     -webkit-animation-name: ticker;
     animation-name: ticker;
-    -webkit-animation-duration: 400s;
-    animation-duration: 400s;
+    -webkit-animation-duration: 40s;
+    animation-duration: 40s;
 }
 
 .ticker__item {
@@ -2672,7 +2672,7 @@ button[disabled], html input[disabled] {
 }
 
 .ticker__item span {
-    padding-right: 2000px;
+    padding-right: 100px;
 }
 
 /*header navbar*/
@@ -3811,5 +3811,43 @@ button[disabled], html input[disabled] {
 .dice-roll-btn-caption .text {
     font-size: 15px;
     text-shadow: 1px 1px 1px #666;
+}
+
+.bg-golden {
+    background: #615b2e73;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.padding-bottom-zero {
+    padding-bottom: 0;
+}
+
+.knight-text {
+    color: #fff;
+    text-shadow:
+            0 0 5px #aaa9ad,
+            0 0 10px #aaa9ad,
+            0 0 20px #aaa9ad,
+            0 0 40px #c3c1c0,
+            0 0 80px #c3c1c0,
+            0 0 90px #c3c1c0,
+            0 0 100px #c3c1c0,
+            0 0 150px #c3c1c0;
+}
+
+.king-text {
+    color: #fff;
+    text-shadow:
+            0 0 5px #dfe06b,
+            0 0 10px #dfe06b,
+            0 0 20px #dfe06b,
+            0 0 40px #e0e584,
+            0 0 80px #e0e584,
+            0 0 90px #e0e584,
+            0 0 100px #e0e584,
+            0 0 150px #e0e584;
 }
 /*The chosen one page end*/
