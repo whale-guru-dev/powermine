@@ -2,6 +2,7 @@ window.onload = () => {
     showDisclaimerModal();
     getTotalStakedPmine();
     getBurntTokens();
+    getAccountDetail();
 }
 
 function showDisclaimerModal() {
@@ -38,6 +39,51 @@ function getBurntTokens() {
 
     fetchBurntToken();
     setInterval(fetchBurntToken, 10 * 60 * 1000)
+}
+
+function getAccountDetail() {
+    const fetchAccountDetail = () => {
+        try {
+            window.IWalletJS.enable()
+                .then(account => {
+                    if (!account) return;
+                    getUserBalance(account);
+                    document.getElementById("accountName").innerHTML = `${account}`
+                })
+                .catch(err => {
+                    document.getElementById("accountName").innerHTML = `n/a`
+                    return;
+                });
+        } catch (error) {
+            document.getElementById("accountName").innerHTML = `n/a`
+            return;
+        }
+    }
+
+    fetchAccountDetail()
+    setInterval(fetchAccountDetail, 10 * 60 * 1000)
+}
+
+function getUserBalance(account){
+
+    try {
+        fetch('https://api.iost.io/getTokenBalance/' + account  + '/iost/true').then(res => res.json()).then(json => {
+            document.getElementById("accountIostBalance").innerHTML = `${(parseFloat(json.balance).toFixed(4))} iost`;
+
+        }).catch(err => {
+            document.getElementById("accountIostBalance").innerHTML = `${((0).toFixed(4))} iost`;
+        })
+
+        fetch('https://api.iost.io/getTokenBalance/' + account + '/pmine/true').then(res => res.json()).then(json => {
+            document.getElementById("accountPmineBalance").innerHTML = `${(parseFloat(json.balance).toFixed(4))} pmine`;
+        }).catch(err => {
+            document.getElementById("accountPmineBalance").innerHTML = `${((0).toFixed(4))} pmine`;
+        })
+    } catch (e) {
+        document.getElementById("accountIostBalance").innerHTML = `${(parseFloat(json.balance).toFixed(4))} iost`;
+        document.getElementById("accountPmineBalance").innerHTML = `${((0).toFixed(4))} pmine`;
+    }
+
 }
 
 $(document).on("click", "#joinRoundBtn", function () {
