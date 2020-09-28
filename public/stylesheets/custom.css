@@ -3519,7 +3519,7 @@ button[disabled], html input[disabled] {
     height: 100%;
     padding: 5px 15px 15px;
     border-radius: 4px;
-    border: 3px solid #bfac5b;
+    border: 3px solid #75aaff;
     color: white;
 }
 
@@ -3617,8 +3617,8 @@ button[disabled], html input[disabled] {
     left: 0px;
     width: 100%;
     height: 4px;
-    background: -webkit-gradient(linear, right top, left top, from(rgba(43, 8, 8, 0)), to(#FFDF00));
-    background: linear-gradient(to left, rgba(43, 8, 8, 0), #FFDF00);
+    background: -webkit-gradient(linear, right top, left top, from(rgba(43, 8, 8, 0)), to(#75aaff));
+    background: linear-gradient(to left, rgba(43, 8, 8, 0), #75aaff);
     -webkit-animation: 2s animateTop linear infinite;
     animation: 2s animateTop linear infinite;
 }
@@ -3639,8 +3639,8 @@ button[disabled], html input[disabled] {
     right: 0px;
     height: 100%;
     width: 4px;
-    background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 8, 8, 0)), to(#FFDF00));
-    background: linear-gradient(to top, rgba(43, 8, 8, 0), #FFDF00);
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 8, 8, 0)), to(#75aaff));
+    background: linear-gradient(to top, rgba(43, 8, 8, 0), #75aaff);
     -webkit-animation: 2s animateRight linear -1s infinite;
     animation: 2s animateRight linear -1s infinite;
 }
@@ -3661,8 +3661,8 @@ button[disabled], html input[disabled] {
     left: 0px;
     width: 100%;
     height: 4px;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(43, 8, 8, 0)), to(#FFDF00));
-    background: linear-gradient(to right, rgba(43, 8, 8, 0), #FFDF00);
+    background: -webkit-gradient(linear, left top, right top, from(rgba(43, 8, 8, 0)), to(#75aaff));
+    background: linear-gradient(to right, rgba(43, 8, 8, 0), #75aaff);
     -webkit-animation: 2s animateBottom linear infinite;
     animation: 2s animateBottom linear infinite;
 }
@@ -3683,8 +3683,8 @@ button[disabled], html input[disabled] {
     left: 0px;
     height: 100%;
     width: 4px;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 8, 8, 0)), to(#FFDF00));
-    background: linear-gradient(to bottom, rgba(43, 8, 8, 0), #FFDF00);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 8, 8, 0)), to(#75aaff));
+    background: linear-gradient(to bottom, rgba(43, 8, 8, 0), #75aaff);
     -webkit-animation: 2s animateLeft linear -1s infinite;
     animation: 2s animateLeft linear -1s infinite;
 }
