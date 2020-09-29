@@ -3826,6 +3826,7 @@ button[disabled], html input[disabled] {
 }
 
 .knight-text {
+    font-weight: unset;
     color: #fff;
     text-shadow:
             0 0 5px #aaa9ad,
@@ -3839,6 +3840,7 @@ button[disabled], html input[disabled] {
 }
 
 .king-text {
+    font-weight: unset;
     color: #fff;
     text-shadow:
             0 0 5px #dfe06b,

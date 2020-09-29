@@ -3,6 +3,7 @@ window.onload = () => {
     getTotalStakedPmine();
     getBurntTokens();
     getAccountDetail();
+    getPreviousKingKinghtsList();
 }
 
 function showDisclaimerModal() {
@@ -84,6 +85,31 @@ function getUserBalance(account){
         document.getElementById("accountPmineBalance").innerHTML = `${((0).toFixed(4))} pmine`;
     }
 
+}
+
+
+function getPreviousKingKinghtsList () {
+    const fetchPreviousKingKinghtsList = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(xhttp.responseText);
+                var list = JSON.parse(xhttp.responseText);
+                if(list.length > 0) {
+                    $("#kingVal").html(list[0]);
+                    $("#knightVal1").html(list[1]);
+                    $("#knightVal2").html(list[2]);
+                    $("#knightVal3").html(list[3]);
+                    $("#knightVal4").html(list[4]);
+                }
+            }
+        };
+        xhttp.open("GET", "/thechosenone/previous_king_knights_list", true);
+        xhttp.send();
+    }
+
+    fetchPreviousKingKinghtsList()
+    setInterval(fetchPreviousKingKinghtsList, 10 * 60 * 1000)
 }
 
 $(document).on("click", "#joinRoundBtn", function () {
