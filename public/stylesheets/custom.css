@@ -3871,4 +3871,8 @@ button[disabled], html input[disabled] {
     padding-top: 5px;
     padding-bottom: 10px;
 }
+
+.account-detail-section {
+    padding-top: 13px;
+}
 /*The chosen one page end*/
