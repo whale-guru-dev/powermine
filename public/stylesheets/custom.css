@@ -3560,9 +3560,9 @@ button[disabled], html input[disabled] {
 }
 
 .thechosenone-body-view .nav-tabs li.active {
-    color: #ffeb00;
+    color: #75aaff;
     background-color: transparent;
-    border-color: transparent transparent #ffbd00;
+    border-color: transparent transparent #6390d9;
     border-bottom: 4px solid !important;
     font-size: 16px;
     font-weight: normal;
