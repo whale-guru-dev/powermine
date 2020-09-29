@@ -3875,4 +3875,16 @@ button[disabled], html input[disabled] {
 .account-detail-section {
     padding-top: 13px;
 }
+
+#div_king_of_known {
+    color: green;
+}
+
+#div_king_of_week {
+    color: red;
+}
+
+#div_sitting_king {
+    color: #75aaff;
+}
 /*The chosen one page end*/

@@ -11,5 +11,34 @@ router.get('/previous_king_knights_list', function (req, res, next) {
         .catch(e => res.send(e))
 });
 
+router.get('/king_of_renown', function (req, res, next) {
+    thechosenone.grab_king_of_renown()
+        .then(result => {
+
+            return res.send(JSON.parse(result).data)
+        })
+        .catch(e => res.send(e))
+});
+
+router.get('/king_of_week', function (req, res, next) {
+    thechosenone.grab_king_of_week()
+        .then(result => {
+
+            return res.send(JSON.parse(result).data)
+        })
+        .catch(e => res.send(e))
+});
+
+
+router.get('/sitting_king', function (req, res, next) {
+    thechosenone.grab_setting_king()
+        .then(result => {
+
+            return res.send(JSON.parse(result).data)
+        })
+        .catch(e => res.send(e))
+});
+
+
 
 module.exports = router;

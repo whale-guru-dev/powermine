@@ -1,46 +1,49 @@
 window.onload = () => {
     showDisclaimerModal();
-    getTotalStakedPmine();
-    getBurntTokens();
+    // getTotalStakedPmine();
+    // getBurntTokens();
     getAccountDetail();
     getPreviousKingKinghtsList();
+    getKingOfRenown();
+    getKingOfWeek();
+    getSittingKing();
 }
 
 function showDisclaimerModal() {
     $('#disclaimerModal').modal({show: true});
 }
 
-function getTotalStakedPmine() {
-    const fetchToken = () => {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('total_pmine').innerText = `${parseFloat(xhttp.responseText).toFixed(4)} PMINE`;
-            }
-        };
-        xhttp.open("GET", "/iost/totalStaked", true);
-        xhttp.send();
-    }
+// function getTotalStakedPmine() {
+//     const fetchToken = () => {
+//         var xhttp = new XMLHttpRequest();
+//         xhttp.onreadystatechange = function () {
+//             if (this.readyState == 4 && this.status == 200) {
+//                 document.getElementById('total_pmine').innerText = `${parseFloat(xhttp.responseText).toFixed(4)} PMINE`;
+//             }
+//         };
+//         xhttp.open("GET", "/iost/totalStaked", true);
+//         xhttp.send();
+//     }
+//
+//     fetchToken()
+//     setInterval(fetchToken, 10 * 60 * 1000)
+// }
 
-    fetchToken()
-    setInterval(fetchToken, 10 * 60 * 1000)
-}
-
-function getBurntTokens() {
-    const fetchBurntToken = () => {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('pmine_burnt').innerText = `${parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0)} PMINE`;
-            }
-        };
-        xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
-        xhttp.send();
-    };
-
-    fetchBurntToken();
-    setInterval(fetchBurntToken, 10 * 60 * 1000)
-}
+// function getBurntTokens() {
+//     const fetchBurntToken = () => {
+//         var xhttp = new XMLHttpRequest();
+//         xhttp.onreadystatechange = function () {
+//             if (this.readyState == 4 && this.status == 200) {
+//                 document.getElementById('pmine_burnt').innerText = `${parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0)} PMINE`;
+//             }
+//         };
+//         xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
+//         xhttp.send();
+//     };
+//
+//     fetchBurntToken();
+//     setInterval(fetchBurntToken, 10 * 60 * 1000)
+// }
 
 function getAccountDetail() {
     const fetchAccountDetail = () => {
@@ -110,6 +113,57 @@ function getPreviousKingKinghtsList () {
 
     fetchPreviousKingKinghtsList()
     setInterval(fetchPreviousKingKinghtsList, 10 * 60 * 1000)
+}
+
+function getKingOfRenown () {
+    const fetchKingOfRenown = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('kingOfRenown',xhttp.responseText);
+                $("#king_known").html(xhttp.responseText);
+            }
+        };
+        xhttp.open("GET", "/thechosenone/king_of_renown", true);
+        xhttp.send();
+    }
+
+    fetchKingOfRenown()
+    setInterval(fetchKingOfRenown, 10 * 60 * 1000)
+}
+
+function getKingOfWeek () {
+    const fetchKingOfWeek = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('kingOfWeek',xhttp.responseText);
+                $("#king_week").html(xhttp.responseText);
+            }
+        };
+        xhttp.open("GET", "/thechosenone/king_of_week", true);
+        xhttp.send();
+    }
+
+    fetchKingOfWeek()
+    setInterval(fetchKingOfWeek, 10 * 60 * 1000)
+}
+
+function getSittingKing () {
+    const fetchSittingKing = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('sittingKing',xhttp.responseText);
+                $("#sitting_king").html(xhttp.responseText);
+            }
+        };
+        xhttp.open("GET", "/thechosenone/sitting_king", true);
+        xhttp.send();
+    }
+
+    fetchSittingKing()
+    setInterval(fetchSittingKing, 10 * 60 * 1000)
 }
 
 $(document).on("click", "#joinRoundBtn", function () {
