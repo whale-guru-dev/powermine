@@ -7,6 +7,7 @@ window.onload = () => {
     getKingOfRenown();
     getKingOfWeek();
     getSittingKing();
+    getUserStats();
 }
 
 function showDisclaimerModal() {
@@ -164,6 +165,24 @@ function getSittingKing () {
 
     fetchSittingKing()
     setInterval(fetchSittingKing, 10 * 60 * 1000)
+}
+
+
+function getUserStats () {
+    const fetchUserStats = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('userStats',xhttp.responseText);
+
+            }
+        };
+        xhttp.open("GET", "/thechosenone/get_user_stats", true);
+        xhttp.send();
+    }
+
+    fetchUserStats()
+    setInterval(fetchUserStats, 10 * 60 * 1000)
 }
 
 $(document).on("click", "#joinRoundBtn", function () {

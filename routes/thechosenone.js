@@ -39,6 +39,12 @@ router.get('/sitting_king', function (req, res, next) {
         .catch(e => res.send(e))
 });
 
-
+router.get('/get_user_stats', function(req, res, next) {
+    thechosenone.getUserKeys()
+        .then(result => {
+            return res.send(JSON.parse(result).data)
+        })
+        .catch(e => res.send(e))
+})
 
 module.exports = router;

@@ -1,3 +1,5 @@
+var axios = require("axios");
+
 exports.grab_previous_king_knights_list = () => {
     return new Promise((resolve, reject) => {
         require('request').post('http://api.iost.io/getContractStorage', {
@@ -72,4 +74,51 @@ exports.grab_setting_king = () => {
             }
         })
     })
+}
+
+//Retrieve an array of users.
+getUserKeys_internal = async () => {
+    let postData = {
+        id: "ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca",
+        key: "userKeys",
+        by_longest_chain: true
+    }
+
+    return await axios.post("https://api.iost.io/getContractStorage", postData, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', }, credentials: 'omit' })
+        .then(res => {
+            //returns array of users on the contract.
+            return JSON.parse(res.data.data);
+        })
+        .catch(error => {
+            //returns empty array.
+            return []
+        })
+}
+
+//Retrieve an array of users with their corresponding data.
+exports.getUserKeys = async () => {
+    let users = await getUserKeys_internal();
+
+    let userData = users.map(user => {
+        let postData = {
+            id: "ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca",
+            key: "users",
+            field: user,
+            by_longest_chain: true
+        }
+
+        return axios.post("https://api.iost.io/getContractStorage", postData, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', }, credentials: 'omit' })
+            .then(res => {
+                //returns an object of the user ie {user: "pmine_admin", king: 2, wins: 2, loss: 0}
+                return JSON.parse(res.data.data);
+            })
+            .catch(error => {
+                //returns empty array.
+                return null
+            })
+
+    })
+
+    return userData;
+
 }
