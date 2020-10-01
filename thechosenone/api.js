@@ -76,6 +76,26 @@ exports.grab_setting_king = () => {
     })
 }
 
+
+exports.grab_user_stat_test = () => {
+    return new Promise((resolve, reject) => {
+        require('request').post('http://api.iost.io/getContractStorage', {
+            body: JSON.stringify({
+                id: "ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca",
+                key: "userKeys",
+                by_longest_chain: true
+            })
+        }, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+
+                return resolve(body);
+            } else {
+                return reject('Failed')
+            }
+        })
+    })
+}
+
 //Retrieve an array of users.
 getUserKeys_internal = async () => {
     let postData = {
@@ -98,8 +118,8 @@ getUserKeys_internal = async () => {
 //Retrieve an array of users with their corresponding data.
 exports.getUserKeys = async () => {
     let users = await getUserKeys_internal();
-
-    let userData = users.map(user => {
+    
+    return await users.map(user => {
         let postData = {
             id: "ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca",
             key: "users",
@@ -119,6 +139,11 @@ exports.getUserKeys = async () => {
 
     })
 
-    return userData;
+
+   
+
+
+
+    
 
 }
