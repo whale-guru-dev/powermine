@@ -121,8 +121,7 @@ function getKingOfRenown () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                console.log('kingOfRenown',xhttp.responseText);
-                $("#king_known").html(xhttp.responseText);
+                $("#king_known").html(JSON.parse(xhttp.responseText).king);
             }
         };
         xhttp.open("GET", "/thechosenone/king_of_renown", true);
@@ -138,8 +137,7 @@ function getKingOfWeek () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                console.log('kingOfWeek',xhttp.responseText);
-                $("#king_week").html(xhttp.responseText);
+                $("#king_week").html(JSON.parse(xhttp.responseText).king);
             }
         };
         xhttp.open("GET", "/thechosenone/king_of_week", true);
@@ -155,8 +153,7 @@ function getSittingKing () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                console.log('sittingKing',xhttp.responseText);
-                $("#sitting_king").html(xhttp.responseText);
+                $("#sitting_king").html(JSON.parse(xhttp.responseText).king);
             }
         };
         xhttp.open("GET", "/thechosenone/sitting_king", true);
@@ -173,8 +170,35 @@ function getUserStats () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                console.log('userStats',xhttp.responseText);
+                var userStats = JSON.parse(xhttp.responseText);
+                userStats.sort(function (a, b) {
+                    return b.wins - a.wins;
+                });
+                var userStatsTableHtml = "";
+                var countKingTableHtml = "";
+                var countWinTableHtml = "";
+                userStats.forEach((each, index) => {
+                    userStatsTableHtml += '<tr>\n' +
+                        '<td>'+each.user+'</td>\n' +
+                        '<td>'+each.wins+'</td>\n' +
+                        '<td>'+each.loss+'</td>\n' +
+                        '</tr>'
 
+                    countKingTableHtml += '<tr>\n' +
+                        '<td>'+each.user+'</td>\n' +
+                        '<td>'+each.kings+'</td>\n' +
+                        '</tr>';
+
+                    countWinTableHtml += '<tr>\n' +
+                        '<td>#'+(index+1)+'</td>\n' +
+                        '<td>'+each.user+'</td>\n' +
+                        '</tr>';
+                });
+
+
+                $("#userStatsTable").html(userStatsTableHtml);
+                $("#countKingTable").html(countKingTableHtml);
+                $("#countWinTable").html(countWinTableHtml);
             }
         };
         xhttp.open("GET", "/thechosenone/get_user_stats", true);
