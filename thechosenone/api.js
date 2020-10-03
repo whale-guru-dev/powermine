@@ -5,7 +5,8 @@ exports.grab_previous_king_knights_list = () => {
         require('request').post('http://api.iost.io/getContractStorage', {
             body: JSON.stringify({
                 id: "ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca",
-                key: "previousRound",
+                // key: "previousRound",
+                key: "players",
                 by_longest_chain: true
             })
         }, function (error, response, body) {

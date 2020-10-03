@@ -1,7 +1,7 @@
 window.onload = () => {
     showDisclaimerModal();
     // getTotalStakedPmine();
-    // getBurntTokens();
+    getBurntTokens();
     getAccountDetail();
     getPreviousKingKinghtsList();
     getKingOfRenown();
@@ -30,21 +30,21 @@ function showDisclaimerModal() {
 //     setInterval(fetchToken, 10 * 60 * 1000)
 // }
 
-// function getBurntTokens() {
-//     const fetchBurntToken = () => {
-//         var xhttp = new XMLHttpRequest();
-//         xhttp.onreadystatechange = function () {
-//             if (this.readyState == 4 && this.status == 200) {
-//                 document.getElementById('pmine_burnt').innerText = `${parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0)} PMINE`;
-//             }
-//         };
-//         xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
-//         xhttp.send();
-//     };
-//
-//     fetchBurntToken();
-//     setInterval(fetchBurntToken, 10 * 60 * 1000)
-// }
+function getBurntTokens() {
+    const fetchBurntToken = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('pmine_burnt_total').innerText = `${parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0)} PMINE`;
+            }
+        };
+        xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
+        xhttp.send();
+    };
+
+    fetchBurntToken();
+    setInterval(fetchBurntToken, 10 * 60 * 1000)
+}
 
 function getAccountDetail() {
     const fetchAccountDetail = () => {
@@ -153,7 +153,7 @@ function getSittingKing () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                $("#sitting_king").html(JSON.parse(xhttp.responseText).king);
+                $("#sitting_king").html(xhttp.responseText);
             }
         };
         xhttp.open("GET", "/thechosenone/sitting_king", true);
