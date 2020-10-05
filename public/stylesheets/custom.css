@@ -3972,19 +3972,19 @@ button[disabled], html input[disabled] {
 
 @-webkit-keyframes neon-green {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #32cd32;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff,  0 0 18px #32cd32;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #32cd32;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff,  0 0 9px #32cd32;
     }
 }
 
 @-webkit-keyframes neon-blue {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #75aaff;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #75aaff;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #75aaff;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #75aaff;
     }
 }
 
@@ -4026,19 +4026,19 @@ button[disabled], html input[disabled] {
 
 @-moz-keyframes neon-green {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #32cd32;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff,  0 0 18px #32cd32;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #32cd32;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff,  0 0 9px #32cd32;
     }
 }
 
 @-moz-keyframes neon-blue {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #75aaff;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #75aaff;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #75aaff;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #75aaff;
     }
 }
 
@@ -4080,19 +4080,19 @@ button[disabled], html input[disabled] {
 
 @keyframes neon-green {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #32cd32;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff,  0 0 18px #32cd32;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #32cd32;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff,  0 0 9px #32cd32;
     }
 }
 
 @keyframes neon-blue {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #75aaff;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #75aaff;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #75aaff;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #75aaff;
     }
 }
 /*The chosen one page end*/
