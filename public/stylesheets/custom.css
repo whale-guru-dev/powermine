@@ -3891,7 +3891,7 @@ button[disabled], html input[disabled] {
 }
 
 #div_sitting_king {
-    color: #FFDD1B;
+    color: #ff00de;
     -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
     -moz-animation: neon3 1.5s ease-in-out infinite alternate;
     animation: neon3 1.5s ease-in-out infinite alternate;
@@ -3925,19 +3925,19 @@ button[disabled], html input[disabled] {
 
 @-webkit-keyframes neon3 {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #FFDD1B, 0 0 30px #FFDD1B, 0 0 36px #FFDD1B, 0 0 42px #FFDD1B, 0 0 48px #FFDD1B;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #FFDD1B, 0 0 15px #FFDD1B, 0 0 18px #FFDD1B, 0 0 21px #FFDD1B, 0 0 24px #FFDD1B;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de;
     }
 }
 
 @-webkit-keyframes neon4 {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #B6FF00, 0 0 30px #B6FF00, 0 0 36px #B6FF00, 0 0 42px #B6FF00, 0 0 48px #B6FF00;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #B6FF00;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #B6FF00, 0 0 15px #B6FF00, 0 0 18px #B6FF00, 0 0 21px #B6FF00, 0 0 24px #B6FF00;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #B6FF00;
     }
 }
 
@@ -3961,19 +3961,19 @@ button[disabled], html input[disabled] {
 
 @-moz-keyframes neon3 {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #FFDD1B, 0 0 30px #FFDD1B, 0 0 36px #FFDD1B, 0 0 42px #FFDD1B, 0 0 48px #FFDD1B;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #FFDD1B, 0 0 15px #FFDD1B, 0 0 18px #FFDD1B, 0 0 21px #FFDD1B, 0 0 24px #FFDD1B;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de;
     }
 }
 
 @-moz-keyframes neon4 {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #B6FF00, 0 0 30px #B6FF00, 0 0 36px #B6FF00, 0 0 42px #B6FF00, 0 0 48px #B6FF00;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #B6FF00;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #B6FF00, 0 0 15px #B6FF00, 0 0 18px #B6FF00, 0 0 21px #B6FF00, 0 0 24px #B6FF00;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #B6FF00;
     }
 }
 
@@ -3997,19 +3997,19 @@ button[disabled], html input[disabled] {
 
 @keyframes neon3 {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #FFDD1B, 0 0 30px #FFDD1B, 0 0 36px #FFDD1B, 0 0 42px #FFDD1B, 0 0 48px #FFDD1B;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #FFDD1B, 0 0 15px #FFDD1B, 0 0 18px #FFDD1B, 0 0 21px #FFDD1B, 0 0 24px #FFDD1B;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de;
     }
 }
 
 @keyframes neon4 {
     from {
-        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #B6FF00, 0 0 30px #B6FF00, 0 0 36px #B6FF00, 0 0 42px #B6FF00, 0 0 48px #B6FF00;
+        text-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #fff, 0 0 24px #B6FF00;
     }
     to {
-        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #B6FF00, 0 0 15px #B6FF00, 0 0 18px #B6FF00, 0 0 21px #B6FF00, 0 0 24px #B6FF00;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff, 0 0 12px #B6FF00;
     }
 }
 /*The chosen one page end*/
