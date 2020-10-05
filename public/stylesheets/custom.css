@@ -4095,4 +4095,14 @@ button[disabled], html input[disabled] {
         text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #75aaff;
     }
 }
+
+@font-face {
+    font-family: 'Prince_Valiant';
+    src: url('../fonts/Prince_Valiant/Prince_Valiant.woff') format('woff'),
+    url('../fonts/Prince_Valiant/Prince_Valiant.ttf') format('truetype');
+}
+
+.round-text {
+    font-family: 'Prince_Valiant';
+}
 /*The chosen one page end*/
