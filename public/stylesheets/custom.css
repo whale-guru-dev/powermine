@@ -4105,4 +4105,8 @@ button[disabled], html input[disabled] {
 .round-text {
     font-family: 'Prince_Valiant';
 }
+
+.king-knights-info-section {
+    max-height: 30px;
+}
 /*The chosen one page end*/
