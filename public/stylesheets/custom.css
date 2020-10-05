@@ -3732,12 +3732,12 @@ button[disabled], html input[disabled] {
     margin-bottom: 0px;
 }
 
-.left-info-box:hover .left-info-box-title--stat {
+.left-info-box:hover .left-info-box-title--stat_effect {
     margin-left: 20px;
     transition: margin-left 1s cubic-bezier(0, 0.75, 0, 1);
 }
 
-.left-info-box:hover .left-info-box-title--king {
+.left-info-box:hover .left-info-box-title--king_effect {
     margin-left: 20px;
     transition: margin-left 1s cubic-bezier(0, 0.75, 0, 1);
 }
