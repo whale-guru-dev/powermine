@@ -3877,33 +3877,48 @@ button[disabled], html input[disabled] {
 }
 
 #div_king_of_known {
-    color: #fff;
+    color: #32cd32;
     -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
     -moz-animation: neon1 1.5s ease-in-out infinite alternate;
     animation: neon1 1.5s ease-in-out infinite alternate;
 }
 
+#king_known {
+    color: #75aaff;
+}
+
 #div_king_of_week {
-    color: #228DFF;
+    color: #32cd32;
     -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
     -moz-animation: neon2 1.5s ease-in-out infinite alternate;
     animation: neon2 1.5s ease-in-out infinite alternate;
 }
 
+#king_week {
+    color: #75aaff;
+}
+
 #div_sitting_king {
-    color: #ff00de;
+    color: #32cd32;
     -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
     -moz-animation: neon3 1.5s ease-in-out infinite alternate;
     animation: neon3 1.5s ease-in-out infinite alternate;
 }
 
+#sitting_king {
+    color: #75aaff;
+}
+
 #div_pmine_burnt_total {
-    color: #B6FF00;
+    color: #32cd32;
     -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
     -moz-animation: neon4 1.5s ease-in-out infinite alternate;
     animation: neon4 1.5s ease-in-out infinite alternate;
 }
 
+#pmine_burnt_total {
+    color: #75aaff;
+}
 
 @-webkit-keyframes neon1 {
     from {
