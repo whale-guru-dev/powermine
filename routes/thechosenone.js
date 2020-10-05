@@ -45,9 +45,12 @@ router.get('/get_user_stats', async function(req, res, next) {
             res.send(userstat);
         })
     });
+});
 
-
-      
-})
+router.get('/get_round_number', async function(req, res, next) {
+    thechosenone.grab_round_number().then(result => {
+        return res.send(JSON.parse(result).data)
+    });
+});
 
 module.exports = router;

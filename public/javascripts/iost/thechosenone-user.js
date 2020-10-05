@@ -8,6 +8,7 @@ window.onload = () => {
     getKingOfWeek();
     getSittingKing();
     getUserStats();
+    getRoundNumber();
 }
 
 function showDisclaimerModal() {
@@ -164,6 +165,21 @@ function getSittingKing () {
     setInterval(fetchSittingKing, 10 * 60 * 1000)
 }
 
+function getRoundNumber () {
+    const fetchRoundNumber = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                $("#roundNumber").html(xhttp.responseText);
+            }
+        };
+        xhttp.open("GET", "/thechosenone/get_round_number", true);
+        xhttp.send();
+    }
+
+    fetchRoundNumber()
+    setInterval(fetchRoundNumber, 10 * 60 * 1000)
+}
 
 function getUserStats () {
     const fetchUserStats = () => {
