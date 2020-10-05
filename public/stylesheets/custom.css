@@ -3707,10 +3707,10 @@ button[disabled], html input[disabled] {
     margin-bottom: 0;
     color: white;
     color: transparent;
-    background: linear-gradient(180deg, #fefefe, #B9AF5B);
+    background: linear-gradient(180deg, #fefefe, #a7964f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-filter: drop-shadow(-1px -1px white) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(1px 1px #B9AF5B) drop-shadow(12px 12px 30px rgba(0, 0, 0, 0.2)) drop-shadow(12px 12px 10px rgba(0, 0, 0, 0.2));
+    -webkit-filter: drop-shadow(-1px -1px white) drop-shadow(1px 1px #a7964f) drop-shadow(1px 1px #a7964f) drop-shadow(1px 1px #a7964f) drop-shadow(1px 1px #a7964f) drop-shadow(1px 1px #a7964f) drop-shadow(1px 1px #a7964f) drop-shadow(12px 12px 30px rgba(0, 0, 0, 0.2)) drop-shadow(12px 12px 10px rgba(0, 0, 0, 0.2));
 }
 
 .left-info-box-title {
