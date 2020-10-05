@@ -3703,7 +3703,7 @@ button[disabled], html input[disabled] {
 .round-text {
     letter-spacing: 2px;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-bottom: 0;
     color: white;
     color: transparent;
