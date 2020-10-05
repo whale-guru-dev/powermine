@@ -3878,16 +3878,16 @@ button[disabled], html input[disabled] {
 
 .ticker-sub--title {
     color: #32cd32;
-    -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
-    -moz-animation: neon-green 1.5s ease-in-out infinite alternate;
-    animation: neon-green 1.5s ease-in-out infinite alternate;
+    /*-webkit-animation: neon-green 1.5s ease-in-out infinite alternate;*/
+    /*-moz-animation: neon-green 1.5s ease-in-out infinite alternate;*/
+    /*animation: neon-green 1.5s ease-in-out infinite alternate;*/
 }
 
 .ticker-sub--content {
     color: #75aaff;
-    -webkit-animation: neon-blue 1.5s ease-in-out infinite alternate;
-    -moz-animation: neon-blue 1.5s ease-in-out infinite alternate;
-    animation: neon-blue 1.5s ease-in-out infinite alternate;
+    /*-webkit-animation: neon-blue 1.5s ease-in-out infinite alternate;*/
+    /*-moz-animation: neon-blue 1.5s ease-in-out infinite alternate;*/
+    /*animation: neon-blue 1.5s ease-in-out infinite alternate;*/
 }
 
 /*#div_king_of_known {*/
