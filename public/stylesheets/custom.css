@@ -4111,6 +4111,7 @@ button[disabled], html input[disabled] {
 }
 
 .disclaimer-text {
-    font-size: 16px;
+    font-size: 17px;
+    color: #dbd67f;
 }
 /*The chosen one page end*/
