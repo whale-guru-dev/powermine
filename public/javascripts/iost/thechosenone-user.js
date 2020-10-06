@@ -179,7 +179,8 @@ function getSittingKing () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                $("#sitting_king").html(xhttp.responseText);
+                var kingText = JSON.parse(xhttp.responseText).king?JSON.parse(xhttp.responseText).king:xhttp.responseText;
+                $("#sitting_king").html(kingText);
             }
         };
         xhttp.open("GET", "/thechosenone/sitting_king", true);
@@ -341,11 +342,11 @@ $(document).on("click", "#dethroneKingBtn", function () {
         }).on('success', function (result) {
             console.log('======>buy success', result);
             $(".page-loader").hide();
-            $("#statusBuyMsg").html('<div class="alert alert-success">Successfully dethroned. Please check your wallet</div>');
+            $("#statusBuyMsg").html('<div class="alert alert-success">Successfully dethroned the king</div>');
         }).on('failed', function (result) {
             console.log('======>failed', result);
             $(".page-loader").hide();
-            $("#statusBuyMsg").html('<div class="alert alert-warning">' + result.message + '</div>');
+            $("#statusBuyMsg").html('<div class="alert alert-warning">Failed To Dethrone the King</div>');
         });
 
     }).catch(error => {
