@@ -4113,8 +4113,13 @@ button[disabled], html input[disabled] {
     max-height: 30px;
 }
 
-.disclaimer-text {
-    font-size: 23px;
+.disclaimer-text--top {
+    font-size: 25px;
+    color: #dbd67f;
+}
+
+.disclaimer-text--bottom {
+    font-size: 25px;
     color: #dbd67f;
 }
 
