@@ -20,10 +20,10 @@ function getTotalStakedPmine() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('pmine_staked_contract').innerText = `${parseFloat(xhttp.responseText).toFixed(4)} PMINE`;
+                document.getElementById('pmine_staked_contract').innerText = `${parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(4)} PMINE`;
             }
         };
-        xhttp.open("GET", "/iost/totalStaked", true);
+        xhttp.open("GET", "http://api.iost.io/getTokenBalance/ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca/pmine/1", true);
         xhttp.send();
     }
 
