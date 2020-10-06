@@ -37,10 +37,12 @@ function getBurntTokens() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('pmine_burnt_total').innerText = `${parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0)} PMINE`;
+                const info = JSON.parse(xhttp.responseText);
+                const burnt = info.total_supply_float - info.current_supply_float;
+                document.getElementById('pmine_burnt_total').innerText = `${burnt.toFixed(4)} PMINE`;
             }
         };
-        xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
+        xhttp.open("GET", "https://api.iost.io/getTokenInfo/pmine/true", true);
         xhttp.send();
     };
 
