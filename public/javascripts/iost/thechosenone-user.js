@@ -344,7 +344,7 @@ $(document).on("click", "#dethroneKingBtn", function () {
         }).on('success', function (result) {
             console.log('======>buy success', result);
             $(".page-loader").hide();
-            $("#statusBuyMsg").html('<div class="alert alert-success">Successfully dethroned the king</div>');
+            $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed</div>');
         }).on('failed', function (result) {
             console.log('======>failed', result);
             $(".page-loader").hide();
