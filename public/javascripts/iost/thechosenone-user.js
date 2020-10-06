@@ -80,14 +80,14 @@ function getUserBalance(account){
             document.getElementById("accountIostBalance").innerHTML = `${((0).toFixed(4))} iost`;
         })
 
-        fetch('https://api.iost.io/getTokenBalance/' + account + '/pmine/true').then(res => res.json()).then(json => {
-            document.getElementById("accountPmineBalance").innerHTML = `${(parseFloat(json.balance).toFixed(4))} pmine`;
-        }).catch(err => {
-            document.getElementById("accountPmineBalance").innerHTML = `${((0).toFixed(4))} pmine`;
-        })
+        // fetch('https://api.iost.io/getTokenBalance/' + account + '/pmine/true').then(res => res.json()).then(json => {
+        //     document.getElementById("accountPmineBalance").innerHTML = `${(parseFloat(json.balance).toFixed(4))} pmine`;
+        // }).catch(err => {
+        //     document.getElementById("accountPmineBalance").innerHTML = `${((0).toFixed(4))} pmine`;
+        // })
     } catch (e) {
         document.getElementById("accountIostBalance").innerHTML = `${(parseFloat(json.balance).toFixed(4))} iost`;
-        document.getElementById("accountPmineBalance").innerHTML = `${((0).toFixed(4))} pmine`;
+        // document.getElementById("accountPmineBalance").innerHTML = `${((0).toFixed(4))} pmine`;
     }
 
 }
@@ -154,7 +154,7 @@ function getSittingKing () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                $("#sitting_king").html(JSON.parse(xhttp.responseText).king);
+                $("#sitting_king").html(xhttp.responseText);
             }
         };
         xhttp.open("GET", "/thechosenone/sitting_king", true);
@@ -260,6 +260,14 @@ $(document).on("click", "#joinRoundBtn", function () {
             console.log('======>buy success', result);
             $(".page-loader").hide();
             $("#statusBuyMsg").html('<div class="alert alert-success">Successfully Joined. Please check your wallet</div>');
+
+            getAccountDetail();
+            getPreviousKingKinghtsList();
+            getKingOfRenown();
+            getKingOfWeek();
+            getSittingKing();
+            getUserStats();
+            getRoundNumber();
         }).on('failed', function (result) {
             console.log('======>failed', result);
             $(".page-loader").hide();
