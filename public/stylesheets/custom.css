@@ -2672,7 +2672,7 @@ button[disabled], html input[disabled] {
 }
 
 .ticker__item span {
-    padding-right: 50px;
+    padding-right: 0px;
 }
 
 /*header navbar*/

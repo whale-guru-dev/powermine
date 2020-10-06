@@ -3,7 +3,8 @@ window.onload = () => {
     getTotalStakedPmine();
     getBurntTokens();
     getAccountDetail();
-    getPreviousKingKinghtsList();
+    getPreviousPlayersList();
+    getPreviousRoundList();
     getKingOfRenown();
     getKingOfWeek();
     getSittingKing();
@@ -93,8 +94,8 @@ function getUserBalance(account){
 }
 
 
-function getPreviousKingKinghtsList () {
-    const fetchPreviousKingKinghtsList = () => {
+function getPreviousPlayersList () {
+    const fetchPreviousPlayersList = () => {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -109,12 +110,36 @@ function getPreviousKingKinghtsList () {
                 }
             }
         };
-        xhttp.open("GET", "/thechosenone/previous_king_knights_list", true);
+        xhttp.open("GET", "/thechosenone/previous_players_list", true);
         xhttp.send();
     }
 
-    fetchPreviousKingKinghtsList()
-    setInterval(fetchPreviousKingKinghtsList, 10 * 60 * 1000)
+    fetchPreviousPlayersList()
+    setInterval(fetchPreviousPlayersList, 10 * 60 * 1000)
+}
+
+function getPreviousRoundList () {
+    const fetchPreviousRoundList = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(xhttp.responseText);
+                var list = JSON.parse(xhttp.responseText);
+                if(list.length > 0) {
+                    $("#kingVal1").html(list[0]);
+                    $("#knightVal11").html(list[1]);
+                    $("#knightVal21").html(list[2]);
+                    $("#knightVal31").html(list[3]);
+                    $("#knightVal41").html(list[4]);
+                }
+            }
+        };
+        xhttp.open("GET", "/thechosenone/previous_round_list", true);
+        xhttp.send();
+    }
+
+    fetchPreviousRoundList()
+    setInterval(fetchPreviousRoundList, 10 * 60 * 1000)
 }
 
 function getKingOfRenown () {
@@ -262,7 +287,8 @@ $(document).on("click", "#joinRoundBtn", function () {
             $("#statusBuyMsg").html('<div class="alert alert-success">Successfully Joined. Please check your wallet</div>');
 
             getAccountDetail();
-            getPreviousKingKinghtsList();
+            getPreviousPlayersList();
+            getPreviousRoundList();
             getKingOfRenown();
             getKingOfWeek();
             getSittingKing();
