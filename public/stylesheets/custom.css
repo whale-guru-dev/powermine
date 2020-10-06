@@ -4109,4 +4109,8 @@ button[disabled], html input[disabled] {
 .king-knights-info-section {
     max-height: 30px;
 }
+
+.disclaimer-text {
+    font-size: 16px;
+}
 /*The chosen one page end*/
