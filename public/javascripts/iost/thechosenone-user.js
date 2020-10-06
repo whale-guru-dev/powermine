@@ -154,7 +154,7 @@ function getSittingKing () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                $("#sitting_king").html(xhttp.responseText);
+                $("#sitting_king").html(JSON.parse(xhttp.responseText).king);
             }
         };
         xhttp.open("GET", "/thechosenone/sitting_king", true);
