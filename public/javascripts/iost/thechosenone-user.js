@@ -1,6 +1,6 @@
 window.onload = () => {
     showDisclaimerModal();
-    // getTotalStakedPmine();
+    getTotalStakedPmine();
     getBurntTokens();
     getAccountDetail();
     getPreviousKingKinghtsList();
@@ -15,21 +15,21 @@ function showDisclaimerModal() {
     $('#disclaimerModal').modal({show: true});
 }
 
-// function getTotalStakedPmine() {
-//     const fetchToken = () => {
-//         var xhttp = new XMLHttpRequest();
-//         xhttp.onreadystatechange = function () {
-//             if (this.readyState == 4 && this.status == 200) {
-//                 document.getElementById('total_pmine').innerText = `${parseFloat(xhttp.responseText).toFixed(4)} PMINE`;
-//             }
-//         };
-//         xhttp.open("GET", "/iost/totalStaked", true);
-//         xhttp.send();
-//     }
-//
-//     fetchToken()
-//     setInterval(fetchToken, 10 * 60 * 1000)
-// }
+function getTotalStakedPmine() {
+    const fetchToken = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('pmine_staked_contract').innerText = `${parseFloat(xhttp.responseText).toFixed(4)} PMINE`;
+            }
+        };
+        xhttp.open("GET", "/iost/totalStaked", true);
+        xhttp.send();
+    }
+
+    fetchToken()
+    setInterval(fetchToken, 10 * 60 * 1000)
+}
 
 function getBurntTokens() {
     const fetchBurntToken = () => {

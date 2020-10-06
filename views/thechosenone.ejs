@@ -156,33 +156,109 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="left-info-box animated-box">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="left-info-box animated-box">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
 
-                        <h3 class="text-white left-info-box-title left-info-box-title--stat left-info-box-title--stat_effect">Stat</h3>
+                                <h3 class="text-white left-info-box-title left-info-box-title--stat left-info-box-title--stat_effect">Stat</h3>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="table-responsive table-height-limit">
-                                    <table class="table table-dark stat-table">
-                                        <thead>
-                                        <tr>
-                                            <th>Account name</th>
-                                            <th>Wins</th>
-                                            <th>Losses</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="userStatsTable">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive table-height-limit">
+                                            <table class="table table-dark stat-table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Account name</th>
+                                                    <th>Wins</th>
+                                                    <th>Losses</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="userStatsTable">
 
-                                        </tbody>
-                                    </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="left-info-box animated-box">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h3 class="text-white left-info-box-title left-info-box-title--king left-info-box-title--king_effect">King History</h3>
+
+                                <div role="tabpanel">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active">
+                                            <a href="#countKing" aria-controls="countKing" role="tab" data-toggle="tab"
+                                               id="countKing-tab" class="text-center">
+                                                <img src="/images/crown.png" alt="King" class="tab-header-img"/></a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#countWin" aria-controls="countWin" role="tab" data-toggle="tab"
+                                               id="countWin-tab" class="text-center">
+                                                <img src="/images/rank.png" alt="Rank" class="tab-header-img"/>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="countKing">
+                                            <div class="row">
+                                                <div class="col-md-12 table-height-limit">
+                                                    <table class="table table-dark stat-table">
+                                                        <caption class="text-white">How many times a user has been a king
+                                                        </caption>
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Account name</th>
+                                                            <th>Count</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="countKingTable">
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="countWin">
+                                            <div class="row">
+                                                <div class="col-md-12 table-height-limit">
+                                                    <table class="table table-dark stat-table">
+                                                        <caption class="text-white">How many times have players won the round
+                                                        </caption>
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Round Number</th>
+                                                            <th>Account Name</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="countWinTable">
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -195,12 +271,16 @@
                     </div>
                     <div class="row display-flex">
                         <div class="col-md-4 col-md-offset-2 bg-golden account-detail-section">
-                            <p class="space-between-text text-white margin-bottom-zero">iost account: <span
-                                        id="accountName"></span></p>
-                            <p class="space-between-text text-white margin-bottom-zero">iost balance: <span
-                                        id="accountIostBalance">0 iost</span></p>
-<!--                            <p class="space-between-text text-white margin-bottom-zero">pmine balance: <span-->
-<!--                                        id="accountPmineBalance">0 pmine</span></p>-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="space-between-text text-white margin-bottom-zero">iost account: <span
+                                                id="accountName"></span></p>
+                                    <p class="space-between-text text-white margin-bottom-zero">iost balance: <span
+                                                id="accountIostBalance">0 iost</span></p>
+                                    <!--                            <p class="space-between-text text-white margin-bottom-zero">pmine balance: <span-->
+                                    <!--                                        id="accountPmineBalance">0 pmine</span></p>-->
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-md-4 bg-golden">
@@ -267,138 +347,74 @@
                 </div>
 
                 <div class="col-lg-2 col-lg-offset-1">
-                    <div class="left-info-box animated-box padding-bottom-zero text-center">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="left-info-box animated-box padding-bottom-zero text-center">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
 
-                        <h5 class="text-white left-info-box-title left-info-box-title--king">Players of Current Round</h5>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-<!--                            <img src="/images/crown.png" width="30" height="24"/> -->
-                            <b class="king-text" id="kingVal">none</b>
-                        </p>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-<!--                            <img src="/images/knight.png" width="30" height="30"/> -->
-                            <b class="king-text" id="knightVal1">none</b>
-                        </p>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-<!--                            <img src="/images/knight.png" width="30" height="30"/> -->
-                            <b class="king-text" id="knightVal2">none</b>
-                        </p>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-<!--                            <img src="/images/knight.png" width="30" height="30"/> -->
-                            <b class="king-text" id="knightVal3">none</b>
-                        </p>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-<!--                            <img src="/images/knight.png" width="30" height="30"/> -->
-                            <b class="king-text" id="knightVal4">none</b>
-                        </p>
+                                <h5 class="text-white left-info-box-title left-info-box-title--king">Players of Current Round</h5>
+                                <p class="king-knights-info-section text-center margin-bottom-zero">
+                                    <!--                            <img src="/images/crown.png" width="30" height="24"/> -->
+                                    <b class="king-text" id="kingVal">none</b>
+                                </p>
+                                <p class="king-knights-info-section text-center margin-bottom-zero">
+                                    <!--                            <img src="/images/knight.png" width="30" height="30"/> -->
+                                    <b class="king-text" id="knightVal1">none</b>
+                                </p>
+                                <p class="king-knights-info-section text-center margin-bottom-zero">
+                                    <!--                            <img src="/images/knight.png" width="30" height="30"/> -->
+                                    <b class="king-text" id="knightVal2">none</b>
+                                </p>
+                                <p class="king-knights-info-section text-center margin-bottom-zero">
+                                    <!--                            <img src="/images/knight.png" width="30" height="30"/> -->
+                                    <b class="king-text" id="knightVal3">none</b>
+                                </p>
+                                <p class="king-knights-info-section text-center margin-bottom-zero">
+                                    <!--                            <img src="/images/knight.png" width="30" height="30"/> -->
+                                    <b class="king-text" id="knightVal4">none</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="left-info-box animated-box padding-bottom-zero text-center">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                                <h5 class="text-white left-info-box-title left-info-box-title--king">King/Knights of Previous Round</h5>
+                                <p class="space-between-text king-knights-info-section text-center margin-bottom-zero">
+                                    <img src="/images/crown.png" width="30" height="24"/>
+                                    <b class="king-text" id="kingVal">none</b>
+                                </p>
+                                <p class="space-between-text king-knights-info-section text-center margin-bottom-zero">
+                                    <img src="/images/knight.png" width="30" height="30"/>
+                                    <b class="knight-text" id="knightVal1">none</b>
+                                </p>
+                                <p class="space-between-text king-knights-info-section text-center margin-bottom-zero">
+                                    <img src="/images/knight.png" width="30" height="30"/>
+                                    <b class="knight-text" id="knightVal2">none</b>
+                                </p>
+                                <p class="space-between-text king-knights-info-section text-center margin-bottom-zero">
+                                    <img src="/images/knight.png" width="30" height="30"/>
+                                    <b class="knight-text" id="knightVal3">none</b>
+                                </p>
+                                <p class="space-between-text king-knights-info-section text-center margin-bottom-zero">
+                                    <img src="/images/knight.png" width="30" height="30"/>
+                                    <b class="knight-text" id="knightVal4">none</b>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <br/>
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="left-info-box animated-box">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <h3 class="text-white left-info-box-title left-info-box-title--king left-info-box-title--king_effect">King History</h3>
-
-                        <div role="tabpanel">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#countKing" aria-controls="countKing" role="tab" data-toggle="tab"
-                                       id="countKing-tab" class="text-center">
-                                        <img src="/images/crown.png" alt="King" class="tab-header-img"/></a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#countWin" aria-controls="countWin" role="tab" data-toggle="tab"
-                                       id="countWin-tab" class="text-center">
-                                        <img src="/images/rank.png" alt="Rank" class="tab-header-img"/>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="countKing">
-                                    <div class="row">
-                                        <div class="col-md-12 table-height-limit">
-                                            <table class="table table-dark stat-table">
-                                                <caption class="text-white">How many times a user has been a king
-                                                </caption>
-                                                <thead>
-                                                <tr>
-                                                    <th>Account name</th>
-                                                    <th>Count</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="countKingTable">
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="countWin">
-                                    <div class="row">
-                                        <div class="col-md-12 table-height-limit">
-                                            <table class="table table-dark stat-table">
-                                                <caption class="text-white">How many times have players won the round
-                                                </caption>
-                                                <thead>
-                                                <tr>
-                                                    <th>Round Number</th>
-                                                    <th>Account Name</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="countWinTable">
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-lg-offset-7">
-                    <div class="left-info-box animated-box padding-bottom-zero text-center">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-                            <img src="/images/crown.png" width="30" height="24"/>
-                            <b class="king-text" id="kingVal">none</b>
-                        </p>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-                            <img src="/images/knight.png" width="30" height="30"/>
-                            <b class="knight-text" id="knightVal1">none</b>
-                        </p>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-                            <img src="/images/knight.png" width="30" height="30"/>
-                            <b class="knight-text" id="knightVal2">none</b>
-                        </p>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-                            <img src="/images/knight.png" width="30" height="30"/>
-                            <b class="knight-text" id="knightVal3">none</b>
-                        </p>
-                        <p class="king-knights-info-section text-center margin-bottom-zero">
-                            <img src="/images/knight.png" width="30" height="30"/>
-                            <b class="knight-text" id="knightVal4">none</b>
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
 
@@ -419,6 +435,10 @@
             <div class="ticker__item" id="div_pmine_burnt_total">
                 <span class="ticker-sub--title">Total Pmine Burnt Across the Network: </span>
                 <span class="ticker-sub--content" id="pmine_burnt_total"></span>
+            </div>
+            <div class="ticker__item" id="div_pmine_staked_contract">
+                <span class="ticker-sub--title">Pmine Staked in the Contract: </span>
+                <span class="ticker-sub--content" id="pmine_staked_contract"></span>
             </div>
         </div>
     </div>

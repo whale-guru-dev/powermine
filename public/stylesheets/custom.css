@@ -3872,8 +3872,10 @@ button[disabled], html input[disabled] {
     padding-bottom: 10px;
 }
 
-.account-detail-section {
-    padding-top: 13px;
+@media (min-width: 768px) {
+    .account-detail-section {
+        padding-top: 25px;
+    }
 }
 
 .ticker-sub--title {
