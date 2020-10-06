@@ -23,7 +23,7 @@ function getTotalStakedPmine() {
                 document.getElementById('pmine_staked_contract').innerText = `${parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(4)} PMINE`;
             }
         };
-        xhttp.open("GET", "http://api.iost.io/getTokenBalance/ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca/pmine/true", true);
+        xhttp.open("GET", "https://api.iost.io/getTokenBalance/ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca/pmine/true", true);
         xhttp.send();
     }
 
