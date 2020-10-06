@@ -2672,7 +2672,7 @@ button[disabled], html input[disabled] {
 }
 
 .ticker__item span {
-    padding-right: 100px;
+    padding-right: 50px;
 }
 
 /*header navbar*/
@@ -4102,7 +4102,8 @@ button[disabled], html input[disabled] {
     url('../fonts/Prince_Valiant/Prince_Valiant.ttf') format('truetype');
 }
 
-.round-text {
+
+.font-prince_valiant {
     font-family: 'Prince_Valiant';
 }
 
@@ -4113,5 +4114,10 @@ button[disabled], html input[disabled] {
 .disclaimer-text {
     font-size: 20px;
     color: #dbd67f;
+}
+
+.table-height-limit {
+    max-height: 185px;
+    overflow-y: scroll;
 }
 /*The chosen one page end*/

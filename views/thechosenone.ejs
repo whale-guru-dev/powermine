@@ -164,27 +164,32 @@
 
                         <h3 class="text-white left-info-box-title left-info-box-title--stat left-info-box-title--stat_effect">Stat</h3>
 
-                        <div class="table-responsive">
-                            <table class="table table-dark stat-table">
-                                <thead>
-                                <tr>
-                                    <th>Account name</th>
-                                    <th>Wins</th>
-                                    <th>Losses</th>
-                                </tr>
-                                </thead>
-                                <tbody id="userStatsTable">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive table-height-limit">
+                                    <table class="table table-dark stat-table">
+                                        <thead>
+                                        <tr>
+                                            <th>Account name</th>
+                                            <th>Wins</th>
+                                            <th>Losses</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="userStatsTable">
 
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <div class="row text-center">
                         <div class="col-md-4 col-md-offset-4">
-                            <h2 class="space-between-text text-white round-text">Round: <span
+                            <h2 class="text-white round-text font-prince_valiant">Round: <span
                                         id="roundNumber">004</span></h2>
                         </div>
                     </div>
@@ -194,8 +199,8 @@
                                         id="accountName"></span></p>
                             <p class="space-between-text text-white margin-bottom-zero">iost balance: <span
                                         id="accountIostBalance">0 iost</span></p>
-                            <p class="space-between-text text-white margin-bottom-zero">pmine balance: <span
-                                        id="accountPmineBalance">0 pmine</span></p>
+<!--                            <p class="space-between-text text-white margin-bottom-zero">pmine balance: <span-->
+<!--                                        id="accountPmineBalance">0 pmine</span></p>-->
                         </div>
 
                         <div class="col-md-4 bg-golden">
@@ -322,7 +327,7 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="countKing">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 table-height-limit">
                                             <table class="table table-dark stat-table">
                                                 <caption class="text-white">How many times a user has been a king
                                                 </caption>
@@ -341,7 +346,7 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="countWin">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 table-height-limit">
                                             <table class="table table-dark stat-table">
                                                 <caption class="text-white">How many times have players won the round
                                                 </caption>
@@ -361,6 +366,36 @@
                             </div>
 
                         </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-lg-offset-7">
+                    <div class="left-info-box animated-box padding-bottom-zero text-center">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <p class="king-knights-info-section text-center margin-bottom-zero">
+                            <img src="/images/crown.png" width="30" height="24"/>
+                            <b class="king-text" id="kingVal">none</b>
+                        </p>
+                        <p class="king-knights-info-section text-center margin-bottom-zero">
+                            <img src="/images/knight.png" width="30" height="30"/>
+                            <b class="knight-text" id="knightVal1">none</b>
+                        </p>
+                        <p class="king-knights-info-section text-center margin-bottom-zero">
+                            <img src="/images/knight.png" width="30" height="30"/>
+                            <b class="knight-text" id="knightVal2">none</b>
+                        </p>
+                        <p class="king-knights-info-section text-center margin-bottom-zero">
+                            <img src="/images/knight.png" width="30" height="30"/>
+                            <b class="knight-text" id="knightVal3">none</b>
+                        </p>
+                        <p class="king-knights-info-section text-center margin-bottom-zero">
+                            <img src="/images/knight.png" width="30" height="30"/>
+                            <b class="knight-text" id="knightVal4">none</b>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -397,14 +432,14 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12 disclaimer-text">
-                            You are now entering hallowed ground where the titans
+                            <p class="font-prince_valiant">You are now entering hallowed ground where the titans
                             of Powermine do battle... Fierce competition awaits any
                             souls who are brave enough to enter the gauntlet...
                             Have your sword and shield ready, as the king is a tough
                             warrior who doesn't go down without a fight... Enter
                             now and be tested, find out if you have what it takes to
-                            survive and gain treasure befitting the chosen one...
-                            <br/><br/>
+                                survive and gain treasure befitting the chosen one...</p>
+
                             THIS DECENTRALIZED APPLICATION HAS BEEN MADE
                             FOR ENTERTAINMENT PURPOSES AND IS A GAME, NOT
                             AN INVESTMENT PLATFORM. NO GUARANTEES OR
