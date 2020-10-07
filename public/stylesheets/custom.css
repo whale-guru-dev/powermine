@@ -3515,14 +3515,14 @@ button[disabled], html input[disabled] {
     color: black;
 }
 
-#dethroneFailModal .modal-content {
+#dethroneFailModal .modal-content, #dethroneSuccessModal .modal-content{
     background: #030303b5;
     color: white;
     text-align: center;
 }
 
 @media screen and (min-width: 768px) {
-    #dethroneFailModal:before {
+    #dethroneFailModal:before, #dethroneSuccessModal:before {
         display: inline-block;
         vertical-align: middle;
         content: " ";
@@ -3530,11 +3530,21 @@ button[disabled], html input[disabled] {
     }
 }
 
-#dethroneFailModal .modal-dialog {
+#dethroneFailModal .modal-dialog, #dethroneSuccessModal .modal-dialog{
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.dethrone-king-success--text {
+    font-size: 25px;
+    color: #dbd67f;
+}
+
+.dethrone-king-fail--text {
+    font-size: 25px;
+    color: red;
 }
 
 .left-info-box {

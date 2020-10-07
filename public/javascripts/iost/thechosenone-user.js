@@ -359,14 +359,22 @@ $(document).on("click", "#dethroneKingBtn", function () {
             $(".page-loader").show();
             $(".loader-inner").show();
         }).on('success', function (result) {
-            console.log('======>buy success', result);
             $(".page-loader").hide();
-            $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed. ' + JSON.parse(result.returns[0])[0] +  '</div>');
+            // $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed. ' + JSON.parse(result.returns[0])[0] +  '</div>');
+            $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed.</div>');
+            $('#dethroneSuccessModal').modal({show: true});
+
+            setTimeout(function() {
+                $('#dethroneSuccessModal').modal({show: false});
+            }, 3000);
         }).on('failed', function (result) {
-            console.log('======>failed', result);
             $(".page-loader").hide();
             // $("#statusBuyMsg").html('<div class="alert alert-warning">Failed To Dethrone the King</div>');
             $('#dethroneFailModal').modal({show: true});
+
+            setTimeout(function() {
+                $('#dethroneFailModal').modal({show: false});
+            }, 3000);
         });
 
     }).catch(error => {
