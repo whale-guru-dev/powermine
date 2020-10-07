@@ -348,7 +348,8 @@ $(document).on("click", "#dethroneKingBtn", function () {
         }).on('failed', function (result) {
             console.log('======>failed', result);
             $(".page-loader").hide();
-            $("#statusBuyMsg").html('<div class="alert alert-warning">Failed To Dethrone the King</div>');
+            // $("#statusBuyMsg").html('<div class="alert alert-warning">Failed To Dethrone the King</div>');
+            $('#dethroneFailModal').modal({show: true});
         });
 
     }).catch(error => {
