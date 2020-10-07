@@ -363,8 +363,8 @@ $(document).on("click", "#dethroneKingBtn", function () {
             $(".page-loader").hide();
             // $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed. ' + JSON.parse(result.returns[0])[0] +  '</div>');
             $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed.</div>');
-
-            if(JSON.parse(result.returns[0])[0] === true) {
+            console.log(JSON.parse(result.returns[0])[0]);
+            if(JSON.parse(result.returns[0])[0] == true || JSON.parse(result.returns[0])[0] == "true") {
                 $('#dethroneSuccessModal').modal({show: true});
             } else {
                 $('#dethroneFailModal').modal({show: true});
