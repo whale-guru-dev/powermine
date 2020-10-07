@@ -54,7 +54,7 @@ app.use('/users', usersRouter);
 app.use('/iost', iostRouter);
 app.use('/admin', adminRouter);
 app.use('/imatch', imatchRouter);
-app.use('/igoose', igooseRouter);
+// app.use('/igoose', igooseRouter);
 app.use('/richList', richListRouter);
 app.use('/iChip', iChipRouter);
 app.use('/epic', epicRouter);
