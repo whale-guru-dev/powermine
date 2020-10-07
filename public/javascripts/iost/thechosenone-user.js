@@ -362,10 +362,16 @@ $(document).on("click", "#dethroneKingBtn", function () {
             $(".page-loader").hide();
             // $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed. ' + JSON.parse(result.returns[0])[0] +  '</div>');
             $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed.</div>');
-            $('#dethroneSuccessModal').modal({show: true});
+
+            if(JSON.parse(result.returns[0])[0] === true) {
+                $('#dethroneSuccessModal').modal({show: true});
+            } else {
+                $('#dethroneFailModal').modal({show: true});
+            }
 
             setTimeout(function() {
                 $('#dethroneSuccessModal').modal({show: false});
+                $('#dethroneFailModal').modal({show: false});
             }, 3000);
         }).on('failed', function (result) {
             $(".page-loader").hide();
