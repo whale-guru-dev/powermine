@@ -359,6 +359,7 @@ $(document).on("click", "#dethroneKingBtn", function () {
             $(".page-loader").show();
             $(".loader-inner").show();
         }).on('success', function (result) {
+            console.log(result)
             $(".page-loader").hide();
             // $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed. ' + JSON.parse(result.returns[0])[0] +  '</div>');
             $("#statusBuyMsg").html('<div class="alert alert-success">Roll attempt completed.</div>');
