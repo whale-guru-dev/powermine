@@ -10,6 +10,7 @@ window.onload = () => {
     getSittingKing();
     getUserStats();
     getRoundNumber();
+    getPmineBurntElsewhere();
 }
 
 function showDisclaimerModal() {
@@ -30,6 +31,22 @@ function getTotalStakedPmine() {
 
     fetchToken()
     setInterval(fetchToken, 10 * 60 * 1000)
+}
+
+function getPmineBurntElsewhere() {
+    const fetchPmineBurntElsewhere = () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('pmine_burnt_elsewhere').innerText = `${parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(4)} PMINE`;
+            }
+        };
+        xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
+        xhttp.send();
+    }
+
+    fetchPmineBurntElsewhere()
+    setInterval(fetchPmineBurntElsewhere, 10 * 60 * 1000)
 }
 
 function getBurntTokens() {
