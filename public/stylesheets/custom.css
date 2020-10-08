@@ -3934,6 +3934,10 @@ button[disabled], html input[disabled] {
     /*animation: neon-blue 1.5s ease-in-out infinite alternate;*/
 }
 
+.ticker-sub--content_record {
+    color: pink;
+}
+
 /*#div_king_of_known {*/
 /*    color: #32cd32;*/
 /*    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;*/

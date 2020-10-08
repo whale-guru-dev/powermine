@@ -166,7 +166,10 @@ function getKingOfRenown () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                var nsSeconds = JSON.parse(xhttp.responseText).record;
+
                 $("#king_known").html(JSON.parse(xhttp.responseText).king);
+                $("#king_known_record").html(nsToTime(nsSeconds))
             }
         };
         xhttp.open("GET", "/thechosenone/king_of_renown", true);
@@ -182,7 +185,10 @@ function getKingOfWeek () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                var nsSeconds = JSON.parse(xhttp.responseText).record;
+
                 $("#king_week").html(JSON.parse(xhttp.responseText).king);
+                $("#king_week_record").html(nsToTime(nsSeconds))
             }
         };
         xhttp.open("GET", "/thechosenone/king_of_week", true);
@@ -198,6 +204,8 @@ function getSittingKing () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+
+
                 var kingText = JSON.parse(xhttp.responseText).king?JSON.parse(xhttp.responseText).king:xhttp.responseText;
                 $("#sitting_king").html(kingText);
             }
@@ -385,3 +393,23 @@ $(document).on("click", "#dethroneKingBtn", function () {
     });
 
 });
+
+
+function nsToTime(nano) {
+    var hour = Math.floor(nano / 3600000000000);
+    var temp = nano % 3600000000000;
+    var minute = Math.floor(temp / 60000000000);
+    var temp2 = temp % 60000000000;
+    var second = Math.floor(temp2 / 1000000000);
+    var mil = temp2 % 1000000000;
+    hour = hour.toString();
+    minute = minute.toString();
+    second = second.toString();
+    mil = mil.toString().slice(0, 3) //cuts off insignificant digits
+
+    hours = (hour < 10) ? "0" + hour : hour;
+    minutes = (minute < 10) ? "0" + minute : minute;
+    seconds = (second < 10) ? "0" + second : second;
+
+    return hours + " hours " + minutes + " minutes " + seconds + " seconds ";
+}
