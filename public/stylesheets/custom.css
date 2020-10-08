@@ -3478,6 +3478,16 @@ button[disabled], html input[disabled] {
     }
 }
 
+@media (min-width: 768px) {
+    .epic-logo {
+        margin-top: 20px !important;
+    }
+
+    .vdc-logo, .ichips-logo, .powerdefi-logo, .powerdefi-logo, .powermine-logo {
+        margin-top: 30px !important;
+    }
+}
+
 /*end header menu images size*/
 
 
@@ -4160,3 +4170,9 @@ button[disabled], html input[disabled] {
     overflow-y: scroll;
 }
 /*The chosen one page end*/
+
+/*header*/
+.margin-top-logo {
+    margin-top: 35px;
+}
+/*end header*/
