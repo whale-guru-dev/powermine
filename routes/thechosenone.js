@@ -62,4 +62,12 @@ router.get('/get_round_number', async function(req, res, next) {
     });
 });
 
+router.get('/get_round_results', async function(req, res, next) {
+    thechosenone.getRound_Results().then(result => {
+        Promise.all(result).then(roundResults => {
+            res.send(roundResults.filter(i => i !== null));
+        })
+    });
+});
+
 module.exports = router;

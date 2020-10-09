@@ -179,3 +179,49 @@ exports.getUserKeys = async () => {
 
     })
 }
+
+
+getRound_Internal = async () => {
+    let postData = {
+        id: "ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca",
+        key: "round",
+        by_longest_chain: true
+    }
+
+    return await axios.post("https://api.iost.io/getContractStorage", postData, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', }, credentials: 'omit' })
+        .then(res => {
+            //returns array of users on the contract.
+            return res.data.data;
+        })
+        .catch(error => {
+            //returns empty array.
+            return "0"
+        })
+}
+
+exports.getRound_Results = async () => {
+    let round = await getRound_Internal();
+    let roundResults = Array.from({length: round * 1}, (x, i) => i);
+    roundResults = roundResults.slice(roundResults.length - 10, roundResults.length);
+    roundResults = roundResults.sort((a, b) => b - a);
+    
+    return roundResults.map(r => {
+        let postData = {
+            id: "ContractABxHhYQnWrjJjiRVH5gqwtsKuveGqQTAwp88DWd4hfca",
+            key: "roundResult",
+            field: r.toString(),
+            by_longest_chain: true
+        }
+
+        return axios.post("https://api.iost.io/getContractStorage", postData, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', }, credentials: 'omit' })
+            .then(res => {
+                //returns an object of the user ie {user: "pmine_admin", king: 2, wins: 2, loss: 0}
+                return JSON.parse(res.data.data);
+            })
+            .catch(error => {
+                //returns empty array.
+                return null
+            })
+
+    });
+}
