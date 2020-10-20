@@ -74,7 +74,7 @@ function getBurntTokens() {
                 const info = JSON.parse(xhttp.responseText);
                 const burnt = info.total_supply_float - info.current_supply_float;
                 document.getElementById('token-burnt-value').innerText = `${parseFloat(burnt.toFixed(4)).toFixed(0)}`;
-                document.getElementById('token-value').innerText = parseFloat(info.total_supply_float).toFixed(0);
+                document.getElementById('token-value').innerText = parseFloat(info.current_supply_float).toFixed(0);
             }
         };
         xhttp.open("GET", "https://api.iost.io/getTokenInfo/pmine/true", true);
