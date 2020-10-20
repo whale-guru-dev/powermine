@@ -48,17 +48,36 @@ function hideAdminHeader() {
 //     fetchToken();
 //     setInterval(fetchToken, 10 * 60 * 1000)
 // }
+//
+// function getBurntTokens () {
+//     const fetchBurntToken = () => {
+//         var xhttp = new XMLHttpRequest();
+//         xhttp.onreadystatechange = function () {
+//             if (this.readyState == 4 && this.status == 200) {
+//                 document.getElementById('token-burnt-value').innerText = parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0);
+//                 document.getElementById('token-value').innerText = parseFloat(20000 - JSON.parse(xhttp.responseText).balance).toFixed(0);
+//             }
+//         };
+//         xhttp.open("GET", "https://api.iost.io/getTokenInfo/pmine/true", true);
+//         xhttp.send();
+//     };
+//
+//     fetchBurntToken();
+//     setInterval(fetchBurntToken, 10 * 60 * 1000)
+// }
 
-function getBurntTokens () {
+function getBurntTokens() {
     const fetchBurntToken = () => {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('token-burnt-value').innerText = parseFloat(JSON.parse(xhttp.responseText).balance).toFixed(0);
-                document.getElementById('token-value').innerText = parseFloat(20000 - JSON.parse(xhttp.responseText).balance).toFixed(0);
+                const info = JSON.parse(xhttp.responseText);
+                const burnt = info.total_supply_float - info.current_supply_float;
+                document.getElementById('token-burnt-value').innerText = `${parseFloat(burnt.toFixed(4)).toFixed(0)}`;
+                document.getElementById('token-value').innerText = parseFloat(info.total_supply_float).toFixed(0);
             }
         };
-        xhttp.open("GET", "https://api.iost.io/getTokenBalance/pmine_admin/pmine/true", true);
+        xhttp.open("GET", "https://api.iost.io/getTokenInfo/pmine/true", true);
         xhttp.send();
     };
 
