@@ -218,7 +218,7 @@ function getRichList () {
                         tablebody2 += `
                         <tr>
                             <td data-label="RANK">${i * 1 +1}.</td>
-                            <td data-label="ADDRESS"><b>${richlist[i].account}***</b></td>
+                            <td data-label="ADDRESS"><b class="truncated">${richlist[i].account}***</b></td>
                             <td data-label="AMOUNT">${(richlist[i].balance*1).toFixed(4)}</td>
                             <td data-label="HOLDING">${(richlist[i].percent * 100).toFixed(2)} %</td>
                         </tr>
