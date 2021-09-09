@@ -33,7 +33,7 @@ router.get('/richlist', function (req, res, next) {
     iChip.grab_iChip_accounts()
         .then(result => {
             let list = JSON.parse(result).data;
-
+            console.log(list)
 
             return res.send(list);
         })
