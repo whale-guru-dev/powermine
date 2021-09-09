@@ -1769,13 +1769,13 @@ table > thead > tr > th, .table > thead > tr > th {
 
 @media (min-width: 992px) {
     .header {
-        padding: 40px 0 40px 0;
+        padding: 30px 0 40px 0;
     }
 }
 
 @media (min-width: 992px) {
     .page-section {
-        padding: 50px 0 100px 0;
+        padding: 50px 0px 0;
     }
 
     .pmine-page-section {
@@ -1802,7 +1802,7 @@ table > thead > tr > th, .table > thead > tr > th {
 
 .imatch-page-section {
     padding-top: 0px;
-    padding-bottom: 100px;
+    padding-bottom: 0px;
 }
 
 
@@ -3480,11 +3480,11 @@ button[disabled], html input[disabled] {
 
 @media (min-width: 768px) {
     .epic-logo {
-        margin-top: 20px !important;
+        margin-top: -10px !important;
     }
 
     .vdc-logo, .ichips-logo, .powerdefi-logo, .powerdefi-logo, .powermine-logo {
-        margin-top: 30px !important;
+        margin-top: -10px !important;
     }
 }
 

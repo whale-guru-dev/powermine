@@ -40,7 +40,7 @@ router.get('/richlist', function (req, res, next) {
         .catch(e => res.send(e))
 });
 
-router.get('/getiChipPrice', function(req,res,next) {
+router.get('/gethodlPrice', function(req,res,next) {
     iChip.getiChipPrice()
         .then(result => res.send(result))
         .catch(e => res.send(e))

@@ -98,7 +98,7 @@ function getTokens () {
                 document.getElementById('token-value').innerText = parseFloat(1000 - xhttp.responseText).toFixed(0);
             }
         };
-        xhttp.open("GET", "/iChip/circulation", true);
+        xhttp.open("GET", "/hodl/circulation", true);
         xhttp.send();
     }
 
@@ -134,10 +134,10 @@ function getTotalStaked() {
                 }
 
                 document.getElementById("staked-msg").innerHTML = `
-                <b><span style="font-size: 14px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} Ichips`
+                <b><span style="font-size: 14px">Total Staked: </span></b> ${parseFloat(xhttp.responseText).toFixed(4)} HODL`
             }
         };
-        xhttp.open("GET", "/iChip/totalStaked", true);
+        xhttp.open("GET", "/hodl/totalStaked", true);
         xhttp.send();
     }
 
@@ -148,13 +148,13 @@ function getTotalStaked() {
 function getUserBalance(account){
 
     try {
-        fetch('https://api.iost.io/getTokenBalance/' + account  + '/ichips/true').then(res => res.json()).then(json => {
+        fetch('https://api.iost.io/getTokenBalance/' + account  + '/hodl/true').then(res => res.json()).then(json => {
             document.getElementById("user-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${(parseFloat(json.balance).toFixed(4))} </span>Ichips`
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${(parseFloat(json.balance).toFixed(4))} </span>HODL`
 
         }).catch(err => {
             document.getElementById("user-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))} </span>Ichips`
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))} </span>HODL`
         })
         fetch('https://api.iost.io/getTokenBalance/' + account + '/iost/true').then(res => res.json()).then(json => {
             document.getElementById("exchange-logged-in").innerHTML = `
@@ -165,7 +165,7 @@ function getUserBalance(account){
         })
     } catch (e) {
         document.getElementById("user-iChip-balance").innerHTML = `
-                                <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))} </span>Ichips`
+                                <b><span style="font-size: 14px">Your Wallet: </span></b> <span class="timer-default number-empathy">${((0).toFixed(4))} </span>HODL`
         document.getElementById("exchange-logged-in").innerHTML = `
                 <b><span style="font-size: 14px">Logged In: </span></b> ${'n/a'}`
     }
@@ -188,18 +188,18 @@ function getRichList () {
                             var user = richlist.find(e => e.account === account);
 
                             document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> <span class="timer-default number-empathy">${parseFloat(user.balance).toFixed(4)} </span>Ichips`
+                                <b><span style="font-size: 14px">You Staked: </span></b> <span class="timer-default number-empathy">${parseFloat(user.balance).toFixed(4)} </span>HODL`
 
 
                         })
                         .catch(err => {
                             document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> <span class="timer-default number-empathy">${(0).toFixed(4)} </span>Ichips`
+                                <b><span style="font-size: 14px">You Staked: </span></b> <span class="timer-default number-empathy">${(0).toFixed(4)} </span>HODL`
                             return;
                         });
                 } catch (error) {
                     document.getElementById("user-staked-balance").innerHTML = `
-                                <b><span style="font-size: 14px">You Staked: </span></b> <span class="timer-default number-empathy">${(0).toFixed(4)} </span>Ichips`
+                                <b><span style="font-size: 14px">You Staked: </span></b> <span class="timer-default number-empathy">${(0).toFixed(4)} </span>HODL`
                     return;
                 }
 
@@ -236,7 +236,7 @@ function getRichList () {
                 document.getElementById('iChip-table2-body').innerHTML = tablebody2
             }
         };
-        xhttp.open("GET", "/iChip/richlist", true);
+        xhttp.open("GET", "/hodl/richlist", true);
         xhttp.send();
     }
 
@@ -268,7 +268,7 @@ $("#pmineAmtBuy").bind("paste keyup", function (event) {
         var pmineAmount = $("#pmineAmtBuy").val();
 
         $.ajax({
-            url: '/iChip/getiChipPrice',
+            url: '/hodl/gethodlPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -288,7 +288,7 @@ $("#iostAmtBuy").bind("paste keyup", function (event) {
         var iostAmount = $("#iostAmtBuy").val();
 
         $.ajax({
-            url: '/iChip/getiChipPrice',
+            url: '/hodl/gethodlPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -308,7 +308,7 @@ $("#pmineAmtSell").bind("paste keyup", function (event) {
         var pmineAmount = $("#pmineAmtSell").val();
 
         $.ajax({
-            url: '/iChip/getiChipPrice',
+            url: '/hodl/gethodlPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -328,7 +328,7 @@ $("#iostAmtSell").bind("paste keyup", function (event) {
         var iostAmount = $("#iostAmtSell").val();
 
         $.ajax({
-            url: '/iChip/getiChipPrice',
+            url: '/hodl/gethodlPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -345,7 +345,7 @@ $("#iostAmtSell").bind("paste keyup", function (event) {
 function updateiChipPrice () {
     const getTokenPrice = () => {
         $.ajax({
-            url: '/iChip/getiChipPrice',
+            url: '/hodl/gethodlPrice',
             type: 'GET',
             data: {},
             dataType: 'json',
@@ -441,7 +441,7 @@ $(document).on("click", "#stakeBtn", function () {
 
             if (tokenAmount) {
                 const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "stake", [tokenAmount.toString()]);
-                tx.addApprove("ichips", tokenAmount.toString());
+                tx.addApprove("hodl", tokenAmount.toString());
 
                 iost.signAndSend(tx).on('pending', function (txid) {
                     console.log("======>pending", txid);
@@ -497,7 +497,7 @@ $(document).on("click", "#unstakeBtn", function () {
 
             if (tokenAmount) {
                 const tx = iost.callABI("ContractDYPoVRRYvRBbJGoBGfSY1TBmkT7AwDFAUWTbi3sFAa3E", "unstake", [tokenAmount.toString()]);
-                tx.addApprove("ichips", tokenAmount.toString());
+                tx.addApprove("hodl", tokenAmount.toString());
 
                 iost.signAndSend(tx).on('pending', function (txid) {
                     console.log("======>pending", txid);

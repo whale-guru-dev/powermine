@@ -9,17 +9,17 @@ const rateLimit = require("express-rate-limit");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var iostRouter = require('./routes/iost');
-var imatchRouter = require('./routes/imatch');
-var igooseRouter = require('./routes/igoose');
+//var imatchRouter = require('./routes/imatch');
+//var igooseRouter = require('./routes/igoose');
 var adminRouter = require('./routes/admin');
-var richListRouter = require('./routes/richList');
+//var richListRouter = require('./routes/richList');
 var iChipRouter = require('./routes/ichips');
-var epicRouter = require('./routes/epic');
-var vdcRouter = require('./routes/vdc');
-var thechosenoneRouter = require('./routes/thechosenone');
+//var epicRouter = require('./routes/epic');
+//var vdcRouter = require('./routes/vdc');
+//var thechosenoneRouter = require('./routes/thechosenone');
 
-var vdcRichlist = require('./vdc/api');
-var richList = require('./richlist/richlist');
+//var vdcRichlist = require('./vdc/api');
+//var richList = require('./richlist/richlist');
 
 var app = express();
 
@@ -53,13 +53,13 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/iost', iostRouter);
 app.use('/admin', adminRouter);
-app.use('/imatch', imatchRouter);
+//app.use('/imatch', imatchRouter);
 // app.use('/igoose', igooseRouter);
-app.use('/richList', richListRouter);
-app.use('/iChip', iChipRouter);
-app.use('/epic', epicRouter);
-app.use('/vdc', vdcRouter);
-app.use('/thechosenone', thechosenoneRouter);
+//app.use('/richList', richListRouter);
+app.use('/hodl', iChipRouter);
+//app.use('/epic', epicRouter);
+//app.use('/vdc', vdcRouter);
+//app.use('/thechosenone', thechosenoneRouter);
 
 app.get('*', function (req, res) {
     res.render('404');

@@ -9649,7 +9649,7 @@ ul.products li.product:before {
 
 .navbar-nav > li {
     list-style: none;
-    margin: 0;
+    margin: 0px 10px;
     padding: 0;
 }
 
@@ -9665,7 +9665,7 @@ ul.products li.product:before {
     color: #fff !important;
     font-size: 12px;
     font-weight: 700;
-    line-height: 25px;
+    line-height: 63px;
     text-transform: uppercase;
     padding: 12px 0;
 }
